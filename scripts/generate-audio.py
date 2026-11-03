@@ -23,10 +23,12 @@ from pypinyin.contrib.tone_convert import to_tone3
 parser = argparse.ArgumentParser()
 parser.add_argument('--model-dir', type=Path, required=True)
 parser.add_argument('--characters-json', type=Path, required=True)
+parser.add_argument('--output-dir', type=Path, required=True, help='Experimental output directory; never overwrite production audio')
 parser.add_argument('--reuse-existing', action='store_true', help='Keep clips whose reading, settings, and checksum still match')
 args = parser.parse_args()
 rows = json.loads(args.characters_json.read_text())
-destination = Path('web/public/audio')
+destination = args.output_dir
+assert Path('web/public/audio').resolve() not in [destination.resolve(), *destination.resolve().parents], 'Experimental generation must not overwrite production audio'
 destination.mkdir(parents=True, exist_ok=True)
 options = rt.SessionOptions()
 options.intra_op_num_threads = 2

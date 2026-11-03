@@ -1,0 +1,974 @@
+{
+  "四季": {
+    "pinyin": "sì jì",
+    "file": "words/56db-5b63.mp3"
+  },
+  "日子": {
+    "pinyin": "rì zi",
+    "file": "words/65e5-5b50.mp3"
+  },
+  "月亮": {
+    "pinyin": "yuè liang",
+    "file": "words/6708-4eae.mp3"
+  },
+  "火车": {
+    "pinyin": "huǒ chē",
+    "file": "words/706b-8f66.mp3"
+  },
+  "木头": {
+    "pinyin": "mù tou",
+    "file": "words/6728-5934.mp3"
+  },
+  "土地": {
+    "pinyin": "tǔ dì",
+    "file": "words/571f-5730.mp3"
+  },
+  "今天": {
+    "pinyin": "jīn tiān",
+    "file": "words/4eca-5929.mp3"
+  },
+  "田地": {
+    "pinyin": "tián dì",
+    "file": "words/7530-5730.mp3"
+  },
+  "人口": {
+    "pinyin": "rén kǒu",
+    "file": "words/4eba-53e3.mp3"
+  },
+  "目标": {
+    "pinyin": "mù biāo",
+    "file": "words/76ee-6807.mp3"
+  },
+  "小心": {
+    "pinyin": "xiǎo xīn",
+    "file": "words/5c0f-5fc3.mp3"
+  },
+  "孩子": {
+    "pinyin": "hái zi",
+    "file": "words/5b69-5b50.mp3"
+  },
+  "大学": {
+    "pinyin": "dà xué",
+    "file": "words/5927-5b66.mp3"
+  },
+  "你好": {
+    "pinyin": "nǐ hǎo",
+    "file": "words/4f60-597d.mp3"
+  },
+  "上课": {
+    "pinyin": "shàng kè",
+    "file": "words/4e0a-8bfe.mp3"
+  },
+  "下课": {
+    "pinyin": "xià kè",
+    "file": "words/4e0b-8bfe.mp3"
+  },
+  "我们": {
+    "pinyin": "wǒ men",
+    "file": "words/6211-4eec.mp3"
+  },
+  "你们": {
+    "pinyin": "nǐ men",
+    "file": "words/4f60-4eec.mp3"
+  },
+  "不是": {
+    "pinyin": "bú shì",
+    "file": "words/4e0d-662f.mp3"
+  },
+  "是的": {
+    "pinyin": "shì de",
+    "file": "words/662f-7684.mp3"
+  },
+  "学生": {
+    "pinyin": "xué sheng",
+    "file": "words/5b66-751f.mp3"
+  },
+  "生活": {
+    "pinyin": "shēng huó",
+    "file": "words/751f-6d3b.mp3"
+  },
+  "国家": {
+    "pinyin": "guó jiā",
+    "file": "words/56fd-5bb6.mp3"
+  },
+  "爸爸": {
+    "pinyin": "bà ba",
+    "file": "words/7238-7238.mp3"
+  },
+  "妈妈": {
+    "pinyin": "mā ma",
+    "file": "words/5988-5988.mp3"
+  },
+  "哥哥": {
+    "pinyin": "gē ge",
+    "file": "words/54e5-54e5.mp3"
+  },
+  "姐姐": {
+    "pinyin": "jiě jie",
+    "file": "words/59d0-59d0.mp3"
+  },
+  "弟弟": {
+    "pinyin": "dì di",
+    "file": "words/5f1f-5f1f.mp3"
+  },
+  "妹妹": {
+    "pinyin": "mèi mei",
+    "file": "words/59b9-59b9.mp3"
+  },
+  "家庭": {
+    "pinyin": "jiā tíng",
+    "file": "words/5bb6-5ead.mp3"
+  },
+  "朋友": {
+    "pinyin": "péng you",
+    "file": "words/670b-53cb.mp3"
+  },
+  "男人": {
+    "pinyin": "nán rén",
+    "file": "words/7537-4eba.mp3"
+  },
+  "名字": {
+    "pinyin": "míng zi",
+    "file": "words/540d-5b57.mp3"
+  },
+  "他们": {
+    "pinyin": "tā men",
+    "file": "words/4ed6-4eec.mp3"
+  },
+  "她们": {
+    "pinyin": "tā men",
+    "file": "words/5979-4eec.mp3"
+  },
+  "回来": {
+    "pinyin": "huí lái",
+    "file": "words/56de-6765.mp3"
+  },
+  "出去": {
+    "pinyin": "chū qù",
+    "file": "words/51fa-53bb.mp3"
+  },
+  "听说": {
+    "pinyin": "tīng shuō",
+    "file": "words/542c-8bf4.mp3"
+  },
+  "读书": {
+    "pinyin": "dú shū",
+    "file": "words/8bfb-4e66.mp3"
+  },
+  "明天": {
+    "pinyin": "míng tiān",
+    "file": "words/660e-5929.mp3"
+  },
+  "昨天": {
+    "pinyin": "zuó tiān",
+    "file": "words/6628-5929.mp3"
+  },
+  "今年": {
+    "pinyin": "jīn nián",
+    "file": "words/4eca-5e74.mp3"
+  },
+  "时间": {
+    "pinyin": "shí jiān",
+    "file": "words/65f6-95f4.mp3"
+  },
+  "分钟": {
+    "pinyin": "fēn zhōng",
+    "file": "words/5206-949f.mp3"
+  },
+  "早上": {
+    "pinyin": "zǎo shang",
+    "file": "words/65e9-4e0a.mp3"
+  },
+  "晚上": {
+    "pinyin": "wǎn shang",
+    "file": "words/665a-4e0a.mp3"
+  },
+  "中午": {
+    "pinyin": "zhōng wǔ",
+    "file": "words/4e2d-5348.mp3"
+  },
+  "一半": {
+    "pinyin": "yí bàn",
+    "file": "words/4e00-534a.mp3"
+  },
+  "米饭": {
+    "pinyin": "mǐ fàn",
+    "file": "words/7c73-996d.mp3"
+  },
+  "蔬菜": {
+    "pinyin": "shū cài",
+    "file": "words/852c-83dc.mp3"
+  },
+  "水果": {
+    "pinyin": "shuǐ guǒ",
+    "file": "words/6c34-679c.mp3"
+  },
+  "牛肉": {
+    "pinyin": "niú ròu",
+    "file": "words/725b-8089.mp3"
+  },
+  "鸡蛋": {
+    "pinyin": "jī dàn",
+    "file": "words/9e21-86cb.mp3"
+  },
+  "糖果": {
+    "pinyin": "táng guǒ",
+    "file": "words/7cd6-679c.mp3"
+  },
+  "窗户": {
+    "pinyin": "chuāng hu",
+    "file": "words/7a97-6237.mp3"
+  },
+  "房间": {
+    "pinyin": "fáng jiān",
+    "file": "words/623f-95f4.mp3"
+  },
+  "起床": {
+    "pinyin": "qǐ chuáng",
+    "file": "words/8d77-5e8a.mp3"
+  },
+  "桌子": {
+    "pinyin": "zhuō zi",
+    "file": "words/684c-5b50.mp3"
+  },
+  "椅子": {
+    "pinyin": "yǐ zi",
+    "file": "words/6905-5b50.mp3"
+  },
+  "书本": {
+    "pinyin": "shū běn",
+    "file": "words/4e66-672c.mp3"
+  },
+  "铅笔": {
+    "pinyin": "qiān bǐ",
+    "file": "words/94c5-7b14.mp3"
+  },
+  "电灯": {
+    "pinyin": "diàn dēng",
+    "file": "words/7535-706f.mp3"
+  },
+  "学校": {
+    "pinyin": "xué xiào",
+    "file": "words/5b66-6821.mp3"
+  },
+  "商店": {
+    "pinyin": "shāng diàn",
+    "file": "words/5546-5e97.mp3"
+  },
+  "汽车": {
+    "pinyin": "qì chē",
+    "file": "words/6c7d-8f66.mp3"
+  },
+  "车站": {
+    "pinyin": "chē zhàn",
+    "file": "words/8f66-7ad9.mp3"
+  },
+  "城市": {
+    "pinyin": "chéng shì",
+    "file": "words/57ce-5e02.mp3"
+  },
+  "村子": {
+    "pinyin": "cūn zi",
+    "file": "words/6751-5b50.mp3"
+  },
+  "公园": {
+    "pinyin": "gōng yuán",
+    "file": "words/516c-56ed.mp3"
+  },
+  "医院": {
+    "pinyin": "yī yuàn",
+    "file": "words/533b-9662.mp3"
+  },
+  "教室": {
+    "pinyin": "jiào shì",
+    "file": "words/6559-5ba4.mp3"
+  },
+  "多少": {
+    "pinyin": "duō shao",
+    "file": "words/591a-5c11.mp3"
+  },
+  "少数": {
+    "pinyin": "shǎo shù",
+    "file": "words/5c11-6570.mp3"
+  },
+  "高兴": {
+    "pinyin": "gāo xìng",
+    "file": "words/9ad8-5174.mp3"
+  },
+  "长短": {
+    "pinyin": "cháng duǎn",
+    "file": "words/957f-77ed.mp3"
+  },
+  "新年": {
+    "pinyin": "xīn nián",
+    "file": "words/65b0-5e74.mp3"
+  },
+  "花园": {
+    "pinyin": "huā yuán",
+    "file": "words/82b1-56ed.mp3"
+  },
+  "马车": {
+    "pinyin": "mǎ chē",
+    "file": "words/9a6c-8f66.mp3"
+  },
+  "东方": {
+    "pinyin": "dōng fāng",
+    "file": "words/4e1c-65b9.mp3"
+  },
+  "西方": {
+    "pinyin": "xī fāng",
+    "file": "words/897f-65b9.mp3"
+  },
+  "南方": {
+    "pinyin": "nán fāng",
+    "file": "words/5357-65b9.mp3"
+  },
+  "北方": {
+    "pinyin": "běi fāng",
+    "file": "words/5317-65b9.mp3"
+  },
+  "左边": {
+    "pinyin": "zuǒ bian",
+    "file": "words/5de6-8fb9.mp3"
+  },
+  "右边": {
+    "pinyin": "yòu bian",
+    "file": "words/53f3-8fb9.mp3"
+  },
+  "前面": {
+    "pinyin": "qián miàn",
+    "file": "words/524d-9762.mp3"
+  },
+  "后面": {
+    "pinyin": "hòu miàn",
+    "file": "words/540e-9762.mp3"
+  },
+  "远方": {
+    "pinyin": "yuǎn fāng",
+    "file": "words/8fdc-65b9.mp3"
+  },
+  "附近": {
+    "pinyin": "fù jìn",
+    "file": "words/9644-8fd1.mp3"
+  },
+  "中文": {
+    "pinyin": "zhōng wén",
+    "file": "words/4e2d-6587.mp3"
+  },
+  "汉字": {
+    "pinyin": "hàn zì",
+    "file": "words/6c49-5b57.mp3"
+  },
+  "语言": {
+    "pinyin": "yǔ yán",
+    "file": "words/8bed-8a00.mp3"
+  },
+  "汉语": {
+    "pinyin": "hàn yǔ",
+    "file": "words/6c49-8bed.mp3"
+  },
+  "英语": {
+    "pinyin": "yīng yǔ",
+    "file": "words/82f1-8bed.mp3"
+  },
+  "老师": {
+    "pinyin": "lǎo shī",
+    "file": "words/8001-5e08.mp3"
+  },
+  "学习": {
+    "pinyin": "xué xí",
+    "file": "words/5b66-4e60.mp3"
+  },
+  "问题": {
+    "pinyin": "wèn tí",
+    "file": "words/95ee-9898.mp3"
+  },
+  "回答": {
+    "pinyin": "huí dá",
+    "file": "words/56de-7b54.mp3"
+  },
+  "工作": {
+    "pinyin": "gōng zuò",
+    "file": "words/5de5-4f5c.mp3"
+  },
+  "作业": {
+    "pinyin": "zuò yè",
+    "file": "words/4f5c-4e1a.mp3"
+  },
+  "跑步": {
+    "pinyin": "pǎo bù",
+    "file": "words/8dd1-6b65.mp3"
+  },
+  "请问": {
+    "pinyin": "qǐng wèn",
+    "file": "words/8bf7-95ee.mp3"
+  },
+  "谢谢": {
+    "pinyin": "xiè xie",
+    "file": "words/8c22-8c22.mp3"
+  },
+  "告诉": {
+    "pinyin": "gào su",
+    "file": "words/544a-8bc9.mp3"
+  },
+  "认识": {
+    "pinyin": "rèn shi",
+    "file": "words/8ba4-8bc6.mp3"
+  },
+  "识别": {
+    "pinyin": "shí bié",
+    "file": "words/8bc6-522b.mp3"
+  },
+  "信息": {
+    "pinyin": "xìn xī",
+    "file": "words/4fe1-606f.mp3"
+  },
+  "医生": {
+    "pinyin": "yī shēng",
+    "file": "words/533b-751f.mp3"
+  },
+  "生病": {
+    "pinyin": "shēng bìng",
+    "file": "words/751f-75c5.mp3"
+  },
+  "电话": {
+    "pinyin": "diàn huà",
+    "file": "words/7535-8bdd.mp3"
+  },
+  "飞机": {
+    "pinyin": "fēi jī",
+    "file": "words/98de-673a.mp3"
+  },
+  "开会": {
+    "pinyin": "kāi huì",
+    "file": "words/5f00-4f1a.mp3"
+  },
+  "社会": {
+    "pinyin": "shè huì",
+    "file": "words/793e-4f1a.mp3"
+  },
+  "人民": {
+    "pinyin": "rén mín",
+    "file": "words/4eba-6c11.mp3"
+  },
+  "世界": {
+    "pinyin": "shì jiè",
+    "file": "words/4e16-754c.mp3"
+  },
+  "想法": {
+    "pinyin": "xiǎng fǎ",
+    "file": "words/60f3-6cd5.mp3"
+  },
+  "思考": {
+    "pinyin": "sī kǎo",
+    "file": "words/601d-8003.mp3"
+  },
+  "道路": {
+    "pinyin": "dào lù",
+    "file": "words/9053-8def.mp3"
+  },
+  "意思": {
+    "pinyin": "yì si",
+    "file": "words/610f-601d.mp3"
+  },
+  "意义": {
+    "pinyin": "yì yì",
+    "file": "words/610f-4e49.mp3"
+  },
+  "理由": {
+    "pinyin": "lǐ yóu",
+    "file": "words/7406-7531.mp3"
+  },
+  "真的": {
+    "pinyin": "zhēn de",
+    "file": "words/771f-7684.mp3"
+  },
+  "心情": {
+    "pinyin": "xīn qíng",
+    "file": "words/5fc3-60c5.mp3"
+  },
+  "爱好": {
+    "pinyin": "ài hào",
+    "file": "words/7231-597d.mp3"
+  },
+  "能够": {
+    "pinyin": "néng gòu",
+    "file": "words/80fd-591f.mp3"
+  },
+  "需要": {
+    "pinyin": "xū yào",
+    "file": "words/9700-8981.mp3"
+  },
+  "使用": {
+    "pinyin": "shǐ yòng",
+    "file": "words/4f7f-7528.mp3"
+  },
+  "等待": {
+    "pinyin": "děng dài",
+    "file": "words/7b49-5f85.mp3"
+  },
+  "带来": {
+    "pinyin": "dài lái",
+    "file": "words/5e26-6765.mp3"
+  },
+  "进去": {
+    "pinyin": "jìn qù",
+    "file": "words/8fdb-53bb.mp3"
+  },
+  "出来": {
+    "pinyin": "chū lái",
+    "file": "words/51fa-6765.mp3"
+  },
+  "头发": {
+    "pinyin": "tóu fa",
+    "file": "words/5934-53d1.mp3"
+  },
+  "眼睛": {
+    "pinyin": "yǎn jing",
+    "file": "words/773c-775b.mp3"
+  },
+  "耳朵": {
+    "pinyin": "ěr duo",
+    "file": "words/8033-6735.mp3"
+  },
+  "鼻子": {
+    "pinyin": "bí zi",
+    "file": "words/9f3b-5b50.mp3"
+  },
+  "牙齿": {
+    "pinyin": "yá chǐ",
+    "file": "words/7259-9f7f.mp3"
+  },
+  "舌头": {
+    "pinyin": "shé tou",
+    "file": "words/820c-5934.mp3"
+  },
+  "足球": {
+    "pinyin": "zú qiú",
+    "file": "words/8db3-7403.mp3"
+  },
+  "衣服": {
+    "pinyin": "yī fu",
+    "file": "words/8863-670d.mp3"
+  },
+  "服装": {
+    "pinyin": "fú zhuāng",
+    "file": "words/670d-88c5.mp3"
+  },
+  "帽子": {
+    "pinyin": "mào zi",
+    "file": "words/5e3d-5b50.mp3"
+  },
+  "鞋子": {
+    "pinyin": "xié zi",
+    "file": "words/978b-5b50.mp3"
+  },
+  "袜子": {
+    "pinyin": "wà zi",
+    "file": "words/889c-5b50.mp3"
+  },
+  "裤子": {
+    "pinyin": "kù zi",
+    "file": "words/88e4-5b50.mp3"
+  },
+  "裙子": {
+    "pinyin": "qún zi",
+    "file": "words/88d9-5b50.mp3"
+  },
+  "衬衫": {
+    "pinyin": "chèn shān",
+    "file": "words/886c-886b.mp3"
+  },
+  "黄色": {
+    "pinyin": "huáng sè",
+    "file": "words/9ec4-8272.mp3"
+  },
+  "颜色": {
+    "pinyin": "yán sè",
+    "file": "words/989c-8272.mp3"
+  },
+  "牛奶": {
+    "pinyin": "niú nǎi",
+    "file": "words/725b-5976.mp3"
+  },
+  "鸭子": {
+    "pinyin": "yā zi",
+    "file": "words/9e2d-5b50.mp3"
+  },
+  "兔子": {
+    "pinyin": "tù zi",
+    "file": "words/5154-5b50.mp3"
+  },
+  "昆虫": {
+    "pinyin": "kūn chóng",
+    "file": "words/6606-866b.mp3"
+  },
+  "地铁": {
+    "pinyin": "dì tiě",
+    "file": "words/5730-94c1.mp3"
+  },
+  "旅行": {
+    "pinyin": "lǚ xíng",
+    "file": "words/65c5-884c.mp3"
+  },
+  "旅游": {
+    "pinyin": "lǚ yóu",
+    "file": "words/65c5-6e38.mp3"
+  },
+  "宿舍": {
+    "pinyin": "sù shè",
+    "file": "words/5bbf-820d.mp3"
+  },
+  "饭馆": {
+    "pinyin": "fàn guǎn",
+    "file": "words/996d-9986.mp3"
+  },
+  "价格": {
+    "pinyin": "jià gé",
+    "file": "words/4ef7-683c.mp3"
+  },
+  "辣椒": {
+    "pinyin": "là jiāo",
+    "file": "words/8fa3-6912.mp3"
+  },
+  "街道": {
+    "pinyin": "jiē dào",
+    "file": "words/8857-9053.mp3"
+  },
+  "楼房": {
+    "pinyin": "lóu fáng",
+    "file": "words/697c-623f.mp3"
+  },
+  "乡村": {
+    "pinyin": "xiāng cūn",
+    "file": "words/4e61-6751.mp3"
+  },
+  "广场": {
+    "pinyin": "guǎng chǎng",
+    "file": "words/5e7f-573a.mp3"
+  },
+  "港口": {
+    "pinyin": "gǎng kǒu",
+    "file": "words/6e2f-53e3.mp3"
+  },
+  "睡觉": {
+    "pinyin": "shuì jiào",
+    "file": "words/7761-89c9.mp3"
+  },
+  "玩具": {
+    "pinyin": "wán jù",
+    "file": "words/73a9-5177.mp3"
+  },
+  "微笑": {
+    "pinyin": "wēi xiào",
+    "file": "words/5fae-7b11.mp3"
+  },
+  "跳舞": {
+    "pinyin": "tiào wǔ",
+    "file": "words/8df3-821e.mp3"
+  },
+  "舞蹈": {
+    "pinyin": "wǔ dǎo",
+    "file": "words/821e-8e48.mp3"
+  },
+  "比赛": {
+    "pinyin": "bǐ sài",
+    "file": "words/6bd4-8d5b.mp3"
+  },
+  "运动": {
+    "pinyin": "yùn dòng",
+    "file": "words/8fd0-52a8.mp3"
+  },
+  "练习": {
+    "pinyin": "liàn xí",
+    "file": "words/7ec3-4e60.mp3"
+  },
+  "动物": {
+    "pinyin": "dòng wù",
+    "file": "words/52a8-7269.mp3"
+  },
+  "快乐": {
+    "pinyin": "kuài lè",
+    "file": "words/5feb-4e50.mp3"
+  },
+  "困难": {
+    "pinyin": "kùn nan",
+    "file": "words/56f0-96be.mp3"
+  },
+  "容易": {
+    "pinyin": "róng yì",
+    "file": "words/5bb9-6613.mp3"
+  },
+  "干净": {
+    "pinyin": "gān jìng",
+    "file": "words/5e72-51c0.mp3"
+  },
+  "年轻": {
+    "pinyin": "nián qīng",
+    "file": "words/5e74-8f7b.mp3"
+  },
+  "重要": {
+    "pinyin": "zhòng yào",
+    "file": "words/91cd-8981.mp3"
+  },
+  "喜欢": {
+    "pinyin": "xǐ huan",
+    "file": "words/559c-6b22.mp3"
+  },
+  "愤怒": {
+    "pinyin": "fèn nù",
+    "file": "words/6124-6012.mp3"
+  },
+  "害怕": {
+    "pinyin": "hài pà",
+    "file": "words/5bb3-6015.mp3"
+  },
+  "着急": {
+    "pinyin": "zháo jí",
+    "file": "words/7740-6025.mp3"
+  },
+  "安全": {
+    "pinyin": "ān quán",
+    "file": "words/5b89-5168.mp3"
+  },
+  "安静": {
+    "pinyin": "ān jìng",
+    "file": "words/5b89-9759.mp3"
+  },
+  "美丽": {
+    "pinyin": "měi lì",
+    "file": "words/7f8e-4e3d.mp3"
+  },
+  "春天": {
+    "pinyin": "chūn tiān",
+    "file": "words/6625-5929.mp3"
+  },
+  "夏天": {
+    "pinyin": "xià tiān",
+    "file": "words/590f-5929.mp3"
+  },
+  "秋天": {
+    "pinyin": "qiū tiān",
+    "file": "words/79cb-5929.mp3"
+  },
+  "冬天": {
+    "pinyin": "dōng tiān",
+    "file": "words/51ac-5929.mp3"
+  },
+  "季节": {
+    "pinyin": "jì jié",
+    "file": "words/5b63-8282.mp3"
+  },
+  "周末": {
+    "pinyin": "zhōu mò",
+    "file": "words/5468-672b.mp3"
+  },
+  "星期": {
+    "pinyin": "xīng qī",
+    "file": "words/661f-671f.mp3"
+  },
+  "日期": {
+    "pinyin": "rì qī",
+    "file": "words/65e5-671f.mp3"
+  },
+  "考试": {
+    "pinyin": "kǎo shì",
+    "file": "words/8003-8bd5.mp3"
+  },
+  "数学": {
+    "pinyin": "shù xué",
+    "file": "words/6570-5b66.mp3"
+  },
+  "计算": {
+    "pinyin": "jì suàn",
+    "file": "words/8ba1-7b97.mp3"
+  },
+  "上班": {
+    "pinyin": "shàng bān",
+    "file": "words/4e0a-73ed.mp3"
+  },
+  "句子": {
+    "pinyin": "jù zi",
+    "file": "words/53e5-5b50.mp3"
+  },
+  "职业": {
+    "pinyin": "zhí yè",
+    "file": "words/804c-4e1a.mp3"
+  },
+  "公司": {
+    "pinyin": "gōng sī",
+    "file": "words/516c-53f8.mp3"
+  },
+  "办公室": {
+    "pinyin": "bàn gōng shì",
+    "file": "words/529e-516c-5ba4.mp3"
+  },
+  "事情": {
+    "pinyin": "shì qing",
+    "file": "words/4e8b-60c5.mp3"
+  },
+  "服务": {
+    "pinyin": "fú wù",
+    "file": "words/670d-52a1.mp3"
+  },
+  "工厂": {
+    "pinyin": "gōng chǎng",
+    "file": "words/5de5-5382.mp3"
+  },
+  "产品": {
+    "pinyin": "chǎn pǐn",
+    "file": "words/4ea7-54c1.mp3"
+  },
+  "电脑": {
+    "pinyin": "diàn nǎo",
+    "file": "words/7535-8111.mp3"
+  },
+  "键盘": {
+    "pinyin": "jiàn pán",
+    "file": "words/952e-76d8.mp3"
+  },
+  "照片": {
+    "pinyin": "zhào piàn",
+    "file": "words/7167-7247.mp3"
+  },
+  "照相": {
+    "pinyin": "zhào xiàng",
+    "file": "words/7167-76f8.mp3"
+  },
+  "声音": {
+    "pinyin": "shēng yīn",
+    "file": "words/58f0-97f3.mp3"
+  },
+  "电视": {
+    "pinyin": "diàn shì",
+    "file": "words/7535-89c6.mp3"
+  },
+  "树林": {
+    "pinyin": "shù lín",
+    "file": "words/6811-6797.mp3"
+  },
+  "森林": {
+    "pinyin": "sēn lín",
+    "file": "words/68ee-6797.mp3"
+  },
+  "海洋": {
+    "pinyin": "hǎi yáng",
+    "file": "words/6d77-6d0b.mp3"
+  },
+  "石头": {
+    "pinyin": "shí tou",
+    "file": "words/77f3-5934.mp3"
+  },
+  "沙子": {
+    "pinyin": "shā zi",
+    "file": "words/6c99-5b50.mp3"
+  },
+  "阳光": {
+    "pinyin": "yáng guāng",
+    "file": "words/9633-5149.mp3"
+  },
+  "天气": {
+    "pinyin": "tiān qì",
+    "file": "words/5929-6c14.mp3"
+  },
+  "记得": {
+    "pinyin": "jì de",
+    "file": "words/8bb0-5f97.mp3"
+  },
+  "忘记": {
+    "pinyin": "wàng jì",
+    "file": "words/5fd8-8bb0.mp3"
+  },
+  "觉得": {
+    "pinyin": "jué de",
+    "file": "words/89c9-5f97.mp3"
+  },
+  "做梦": {
+    "pinyin": "zuò mèng",
+    "file": "words/505a-68a6.mp3"
+  },
+  "希望": {
+    "pinyin": "xī wàng",
+    "file": "words/5e0c-671b.mp3"
+  },
+  "愿意": {
+    "pinyin": "yuàn yì",
+    "file": "words/613f-610f.mp3"
+  },
+  "决定": {
+    "pinyin": "jué dìng",
+    "file": "words/51b3-5b9a.mp3"
+  },
+  "一定": {
+    "pinyin": "yí dìng",
+    "file": "words/4e00-5b9a.mp3"
+  },
+  "方法": {
+    "pinyin": "fāng fǎ",
+    "file": "words/65b9-6cd5.mp3"
+  },
+  "规则": {
+    "pinyin": "guī zé",
+    "file": "words/89c4-5219.mp3"
+  },
+  "原则": {
+    "pinyin": "yuán zé",
+    "file": "words/539f-5219.mp3"
+  },
+  "权利": {
+    "pinyin": "quán lì",
+    "file": "words/6743-5229.mp3"
+  },
+  "利益": {
+    "pinyin": "lì yì",
+    "file": "words/5229-76ca.mp3"
+  },
+  "自己": {
+    "pinyin": "zì jǐ",
+    "file": "words/81ea-5df1.mp3"
+  },
+  "自由": {
+    "pinyin": "zì yóu",
+    "file": "words/81ea-7531.mp3"
+  },
+  "和平": {
+    "pinyin": "hé píng",
+    "file": "words/548c-5e73.mp3"
+  },
+  "全部": {
+    "pinyin": "quán bù",
+    "file": "words/5168-90e8.mp3"
+  },
+  "总是": {
+    "pinyin": "zǒng shì",
+    "file": "words/603b-662f.mp3"
+  },
+  "因为": {
+    "pinyin": "yīn wèi",
+    "file": "words/56e0-4e3a.mp3"
+  },
+  "所以": {
+    "pinyin": "suǒ yǐ",
+    "file": "words/6240-4ee5.mp3"
+  },
+  "可以": {
+    "pinyin": "kě yǐ",
+    "file": "words/53ef-4ee5.mp3"
+  },
+  "但是": {
+    "pinyin": "dàn shì",
+    "file": "words/4f46-662f.mp3"
+  },
+  "再见": {
+    "pinyin": "zài jiàn",
+    "file": "words/518d-89c1.mp3"
+  },
+  "最好": {
+    "pinyin": "zuì hǎo",
+    "file": "words/6700-597d.mp3"
+  },
+  "比较": {
+    "pinyin": "bǐ jiào",
+    "file": "words/6bd4-8f83.mp3"
+  }
+}

@@ -191,7 +191,7 @@
   },
   "学": {
     "word": "学生",
-    "pinyin": "xué shēng",
+    "pinyin": "xué sheng",
     "meaning": "student",
     "image": "school"
   },
@@ -703,12 +703,12 @@
   },
   "左": {
     "word": "左边",
-    "pinyin": "zuǒ biān",
+    "pinyin": "zuǒ bian",
     "meaning": "left side"
   },
   "右": {
     "word": "右边",
-    "pinyin": "yòu biān",
+    "pinyin": "yòu bian",
     "meaning": "right side"
   },
   "前": {
@@ -1561,7 +1561,7 @@
   },
   "难": {
     "word": "困难",
-    "pinyin": "kùn nán",
+    "pinyin": "kùn nan",
     "meaning": "difficulty"
   },
   "易": {

@@ -343,7 +343,7 @@ test('meaning opens an illustrated example on a small phone, and recall counts i
   await page.getByTestId('translation').click()
   const dialog=page.getByRole('dialog',{name:'Word example'})
   await expect(dialog).toBeVisible()
-  await expect(dialog.getByText('xué shēng',{exact:true})).toBeVisible()
+  await expect(dialog.getByText('xué sheng',{exact:true})).toBeVisible()
   await expect(dialog.getByText('student',{exact:true})).toBeVisible()
   await expect.poll(()=>dialog.locator('img').evaluate((img:HTMLImageElement)=>img.complete && img.naturalWidth>0)).toBe(true)
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true)

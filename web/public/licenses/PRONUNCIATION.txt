@@ -1,0 +1,46 @@
+Mandarin pronunciation recordings
+
+Human recordings are selected from the Free Cultural Works Mandarin Audio Pack
+assembled by Trevor L. Davis, version 1.0.0 (2017-07-04):
+https://github.com/trevorld/mandarin_audio_utilities/blob/master/fc_README.rst
+https://www.dropbox.com/s/bh3ctzsgwbagbw0/fc_mandarin_audio_pack.zip?dl=1
+
+Shtooka Caen Tan — Base Audio Libre De Mots Chinois
+Copyright (c) 2009 Yue Tan
+Creative Commons Attribution-ShareAlike 3.0 United States
+https://creativecommons.org/licenses/by-sa/3.0/us/
+Original collection: http://download.shtooka.net/cmn-caen-tan_flac.tar
+Original license notice, archived:
+https://web.archive.org/web/20240301142447/https://packs.shtooka.net/cmn-caen-tan/readme.txt
+
+Shtooka Balm Congcong — Collection audio libre de mots mandarins
+Copyright (c) 2010 Association Shtooka; speaker Congcong
+Creative Commons Attribution 3.0 United States
+https://creativecommons.org/licenses/by/3.0/us/
+Original collection: http://download.shtooka.net/cmn-balm-congcong_flac.tar
+
+Shtooka Balm HSK1 — Base Audio Libre De Mots Chinois
+Copyright (c) 2006 Wei Gao and Nicolas Vion
+Creative Commons Attribution 2.0 France
+https://creativecommons.org/licenses/by/2.0/fr/
+Original collection: http://download.shtooka.net/chi-balm-hsk1_flac.tar
+
+Changes by Hanzi: selected character/word recordings by pinyin; reused isolated
+homophones where the complete syllable and tone match; converted original FLAC
+to 24 kHz mono 64 kbps MP3; normalized peak volume; added 60 ms leading and
+100 ms trailing padding. No speech was cut out of words, no syllables were
+stitched together, and no speed or pitch changes were applied. Recordings retain
+their respective licenses above, separately from this app's MIT code license.
+
+Per-file original archive entry, speaker, reading, license, SHA-256 checksums,
+and homophone substitutions: /audio/v2/manifest.json
+Import script and editable source: https://github.com/freeappstore-online/hanzi-practice
+
+The remaining ten syllables are original, unmodified recordings by Chen Wang,
+curated by Hugo Lopez / PLIDAM / INALCO in audio-cmn:
+https://github.com/hugolpz/audio-cmn/tree/f759a0f18f27690742957619e1248ed91e9b3f2c
+Source license: CC-by-sa (the source does not specify a version).
+https://github.com/hugolpz/audio-cmn/tree/f759a0f18f27690742957619e1248ed91e9b3f2c#license
+Files: ma1, mei4, zuo2, min2, er3, bi2, wa4, chong2, nao3, sen1, from 64k/syllabs.
+These files retain their source CC-by-sa terms and are not relicensed under MIT.
+No endorsement by the original speakers or projects is implied.

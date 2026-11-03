@@ -3,9 +3,10 @@ import { Modal } from '@freeappstore/sdk/ui'
 import type { Character } from './characters'
 import { toneFor } from './tones'
 import { EXAMPLES, SCENES } from './examples'
+import { audioPath, exampleAudioPath } from './audio'
 
 let activePlayer: HTMLAudioElement | null = null
-export const audioPath = (hanzi: string) => `/audio/${hanzi.codePointAt(0)!.toString(16)}.mp3`
+export { audioPath } from './audio'
 export function ToneMarker({pinyin}: {pinyin: string}) {
   const tone = toneFor(pinyin)
   return <span className="inline-flex shrink-0 align-middle text-4xl leading-none text-accent-deep">
@@ -24,10 +25,12 @@ const GUIDE = [
 export function CharacterDetails({character, active = true, concealCharacter = false, onExampleOpen}: {character: Character; active?: boolean; concealCharacter?: boolean; onExampleOpen?: () => void}) {
   const audio = useRef<HTMLAudioElement>(null)
   const [error, setError] = useState('')
-  const [playing, setPlaying] = useState(false)
+  const [playing, setPlaying] = useState<'character' | 'word' | null>(null)
+  const requestedSource = useRef<'character' | 'word'>('character')
   const [guideOpen, setGuideOpen] = useState(false)
   const [exampleOpen, setExampleOpen] = useState(false)
   const example = EXAMPLES[character.hanzi]
+  const wordAudio = exampleAudioPath(example)
   const request = useRef(0)
   const tone = toneFor(character.pinyin)
   useEffect(() => {
@@ -35,15 +38,26 @@ export function CharacterDetails({character, active = true, concealCharacter = f
     const player = audio.current
     player?.pause()
     if (player) player.currentTime = 0
-    setError(''); setPlaying(false); setGuideOpen(false); setExampleOpen(false)
+    setError(''); setPlaying(null); setGuideOpen(false); setExampleOpen(false)
     return () => { request.current++; player?.pause(); if (activePlayer === player) activePlayer = null }
   }, [character.hanzi, active])
-  async function play() {
+  function stop() {
+    request.current++
+    activePlayer?.pause()
+    audio.current?.pause()
+    setPlaying(null); setError('')
+    if (activePlayer === audio.current) activePlayer = null
+  }
+  async function play(source: 'character' | 'word' = 'character') {
     const player = audio.current
-    if (!player || !active) return
+    const path = source === 'word' ? wordAudio : audioPath(character.hanzi)
+    if (!player || !active || !path) return
     const token = ++request.current
     activePlayer?.pause(); activePlayer = player
-    player.pause(); player.currentTime = 0
+    player.pause()
+    requestedSource.current = source
+    if (player.getAttribute('src') !== path) player.src = path
+    player.currentTime = 0
     if (player.error) player.load()
     setError('')
     try { await player.play() }
@@ -54,21 +68,24 @@ export function CharacterDetails({character, active = true, concealCharacter = f
     }
   }
   return <div className="min-w-0">
-    <audio ref={audio} src={audioPath(character.hanzi)} preload="none" onPlaying={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={() => { setPlaying(false); if (activePlayer === audio.current) activePlayer = null }} />
+    <audio ref={audio} src={audioPath(character.hanzi)} preload="none" onPlaying={() => setPlaying(requestedSource.current)} onPause={() => setPlaying(null)} onEnded={() => { setPlaying(null); if (activePlayer === audio.current) activePlayer = null }} />
     <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-4xl leading-tight">
-      <button type="button" lang="zh-Hans" data-testid="reference-character" title="Play pronunciation" aria-label={`Pronounce ${concealCharacter ? 'character' : character.hanzi}`} onClick={() => void play()} className={`min-h-11 min-w-11 rounded-sm text-4xl leading-none hover:text-accent-deep ${playing ? 'bg-accent-soft text-accent-deep' : ''}`}>{concealCharacter ? '?' : character.hanzi}</button>
-      <button type="button" data-testid="pinyin" title="Play pronunciation" aria-label={`Pronounce ${character.pinyin}`} onClick={() => void play()} className={`min-h-11 rounded-sm text-4xl leading-none hover:text-accent-deep ${playing ? 'bg-accent-soft text-accent-deep' : ''}`}>{character.pinyin}</button>
-      <button type="button" aria-label={`Tone ${tone.number}: ${tone.label}`} title="Tone guide" onClick={() => setGuideOpen(true)} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm text-4xl hover:bg-accent-soft"><ToneMarker pinyin={character.pinyin} /></button>
-      <button type="button" data-testid="translation" aria-label={`Example for ${character.hanzi}: ${character.meaning}`} title="Word example" className="min-h-11 max-w-full break-words rounded-sm text-left text-4xl leading-tight hover:text-accent-deep" onClick={() => { onExampleOpen?.(); setExampleOpen(true) }}>{character.meaning}</button>
+      <button type="button" lang="zh-Hans" data-testid="reference-character" title="Play pronunciation" aria-label={`Pronounce ${concealCharacter ? 'character' : character.hanzi}`} onClick={() => void play()} className={`min-h-11 min-w-11 rounded-sm text-4xl leading-none hover:text-accent-deep ${playing === 'character' ? 'bg-accent-soft text-accent-deep' : ''}`}>{concealCharacter ? '?' : character.hanzi}</button>
+      <button type="button" data-testid="pinyin" title="Play pronunciation" aria-label={`Pronounce ${character.pinyin}`} onClick={() => void play()} className={`min-h-11 rounded-sm text-4xl leading-none hover:text-accent-deep ${playing === 'character' ? 'bg-accent-soft text-accent-deep' : ''}`}>{character.pinyin}</button>
+      <button type="button" aria-label={`Tone ${tone.number}: ${tone.label}`} title="Tone guide" onClick={() => { stop(); setGuideOpen(true) }} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm text-4xl hover:bg-accent-soft"><ToneMarker pinyin={character.pinyin} /></button>
+      <button type="button" data-testid="translation" aria-label={`Example for ${character.hanzi}: ${character.meaning}`} title="Word example" className="min-h-11 max-w-full break-words rounded-sm text-left text-4xl leading-tight hover:text-accent-deep" onClick={() => { stop(); onExampleOpen?.(); setExampleOpen(true) }}>{character.meaning}</button>
     </div>
-    {error && <p role="alert" className="mt-2 text-sm text-danger">{error}</p>}
-    <Modal open={exampleOpen} onClose={() => setExampleOpen(false)} title="Word example">
+    {error && !exampleOpen && <p role="alert" className="mt-2 text-sm text-danger">{error}</p>}
+    <Modal open={exampleOpen} onClose={() => { stop(); setExampleOpen(false) }} title="Word example">
       {example && <div className="space-y-4">
         {example.image && <img src={`/examples/${example.image}.png`} alt={SCENES[example.image]} width="768" height="512" className="aspect-[3/2] w-full rounded object-cover" />}
-        <p lang="zh-Hans" className="break-words text-4xl leading-relaxed">{[...example.word].map((char,i) => <span key={i} className={char === character.hanzi ? 'text-accent-deep' : ''}>{char}</span>)}</p>
-        <p className="text-2xl">{example.pinyin}</p>
+        {wordAudio ? <>
+          <button type="button" lang="zh-Hans" aria-label={`Pronounce word ${example.word}`} title="Play word pronunciation" onClick={() => void play('word')} className={`block min-h-11 break-words rounded-sm text-left text-4xl leading-relaxed hover:text-accent-deep ${playing === 'word' ? 'bg-accent-soft' : ''}`}>{[...example.word].map((char,i) => <span key={i} className={char === character.hanzi ? 'text-accent-deep' : ''}>{char}</span>)}</button>
+          <button type="button" aria-label={`Pronounce word ${example.pinyin}`} title="Play word pronunciation" onClick={() => void play('word')} className={`block min-h-11 rounded-sm text-left text-2xl hover:text-accent-deep ${playing === 'word' ? 'bg-accent-soft' : ''}`}>{example.pinyin}</button>
+        </> : <><p lang="zh-Hans" className="break-words text-4xl leading-relaxed">{[...example.word].map((char,i) => <span key={i} className={char === character.hanzi ? 'text-accent-deep' : ''}>{char}</span>)}</p><p className="text-2xl">{example.pinyin}</p></>}
+        {error && <p role="alert" className="text-sm text-danger">{error}</p>}
         <p className="text-xl">{example.meaning}</p>
-        {example.word.includes('一') || example.word.includes('不') || (character.hanzi === '子') ? <p className="text-xs text-muted">The tone can change in a word or phrase.</p> : null}
+        {example.word.includes('一') || example.word.includes('不') || (character.hanzi === '子') || /[ǎěǐǒǔǚ].* [^ ]*[ǎěǐǒǔǚ]/.test(example.pinyin) ? <p className="text-xs text-muted">The tone can change in a word or phrase.</p> : null}
       </div>}
     </Modal>
     <Modal open={guideOpen} onClose={() => setGuideOpen(false)} title="Mandarin tones">

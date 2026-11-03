@@ -1,43 +1,88 @@
 # Pronunciation audio
 
-The app serves short, pre-generated MP3 files. It does not send text to a paid service and does not download model weights to the user's device.
+All 400 character readings are bundled human recordings. There are also 243
+complete-word recordings, used by 263 of the 400 example entries. Tapping an
+example's word or pinyin plays its recording when available. No runtime TTS,
+model download, API key, or paid speech service is used.
 
-## Model and generation
+## Sources and matching
 
-- Model: [hexgrad/Kokoro-82M-v1.1-zh](https://huggingface.co/hexgrad/Kokoro-82M-v1.1-zh), Apache-2.0.
-- ONNX export: [kokoro-onnx model-files-v1.1](https://github.com/thewh1teagle/kokoro-onnx/releases/tag/model-files-v1.1), full-precision Chinese model.
-- Voice: `zf_001`; speed 0.85; 24 kHz mono; MP3 64 kbps.
-- Frontend: Misaki 0.9.4 Mandarin v1.1. Its single-character dictionary is overridden with each entry's displayed pinyin. Connected-speech tone changes are disabled because these are isolated character readings. Generation asserts the phoneme tone matches that pinyin (including neutral tone 5) and fails on unknown phonemes, silent/non-finite audio, or implausible duration.
-- Samples are peak-normalized with 60 ms leading and 100 ms trailing padding. No original human recordings are included.
-- `web/public/audio/manifest.json` records model/voice checksums and each clip's character, pinyin, tone, phonemes, duration, and checksum.
+- 337 exact character readings: Yue Tan, Shtooka Caen Tan, CC BY-SA 3.0 US.
+- 48 isolated homophones from the same speaker: identical complete syllable and
+  tone, with the original character retained in each clip's provenance.
+- 4 exact readings: Congcong / Association Shtooka, CC BY 3.0 US.
+- 1 exact reading: Wei Gao / Nicolas Vion, CC BY 2.0 FR.
+- 10 original syllable recordings: Chen Wang, audio-cmn. The source declares
+  CC-by-sa without a version; we preserve that declaration rather than inventing
+  one. These MP3 files are copied unaltered.
 
-The reading is for the character in isolation, not every possible reading in a phrase. Tone sandhi in connected speech can differ. These clips are synthetic speech, not a human pronunciation assessment.
+The first three collections come from Trevor Davis's [Free Cultural Works
+Mandarin Audio Pack](https://github.com/trevorld/mandarin_audio_utilities/blob/master/fc_README.rst),
+version 1.0.0 (2017-07-04). The ZIP includes an attribution/license README, and
+its FLAC files include original text, pronunciation and speaker tags. The
+[original Yue Tan license notice](https://web.archive.org/web/20240301142447/https://packs.shtooka.net/cmn-caen-tan/readme.txt)
+confirms CC BY-SA 3.0 US.
 
-## Reproduce
+The ten additional syllables are pinned to [audio-cmn revision
+f759a0f18f27690742957619e1248ed91e9b3f2c](https://github.com/hugolpz/audio-cmn/tree/f759a0f18f27690742957619e1248ed91e9b3f2c):
+ma1, mei4, zuo2, min2, er3, bi2, wa4, chong2, nao3, sen1. Do not automatically
+expand this allowlist. Other recordings in that collection have [reported
+defects](https://github.com/hugolpz/audio-cmn/issues/7), including absent genuine
+neutral-tone recordings.
 
-Keep weights and Python dependencies outside the app repository. Python 3.12 and ffmpeg are required. The app's production build only uses the committed MP3 assets.
+`web/public/audio/v2/manifest.json` records each source file, original reading,
+speaker, license, source checksum, output checksum, and homophone substitution.
+`web/public/licenses/PRONUNCIATION.txt` supplies the user-visible credits.
+The recording licenses remain separate from this app's MIT code license.
+
+All character matches require identical syllable **and tone**. This avoids six
+wrong-reading matches in the original word collection: 了 liǎo vs le, 长 zhǎng vs
+cháng, 干 gàn vs gān, 数 shǔ vs shù, 相 xiāng vs xiàng, 还 huán vs hái.
+Whole words require matching text and pinyin; normal third-tone sandhi is
+accepted (你好 nǐ hǎo surfaces as ní hǎo). No syllables are cut out of words or
+stitched together. Four example entries were corrected to dictionary neutral
+tones: 学生 xué sheng, 左边 zuǒ bian, 右边 yòu bian, 困难 kùn nan.
+
+## Processing and reproduction
+
+Shtooka FLACs are converted to mono 24 kHz, 64 kbps MP3, peak normalized to 0.88,
+with 60 ms leading and 100 ms trailing padding. Pitch and speed are unchanged.
+The ten audio-cmn syllable MP3s are unchanged, including their original format.
+The versioned `/audio/v2/` paths avoid reusing cached old synthetic recordings.
+All production MP3s are precached for offline use.
+
+Keep the 604 MB source archive outside the repository. Python requires numpy and
+pypinyin; ffmpeg and ffprobe must be on PATH. The import does not run in the app
+build or in the browser.
 
 ```sh
-uv venv /tmp/hanzi-tts-env
-uv pip install --python /tmp/hanzi-tts-env/bin/python kokoro-onnx==0.6.1 'misaki[zh]==0.9.4' soundfile==0.14.0
-mkdir -p /tmp/hanzi-tts-model
-curl -fL https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/kokoro-v1.1-zh.onnx -o /tmp/hanzi-tts-model/kokoro-v1.1-zh.onnx
-curl -fL https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/voices-v1.1-zh.bin -o /tmp/hanzi-tts-model/voices-v1.1-zh.bin
-curl -fL https://huggingface.co/hexgrad/Kokoro-82M-v1.1-zh/raw/main/config.json -o /tmp/hanzi-tts-model/config.json
+curl -fL 'https://www.dropbox.com/s/bh3ctzsgwbagbw0/fc_mandarin_audio_pack.zip?dl=1' -o /tmp/hanzi-human-recordings.zip
 pnpm exec tsx -e 'import {CHARACTERS} from "./web/src/characters.ts"; import {writeFileSync} from "node:fs"; writeFileSync("/tmp/hanzi-characters.json",JSON.stringify(CHARACTERS))'
-/tmp/hanzi-tts-env/bin/python scripts/generate-audio.py --model-dir /tmp/hanzi-tts-model --characters-json /tmp/hanzi-characters.json
+python scripts/import-recordings.py --archive /tmp/hanzi-human-recordings.zip --characters-json /tmp/hanzi-characters.json --output-dir web/public/audio/v2 --syllable-cache /tmp/hanzi-syllable-cache
+pnpm test
+pnpm test:e2e
 ```
 
-Add `--reuse-existing` to keep existing clips when their pinyin, phonemes, generation settings, and file checksum match. Review audio and run the tests before committing changed assets. Do not commit weights, virtual environments, or temporary WAV files. The model's Apache-2.0 license is reproduced in `web/public/licenses/KOKORO-APACHE-2.0.txt`.
+## Validation and model experiment — 2026-11-03
 
-## Pronunciation audit — 2026-11-03
+The checks cover source reading metadata, checksums, durations, decodeability,
+non-silent audio, playback lifecycle, error recovery and offline playback.
+Sampled human recordings of all four tones and the ten gap syllables were also
+screened with pitch contours. These are **not** a native-speaker listening
+certification. ASR is especially unreliable for isolated homophones and cannot
+by itself establish correct pronunciation.
 
-The automated checks above verify generation inputs and file integrity; they do **not** establish that the spoken consonants, vowels, and tones are correct. Native-speaker feedback has raised concerns about the current clips. Keep that distinction when reporting test results. Kokoro's Chinese model card describes this as an early release; no evidence here establishes it as the best model for Mandarin teaching.
+The former Kokoro set passed file/input checks but drew negative native-speaker
+feedback. Its input pinyin checks never established spoken accuracy. The old
+`generate-audio.py` is retained only as an explicitly targeted experiment; its
+output is not used by the app.
 
-A possible replacement is the [audio-cmn word collection](https://github.com/hugolpz/audio-cmn), with recordings by Yue Tan from the Shtooka / University of Caen collection. At revision `f759a0f18f27690742957619e1248ed91e9b3f2c`, direct filenames in `64k/hsk` cover 343 of our 400 characters and 258 example entries. These are **filename coverage counts, not verified matches to our pinyin**. The pinyin-named FLAC files in Trevor Davis's archived collection narrow the Yue Tan character matches to **337/400**. Six source readings differ: 了 liǎo (app le), 长 zhǎng (cháng), 干 gàn (gān), 数 shǔ (shù), 相 xiāng (xiàng), 还 huán (hái). This is metadata verification, not a native-speaker listening assessment. The three Shtooka collections together have 342 exact character-and-pinyin matches. Avoid silently substituting alternate readings.
-
-The [original collection README, archived 2024-03-01](https://web.archive.org/web/20240301142447/https://packs.shtooka.net/cmn-caen-tan/readme.txt) states Copyright 2009 Yue Tan, Creative Commons Attribution Share Alike 3.0 United States. [Trevor Davis's collection notes](https://github.com/trevorld/mandarin_audio_utilities/blob/master/fc_README.rst) independently identify the same source and license and describe filenames with pinyin. Preserve the attribution, source, and license if distributing these recordings. This license finding applies to the Yue Tan word collection, not every asset elsewhere in audio-cmn.
-
-Do not blindly use the separate Chen Wang syllable set to fill gaps: the [maintainer's quality issue](https://github.com/hugolpz/audio-cmn/issues/7) reports degraded recordings and missing true neutral-tone recordings. Do not choose a polyphonic character recording solely by its Hanzi filename, or pass off a fallback clip as a different voice/model.
-
-Alternative synthetic candidates are [Qwen3-TTS](https://github.com/QwenLM/Qwen3-TTS) (Apache-2.0) and [Fish S2-Pro](https://huggingface.co/fishaudio/s2-pro) (research license for weights; do not assume unrestricted app redistribution). Both would generate static clips ahead of deployment. Neither has been generated or validated for this app yet. The production audio remains Kokoro pending a verified replacement.
+Qwen3-TTS 0.6B CustomVoice was tried locally on this Intel Mac, using Serena,
+Chinese, seed 42, temperature 0.5, and the native runtime at
+`gabriele-mastrapasqua/qwen3-tts@ef339be58a778b062e1c14382347964552eae007`.
+The runtime was built with `make blas EXTRA_CFLAGS='-fno-fast-math -ffp-contract=off'`
+and passed its self-test. Several isolated outputs were unsuitable: 民 and 鼻
+had falling contours, and 耳 contained extra speech. Those generated files are
+**not deployed**. This is evidence about this configuration and task, not a
+claim that all Qwen voices or larger models are unsuitable. No Fish model was
+generated. The production app uses neither model.
