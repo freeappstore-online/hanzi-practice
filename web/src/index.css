@@ -151,7 +151,8 @@
 html {
   min-height: 100%;
   -webkit-text-size-adjust: 100%;
-  touch-action: manipulation;
+  /* Keep page scrolling, but do not turn practice gestures into page zoom. */
+  touch-action: pan-x pan-y;
 }
 
 body {
@@ -253,3 +254,10 @@ a:focus-visible {
 :root[data-text='sm'] { font-size: 87.5%; }
 
 } /* end @layer base */
+
+@layer utilities {
+  @media (pointer: coarse) {
+    /* Avoid mobile Safari's focus zoom, including with the small text setting. */
+    #root :is(input, select, textarea) { font-size: max(16px, 1rem); }
+  }
+}
