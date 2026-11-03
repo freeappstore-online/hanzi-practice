@@ -12,7 +12,8 @@ test('tap-to-play pronunciation works, replays, and stops on character change', 
   await expect.poll(()=>player.evaluate((el:HTMLAudioElement)=>el.currentTime)).toBeGreaterThan(0)
 })
 test('pronunciation is available after an offline reload', async ({page,context}) => {
-  test.setTimeout(60000)
+  // Initial offline caching includes both recording and model libraries.
+  test.setTimeout(90000)
   await page.goto('/')
   await page.evaluate(async()=>{await navigator.serviceWorker.ready})
   await expect.poll(()=>page.evaluate(()=>!!navigator.serviceWorker.controller)).toBe(true)
@@ -32,6 +33,7 @@ test('pronunciation is available after an offline reload', async ({page,context}
   await expect.poll(()=>page.locator('audio').first().evaluate((el:HTMLAudioElement)=>el.currentTime)).toBeGreaterThan(0)
 })
 test('a failed audio request shows a retryable error', async ({page}) => {
+  await page.addInitScript(()=>localStorage.setItem('hanzi-practice:audio:v1',JSON.stringify({order:['recordings','kokoro','browser'],disabled:['kokoro','browser']})))
   let fail=true
   await page.route('**/audio/v2/4e00.mp3', route => fail ? route.abort() : route.continue())
   await page.goto('/')
@@ -88,6 +90,7 @@ test('word playback replays, stops on closing the popup, and returns to characte
 })
 
 test('word playback failure can be retried inside its popup',async({page})=>{
+  await page.addInitScript(()=>localStorage.setItem('hanzi-practice:audio:v1',JSON.stringify({order:['recordings','kokoro','browser'],disabled:['kokoro','browser']})))
   let fail=true
   await page.route('**/audio/v2/words/5b66-751f.mp3',route=>fail ? route.abort() : route.continue())
   await page.goto('/')

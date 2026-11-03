@@ -1,9 +1,24 @@
 # Pronunciation audio
 
-All 400 character readings are bundled human recordings. There are also 243
+The default first source is a bundled human recording for each of the 400 characters. There are also 243
 complete-word recordings, used by 263 of the 400 example entries. Tapping an
-example's word or pinyin plays its recording when available. No runtime TTS,
-model download, API key, or paid speech service is used.
+example's word or pinyin tries the enabled sources in the saved order.
+
+The avatar opens `/profile` for guests and signed-in users. The default order is
+human recordings, Kokoro model clips, then browser TTS. Every source can be moved
+up/down or disabled, with at least one left enabled. Settings persist under
+`hanzi-practice:audio:v1` and sync between tabs. Missing clips, loading/playback
+failures, and unavailable Mandarin voices advance to the next enabled source.
+Navigation, changing a character, changing settings, or closing a word popup
+cancels playback and pending fallback attempts.
+
+Kokoro's original 400 character clips are available at `/audio/kokoro/`, labelled
+experimental because of the earlier pronunciation concerns. They have no word
+clips. Both file collections work offline after caching. Browser TTS uses an
+available Mandarin voice (never a known Cantonese or English voice), and may
+require internet depending on the installed voice. No model weights, API key or
+paid speech service is used. Qwen and Fish are not selectable because there is
+no accepted clip set for them.
 
 ## Sources and matching
 
@@ -72,10 +87,11 @@ screened with pitch contours. These are **not** a native-speaker listening
 certification. ASR is especially unreliable for isolated homophones and cannot
 by itself establish correct pronunciation.
 
-The former Kokoro set passed file/input checks but drew negative native-speaker
+The optional Kokoro set passed file/input checks but drew negative native-speaker
 feedback. Its input pinyin checks never established spoken accuracy. The old
 `generate-audio.py` is retained only as an explicitly targeted experiment; its
-output is not used by the app.
+new output is kept outside production; the optional shipped clips are restored
+from commit a8ea6ba with their original checksums.
 
 Qwen3-TTS 0.6B CustomVoice was tried locally on this Intel Mac, using Serena,
 Chinese, seed 42, temperature 0.5, and the native runtime at
@@ -85,4 +101,4 @@ and passed its self-test. Several isolated outputs were unsuitable: 民 and 鼻
 had falling contours, and 耳 contained extra speech. Those generated files are
 **not deployed**. This is evidence about this configuration and task, not a
 claim that all Qwen voices or larger models are unsuitable. No Fish model was
-generated. The production app uses neither model.
+generated. The production app uses neither Qwen nor Fish.

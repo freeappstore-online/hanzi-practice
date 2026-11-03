@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { initApp } from '@freeappstore/sdk'
 import { Badge, Card, EmptyState, PageHeader, SearchInput, Shell, type NavItem } from '@freeappstore/sdk/ui'
 import { Button } from './Button'
+import { Profile } from './Profile'
 import { PracticeBackup } from './PracticeBackup'
 import { CHARACTERS, LEVELS, charactersForLevel, findCharacter, type Character } from './characters'
 import { CharacterDetails } from './Pronunciation'
@@ -33,7 +34,7 @@ export default function App() {
     addEventListener('popstate', sync)
     return () => removeEventListener('popstate', sync)
   }, [])
-  return <Shell app={fas} appName="Hanzi" nav={NAV} onNavigate={navigate}>
+  return <Shell app={fas} appName="Hanzi" nav={NAV} onNavigate={navigate} profileHref="/profile">
     <Screens path={path} navigate={navigate} />
   </Shell>
 }
@@ -101,7 +102,7 @@ function Screens({path, navigate}: {path: string; navigate: (href: string) => vo
     catch { setStorageWarning('Device storage is unavailable or full. Progress is kept only until this page closes.') }
   }, [])
   const choose = (c: Character) => { setReviewSession(null); setCharacter(c); setPracticeRequest(n => n + 1); navigate('/') }
-  const practiceActive = !['/characters','/progress','/about','/review'].includes(path)
+  const practiceActive = !['/characters','/progress','/about','/review','/profile'].includes(path)
   const advance = useCallback((c: Character) => {
     setCharacter(c)
     setReviewSession(s => s ? {...s, index: s.index + 1} : null)
@@ -121,6 +122,7 @@ function Screens({path, navigate}: {path: string; navigate: (href: string) => vo
     {path === '/characters' && <Library progress={progress} choose={choose} initialLevel={character.level} />}
     {path === '/progress' && <ProgressScreen progress={progress} choose={choose} />}
     {path === '/about' && <About />}
+    {path === '/profile' && <Profile app={fas} />}
   </div>
 }
 function Library({progress, choose, initialLevel}: {progress: Progress; choose: (c: Character) => void; initialLevel: number}) {
@@ -193,7 +195,7 @@ function About() {
       <PracticeBackup />
       <Card><h2 className="mb-2 text-lg font-bold">Watch. Trace. Recall.</h2><p>Watch the strokes before you write. Use Guided mode to follow the outline, then From memory to hide both the outline and the reference glyph. Draw with a finger, stylus, or mouse. The app checks stroke shape, direction, and order; it does not grade calligraphy.</p></Card>
       <Card><h2 className="mb-2 text-lg font-bold">{CHARACTERS.length} characters across {LEVELS.length} study levels</h2><p>The library uses simplified Chinese where forms differ. Each app study level has 40 characters; these levels are not an official HSK syllabus. Open the app online once and allow it to finish loading; the app, character data, and pronunciation audio are then cached for offline practice.</p></Card>
-      <Card><h2 className="mb-2 text-lg font-bold">Listen and see the tone</h2><p>Tap a character or its pinyin for Mandarin pronunciation. Tap the pitch curve for the tone guide, or the English meaning for a word example. The pitch curve beside pinyin shows the tone: 1 level, 2 rising, 3 dipping then rising, 4 falling, and 5 neutral. The displayed reading and audio are for the character in isolation; some characters have other readings or change tone in a phrase.</p><p className="mt-2">All 400 characters use human recordings from Shtooka and audio-cmn. Recordings are matched by syllable and tone, including isolated homophones. Tap the word or pinyin in an example to hear it when a recording is available. All audio is bundled for offline playback. <a href="/licenses/PRONUNCIATION.txt" className="text-accent underline">Audio credits and licenses</a>.</p></Card>
+      <Card><h2 className="mb-2 text-lg font-bold">Listen and see the tone</h2><p>Tap a character or its pinyin for Mandarin pronunciation. Tap the pitch curve for the tone guide, or the English meaning for a word example. The pitch curve beside pinyin shows the tone: 1 level, 2 rising, 3 dipping then rising, 4 falling, and 5 neutral. The displayed reading and audio are for the character in isolation; some characters have other readings or change tone in a phrase.</p><p className="mt-2">Human recordings are the first choice by default. Tap the avatar to open Profile and reorder or disable recordings, Kokoro model clips, and browser Mandarin TTS. Missing or failed audio tries the next enabled source. Tap any example word or pinyin to hear it. Recordings and model clips work offline after caching; browser voices depend on your device and may need internet. <a href="/licenses/PRONUNCIATION.txt" className="text-accent underline">Audio credits and licenses</a>.</p></Card>
       <Card><h2 className="mb-2 text-lg font-bold">Keep writing</h2><p>After a character is complete, practice moves to the next one and starts it automatically. You can turn this off with the autoplay button. At the end of a level it continues into the next level; at the end of the library it stops.</p></Card>
       <Card><h2 className="mb-2 text-lg font-bold">Review what needs work</h2><p>Retries and hints are saved immediately, even if you leave an unfinished exercise. The review queue puts difficult characters first. Guided or assisted completions return in 10 minutes. Successful recall grows the interval from 1 day to 3, 7, 14, 30 and 60 days; practising early does not increase it. A review session visits each queued character once. Completed-practice ticks count only finished exercises.</p></Card>
       <Card><h2 className="mb-2 text-lg font-bold">Your practice stays here</h2><p>No account is needed. Results, your current character and level, and the autoplay setting are saved in this browser on this device. Clearing browser storage removes them; signing in does not sync them. Private browsing may discard them when you close the window.</p></Card>

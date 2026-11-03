@@ -44,3 +44,15 @@ https://github.com/hugolpz/audio-cmn/tree/f759a0f18f27690742957619e1248ed91e9b3f
 Files: ma1, mei4, zuo2, min2, er3, bi2, wa4, chong2, nao3, sen1, from 64k/syllabs.
 These files retain their source CC-by-sa terms and are not relicensed under MIT.
 No endorsement by the original speakers or projects is implied.
+
+Optional Kokoro model audio
+
+The 400 clips in /audio/kokoro are synthetic output of
+hexgrad/Kokoro-82M-v1.1-zh, voice zf_001, speed 0.85, 24 kHz mono.
+Model: https://huggingface.co/hexgrad/Kokoro-82M-v1.1-zh
+License: Apache-2.0, reproduced in KOKORO-APACHE-2.0.txt.
+Generation provenance and checksums: /audio/kokoro/manifest.json
+These are separately selectable from the human recordings.
+
+Browser TTS uses the Mandarin voice installed/provided by the user's device
+and browser. No browser voice recordings are redistributed by this app.

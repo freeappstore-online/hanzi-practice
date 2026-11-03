@@ -28,8 +28,28 @@ index 70e210074733fa2898f1a4dc183b62e5d7f7a728..de5be8436ee4f80ab566a56bc085273f
      return (_jsx("button", { onClick: () => app.auth.signIn(), className: "bg-accent text-white border-0 p-[0.6rem_1.5rem] rounded text-[0.9rem] font-bold cursor-pointer font-[inherit]", children: label }));
  }
  // ---------------------------------------------------------------------------
+diff --git a/dist/ui/layout.d.ts b/dist/ui/layout.d.ts
+index f110bfd52e5f1e4a50f958e3481bd4eb5ceff7e2..03ea418990823dbc8779d8788033fdc9ed12440d 100644
+--- a/dist/ui/layout.d.ts
++++ b/dist/ui/layout.d.ts
+@@ -50,6 +50,7 @@ export interface ShellProps {
+     renderError?: (ctx: ShellErrorContext) => ReactNode;
+     /** Replace the spinner shown while a lazy-loaded screen loads. */
+     renderLoading?: () => ReactNode;
++    profileHref?: string;
+     requireAuth?: boolean;
+     showThemeToggle?: boolean;
+ }
+@@ -59,5 +60,5 @@ export interface ShellProps {
+  * gate. On client-side navigation (`onNavigate`) it scrolls to the top (or back
+  * to where the route was left) and moves focus to the new screen's heading.
+  */
+-export declare function Shell({ app, children, appName, nav, renderNav, onNavigate, renderError, renderLoading, requireAuth, showThemeToggle, }: ShellProps): import("react").JSX.Element;
++export declare function Shell({ app, children, appName, nav, renderNav, onNavigate, renderError, renderLoading, profileHref, requireAuth, showThemeToggle, }: ShellProps): import("react").JSX.Element;
+ //# sourceMappingURL=layout.d.ts.map
+\ No newline at end of file
 diff --git a/dist/ui/layout.js b/dist/ui/layout.js
-index fe6f4e28d63832ce3ff54892340a6796e85627a1..b8796875cf3fde08f0e3b556e24f9424473bfe5e 100644
+index fe6f4e28d63832ce3ff54892340a6796e85627a1..5b74a6739857f5fb62b35b794246c405d5d01db6 100644
 --- a/dist/ui/layout.js
 +++ b/dist/ui/layout.js
 @@ -1,7 +1,7 @@
@@ -50,11 +70,20 @@ index fe6f4e28d63832ce3ff54892340a6796e85627a1..b8796875cf3fde08f0e3b556e24f9424
                              app.keys.manage();
                              setOpen(false);
                          }, className: "block w-full p-[0.5rem_1rem] bg-transparent border-0 text-left text-[0.85rem] cursor-pointer text-ink font-[inherit]", children: "API Keys" }), _jsxs("button", { onClick: () => {
+@@ -106,7 +106,7 @@ function normalizeShellAppName(appName) {
+  * gate. On client-side navigation (`onNavigate`) it scrolls to the top (or back
+  * to where the route was left) and moves focus to the new screen's heading.
+  */
+-export function Shell({ app, children, appName, nav, renderNav, onNavigate, renderError, renderLoading, requireAuth = false, showThemeToggle = true, }) {
++export function Shell({ app, children, appName, nav, renderNav, onNavigate, profileHref, renderError, renderLoading, requireAuth = false, showThemeToggle = true, }) {
+     const { user, loading } = useAuth(app);
+     const [currentPath, setCurrentPath] = useCurrentPath();
+     const mainRef = useRef(null);
 @@ -142,6 +142,6 @@ export function Shell({ app, children, appName, nav, renderNav, onNavigate, rend
          onNavigate: navigate ?? ((href) => window.location.assign(href)),
      })) : navigate ? (_jsx(NavBar, { items: navItems, currentPath: currentPath, onNavigate: navigate })) : (_jsx(NavBar, { items: navItems }));
      const loadingNode = renderLoading ? (renderLoading()) : (_jsx("div", { className: "fas-shell-loading flex flex-1 items-center justify-center px-4 py-12", children: _jsx(Spinner, { size: 28 }) }));
 -    return (_jsx(ToastProvider, { children: _jsxs("div", { className: "min-h-[100dvh] flex flex-col", children: [_jsx(SkipLink, { mainRef: mainRef }), _jsxs("header", { className: "flex items-center justify-between p-[0.5rem_1rem] border-b border-line bg-panel sticky top-0 z-[50]", children: [_jsxs("div", { className: "flex items-center gap-3", children: [_jsx("a", { href: "https://freeappstore.online", className: "font-extrabold text-[1rem] text-accent no-underline", children: "Free" }), displayAppName && displayAppName !== 'FreeAppStore' && (_jsx("span", { className: "text-[0.85rem] font-semibold text-muted", children: displayAppName }))] }), navNode, _jsxs("div", { className: "flex items-center gap-2", children: [_jsx(TextSizeToggle, {}), showThemeToggle && !user && _jsx(ThemeToggle, {}), user ? (_jsx(ProfileMenu, { app: app, showThemeToggle: showThemeToggle })) : (_jsx(SignInButton, { app: app, label: "Sign in" }))] })] }), _jsx(OfflineBanner, {}), _jsx("main", { id: "main", ref: mainRef, tabIndex: -1, className: "fas-main flex-1 flex flex-col", children: _jsx(ShellErrorBoundary, { app: app, renderError: renderError, resetKey: currentPath, children: _jsx(Suspense, { fallback: loadingNode, children: children }) }) }), _jsx(Footer, {})] }) }));
-+    return (_jsx(ToastProvider, { children: _jsxs("div", { className: "min-h-[100dvh] flex flex-col", children: [_jsx(SkipLink, { mainRef: mainRef }), _jsxs("header", { className: "flex items-center justify-between p-[0.5rem_1rem] border-b border-line bg-panel sticky top-0 z-[50]", children: [_jsxs("div", { className: "flex items-center gap-3", children: [displayAppName && displayAppName !== 'FreeAppStore' && (_jsx("span", { className: "text-[0.85rem] font-semibold text-muted", children: displayAppName }))] }), navNode, _jsxs("div", { className: "flex items-center gap-2", children: [_jsx(TextSizeToggle, {}), showThemeToggle && !user && _jsx(ThemeToggle, {}), user ? (_jsx(ProfileMenu, { app: app, showThemeToggle: showThemeToggle })) : (_jsx(SignInButton, { app: app, label: "Sign in", iconOnly: true }))] })] }), _jsx(OfflineBanner, {}), _jsx("main", { id: "main", ref: mainRef, tabIndex: -1, className: "fas-main flex-1 flex flex-col", children: _jsx(ShellErrorBoundary, { app: app, renderError: renderError, resetKey: currentPath, children: _jsx(Suspense, { fallback: loadingNode, children: children }) }) })] }) }));
++    return (_jsx(ToastProvider, { children: _jsxs("div", { className: "min-h-[100dvh] flex flex-col", children: [_jsx(SkipLink, { mainRef: mainRef }), _jsxs("header", { className: "flex items-center justify-between p-[0.5rem_1rem] border-b border-line bg-panel sticky top-0 z-[50]", children: [_jsxs("div", { className: "flex items-center gap-3", children: [displayAppName && displayAppName !== 'FreeAppStore' && (_jsx("span", { className: "text-[0.85rem] font-semibold text-muted", children: displayAppName }))] }), navNode, _jsxs("div", { className: "flex items-center gap-2", children: [_jsx(TextSizeToggle, {}), showThemeToggle && !user && _jsx(ThemeToggle, {}), profileHref ? _jsx("button", { type: "button", "aria-label": "Profile", title: "Profile", onClick: () => (navigate ?? ((href) => window.location.assign(href)))(profileHref), className: "w-9 h-9 rounded border border-line bg-panel text-ink inline-flex items-center justify-center cursor-pointer p-0 overflow-hidden", children: user ? _jsx(Avatar, { user: user, size: 28 }) : _jsxs("svg", { "aria-hidden": true, width: 18, height: 18, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round", children: [_jsx("circle", { cx: 12, cy: 8, r: 3.5 }), _jsx("path", { d: "M5 20v-1a7 7 0 0 1 14 0v1" })] }) }) : (user ? (_jsx(ProfileMenu, { app: app, showThemeToggle: showThemeToggle })) : (_jsx(SignInButton, { app: app, label: "Sign in", iconOnly: true })))] })] }), _jsx(OfflineBanner, {}), _jsx("main", { id: "main", ref: mainRef, tabIndex: -1, className: "fas-main flex-1 flex flex-col", children: _jsx(ShellErrorBoundary, { app: app, renderError: renderError, resetKey: currentPath, children: _jsx(Suspense, { fallback: loadingNode, children: children }) }) })] }) }));
  }
  //# sourceMappingURL=layout.js.map
