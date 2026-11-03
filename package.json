@@ -19,6 +19,13 @@
     "build": "pnpm --filter @hanzi-practice/web build",
     "preview": "pnpm --filter @hanzi-practice/web preview",
     "typecheck": "pnpm --filter @hanzi-practice/web exec tsc -b",
-    "test": "pnpm build && node --test scripts/styling.test.mjs"
+    "test": "pnpm build && node --import tsx --test scripts/*.test.mjs",
+    "test:e2e": "playwright test",
+    "prepare:data": "tsx scripts/prepare-characters.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "hanzi-writer-data": "^2.0.1",
+    "tsx": "^4.23.15"
   }
 }

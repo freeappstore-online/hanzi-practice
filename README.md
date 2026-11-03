@@ -1,41 +1,36 @@
-# template-standalone
+# Hanzi Practice
 
-The standalone-app template used by [`fas init`](https://github.com/freeappstore-online/platform/tree/main/packages/cli) to scaffold new free apps for [FreeAppStore](https://freeappstore.online).
+A free Chinese character stroke practice app: https://hanzi-practice.freeappstore.online
 
-You almost certainly want to use the CLI, not clone this directly:
+- 40 beginner simplified Chinese characters, grouped by numbers, nature, people, and everyday words.
+- Animated stroke order, guided tracing, and recall practice using Hanzi Writer.
+- Finger, stylus, and mouse input; checks shape, direction, and order.
+- Hints, retries, and completed practice history saved locally. No login needed.
+- All character data ships with the app and is precached for offline practice after the first online load.
+- Responsive SDK Shell, light/dark themes, and character search by glyph, pinyin, or meaning.
 
-```bash
-npm i -g @freeappstore/cli
-fas init my-app
+This is a starter collection, not a full dictionary or calligraphy evaluator. Progress remains in the browser and does not sync through the optional platform account. The newest 2,000 completed attempts are retained; the Progress screen displays the newest 30.
+
+## Development
+
+```sh
+pnpm install
+pnpm dev
+pnpm test
+pnpm test:e2e
+fas check
 ```
 
-The CLI clones this template, replaces every `hanzi-practice` placeholder with your app id, runs `git init`, and makes the first commit — the result is a runnable app you can `pnpm dev` immediately.
+Tests use Playwright Chromium (`pnpm exec playwright install chromium` if needed). `pnpm test` builds/typechecks and checks progress handling, data coverage, and SDK styling. Browser tests draw actual median paths through mouse/touch input and check mistakes, hints, multi-stroke characters, persistence, storage errors, resize, navigation, and offline reload.
 
-## What's in here
+Character metadata is in `web/src/characters.ts`. Run `pnpm prepare:data` after changing the collection to copy the selected files from the pinned `hanzi-writer-data` dependency. Commit these assets so deployment does not need a third-party data server.
 
-- `web/` — Vite + React + TypeScript + Tailwind 4 app, ESM-only.
-- `web/src/App.tsx` — the app wrapped in the SDK's `Shell` (`@freeappstore/sdk/ui`) with two starter screens, Home (`/`) and About (`/about`), declared in its `nav` prop. A new app renders the standard topbar, its navigation (`<nav aria-label="Main">`), an error boundary, toasts and an offline banner from the first render. No sign-in required.
-- `web/src/index.css` — brand fonts (Manrope + Fraunces) and the design tokens (`--paper`, `--ink`, `--accent`, …); dark mode via `:root[data-theme='dark']`, which the SDK sets from the system or the Shell's theme toggle.
-- `web/src/main.tsx` — React entry point.
-- `web/index.html` — links Manrope + Fraunces, sets PWA meta tags, references the manifest.
-- `web/public/manifest.json` — PWA manifest with `name`, `display`, `start_url`.
-- `package.json` — pnpm workspace, `dev` / `build` / `typecheck` / `test` scripts.
-- `.github/workflows/compliance.yml` — runs the same checks as `fas check` on every PR. Source of truth lives in the [`@freeappstore/compliance`](https://www.npmjs.com/package/@freeappstore/compliance) package.
+## Deployment
 
-## Cloning manually (not recommended)
+Provisioned through `fas publish`. Commit and push directly to `main`; GitHub Actions builds and deploys to FreeAppStore R2 hosting. No branches or pull requests.
 
-If you really want to scaffold by hand:
+## Attribution and licensing
 
-```bash
-git clone https://github.com/freeappstore-online/template-standalone my-app
-cd my-app
-# Replace hanzi-practice → my-app in package.json, web/index.html, web/src/App.tsx, README, etc.
-rm -rf .git && git init
-pnpm install && pnpm dev
-```
+App code: MIT (see LICENSE). Hanzi Writer: MIT, https://github.com/chanind/hanzi-writer.
 
-Then run `fas publish` to provision repo + hosting + DNS, or open the [submission form](https://github.com/freeappstore-online/submissions/issues/new) for maintainer review.
-
-## License
-
-MIT.
+The unmodified character data is from Hanzi Writer Data 2.0.1 (https://github.com/chanind/hanzi-writer-data), derived from Make Me a Hanzi (https://github.com/skishore/makemeahanzi) and Arphic fonts. It is licensed separately under the Arphic Public License, reproduced in `web/public/licenses/ARPHICPL.txt`. The app's MIT license does not relicense this data.

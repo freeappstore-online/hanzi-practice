@@ -56,6 +56,15 @@ jobs:
           VITE_BUILD_DATE: ${{ github.event.head_commit.timestamp }}
         run: pnpm build
 
+      - name: Unit and data checks
+        run: node --import tsx --test scripts/*.test.mjs
+
+      - name: Install test browser
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Browser checks
+        run: pnpm test:e2e
+
       # Guard against empty/missing dist: aws s3 sync from an empty directory
       # with --delete would wipe the live app. Failing loudly here is safer.
       - name: Verify build output
