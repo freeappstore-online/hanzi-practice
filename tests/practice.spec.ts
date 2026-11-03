@@ -225,7 +225,7 @@ test.describe('preloading',()=>{
       addEventListener('DOMContentLoaded',()=>{
         new MutationObserver(()=>{
           const w=window as any
-          if(!w.advanceMs && w.completedAt && (document.querySelector('#character') as HTMLSelectElement)?.value==='二' && [...document.querySelectorAll('button')].some(b=>b.textContent==='Practice again'&&!b.disabled)) w.advanceMs=performance.now()-w.completedAt
+          if(!w.advanceMs && w.completedAt && (document.querySelector('#character') as HTMLSelectElement)?.value==='二' && [...document.querySelectorAll('button')].some(b=>b.getAttribute('aria-label')==='Practice again'&&!b.disabled)) w.advanceMs=performance.now()-w.completedAt
         }).observe(document.body,{subtree:true,childList:true,attributes:true,characterData:true})
       })
     })

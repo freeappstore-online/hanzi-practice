@@ -153,6 +153,7 @@ export function Practice({ character, onSelect, onComplete, active, autoAdvance,
     setPhase('ready'); setMessage('')
   }
   const busy = phase === 'loading' || phase === 'watching' || phase === 'error'
+  const startLabel = phase === 'complete' || phase === 'drawing' ? 'Practice again' : 'Start practice'
   return <div className="grid grid-cols-1 items-start gap-3 md:grid-cols-[minmax(0,1fr)_minmax(240px,0.7fr)] md:gap-x-6">
     <div className="min-w-0 space-y-3 md:col-start-2 md:row-start-1">
       <CharacterDetails character={character} active={active} concealCharacter={mode === 'recall'} />
@@ -182,7 +183,9 @@ export function Practice({ character, onSelect, onComplete, active, autoAdvance,
         <div className="mt-2"><ProgressBar value={correct} max={strokeCount || 1} label={`${correct} of ${strokeCount} strokes`} /></div>
         <p className="text-sm text-muted" role="status">{message}</p>
         <div className="mt-3 flex flex-wrap gap-2">
-          <Button primary onClick={() => start()} disabled={busy}>{phase === 'complete' || phase === 'drawing' ? 'Practice again' : 'Start practice'}</Button>
+          <Button primary iconOnly aria-label={startLabel} title={startLabel} onClick={() => start()} disabled={busy}>
+            <svg aria-hidden="true" className="shrink-0" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l14-8z" /></svg>
+          </Button>
           <Button onClick={() => void watch()} disabled={busy}>Watch strokes</Button>
           <Button disabled={phase !== 'drawing'} onClick={() => { hints.current++; setHintCount(hints.current); void writer.current?.highlightStroke(correct) }}>Hint</Button>
           {phase === 'error' && <Button onClick={() => setRound(r => r + 1)}>Retry loading</Button>}

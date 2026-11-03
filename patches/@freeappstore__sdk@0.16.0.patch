@@ -1,0 +1,42 @@
+diff --git a/dist/ui/core.d.ts b/dist/ui/core.d.ts
+index 670142819661b0a5715cf3da4a597c0272742517..a4f2d4be33dd1f965dacade4601e9290701ea9fa 100644
+--- a/dist/ui/core.d.ts
++++ b/dist/ui/core.d.ts
+@@ -9,9 +9,10 @@ export declare function Avatar({ user, size }: AvatarProps): import("react").JSX
+ export interface SignInButtonProps {
+     app: FreeAppStore;
+     label?: string;
++    iconOnly?: boolean;
+ }
+ /** Platform-branded sign-in button. Calls app.auth.signIn(). */
+-export declare function SignInButton({ app, label }: SignInButtonProps): import("react").JSX.Element;
++export declare function SignInButton({ app, label, iconOnly }: SignInButtonProps): import("react").JSX.Element;
+ /** Sun/moon toggle button. Cycles: system -> light -> dark. */
+ export declare function ThemeToggle(): import("react").JSX.Element;
+ type TextSize = 'default' | 'lg' | 'sm';
+diff --git a/dist/ui/core.js b/dist/ui/core.js
+index 70e210074733fa2898f1a4dc183b62e5d7f7a728..08365ee01123140a8f91436d865cb6738f8a0394 100644
+--- a/dist/ui/core.js
++++ b/dist/ui/core.js
+@@ -12,7 +12,8 @@ export function Avatar({ user, size = 32 }) {
+         style: { width: size, height: size, fontSize: size * 0.45 }, children: initial }));
+ }
+ /** Platform-branded sign-in button. Calls app.auth.signIn(). */
+-export function SignInButton({ app, label = 'Sign in with GitHub' }) {
++export function SignInButton({ app, label = 'Sign in with GitHub', iconOnly = false }) {
++    if (iconOnly) return _jsx("button", { type: "button", onClick: () => app.auth.signIn(), "aria-label": label, title: label, className: "flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line-strong bg-panel text-ink hover:bg-paper-deep cursor-pointer", children: _jsxs("svg", { "aria-hidden": true, width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round", children: [_jsx("circle", { cx: 12, cy: 8, r: 3.5 }), _jsx("path", { d: "M5 20v-1a7 7 0 0 1 14 0v1" })] }) });
+     return (_jsx("button", { onClick: () => app.auth.signIn(), className: "bg-accent text-white border-0 p-[0.6rem_1.5rem] rounded text-[0.9rem] font-bold cursor-pointer font-[inherit]", children: label }));
+ }
+ // ---------------------------------------------------------------------------
+diff --git a/dist/ui/layout.js b/dist/ui/layout.js
+index fe6f4e28d63832ce3ff54892340a6796e85627a1..ce5057e6b6ab2473275c5e7df2a833259bfa2f9b 100644
+--- a/dist/ui/layout.js
++++ b/dist/ui/layout.js
+@@ -142,6 +142,6 @@ export function Shell({ app, children, appName, nav, renderNav, onNavigate, rend
+         onNavigate: navigate ?? ((href) => window.location.assign(href)),
+     })) : navigate ? (_jsx(NavBar, { items: navItems, currentPath: currentPath, onNavigate: navigate })) : (_jsx(NavBar, { items: navItems }));
+     const loadingNode = renderLoading ? (renderLoading()) : (_jsx("div", { className: "fas-shell-loading flex flex-1 items-center justify-center px-4 py-12", children: _jsx(Spinner, { size: 28 }) }));
+-    return (_jsx(ToastProvider, { children: _jsxs("div", { className: "min-h-[100dvh] flex flex-col", children: [_jsx(SkipLink, { mainRef: mainRef }), _jsxs("header", { className: "flex items-center justify-between p-[0.5rem_1rem] border-b border-line bg-panel sticky top-0 z-[50]", children: [_jsxs("div", { className: "flex items-center gap-3", children: [_jsx("a", { href: "https://freeappstore.online", className: "font-extrabold text-[1rem] text-accent no-underline", children: "Free" }), displayAppName && displayAppName !== 'FreeAppStore' && (_jsx("span", { className: "text-[0.85rem] font-semibold text-muted", children: displayAppName }))] }), navNode, _jsxs("div", { className: "flex items-center gap-2", children: [_jsx(TextSizeToggle, {}), showThemeToggle && !user && _jsx(ThemeToggle, {}), user ? (_jsx(ProfileMenu, { app: app, showThemeToggle: showThemeToggle })) : (_jsx(SignInButton, { app: app, label: "Sign in" }))] })] }), _jsx(OfflineBanner, {}), _jsx("main", { id: "main", ref: mainRef, tabIndex: -1, className: "fas-main flex-1 flex flex-col", children: _jsx(ShellErrorBoundary, { app: app, renderError: renderError, resetKey: currentPath, children: _jsx(Suspense, { fallback: loadingNode, children: children }) }) }), _jsx(Footer, {})] }) }));
++    return (_jsx(ToastProvider, { children: _jsxs("div", { className: "min-h-[100dvh] flex flex-col", children: [_jsx(SkipLink, { mainRef: mainRef }), _jsxs("header", { className: "flex items-center justify-between p-[0.5rem_1rem] border-b border-line bg-panel sticky top-0 z-[50]", children: [_jsxs("div", { className: "flex items-center gap-3", children: [_jsx("a", { href: "https://freeappstore.online", className: "font-extrabold text-[1rem] text-accent no-underline", children: "Free" }), displayAppName && displayAppName !== 'FreeAppStore' && (_jsx("span", { className: "text-[0.85rem] font-semibold text-muted", children: displayAppName }))] }), navNode, _jsxs("div", { className: "flex items-center gap-2", children: [_jsx(TextSizeToggle, {}), showThemeToggle && !user && _jsx(ThemeToggle, {}), user ? (_jsx(ProfileMenu, { app: app, showThemeToggle: showThemeToggle })) : (_jsx(SignInButton, { app: app, label: "Sign in", iconOnly: true }))] })] }), _jsx(OfflineBanner, {}), _jsx("main", { id: "main", ref: mainRef, tabIndex: -1, className: "fas-main flex-1 flex flex-col", children: _jsx(ShellErrorBoundary, { app: app, renderError: renderError, resetKey: currentPath, children: _jsx(Suspense, { fallback: loadingNode, children: children }) }) }), _jsx(Footer, {})] }) }));
+ }
+ //# sourceMappingURL=layout.js.map

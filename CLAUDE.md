@@ -21,3 +21,4 @@ Compatibility guide pointer: https://raw.githubusercontent.com/freeappstore-onli
 - Equal-size SVG tone curves derive from pinyin in web/src/tones.ts.
 - Audio assets are generated with Kokoro; see docs/audio.md. Keep model weights outside the repo.
 - Preserve audio clip/pinyin consistency and cancellation of automatic advancement on navigation.
+- The pnpm SDK patch makes the Shell sign-in control an accessible avatar icon. Preserve it when upgrading the SDK, or replace it with an equivalent upstream option.
