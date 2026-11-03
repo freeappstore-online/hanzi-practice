@@ -1,7 +1,7 @@
 {
   "name": "Hanzi Practice",
   "short_name": "Hanzi",
-  "description": "Learn Chinese characters with stroke-order animation, guided tracing, and memory practice.",
+  "description": "Practise 200 Chinese characters by level, with stroke order, Mandarin pronunciation, large tone guides, and continuous practice.",
   "start_url": "/",
   "display": "standalone",
   "orientation": "any",

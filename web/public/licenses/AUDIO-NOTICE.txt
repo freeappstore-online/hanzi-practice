@@ -1,0 +1,6 @@
+Mandarin pronunciation clips are synthetic output generated with hexgrad/Kokoro-82M-v1.1-zh (Apache-2.0), voice zf_001, via kokoro-onnx and the Misaki Mandarin frontend.
+Model: https://huggingface.co/hexgrad/Kokoro-82M-v1.1-zh
+Runtime: https://github.com/thewh1teagle/kokoro-onnx
+Frontend: https://github.com/hexgrad/misaki
+Model license: /licenses/KOKORO-APACHE-2.0.txt
+Generation configuration and provenance: /audio/manifest.json

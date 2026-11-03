@@ -16,3 +16,8 @@ Compatibility guide pointer: https://raw.githubusercontent.com/freeappstore-onli
 - Hanzi Writer data is Arphic Public License, separate from app MIT; preserve attribution.
 - All practice results are local. Do not claim account sign-in syncs progress.
 - Browser tests exercise real stroke recognition; do not replace it with mocked success callbacks.
+
+- 200 characters in five custom study levels; do not describe them as official HSK levels.
+- Large tone markers derive from pinyin in web/src/tones.ts.
+- Audio assets are generated with Kokoro; see docs/audio.md. Keep model weights outside the repo.
+- Preserve audio clip/pinyin consistency and cancellation of automatic advancement on navigation.
