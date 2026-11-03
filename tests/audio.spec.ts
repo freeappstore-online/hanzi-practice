@@ -12,13 +12,14 @@ test('tap-to-play pronunciation works, replays, and stops on character change', 
   await expect.poll(()=>player.evaluate((el:HTMLAudioElement)=>el.currentTime)).toBeGreaterThan(0)
 })
 test('pronunciation is available after an offline reload', async ({page,context}) => {
+  test.setTimeout(60000)
   await page.goto('/')
   await page.evaluate(async()=>{await navigator.serviceWorker.ready})
   await expect.poll(()=>page.evaluate(()=>!!navigator.serviceWorker.controller)).toBe(true)
   await context.setOffline(true)
   await page.reload()
-  await page.getByLabel('Study level',{exact:true}).selectOption('5')
-  await page.getByRole('button',{name:'Pronounce qǐng'}).click()
+  await page.getByLabel('Study level',{exact:true}).selectOption('10')
+  await page.getByRole('button',{name:'Pronounce lín'}).click()
   await expect.poll(()=>page.locator('audio').first().evaluate((el:HTMLAudioElement)=>el.currentTime)).toBeGreaterThan(0)
 })
 test('a failed audio request shows a retryable error', async ({page}) => {
@@ -38,7 +39,7 @@ test('library playback never overlaps two voices', async ({page}) => {
   await page.getByRole('button',{name:'Pronounce èr',exact:true}).click()
   await expect.poll(()=>page.locator('audio').evaluateAll(elements=>elements.filter(el=>!(el as HTMLAudioElement).paused).length)).toBeLessThanOrEqual(1)
 })
-test('all 200 clips decode into non-silent browser audio', async ({page}) => {
+test('all 400 clips decode into non-silent browser audio', async ({page}) => {
   test.setTimeout(90000)
   await page.goto('/')
   const result=await page.evaluate(async()=>{
@@ -54,5 +55,5 @@ test('all 200 clips decode into non-silent browser audio', async ({page}) => {
     await context.close()
     return {count:manifest.clips.length,bad}
   })
-  expect(result).toEqual({count:200,bad:[]})
+  expect(result).toEqual({count:400,bad:[]})
 })

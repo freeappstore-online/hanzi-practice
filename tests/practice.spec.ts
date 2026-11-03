@@ -28,6 +28,8 @@ test('real strokes complete once and persist after reload', async ({page}) => {
   await page.reload()
   await page.getByRole('link',{name:'Progress',exact:true}).click()
   await expect(page.getByText('Guided · 0 retries · 0 hints')).toBeVisible()
+  await page.getByRole('link',{name:'Characters',exact:true}).click()
+  await expect(page.getByLabel('1 completed practice',{exact:true})).toBeVisible()
 })
 test('incorrect direction is rejected and hint use is recorded', async ({page}) => {
   await page.goto('/')
@@ -53,9 +55,10 @@ test('touch writing and recall work on a phone', async ({browser}) => {
 })
 test('library search, character selection, navigation and multi-stroke completion', async ({page}) => {
   await page.goto('/characters')
-  await page.getByPlaceholder('Search characters, pinyin, or meaning').fill('shan')
+  await page.getByPlaceholder('Search characters').fill('shan')
   await page.getByRole('button',{name:'Practice 山, mountain'}).click()
-  await page.getByRole('button',{name:'Start practice',exact:true}).click()
+  await expect(page.getByRole('button',{name:'Practice again',exact:true})).toBeEnabled()
+  await expect(page.getByRole('link',{name:'Practice',exact:true})).toHaveAttribute('aria-current','page')
   await draw(page,'山')
   await expect.poll(() => page.evaluate(() => JSON.parse(localStorage.getItem('hanzi-practice:progress:v1') || '[]').length)).toBeGreaterThan(0)
   await page.goBack()
@@ -73,6 +76,7 @@ test('animation does not save practice and remains usable after resizing', async
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
 })
 test('offline reload can load a different bundled character', async ({page,context}) => {
+  test.setTimeout(60000)
   await page.goto('/')
   await page.evaluate(async () => { await navigator.serviceWorker.ready })
   await expect.poll(() => page.evaluate(() => !!navigator.serviceWorker.controller)).toBe(true)
@@ -80,7 +84,7 @@ test('offline reload can load a different bundled character', async ({page,conte
   await page.reload()
   await page.getByLabel('Choose a character').selectOption('好')
   await expect(page.getByRole('button',{name:'Start practice',exact:true})).toBeEnabled()
-  await expect(page.getByText('6 strokes',{exact:true})).toBeVisible()
+  await expect(page.getByRole('progressbar',{name:'Stroke progress'})).toHaveAttribute('aria-valuemax','6')
 })
 test('unavailable storage reports unsaved progress instead of crashing', async ({page}) => {
   await page.addInitScript(() => {
@@ -127,20 +131,21 @@ test('completing characters advances and starts the next exercise automatically'
   await expect.poll(() => page.evaluate(() => JSON.parse(localStorage.getItem('hanzi-practice:progress:v1') || '[]').map((a:{character:string})=>a.character).join(''))).toBe('一二')
 })
 test('automatic practice crosses a level boundary and stops at the end', async ({page}) => {
+  test.setTimeout(60000)
   await page.goto('/')
-  await page.getByLabel('Study level',{exact:true}).selectOption('2')
-  await page.getByLabel('Choose a character').selectOption('半')
-  await page.getByRole('button',{name:'Start practice',exact:true}).click();await draw(page,'半')
-  await expect(page.getByLabel('Study level',{exact:true})).toHaveValue('3')
-  await expect(page.getByLabel('Choose a character')).toHaveValue('米')
-  await expect(page.getByRole('button',{name:'Practice again',exact:true})).toBeEnabled()
   await page.getByLabel('Study level',{exact:true}).selectOption('5')
   await page.getByLabel('Choose a character').selectOption('出')
   await page.getByRole('button',{name:'Start practice',exact:true}).click();await draw(page,'出')
+  await expect(page.getByLabel('Study level',{exact:true})).toHaveValue('6')
+  await expect(page.getByLabel('Choose a character')).toHaveValue('头')
+  await expect(page.getByRole('button',{name:'Practice again',exact:true})).toBeEnabled()
+  await page.getByLabel('Study level',{exact:true}).selectOption('10')
+  await page.getByLabel('Choose a character').selectOption('被')
+  await page.getByRole('button',{name:'Start practice',exact:true}).click();await draw(page,'被')
   await expect(page.getByRole('status').filter({hasText:'End of the library'})).toBeVisible()
-  await expect(page.getByRole('button',{name:'Next character →'})).toBeDisabled()
+  await expect(page.getByRole('button',{name:'Next character'})).toBeDisabled()
   await page.waitForTimeout(1700) // Past the advance deadline: the final character must not wrap.
-  await expect(page.getByLabel('Choose a character')).toHaveValue('出')
+  await expect(page.getByLabel('Choose a character')).toHaveValue('被')
 })
 test('automatic practice can be disabled and navigation cancels pending advances', async ({page}) => {
   await page.goto('/')
@@ -162,7 +167,7 @@ test('library levels filter the collection and show matching-size character deta
   await page.goto('/characters')
   await expect(page.getByRole('button',{name:/^Practice /})).toHaveCount(40)
   await page.getByLabel('Library level').selectOption('2')
-  await page.getByPlaceholder('Search characters, pinyin, or meaning').fill('mother')
+  await page.getByPlaceholder('Search characters').fill('mother')
   await page.getByRole('button',{name:'Practice 妈, mother'}).click()
   await expect(page.getByLabel('Study level',{exact:true})).toHaveValue('2')
   await expect(page.getByLabel('Tone 1: high and level',{exact:true})).toBeVisible()
@@ -203,6 +208,30 @@ test('reopening restores the selected level, character, and autoplay setting', a
   await expect(page.getByLabel('Study level',{exact:true})).toHaveValue('4')
   await expect(page.getByLabel('Choose a character')).toHaveValue('字')
   await expect(page.getByRole('button',{name:'Autoplay',exact:true})).toHaveAttribute('aria-pressed','false')
+  await page.getByRole('link',{name:'Characters',exact:true}).click()
+  await expect(page.getByLabel('Library level')).toHaveValue('4')
+})
+
+test('mobile controls stay together and skipping continues an active exercise', async ({page}) => {
+  await page.setViewportSize({width:320,height:568})
+  await page.goto('/')
+  const controls=page.getByRole('group',{name:'Practice controls'})
+  await expect(controls).toBeVisible()
+  const boxes=await controls.getByRole('button').evaluateAll(buttons=>buttons.map(button=>{
+    const {top,width,height}=button.getBoundingClientRect()
+    return {top,width,height}
+  }))
+  expect(boxes).toHaveLength(5)
+  expect(new Set(boxes.map(box=>box.top)).size).toBe(1)
+  expect(boxes.every(box=>box.width>=44 && box.height>=44)).toBe(true)
+  await page.getByLabel('Study level',{exact:true}).selectOption('10')
+  await page.getByRole('button',{name:'Start practice',exact:true}).click()
+  await page.getByRole('button',{name:'Next character',exact:true}).click()
+  await expect(page.getByLabel('Choose a character')).toHaveValue('森')
+  await expect(page.getByRole('button',{name:'Practice again',exact:true})).toBeEnabled()
+  await page.reload()
+  await expect(page.getByLabel('Study level',{exact:true})).toHaveValue('10')
+  await expect(page.getByLabel('Choose a character')).toHaveValue('森')
 })
 
 test.describe('preloading',()=>{

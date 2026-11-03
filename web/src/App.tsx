@@ -2,10 +2,11 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { initApp } from '@freeappstore/sdk'
 import { Badge, Card, EmptyState, PageHeader, SearchInput, Shell, type NavItem } from '@freeappstore/sdk/ui'
 import { Button } from './Button'
-import { CHARACTERS, LEVELS, GROUPS, charactersForLevel, findCharacter, type Character } from './characters'
+import { CHARACTERS, LEVELS, charactersForLevel, findCharacter, type Character } from './characters'
 import { CharacterDetails } from './Pronunciation'
 import { readPreferences, savePreferences } from './preferences'
 import { Practice } from './Practice'
+import { PracticeIcon } from './PracticeIcon'
 import { appendAttempt, characterStats, localDay, parseProgress, STORAGE_KEY, type Attempt, type Progress } from './progress'
 
 const fas = initApp({ appId: 'hanzi-practice' })
@@ -17,7 +18,12 @@ const NAV: NavItem[] = [
 ]
 export default function App() {
   const [path, setPath] = useState(location.pathname)
-  const navigate = (href: string) => { history.pushState(null, '', href); setPath(href) }
+  const navigate = (href: string) => {
+    history.pushState(null, '', href)
+    setPath(href)
+    // Keep the shared header in sync when a screen's play button navigates.
+    dispatchEvent(new PopStateEvent('popstate'))
+  }
   useEffect(() => {
     const sync = () => setPath(location.pathname)
     addEventListener('popstate', sync)
@@ -29,6 +35,7 @@ export default function App() {
 }
 function Screens({path, navigate}: {path: string; navigate: (href: string) => void}) {
   const [preferences, setPreferences] = useState(readPreferences)
+  const [practiceRequest, setPracticeRequest] = useState(0)
   const character = findCharacter(preferences.character)
   const setCharacter = useCallback((next: Character) => setPreferences(p => ({...p, character: next.hanzi})), [])
   const setAutoplay = useCallback((autoplay: boolean) => setPreferences(p => ({...p, autoplay})), [])
@@ -51,44 +58,47 @@ function Screens({path, navigate}: {path: string; navigate: (href: string) => vo
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); setStorageWarning('') }
     catch { setStorageWarning('Device storage is unavailable or full. Progress is kept only until this page closes.') }
   }, [])
-  const choose = (c: Character) => { setCharacter(c); navigate('/') }
+  const choose = (c: Character) => { setCharacter(c); setPracticeRequest(n => n + 1); navigate('/') }
   const practiceActive = !['/characters','/progress','/about'].includes(path)
   return <div className="mx-auto w-full max-w-5xl p-4 sm:p-7">
     {storageWarning && <p role="alert" className="mb-4 rounded border border-warning bg-warning-soft p-3 text-sm">{storageWarning}</p>}
     <section hidden={!practiceActive}>
       <div className="sr-only"><PageHeader title="Character practice" /></div>
-      <Practice character={character} onSelect={setCharacter} onComplete={complete} active={practiceActive} autoAdvance={preferences.autoplay} onAutoAdvanceChange={setAutoplay} />
+      <Practice character={character} onSelect={setCharacter} onComplete={complete} active={practiceActive} autoAdvance={preferences.autoplay} onAutoAdvanceChange={setAutoplay} practiceRequest={practiceRequest} />
     </section>
-    {path === '/characters' && <Library progress={progress} choose={choose} />}
+    {path === '/characters' && <Library progress={progress} choose={choose} initialLevel={character.level} />}
     {path === '/progress' && <ProgressScreen progress={progress} choose={choose} />}
     {path === '/about' && <About />}
   </div>
 }
-function Library({progress, choose}: {progress: Progress; choose: (c: Character) => void}) {
+function Library({progress, choose, initialLevel}: {progress: Progress; choose: (c: Character) => void; initialLevel: number}) {
   const [search, setSearch] = useState('')
   const [group, setGroup] = useState('All')
-  const [level, setLevel] = useState('1')
+  const [level, setLevel] = useState(String(initialLevel))
   const query = search.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  const availableGroups = [...new Set(CHARACTERS.filter(c => level === 'all' || c.level === Number(level)).map(c => c.group))]
   const visible = CHARACTERS.filter(c => (level === 'all' || c.level === Number(level)) && (group === 'All' || c.group === group) && `${c.hanzi} ${c.pinyin} ${c.meaning}`.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(query))
   return <>
     <PageHeader title="Characters" />
-    <div className="mb-6 grid gap-3 sm:grid-cols-2">
-      <SearchInput value={search} onChange={setSearch} placeholder="Search characters, pinyin, or meaning" />
+    <div className="mb-4 grid grid-cols-2 gap-3">
+      <SearchInput className="col-span-2" value={search} onChange={setSearch} placeholder="Search characters" />
       <select aria-label="Library level" value={level} onChange={e => { setLevel(e.target.value); setGroup('All') }} className="min-h-11 min-w-0 rounded-sm border border-line-strong bg-panel px-3">
         <option value="all">All levels</option>{LEVELS.map(l => <option key={l.id} value={l.id}>Level {l.id} · {l.name}</option>)}
       </select>
-      <select aria-label="Character group" value={group} onChange={e => setGroup(e.target.value)} className="min-h-11 rounded-sm border border-line-strong bg-panel px-3">
-        {['All', ...GROUPS].map(g => <option key={g}>{g}</option>)}
+      <select aria-label="Character group" value={group} onChange={e => setGroup(e.target.value)} className="min-h-11 min-w-0 rounded-sm border border-line-strong bg-panel px-3">
+        {['All', ...availableGroups].map(g => <option key={g} value={g}>{g === 'All' ? 'All groups' : g}</option>)}
       </select>
     </div>
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {visible.map(c => {
         const stats = characterStats(progress, c.hanzi)
+        const practiceLabel = `${stats.total} completed ${stats.total === 1 ? 'practice' : 'practices'}`
         return <div key={c.hanzi} className="min-w-0 rounded border border-line-strong bg-panel p-4">
           <CharacterDetails character={c} />
           <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
-            <Badge variant={stats.recalled ? 'success' : stats.total ? 'accent' : 'default'}>{stats.recalled ? 'Recalled' : stats.total ? `${stats.total} practices` : `Level ${c.level}`}</Badge>
-            <Button onClick={() => choose(c)} aria-label={`Practice ${c.hanzi}, ${c.meaning}`}>Practice</Button>
+            {stats.total > 0 && <span aria-label={practiceLabel} title={`${practiceLabel} · ${stats.recalled} from memory`}><Badge variant="success"><span className="inline-flex items-center gap-1"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m5 12 4 4L19 6" /></svg>{stats.total}</span></Badge></span>}
+            {stats.total === 0 && level === 'all' && <Badge>Level {c.level}</Badge>}
+            <Button iconOnly className="ml-auto" onClick={() => choose(c)} aria-label={`Practice ${c.hanzi}, ${c.meaning}`} title={`Practice ${c.hanzi}`}><PracticeIcon name="play" /></Button>
           </div>
         </div>
       })}
@@ -129,7 +139,7 @@ function About() {
     <PageHeader title="About" />
     <div className="max-w-2xl space-y-5 text-sm leading-relaxed">
       <Card><h2 className="mb-2 text-lg font-bold">Watch. Trace. Recall.</h2><p>Watch the strokes before you write. Use Guided mode to follow the outline, then From memory to hide both the outline and the reference glyph. Draw with a finger, stylus, or mouse. The app checks stroke shape, direction, and order; it does not grade calligraphy.</p></Card>
-      <Card><h2 className="mb-2 text-lg font-bold">200 characters across five study levels</h2><p>The library uses simplified Chinese where forms differ. Each app study level has 40 characters; these levels are not an official HSK syllabus. Open the app online once and allow it to finish loading; the app, character data, and pronunciation audio are then cached for offline practice.</p></Card>
+      <Card><h2 className="mb-2 text-lg font-bold">{CHARACTERS.length} characters across {LEVELS.length} study levels</h2><p>The library uses simplified Chinese where forms differ. Each app study level has 40 characters; these levels are not an official HSK syllabus. Open the app online once and allow it to finish loading; the app, character data, and pronunciation audio are then cached for offline practice.</p></Card>
       <Card><h2 className="mb-2 text-lg font-bold">Listen and see the tone</h2><p>Tap a character or its pinyin for Mandarin pronunciation. Tap the pitch curve for the tone guide. The pitch curve beside pinyin shows the tone: 1 level, 2 rising, 3 dipping then rising, 4 falling, and 5 neutral. The displayed reading and audio are for the character in isolation; some characters have other readings or change tone in a phrase.</p><p className="mt-2">Audio is generated with the free <a href="https://huggingface.co/hexgrad/Kokoro-82M-v1.1-zh" className="text-accent underline">Kokoro Mandarin model</a> and bundled with the app. No speech API, key, or on-device model download is needed.</p></Card>
       <Card><h2 className="mb-2 text-lg font-bold">Keep writing</h2><p>After a character is complete, practice moves to the next one and starts it automatically. You can turn this off with the autoplay button. At the end of a level it continues into the next level; at the end of the library it stops.</p></Card>
       <Card><h2 className="mb-2 text-lg font-bold">Your practice stays here</h2><p>No account is needed. Results, your current character and level, and the autoplay setting are saved in this browser on this device. Clearing browser storage removes them; signing in does not sync them. Private browsing may discard them when you close the window.</p></Card>

@@ -1806,6 +1806,1806 @@
       "file": "51fa.mp3",
       "seconds": 1.001,
       "sha256": "892299443d1ae9d9406506d4486918d3318851054e7676f6f57cf949ef9d0c07"
+    },
+    {
+      "hanzi": "头",
+      "pinyin": "tóu",
+      "tone": 2,
+      "phonemes": "ㄊㄡ2.",
+      "file": "5934.mp3",
+      "seconds": 1.034,
+      "sha256": "c4a775d279e596f060295e2582517b15bc91027ea6e16322cf6e79c950233bdb"
+    },
+    {
+      "hanzi": "脸",
+      "pinyin": "liǎn",
+      "tone": 3,
+      "phonemes": "ㄌ言3.",
+      "file": "8138.mp3",
+      "seconds": 0.985,
+      "sha256": "6abae9312a91d87766e70df411806ced7d3f0e6e8e9aa9362799641a11bf93c0"
+    },
+    {
+      "hanzi": "眼",
+      "pinyin": "yǎn",
+      "tone": 3,
+      "phonemes": "言3.",
+      "file": "773c.mp3",
+      "seconds": 0.949,
+      "sha256": "b2ca4998c344fe30f0b1caec164cecc138a9ed055edf772eef284ff6e41bdbf5"
+    },
+    {
+      "hanzi": "耳",
+      "pinyin": "ěr",
+      "tone": 3,
+      "phonemes": "ㄦ3.",
+      "file": "8033.mp3",
+      "seconds": 0.959,
+      "sha256": "20e8be60ab7ab440b6e47a1ae6988c4b5a6c7d4e540598acccbaf47e988a3404"
+    },
+    {
+      "hanzi": "鼻",
+      "pinyin": "bí",
+      "tone": 2,
+      "phonemes": "ㄅㄧ2.",
+      "file": "9f3b.mp3",
+      "seconds": 0.981,
+      "sha256": "3d88e6b2d2fe50c73232a7b9bb8225451c926d91bbabb82f3aceeae490e9c3cd"
+    },
+    {
+      "hanzi": "牙",
+      "pinyin": "yá",
+      "tone": 2,
+      "phonemes": "压2.",
+      "file": "7259.mp3",
+      "seconds": 0.96,
+      "sha256": "009fb2be01f0c92468ba3767c959832150c17584f7528b1454d48ff51ae76a17"
+    },
+    {
+      "hanzi": "舌",
+      "pinyin": "shé",
+      "tone": 2,
+      "phonemes": "ㄕㄜ2.",
+      "file": "820c.mp3",
+      "seconds": 1.035,
+      "sha256": "c5a60427b38f455efd13594188cf897c506ffb994b13a60675d6432a969f833c"
+    },
+    {
+      "hanzi": "足",
+      "pinyin": "zú",
+      "tone": 2,
+      "phonemes": "ㄗㄨ2.",
+      "file": "8db3.mp3",
+      "seconds": 1.055,
+      "sha256": "cc648f7cfe72a1c60625f1f78f1a11b62be58e17d66576916d609788edf07890"
+    },
+    {
+      "hanzi": "腿",
+      "pinyin": "tuǐ",
+      "tone": 3,
+      "phonemes": "ㄊ为3.",
+      "file": "817f.mp3",
+      "seconds": 1.004,
+      "sha256": "07a88a8b38a4007577add5ad4003b3c93ad755e76018d63adbfd9de706f972d6"
+    },
+    {
+      "hanzi": "背",
+      "pinyin": "bèi",
+      "tone": 4,
+      "phonemes": "ㄅㄟ4.",
+      "file": "80cc.mp3",
+      "seconds": 0.95,
+      "sha256": "5580e806961612022d420bb23ae53846f314503bcf6d2919e523c6222d56a464"
+    },
+    {
+      "hanzi": "衣",
+      "pinyin": "yī",
+      "tone": 1,
+      "phonemes": "ㄧ1.",
+      "file": "8863.mp3",
+      "seconds": 1.119,
+      "sha256": "2b7dd56dc3ff0ad3c84dd2a499bc727f8523ba59535025f7772f70ce0f70a366"
+    },
+    {
+      "hanzi": "服",
+      "pinyin": "fú",
+      "tone": 2,
+      "phonemes": "ㄈㄨ2.",
+      "file": "670d.mp3",
+      "seconds": 1.131,
+      "sha256": "d0710995b6984f1d265c8f2f51fef4decf962786fbd486410b71732df85b6558"
+    },
+    {
+      "hanzi": "帽",
+      "pinyin": "mào",
+      "tone": 4,
+      "phonemes": "ㄇㄠ4.",
+      "file": "5e3d.mp3",
+      "seconds": 0.983,
+      "sha256": "3d4d3678aa2b40c068db1149a209fbbd102aa7adf0faf45a1d64a56441863df4"
+    },
+    {
+      "hanzi": "鞋",
+      "pinyin": "xié",
+      "tone": 2,
+      "phonemes": "ㄒㄝ2.",
+      "file": "978b.mp3",
+      "seconds": 1.001,
+      "sha256": "401bae24e03c7a4d8a5a709d8fbbdb3e2435ad6e779bc8c5f87c92c3a0120092"
+    },
+    {
+      "hanzi": "袜",
+      "pinyin": "wà",
+      "tone": 4,
+      "phonemes": "穵4.",
+      "file": "889c.mp3",
+      "seconds": 1.201,
+      "sha256": "8e8a10ca54781772f5b006e5802e44a25165f79c81a9dd95859cf93f21b92a47"
+    },
+    {
+      "hanzi": "裤",
+      "pinyin": "kù",
+      "tone": 4,
+      "phonemes": "ㄎㄨ4.",
+      "file": "88e4.mp3",
+      "seconds": 1.003,
+      "sha256": "2465bddb4b06c55660a7e3fb9bb9ea745e7c063576b5ae46e5989e5cd09dcb9a"
+    },
+    {
+      "hanzi": "裙",
+      "pinyin": "qún",
+      "tone": 2,
+      "phonemes": "ㄑ云2.",
+      "file": "88d9.mp3",
+      "seconds": 1.013,
+      "sha256": "975e848ff1f61e9f99d382711a12cb67e780bda84f15ac9b3d4b916c1476a0ed"
+    },
+    {
+      "hanzi": "衫",
+      "pinyin": "shān",
+      "tone": 1,
+      "phonemes": "ㄕㄢ1.",
+      "file": "886b.mp3",
+      "seconds": 1.001,
+      "sha256": "64ff3e51954ab17aba01ed2e18cfdf2265266157996b90983048897e1ad6dc16"
+    },
+    {
+      "hanzi": "穿",
+      "pinyin": "chuān",
+      "tone": 1,
+      "phonemes": "ㄔ万1.",
+      "file": "7a7f.mp3",
+      "seconds": 1.033,
+      "sha256": "08014945bf8584f6509804b6f582b7222eeffabea41c1d7f6e6e59edce97b4b1"
+    },
+    {
+      "hanzi": "脱",
+      "pinyin": "tuō",
+      "tone": 1,
+      "phonemes": "ㄊ我1.",
+      "file": "8131.mp3",
+      "seconds": 1.024,
+      "sha256": "39fd2e8f2509429a92b2c5e8e36bde7823e2699e5967e88c1e6ccc1df685ccce"
+    },
+    {
+      "hanzi": "红",
+      "pinyin": "hóng",
+      "tone": 2,
+      "phonemes": "ㄏ中2.",
+      "file": "7ea2.mp3",
+      "seconds": 0.983,
+      "sha256": "d5caace01c60c2e3f98b2b9cb272670d739023e220e8fba2743c8db2e9c91813"
+    },
+    {
+      "hanzi": "黄",
+      "pinyin": "huáng",
+      "tone": 2,
+      "phonemes": "ㄏ王2.",
+      "file": "9ec4.mp3",
+      "seconds": 1.003,
+      "sha256": "8cb2b2de01c90422cf0e55edc41e5698aba2c98427d9993f4b3fa44470f643ed"
+    },
+    {
+      "hanzi": "蓝",
+      "pinyin": "lán",
+      "tone": 2,
+      "phonemes": "ㄌㄢ2.",
+      "file": "84dd.mp3",
+      "seconds": 0.974,
+      "sha256": "341b6051583b1f4d36b23fa2196f7aced372c3946839952e35f047c3db527904"
+    },
+    {
+      "hanzi": "绿",
+      "pinyin": "lǜ",
+      "tone": 4,
+      "phonemes": "ㄌㄩ4.",
+      "file": "7eff.mp3",
+      "seconds": 0.971,
+      "sha256": "b7dcb7fc00e099e42108b292cbf920929c9926a252e9cbac391ff80b712229d9"
+    },
+    {
+      "hanzi": "白",
+      "pinyin": "bái",
+      "tone": 2,
+      "phonemes": "ㄅㄞ2.",
+      "file": "767d.mp3",
+      "seconds": 0.951,
+      "sha256": "4fd1cdc94a841cf0210b57b557b22ec6d52fa4ab5358ca51b00afa0e5879640e"
+    },
+    {
+      "hanzi": "黑",
+      "pinyin": "hēi",
+      "tone": 1,
+      "phonemes": "ㄏㄟ1.",
+      "file": "9ed1.mp3",
+      "seconds": 1.003,
+      "sha256": "138189f55a339cfa7333c2d77cd0faf49241dfca910403bb870c7fa613defa6d"
+    },
+    {
+      "hanzi": "色",
+      "pinyin": "sè",
+      "tone": 4,
+      "phonemes": "ㄙㄜ4.",
+      "file": "8272.mp3",
+      "seconds": 1.024,
+      "sha256": "b98722c87d3b7eea37d1813ad6276a680df0ae2a539f4ab75f22ff28c2cdf288"
+    },
+    {
+      "hanzi": "紫",
+      "pinyin": "zǐ",
+      "tone": 3,
+      "phonemes": "ㄗㄭ3.",
+      "file": "7d2b.mp3",
+      "seconds": 0.974,
+      "sha256": "cfb91ed9a1d5d73e55fdfa3fbc560f7590b1c0a748a48166ad7af6880f9abc11"
+    },
+    {
+      "hanzi": "灰",
+      "pinyin": "huī",
+      "tone": 1,
+      "phonemes": "ㄏ为1.",
+      "file": "7070.mp3",
+      "seconds": 1.003,
+      "sha256": "a6e86ea3cf959e303b2e8d59967bb33a268c4f1b5b7e237745bd16ebe334b51d"
+    },
+    {
+      "hanzi": "金",
+      "pinyin": "jīn",
+      "tone": 1,
+      "phonemes": "ㄐ阴1.",
+      "file": "91d1.mp3",
+      "seconds": 1.077,
+      "sha256": "11ba1f3762eb0954c2a9b02016e83bcad668dc5a8574bee0f78d39b583dda5e3"
+    },
+    {
+      "hanzi": "猫",
+      "pinyin": "māo",
+      "tone": 1,
+      "phonemes": "ㄇㄠ1.",
+      "file": "732b.mp3",
+      "seconds": 0.984,
+      "sha256": "c7c2c0fd497bcff120e9170c312abce4942ca4cf8b0ff2ec54eeae2b8f3d4d0d"
+    },
+    {
+      "hanzi": "狗",
+      "pinyin": "gǒu",
+      "tone": 3,
+      "phonemes": "ㄍㄡ3.",
+      "file": "72d7.mp3",
+      "seconds": 0.959,
+      "sha256": "f54a609563f64c15ced24274d67548769819f1cf796ef123cea1d84565c5c4ab"
+    },
+    {
+      "hanzi": "牛",
+      "pinyin": "niú",
+      "tone": 2,
+      "phonemes": "ㄋ又2.",
+      "file": "725b.mp3",
+      "seconds": 0.984,
+      "sha256": "03e3b43b34ac4a248f79eaa43b3eefdfd5dc494007e6a45c979915d1ff0c7022"
+    },
+    {
+      "hanzi": "羊",
+      "pinyin": "yáng",
+      "tone": 2,
+      "phonemes": "阳2.",
+      "file": "7f8a.mp3",
+      "seconds": 0.95,
+      "sha256": "e485fb6d723dc3bf0bd436a78e0b9f2c5c079da10133aca215da40ccaca9009c"
+    },
+    {
+      "hanzi": "猪",
+      "pinyin": "zhū",
+      "tone": 1,
+      "phonemes": "ㄓㄨ1.",
+      "file": "732a.mp3",
+      "seconds": 0.981,
+      "sha256": "5a6635800665b23fd9c028c85f2618db00545d7d3a89ad1f50a02948a84b7a0a"
+    },
+    {
+      "hanzi": "鸡",
+      "pinyin": "jī",
+      "tone": 1,
+      "phonemes": "ㄐㄧ1.",
+      "file": "9e21.mp3",
+      "seconds": 1.119,
+      "sha256": "bfe79b4ef85d7727dddd670e12958303bc878a4b3991399d83594b40b6918f89"
+    },
+    {
+      "hanzi": "鸭",
+      "pinyin": "yā",
+      "tone": 1,
+      "phonemes": "压1.",
+      "file": "9e2d.mp3",
+      "seconds": 1.011,
+      "sha256": "932f5d7b7199094dfb3df38687a21ad545502a26cdd9c79c03166ed07f520d56"
+    },
+    {
+      "hanzi": "兔",
+      "pinyin": "tù",
+      "tone": 4,
+      "phonemes": "ㄊㄨ4.",
+      "file": "5154.mp3",
+      "seconds": 1.003,
+      "sha256": "1feec921ecc1b1eb33add6ce10351acfd0d6486ae2e727a1ee42cdc55a826145"
+    },
+    {
+      "hanzi": "虫",
+      "pinyin": "chóng",
+      "tone": 2,
+      "phonemes": "ㄔ中2.",
+      "file": "866b.mp3",
+      "seconds": 0.984,
+      "sha256": "40dbb5c4d9d12a2dd5be2869862314b13a10f9ac4fe0ab5634e6e3f9db2d91c4"
+    },
+    {
+      "hanzi": "龙",
+      "pinyin": "lóng",
+      "tone": 2,
+      "phonemes": "ㄌ中2.",
+      "file": "9f99.mp3",
+      "seconds": 0.984,
+      "sha256": "f2d39680ee4d0d6fc1c0d490be558ab89da1b652694e42977248aa0785ad6b46"
+    },
+    {
+      "hanzi": "飞",
+      "pinyin": "fēi",
+      "tone": 1,
+      "phonemes": "ㄈㄟ1.",
+      "file": "98de.mp3",
+      "seconds": 1.001,
+      "sha256": "e1a36b99becabc23f61bbbfc046f6d49da74c4d42f130a83e5c4218867844223"
+    },
+    {
+      "hanzi": "船",
+      "pinyin": "chuán",
+      "tone": 2,
+      "phonemes": "ㄔ万2.",
+      "file": "8239.mp3",
+      "seconds": 1.024,
+      "sha256": "4f8539f9839bef8ca1ff7e59b266db6c3f6a869201b5bc0434f5361a63128888"
+    },
+    {
+      "hanzi": "汽",
+      "pinyin": "qì",
+      "tone": 4,
+      "phonemes": "ㄑㄧ4.",
+      "file": "6c7d.mp3",
+      "seconds": 0.991,
+      "sha256": "c8ab7629c8bc71953ceb3abd45ff1f5a8afc76a1d327d41379fbf84243659db7"
+    },
+    {
+      "hanzi": "铁",
+      "pinyin": "tiě",
+      "tone": 3,
+      "phonemes": "ㄊㄝ3.",
+      "file": "94c1.mp3",
+      "seconds": 0.984,
+      "sha256": "c932c2a1d9fe3e7959bcadf655615321e33beb115bc47d83ac5c875082202d42"
+    },
+    {
+      "hanzi": "票",
+      "pinyin": "piào",
+      "tone": 4,
+      "phonemes": "ㄆ要4.",
+      "file": "7968.mp3",
+      "seconds": 1.024,
+      "sha256": "6548f47505fc5203d61631651ed63aeebfd5e317a8d99a70012fa138dc3fc8a5"
+    },
+    {
+      "hanzi": "旅",
+      "pinyin": "lǚ",
+      "tone": 3,
+      "phonemes": "ㄌㄩ3.",
+      "file": "65c5.mp3",
+      "seconds": 0.977,
+      "sha256": "42dee221d82a7eb50f30e678dca90951b5a0ae446fc95b9e0b645b22f59937cc"
+    },
+    {
+      "hanzi": "游",
+      "pinyin": "yóu",
+      "tone": 2,
+      "phonemes": "又2.",
+      "file": "6e38.mp3",
+      "seconds": 0.95,
+      "sha256": "2619860e361a1e36287c0cd1f37203d4c39b90f7e9ed756c44b876da2f3eca41"
+    },
+    {
+      "hanzi": "住",
+      "pinyin": "zhù",
+      "tone": 4,
+      "phonemes": "ㄓㄨ4.",
+      "file": "4f4f.mp3",
+      "seconds": 0.951,
+      "sha256": "608129bf884828cd38265bf224ece60cf9cccad533e10f0b5f0273440f8b055d"
+    },
+    {
+      "hanzi": "宿",
+      "pinyin": "sù",
+      "tone": 4,
+      "phonemes": "ㄙㄨ4.",
+      "file": "5bbf.mp3",
+      "seconds": 0.981,
+      "sha256": "59f07f4301bea91e46426e3eaed6383ca71128f22bfda7b60997b784a1df50e3"
+    },
+    {
+      "hanzi": "馆",
+      "pinyin": "guǎn",
+      "tone": 3,
+      "phonemes": "ㄍ万3.",
+      "file": "9986.mp3",
+      "seconds": 0.974,
+      "sha256": "3274cde56dd34bf6a3bd95ce700f52ce04b29fb86f16410de2d7619b922df828"
+    },
+    {
+      "hanzi": "商",
+      "pinyin": "shāng",
+      "tone": 1,
+      "phonemes": "ㄕㄤ1.",
+      "file": "5546.mp3",
+      "seconds": 0.973,
+      "sha256": "6ca2543bea85c3c5124fbc5f42d015f13864be2ab054fd8596f8acaa67748459"
+    },
+    {
+      "hanzi": "价",
+      "pinyin": "jià",
+      "tone": 4,
+      "phonemes": "ㄐ压4.",
+      "file": "4ef7.mp3",
+      "seconds": 0.951,
+      "sha256": "141c1bbc58a39e70c322359f7ea94be39a55db7f19768001417230995569250b"
+    },
+    {
+      "hanzi": "贵",
+      "pinyin": "guì",
+      "tone": 4,
+      "phonemes": "ㄍ为4.",
+      "file": "8d35.mp3",
+      "seconds": 0.983,
+      "sha256": "9397f697a1c1bce7effb1bd649072e72c769da3e3d5d416abeddbb7ba3cf5e6f"
+    },
+    {
+      "hanzi": "元",
+      "pinyin": "yuán",
+      "tone": 2,
+      "phonemes": "元2.",
+      "file": "5143.mp3",
+      "seconds": 0.959,
+      "sha256": "5a93ebd7f2b556b7e7aab561782d4761a7b4302b5e693d43143406481c1f235a"
+    },
+    {
+      "hanzi": "块",
+      "pinyin": "kuài",
+      "tone": 4,
+      "phonemes": "ㄎ外4.",
+      "file": "5757.mp3",
+      "seconds": 0.983,
+      "sha256": "919b9be2b589bb328302bccde60e5c6f0aa6f293c1677d98f15349e117483e2d"
+    },
+    {
+      "hanzi": "斤",
+      "pinyin": "jīn",
+      "tone": 1,
+      "phonemes": "ㄐ阴1.",
+      "file": "65a4.mp3",
+      "seconds": 1.067,
+      "sha256": "13771daa98ca2759b1cca5b04f1b5ac5917d42dc1a69d5fbfb01857d0f0bb5ce"
+    },
+    {
+      "hanzi": "两",
+      "pinyin": "liǎng",
+      "tone": 3,
+      "phonemes": "ㄌ阳3.",
+      "file": "4e24.mp3",
+      "seconds": 0.985,
+      "sha256": "7ed7143190ae71ba141d5a02c47e9aa042b3a73de110337e205cfea3c621874c"
+    },
+    {
+      "hanzi": "百",
+      "pinyin": "bǎi",
+      "tone": 3,
+      "phonemes": "ㄅㄞ3.",
+      "file": "767e.mp3",
+      "seconds": 0.983,
+      "sha256": "b92aa48c76ae1252844027f39cd073eedec79df4f808561f964b6a3a3a738fe2"
+    },
+    {
+      "hanzi": "千",
+      "pinyin": "qiān",
+      "tone": 1,
+      "phonemes": "ㄑ言1.",
+      "file": "5343.mp3",
+      "seconds": 1.024,
+      "sha256": "3effaadacd95c96ba1167fff0b5cd5eeea8b9f48fd709824b25c59c4135b9163"
+    },
+    {
+      "hanzi": "万",
+      "pinyin": "wàn",
+      "tone": 4,
+      "phonemes": "万4.",
+      "file": "4e07.mp3",
+      "seconds": 0.971,
+      "sha256": "ee94acc73b69047c86d867cbd4a214069b6538d7f613ad484722c996f52351c1"
+    },
+    {
+      "hanzi": "奶",
+      "pinyin": "nǎi",
+      "tone": 3,
+      "phonemes": "ㄋㄞ3.",
+      "file": "5976.mp3",
+      "seconds": 1.005,
+      "sha256": "d581c144c6dce991ffe186593be4832ba4a1996a6125337f89e4e97f62807489"
+    },
+    {
+      "hanzi": "汤",
+      "pinyin": "tāng",
+      "tone": 1,
+      "phonemes": "ㄊㄤ1.",
+      "file": "6c64.mp3",
+      "seconds": 0.985,
+      "sha256": "741e1724befb9d606d13dd9451746bf4f1ce04ff4e1663db699e9cde44fdad4a"
+    },
+    {
+      "hanzi": "盐",
+      "pinyin": "yán",
+      "tone": 2,
+      "phonemes": "言2.",
+      "file": "76d0.mp3",
+      "seconds": 0.959,
+      "sha256": "d30cfbb2585d10aac38772e31709d38a3e4561b4a8ed192409127f2afd83e311"
+    },
+    {
+      "hanzi": "油",
+      "pinyin": "yóu",
+      "tone": 2,
+      "phonemes": "又2.",
+      "file": "6cb9.mp3",
+      "seconds": 0.95,
+      "sha256": "ddfc034c1da28be2bf5316406faa4bf035adc2dd40d91a964b7f6f8b47b0183d"
+    },
+    {
+      "hanzi": "甜",
+      "pinyin": "tián",
+      "tone": 2,
+      "phonemes": "ㄊ言2.",
+      "file": "751c.mp3",
+      "seconds": 1.005,
+      "sha256": "3afd1d5116b720a135944d21b62030bdf5b061c89a29dbebf4ec4a50a93e34fc"
+    },
+    {
+      "hanzi": "酸",
+      "pinyin": "suān",
+      "tone": 1,
+      "phonemes": "ㄙ万1.",
+      "file": "9178.mp3",
+      "seconds": 0.97,
+      "sha256": "0d7171b6ace4922b117b1fdb3bbdfea5977d5acb68b754453dacbdafbec5bc17"
+    },
+    {
+      "hanzi": "苦",
+      "pinyin": "kǔ",
+      "tone": 3,
+      "phonemes": "ㄎㄨ3.",
+      "file": "82e6.mp3",
+      "seconds": 1.003,
+      "sha256": "db42f408848064a996a5dd2b43ba1d940e20c38f5da8f9395fd6e814b19b0ebd"
+    },
+    {
+      "hanzi": "辣",
+      "pinyin": "là",
+      "tone": 4,
+      "phonemes": "ㄌㄚ4.",
+      "file": "8fa3.mp3",
+      "seconds": 0.983,
+      "sha256": "94c530d00ebd6ad71b9cc67920d6ba4172859e1cc63e4e658e874f854f1e096b"
+    },
+    {
+      "hanzi": "饱",
+      "pinyin": "bǎo",
+      "tone": 3,
+      "phonemes": "ㄅㄠ3.",
+      "file": "9971.mp3",
+      "seconds": 1.003,
+      "sha256": "5e64290a904c9a4851870b5ed66836b776c3e56a23c148d92ce63d1194a28321"
+    },
+    {
+      "hanzi": "饿",
+      "pinyin": "è",
+      "tone": 4,
+      "phonemes": "ㄜ4.",
+      "file": "997f.mp3",
+      "seconds": 0.969,
+      "sha256": "8f4d8e7fd799e331958892fc7b7e68e56887190b42a243e7a5f2762842741306"
+    },
+    {
+      "hanzi": "地",
+      "pinyin": "dì",
+      "tone": 4,
+      "phonemes": "ㄉㄧ4.",
+      "file": "5730.mp3",
+      "seconds": 0.921,
+      "sha256": "a2adf18f46a91791bfd9c2d3b63aaf09503a789d48609fcde9ce3767719e31da"
+    },
+    {
+      "hanzi": "街",
+      "pinyin": "jiē",
+      "tone": 1,
+      "phonemes": "ㄐㄝ1.",
+      "file": "8857.mp3",
+      "seconds": 0.973,
+      "sha256": "ab620fad4701a7928056b4c8de98566ceb13cab3078eb42ce05451062ba87dd6"
+    },
+    {
+      "hanzi": "桥",
+      "pinyin": "qiáo",
+      "tone": 2,
+      "phonemes": "ㄑ要2.",
+      "file": "6865.mp3",
+      "seconds": 1.023,
+      "sha256": "29c24dab6245354b205eeacf1f2199f1b32c1aa3a741f1c5d0affc86d32bb288"
+    },
+    {
+      "hanzi": "楼",
+      "pinyin": "lóu",
+      "tone": 2,
+      "phonemes": "ㄌㄡ2.",
+      "file": "697c.mp3",
+      "seconds": 0.974,
+      "sha256": "8652892f8871be366b70c5d551cc1926caa3075af883ab4f8ac30d75137dbd75"
+    },
+    {
+      "hanzi": "层",
+      "pinyin": "céng",
+      "tone": 2,
+      "phonemes": "ㄘㄥ2.",
+      "file": "5c42.mp3",
+      "seconds": 1.004,
+      "sha256": "06f518e6d9bdbacaa78e686d8164e00deaf224943081350445bf634cec0a5a78"
+    },
+    {
+      "hanzi": "城",
+      "pinyin": "chéng",
+      "tone": 2,
+      "phonemes": "ㄔㄥ2.",
+      "file": "57ce.mp3",
+      "seconds": 0.984,
+      "sha256": "22b406ef391ae521b3ed2a12e427aaff33d0c3dc072244efaeb6dc88b50c53ac"
+    },
+    {
+      "hanzi": "乡",
+      "pinyin": "xiāng",
+      "tone": 1,
+      "phonemes": "ㄒ阳1.",
+      "file": "4e61.mp3",
+      "seconds": 0.971,
+      "sha256": "07bd33bc5a984e719aca11726fa75e077f3cbc508a99ba0a541dd837c213998f"
+    },
+    {
+      "hanzi": "场",
+      "pinyin": "chǎng",
+      "tone": 3,
+      "phonemes": "ㄔㄤ3.",
+      "file": "573a.mp3",
+      "seconds": 1.007,
+      "sha256": "4cf601cafb26e4fc893d26cb7de1159743746299d285c77e63edd30fb24a71d1"
+    },
+    {
+      "hanzi": "港",
+      "pinyin": "gǎng",
+      "tone": 3,
+      "phonemes": "ㄍㄤ3.",
+      "file": "6e2f.mp3",
+      "seconds": 0.984,
+      "sha256": "d4fc5f43921a31a0ac2d58b220dca3871970156a3da5ef0874f73ad59b3f59fa"
+    },
+    {
+      "hanzi": "岛",
+      "pinyin": "dǎo",
+      "tone": 3,
+      "phonemes": "ㄉㄠ3.",
+      "file": "5c9b.mp3",
+      "seconds": 0.983,
+      "sha256": "7cf5a1898be8b7841c360e21efbd3f97136e5bd239a35aceeae15f22889469c1"
+    },
+    {
+      "hanzi": "打",
+      "pinyin": "dǎ",
+      "tone": 3,
+      "phonemes": "ㄉㄚ3.",
+      "file": "6253.mp3",
+      "seconds": 0.973,
+      "sha256": "ea3f790b9bed64d3a93628ff1a50b1f5f57be9b29f937014607f54e7b0190260"
+    },
+    {
+      "hanzi": "拿",
+      "pinyin": "ná",
+      "tone": 2,
+      "phonemes": "ㄋㄚ2.",
+      "file": "62ff.mp3",
+      "seconds": 0.953,
+      "sha256": "720c864172dd774ecf6ef8aac29aa14fdf80e5ffd375cb19dd1981e8ea6f05c6"
+    },
+    {
+      "hanzi": "送",
+      "pinyin": "sòng",
+      "tone": 4,
+      "phonemes": "ㄙ中4.",
+      "file": "9001.mp3",
+      "seconds": 0.981,
+      "sha256": "edf7eb83310c8d21427811204f1b20840e3fb3bc193f81aa98cd7ce5f22cd081"
+    },
+    {
+      "hanzi": "回",
+      "pinyin": "huí",
+      "tone": 2,
+      "phonemes": "ㄏ为2.",
+      "file": "56de.mp3",
+      "seconds": 1.003,
+      "sha256": "a67586c6ff2f18af02fa52b1d708f6198de33535a7cdc8a7286c5941d46753fa"
+    },
+    {
+      "hanzi": "到",
+      "pinyin": "dào",
+      "tone": 4,
+      "phonemes": "ㄉㄠ4.",
+      "file": "5230.mp3",
+      "seconds": 1.196,
+      "sha256": "168a714f1cb5754f7e191e740fb6014d4eabb65dfbbb6e629aae7243be390b1f"
+    },
+    {
+      "hanzi": "起",
+      "pinyin": "qǐ",
+      "tone": 3,
+      "phonemes": "ㄑㄧ3.",
+      "file": "8d77.mp3",
+      "seconds": 0.98,
+      "sha256": "0fc8683aa903cc457a205925229bfe1c2e0282ced8123b9fe568e88feea6a139"
+    },
+    {
+      "hanzi": "睡",
+      "pinyin": "shuì",
+      "tone": 4,
+      "phonemes": "ㄕ为4.",
+      "file": "7761.mp3",
+      "seconds": 1.013,
+      "sha256": "82e7ecd516d9443dd33f6fb9c77081765596afc28abcc2e09f37b910d1d34fa7"
+    },
+    {
+      "hanzi": "洗",
+      "pinyin": "xǐ",
+      "tone": 3,
+      "phonemes": "ㄒㄧ3.",
+      "file": "6d17.mp3",
+      "seconds": 1.001,
+      "sha256": "6a72396662d7c03f62e9b0786d9811049713d3c93e87ade7301043f7477a611e"
+    },
+    {
+      "hanzi": "玩",
+      "pinyin": "wán",
+      "tone": 2,
+      "phonemes": "万2.",
+      "file": "73a9.mp3",
+      "seconds": 0.959,
+      "sha256": "8063a80493b1176dedd6303e520463ecfaff71dbba2b6a554f745151aa4d74e4"
+    },
+    {
+      "hanzi": "笑",
+      "pinyin": "xiào",
+      "tone": 4,
+      "phonemes": "ㄒ要4.",
+      "file": "7b11.mp3",
+      "seconds": 1.024,
+      "sha256": "4396216fdb7131f330f698936e9b7bb6dc1ff6f1cc124064ef3d088aa4bb5b7d"
+    },
+    {
+      "hanzi": "唱",
+      "pinyin": "chàng",
+      "tone": 4,
+      "phonemes": "ㄔㄤ4.",
+      "file": "5531.mp3",
+      "seconds": 0.974,
+      "sha256": "cb988fe3e7a9ee7668fe5f735c195e560c84b06ad23a4deea2a44b4ce556623f"
+    },
+    {
+      "hanzi": "跳",
+      "pinyin": "tiào",
+      "tone": 4,
+      "phonemes": "ㄊ要4.",
+      "file": "8df3.mp3",
+      "seconds": 1.004,
+      "sha256": "9159338b85a928a16308c85e39279e738c15fdc19e2d74fdab55b1267249e543"
+    },
+    {
+      "hanzi": "舞",
+      "pinyin": "wǔ",
+      "tone": 3,
+      "phonemes": "ㄨ3.",
+      "file": "821e.mp3",
+      "seconds": 0.955,
+      "sha256": "cf2c399c449e6089f42abf8a7b8b0a594534584c4871ed98093f1722b33ca4f6"
+    },
+    {
+      "hanzi": "画",
+      "pinyin": "huà",
+      "tone": 4,
+      "phonemes": "ㄏ穵4.",
+      "file": "753b.mp3",
+      "seconds": 1.054,
+      "sha256": "5a30295a8daa2b08c9c4d70d967272613f8572ed0e6527783603d9520802ea5b"
+    },
+    {
+      "hanzi": "球",
+      "pinyin": "qiú",
+      "tone": 2,
+      "phonemes": "ㄑ又2.",
+      "file": "7403.mp3",
+      "seconds": 1.024,
+      "sha256": "1a0900efc87cc96c0c0d6a8e1559dec1872949fa2811b46c8d6611d9e5b7f16f"
+    },
+    {
+      "hanzi": "赛",
+      "pinyin": "sài",
+      "tone": 4,
+      "phonemes": "ㄙㄞ4.",
+      "file": "8d5b.mp3",
+      "seconds": 1.034,
+      "sha256": "d0eeb00be87547de89d7b03e5f25dcaa2c00113768b7f0e6a2bb6179f8077a58"
+    },
+    {
+      "hanzi": "运",
+      "pinyin": "yùn",
+      "tone": 4,
+      "phonemes": "云4.",
+      "file": "8fd0.mp3",
+      "seconds": 0.947,
+      "sha256": "1bc582e270944f0d8de73df86f88c51b3ed3c82bbd03ab0d7b8d369a8a38c455"
+    },
+    {
+      "hanzi": "练",
+      "pinyin": "liàn",
+      "tone": 4,
+      "phonemes": "ㄌ言4.",
+      "file": "7ec3.mp3",
+      "seconds": 1.004,
+      "sha256": "a4892ff6441e46ac6e8c6467502f8373d1cb31a6082b2419edc88a84c4940773"
+    },
+    {
+      "hanzi": "动",
+      "pinyin": "dòng",
+      "tone": 4,
+      "phonemes": "ㄉ中4.",
+      "file": "52a8.mp3",
+      "seconds": 0.953,
+      "sha256": "034196ea464114f9f05a11bfb1b5d107a832aabdc20ed7d89121e392e9b31f99"
+    },
+    {
+      "hanzi": "停",
+      "pinyin": "tíng",
+      "tone": 2,
+      "phonemes": "ㄊ应2.",
+      "file": "505c.mp3",
+      "seconds": 0.973,
+      "sha256": "0f5a1fe57ea36b9ef15d304846f1ae5424e77c4f1d7e9eb4cc687cddfba1edb2"
+    },
+    {
+      "hanzi": "快",
+      "pinyin": "kuài",
+      "tone": 4,
+      "phonemes": "ㄎ外4.",
+      "file": "5feb.mp3",
+      "seconds": 0.983,
+      "sha256": "8d3f40c67ac0d1da7549e86f0f49fd09663e2c55448b3497a2bba6b714b7f8b6"
+    },
+    {
+      "hanzi": "慢",
+      "pinyin": "màn",
+      "tone": 4,
+      "phonemes": "ㄇㄢ4.",
+      "file": "6162.mp3",
+      "seconds": 0.984,
+      "sha256": "d9bf6c018084d6bc95dceb2d956bb7b70249a5400d5de5102ad2fc9cfe89d48e"
+    },
+    {
+      "hanzi": "忙",
+      "pinyin": "máng",
+      "tone": 2,
+      "phonemes": "ㄇㄤ2.",
+      "file": "5fd9.mp3",
+      "seconds": 0.953,
+      "sha256": "086ed61aae71d3bcb77ef467dd2bae0254ff897a954164461b61942d47bc4938"
+    },
+    {
+      "hanzi": "累",
+      "pinyin": "lèi",
+      "tone": 4,
+      "phonemes": "ㄌㄟ4.",
+      "file": "7d2f.mp3",
+      "seconds": 0.983,
+      "sha256": "336d1fa519ec677f12ad9e8c3eabf0c4e875139867aaf859212e5b1fe0a0388a"
+    },
+    {
+      "hanzi": "难",
+      "pinyin": "nán",
+      "tone": 2,
+      "phonemes": "ㄋㄢ2.",
+      "file": "96be.mp3",
+      "seconds": 0.984,
+      "sha256": "bdf3b23102bdb39eba01f1f28be092c122a173697ea0c7d0f90b7f07e403ae05"
+    },
+    {
+      "hanzi": "易",
+      "pinyin": "yì",
+      "tone": 4,
+      "phonemes": "ㄧ4.",
+      "file": "6613.mp3",
+      "seconds": 0.959,
+      "sha256": "4c4307c3ec9ed872bfc14a94abb08cf70e14bb9da7c33ffe9c3203620bd617b7"
+    },
+    {
+      "hanzi": "干",
+      "pinyin": "gān",
+      "tone": 1,
+      "phonemes": "ㄍㄢ1.",
+      "file": "5e72.mp3",
+      "seconds": 1.011,
+      "sha256": "e054a04128fe9cc136ee790a383dea4e895d5306175fcc4728e1985cdf3074e3"
+    },
+    {
+      "hanzi": "净",
+      "pinyin": "jìng",
+      "tone": 4,
+      "phonemes": "ㄐ应4.",
+      "file": "51c0.mp3",
+      "seconds": 0.974,
+      "sha256": "4b55627aaac148514ea4dcd1f1afe8c614e63ffb803367880ee722d630babcf9"
+    },
+    {
+      "hanzi": "轻",
+      "pinyin": "qīng",
+      "tone": 1,
+      "phonemes": "ㄑ应1.",
+      "file": "8f7b.mp3",
+      "seconds": 0.983,
+      "sha256": "afa3faa5e6afe8a1fd594872c3b38a20feea5d8fd5f512eca355f10cf43ee725"
+    },
+    {
+      "hanzi": "重",
+      "pinyin": "zhòng",
+      "tone": 4,
+      "phonemes": "ㄓ中4.",
+      "file": "91cd.mp3",
+      "seconds": 0.953,
+      "sha256": "740fdeddf2e0b112e2b91c7a95db2e2ada191c6af6e64fc338cc778e65d5574f"
+    },
+    {
+      "hanzi": "喜",
+      "pinyin": "xǐ",
+      "tone": 3,
+      "phonemes": "ㄒㄧ3.",
+      "file": "559c.mp3",
+      "seconds": 0.991,
+      "sha256": "66132e621e40e0ccac3a4de9268107b42a273337caf4c1068cdb1c0b845552c0"
+    },
+    {
+      "hanzi": "乐",
+      "pinyin": "lè",
+      "tone": 4,
+      "phonemes": "ㄌㄜ4.",
+      "file": "4e50.mp3",
+      "seconds": 0.963,
+      "sha256": "8bb1b8954b73d98f88bca9102d619de8e86538d9cb3c4f35c1e465642eef00c5"
+    },
+    {
+      "hanzi": "怒",
+      "pinyin": "nù",
+      "tone": 4,
+      "phonemes": "ㄋㄨ4.",
+      "file": "6012.mp3",
+      "seconds": 0.983,
+      "sha256": "c9aad06528355f098befb7fd66b1e016584c9f55905c048b796d9990e9e37920"
+    },
+    {
+      "hanzi": "怕",
+      "pinyin": "pà",
+      "tone": 4,
+      "phonemes": "ㄆㄚ4.",
+      "file": "6015.mp3",
+      "seconds": 1.034,
+      "sha256": "394ba729d684147e48c9c6045a2c66407e5fbe18513e85ce912fe9b5d95bc59e"
+    },
+    {
+      "hanzi": "急",
+      "pinyin": "jí",
+      "tone": 2,
+      "phonemes": "ㄐㄧ2.",
+      "file": "6025.mp3",
+      "seconds": 1.121,
+      "sha256": "a36628b8ceec80c37dbe242a08ab8bff8e16292d051c68ec39266db0342cb4d0"
+    },
+    {
+      "hanzi": "安",
+      "pinyin": "ān",
+      "tone": 1,
+      "phonemes": "ㄢ1.",
+      "file": "5b89.mp3",
+      "seconds": 1.211,
+      "sha256": "aec8f7839101855c2a06548b336deafc18a473b0e866e0b199d16f19f074feac"
+    },
+    {
+      "hanzi": "静",
+      "pinyin": "jìng",
+      "tone": 4,
+      "phonemes": "ㄐ应4.",
+      "file": "9759.mp3",
+      "seconds": 0.974,
+      "sha256": "a6d85c414a876f8379abdf592da9ccec498bb15a16cf919e57bc570b69362ff8"
+    },
+    {
+      "hanzi": "美",
+      "pinyin": "měi",
+      "tone": 3,
+      "phonemes": "ㄇㄟ3.",
+      "file": "7f8e.mp3",
+      "seconds": 0.984,
+      "sha256": "7dca8f02199e39917c3ce5a82952cd2e202eb31cbedf62d5e1c94af65c3b25b9"
+    },
+    {
+      "hanzi": "丽",
+      "pinyin": "lì",
+      "tone": 4,
+      "phonemes": "ㄌㄧ4.",
+      "file": "4e3d.mp3",
+      "seconds": 0.981,
+      "sha256": "cf71a107b32e5439b22890fec3d28f028efdbd88fe7caff294afbb4e20e14a56"
+    },
+    {
+      "hanzi": "痛",
+      "pinyin": "tòng",
+      "tone": 4,
+      "phonemes": "ㄊ中4.",
+      "file": "75db.mp3",
+      "seconds": 0.984,
+      "sha256": "459128ff32bf3d1973f0fe8d820e1c803330462b0db16dd8be8c883ef3da9af8"
+    },
+    {
+      "hanzi": "春",
+      "pinyin": "chūn",
+      "tone": 1,
+      "phonemes": "ㄔ文1.",
+      "file": "6625.mp3",
+      "seconds": 1.034,
+      "sha256": "dcb4ed77ff7260cd44ac0efc4a43646713b34789c525a18eff4478a4160782af"
+    },
+    {
+      "hanzi": "夏",
+      "pinyin": "xià",
+      "tone": 4,
+      "phonemes": "ㄒ压4.",
+      "file": "590f.mp3",
+      "seconds": 1.024,
+      "sha256": "5ea7dbecd92ed3525c9d7da940d91367fb72813abb682232e472ec1eab2c3e41"
+    },
+    {
+      "hanzi": "秋",
+      "pinyin": "qiū",
+      "tone": 1,
+      "phonemes": "ㄑ又1.",
+      "file": "79cb.mp3",
+      "seconds": 1.003,
+      "sha256": "04b7fc9e90789a3b000d22c8caa0d0d45efef374510ef66eca1d7d11db133bf9"
+    },
+    {
+      "hanzi": "冬",
+      "pinyin": "dōng",
+      "tone": 1,
+      "phonemes": "ㄉ中1.",
+      "file": "51ac.mp3",
+      "seconds": 0.92,
+      "sha256": "da46a61734e4dd489aac939db7c25c29eb0c6bc4ee4b514e5b2f6360421d26e7"
+    },
+    {
+      "hanzi": "季",
+      "pinyin": "jì",
+      "tone": 4,
+      "phonemes": "ㄐㄧ4.",
+      "file": "5b63.mp3",
+      "seconds": 0.963,
+      "sha256": "30f5bb47016fdae9ccb5cddbc804b79a35edea7a7d22407850457b2310231ea3"
+    },
+    {
+      "hanzi": "周",
+      "pinyin": "zhōu",
+      "tone": 1,
+      "phonemes": "ㄓㄡ1.",
+      "file": "5468.mp3",
+      "seconds": 0.951,
+      "sha256": "63db98e4c46ff230d92dec825b50fea9098676219b9823fe8435e647b41dfa9f"
+    },
+    {
+      "hanzi": "星",
+      "pinyin": "xīng",
+      "tone": 1,
+      "phonemes": "ㄒ应1.",
+      "file": "661f.mp3",
+      "seconds": 0.981,
+      "sha256": "466d07e22e75fac4daca247d4f44e2dff7eb99be5b13d8803a01f1c370e13ab7"
+    },
+    {
+      "hanzi": "期",
+      "pinyin": "qī",
+      "tone": 1,
+      "phonemes": "ㄑㄧ1.",
+      "file": "671f.mp3",
+      "seconds": 1.141,
+      "sha256": "1532927b9dbc11551c51b7e7a9efc9fde71aabd3cc9cd3ccfe8f6a9aede61488"
+    },
+    {
+      "hanzi": "秒",
+      "pinyin": "miǎo",
+      "tone": 3,
+      "phonemes": "ㄇ要3.",
+      "file": "79d2.mp3",
+      "seconds": 1.007,
+      "sha256": "08251e68344792753750bc21cae667086f82574eb093a6e9159165e238b275df"
+    },
+    {
+      "hanzi": "刻",
+      "pinyin": "kè",
+      "tone": 4,
+      "phonemes": "ㄎㄜ4.",
+      "file": "523b.mp3",
+      "seconds": 1.003,
+      "sha256": "743072c236646b72df90d1ecc6df67aecab86c8e5b6274893b5c3070e82fb78f"
+    },
+    {
+      "hanzi": "教",
+      "pinyin": "jiāo",
+      "tone": 1,
+      "phonemes": "ㄐ要1.",
+      "file": "6559.mp3",
+      "seconds": 0.994,
+      "sha256": "1e850680d7480abb0f97e09351eaf905e5c2b79bc68c98940f24c114e0277bec"
+    },
+    {
+      "hanzi": "考",
+      "pinyin": "kǎo",
+      "tone": 3,
+      "phonemes": "ㄎㄠ3.",
+      "file": "8003.mp3",
+      "seconds": 1.003,
+      "sha256": "0369ac40285048f86a2240c8c935a56aab670fdb6dfb69a264daa353e0227f20"
+    },
+    {
+      "hanzi": "试",
+      "pinyin": "shì",
+      "tone": 4,
+      "phonemes": "ㄕ十4.",
+      "file": "8bd5.mp3",
+      "seconds": 0.993,
+      "sha256": "373df78fe5be6680cb57355e1043d7762cc173f1aa388e5a471cb866d73aa42f"
+    },
+    {
+      "hanzi": "数",
+      "pinyin": "shù",
+      "tone": 4,
+      "phonemes": "ㄕㄨ4.",
+      "file": "6570.mp3",
+      "seconds": 0.971,
+      "sha256": "f53df0749577c84996f421905382b3736a7c6d8eb9b07887376cae2492d1c5df"
+    },
+    {
+      "hanzi": "算",
+      "pinyin": "suàn",
+      "tone": 4,
+      "phonemes": "ㄙ万4.",
+      "file": "7b97.mp3",
+      "seconds": 1.001,
+      "sha256": "c44f720e07cc74f2fcc072a766b533f4147989ab4afbeec4b25547c9ca254873"
+    },
+    {
+      "hanzi": "班",
+      "pinyin": "bān",
+      "tone": 1,
+      "phonemes": "ㄅㄢ1.",
+      "file": "73ed.mp3",
+      "seconds": 0.951,
+      "sha256": "208b852f22c84a5f201c015fddc1bdd486d63329407884cf95a27cedea7e40d2"
+    },
+    {
+      "hanzi": "页",
+      "pinyin": "yè",
+      "tone": 4,
+      "phonemes": "ㄝ4.",
+      "file": "9875.mp3",
+      "seconds": 0.96,
+      "sha256": "6286ddc64df93fd13c1f6a50d44a1041d75666f3698cd826e318b46de106e0b4"
+    },
+    {
+      "hanzi": "段",
+      "pinyin": "duàn",
+      "tone": 4,
+      "phonemes": "ㄉ万4.",
+      "file": "6bb5.mp3",
+      "seconds": 0.973,
+      "sha256": "c68b768ef73856f314610800724bdfe708c17132ecd048b99102074fce23e2ca"
+    },
+    {
+      "hanzi": "句",
+      "pinyin": "jù",
+      "tone": 4,
+      "phonemes": "ㄐㄩ4.",
+      "file": "53e5.mp3",
+      "seconds": 0.981,
+      "sha256": "f336656dc2cbd457a70fc5894bb09a4c34c8d37c1b0e13301fb7e6ee1105b04f"
+    },
+    {
+      "hanzi": "词",
+      "pinyin": "cí",
+      "tone": 2,
+      "phonemes": "ㄘㄭ2.",
+      "file": "8bcd.mp3",
+      "seconds": 1.141,
+      "sha256": "862c3678d292bde67262c887e625f74578738ee28d68317c4797d6328ecb3601"
+    },
+    {
+      "hanzi": "职",
+      "pinyin": "zhí",
+      "tone": 2,
+      "phonemes": "ㄓ十2.",
+      "file": "804c.mp3",
+      "seconds": 0.994,
+      "sha256": "008abe190f5d0692f07e117126f8573c11a56c742a33884056d27edb494dcc00"
+    },
+    {
+      "hanzi": "业",
+      "pinyin": "yè",
+      "tone": 4,
+      "phonemes": "ㄝ4.",
+      "file": "4e1a.mp3",
+      "seconds": 0.96,
+      "sha256": "379d14fdfd7a5f194b834fb91c4200c048e21f2035cf4badf64e480c14d53a0f"
+    },
+    {
+      "hanzi": "员",
+      "pinyin": "yuán",
+      "tone": 2,
+      "phonemes": "元2.",
+      "file": "5458.mp3",
+      "seconds": 0.959,
+      "sha256": "fe9b803699465d22b9af3c4510c93dd7d621f62cbbb48e6a3fd0bd1beece1282"
+    },
+    {
+      "hanzi": "司",
+      "pinyin": "sī",
+      "tone": 1,
+      "phonemes": "ㄙㄭ1.",
+      "file": "53f8.mp3",
+      "seconds": 1.159,
+      "sha256": "cf4c15a9e548f0eb113796a45ed91bd7ba1195bc28bf33067b684c05883eb472"
+    },
+    {
+      "hanzi": "办",
+      "pinyin": "bàn",
+      "tone": 4,
+      "phonemes": "ㄅㄢ4.",
+      "file": "529e.mp3",
+      "seconds": 0.951,
+      "sha256": "4a0a563178e13aa0c2fa79017a09dd1ec91ed2e905678e3e3f767ec2ce2dd5dc"
+    },
+    {
+      "hanzi": "事",
+      "pinyin": "shì",
+      "tone": 4,
+      "phonemes": "ㄕ十4.",
+      "file": "4e8b.mp3",
+      "seconds": 0.993,
+      "sha256": "2439a985c71e410bc79c3a1feaf5977b3b793f239766a9b3ed4963d8d3c1c5d3"
+    },
+    {
+      "hanzi": "务",
+      "pinyin": "wù",
+      "tone": 4,
+      "phonemes": "ㄨ4.",
+      "file": "52a1.mp3",
+      "seconds": 0.971,
+      "sha256": "5c124939b4a3b887f7a16d98da401dbb4b92466d6ee9d86a866a56218db9802d"
+    },
+    {
+      "hanzi": "公",
+      "pinyin": "gōng",
+      "tone": 1,
+      "phonemes": "ㄍ中1.",
+      "file": "516c.mp3",
+      "seconds": 0.951,
+      "sha256": "a5f0f2c527a8eedc55737fde11650e3d194fe038982499d86b0b394324958cf3"
+    },
+    {
+      "hanzi": "厂",
+      "pinyin": "chǎng",
+      "tone": 3,
+      "phonemes": "ㄔㄤ3.",
+      "file": "5382.mp3",
+      "seconds": 1.007,
+      "sha256": "ec36327071024d24a46486e7f2234cd325945559bb66f416d7f5b72f72427482"
+    },
+    {
+      "hanzi": "产",
+      "pinyin": "chǎn",
+      "tone": 3,
+      "phonemes": "ㄔㄢ3.",
+      "file": "4ea7.mp3",
+      "seconds": 1.005,
+      "sha256": "d70dc01a722e717f1c94d0299b1cedb0017d0462a483638c8c3c6a6d817d12b9"
+    },
+    {
+      "hanzi": "脑",
+      "pinyin": "nǎo",
+      "tone": 3,
+      "phonemes": "ㄋㄠ3.",
+      "file": "8111.mp3",
+      "seconds": 1.005,
+      "sha256": "9d8a947f779aad770c38a57d9eb88aeafda5b1492a4b47a632cfed7ae3ab5e31"
+    },
+    {
+      "hanzi": "屏",
+      "pinyin": "píng",
+      "tone": 2,
+      "phonemes": "ㄆ应2.",
+      "file": "5c4f.mp3",
+      "seconds": 0.995,
+      "sha256": "7735c01405c8902fe63a7d25aa79e10635973f11c68d6ab707cbfe380e1f612f"
+    },
+    {
+      "hanzi": "键",
+      "pinyin": "jiàn",
+      "tone": 4,
+      "phonemes": "ㄐ言4.",
+      "file": "952e.mp3",
+      "seconds": 0.984,
+      "sha256": "0a0efc60a2c80f0de674b3271d52027a19e0b7de7966c18dee06d06d792eaf5a"
+    },
+    {
+      "hanzi": "鼠",
+      "pinyin": "shǔ",
+      "tone": 3,
+      "phonemes": "ㄕㄨ3.",
+      "file": "9f20.mp3",
+      "seconds": 1.005,
+      "sha256": "bb68f90e9b40f573e595ceb4c893f8a61b5a9fe56b574f0c6b136c4c9657a818"
+    },
+    {
+      "hanzi": "照",
+      "pinyin": "zhào",
+      "tone": 4,
+      "phonemes": "ㄓㄠ4.",
+      "file": "7167.mp3",
+      "seconds": 1.004,
+      "sha256": "513a344140b87cc8d5911aad6c009f4c3d6fd05ec4498ea4e175ba5d7c0b1a0b"
+    },
+    {
+      "hanzi": "相",
+      "pinyin": "xiàng",
+      "tone": 4,
+      "phonemes": "ㄒ阳4.",
+      "file": "76f8.mp3",
+      "seconds": 1.014,
+      "sha256": "39312f36ff33bfdcdaeb5317eb51c92f907cbf045f6170fdf057e381ce93d0b1"
+    },
+    {
+      "hanzi": "声",
+      "pinyin": "shēng",
+      "tone": 1,
+      "phonemes": "ㄕㄥ1.",
+      "file": "58f0.mp3",
+      "seconds": 0.953,
+      "sha256": "ad8034e0ebe13d10d25281a0f846098fc2c10673c5e14b71bd0bddaf2b471aef"
+    },
+    {
+      "hanzi": "像",
+      "pinyin": "xiàng",
+      "tone": 4,
+      "phonemes": "ㄒ阳4.",
+      "file": "50cf.mp3",
+      "seconds": 1.004,
+      "sha256": "3ffbcfe91747586c64bd94747f84bd218f10c82021c107e691b3a75f0a78903a"
+    },
+    {
+      "hanzi": "视",
+      "pinyin": "shì",
+      "tone": 4,
+      "phonemes": "ㄕ十4.",
+      "file": "89c6.mp3",
+      "seconds": 0.993,
+      "sha256": "45925f278ad9f52a63347fd4471997c80b14ea106f20e5c1914c2997c75dedfd"
+    },
+    {
+      "hanzi": "频",
+      "pinyin": "pín",
+      "tone": 2,
+      "phonemes": "ㄆ阴2.",
+      "file": "9891.mp3",
+      "seconds": 1.005,
+      "sha256": "e94e7b57c34bc61edb1d35e7ce73fd23003dd906058c11497661e9d15548357d"
+    },
+    {
+      "hanzi": "林",
+      "pinyin": "lín",
+      "tone": 2,
+      "phonemes": "ㄌ阴2.",
+      "file": "6797.mp3",
+      "seconds": 0.995,
+      "sha256": "48b6e849981bfdd4dd4373b639fd0f17ffbbc88fb6ba565ffc22451089affd52"
+    },
+    {
+      "hanzi": "森",
+      "pinyin": "sēn",
+      "tone": 1,
+      "phonemes": "ㄙㄣ1.",
+      "file": "68ee.mp3",
+      "seconds": 0.979,
+      "sha256": "d21230af0a7f196af0da58dad38a46d93a922da41c23110787a7df8e1cedad3f"
+    },
+    {
+      "hanzi": "湖",
+      "pinyin": "hú",
+      "tone": 2,
+      "phonemes": "ㄏㄨ2.",
+      "file": "6e56.mp3",
+      "seconds": 1.131,
+      "sha256": "ee8db2181c6ce432110258024613f2f0980e6f4e464aafa42bfabe63ed2e5ae6"
+    },
+    {
+      "hanzi": "江",
+      "pinyin": "jiāng",
+      "tone": 1,
+      "phonemes": "ㄐ阳1.",
+      "file": "6c5f.mp3",
+      "seconds": 0.963,
+      "sha256": "bcf41817e43c6643160348ceccee9edf406e1e9e9a70eaeb9d8fdc5b210ead79"
+    },
+    {
+      "hanzi": "洋",
+      "pinyin": "yáng",
+      "tone": 2,
+      "phonemes": "阳2.",
+      "file": "6d0b.mp3",
+      "seconds": 0.95,
+      "sha256": "1c3f6c352e688d3ae687837b552896769641463ba09575589612689f47e64486"
+    },
+    {
+      "hanzi": "石",
+      "pinyin": "shí",
+      "tone": 2,
+      "phonemes": "ㄕ十2.",
+      "file": "77f3.mp3",
+      "seconds": 0.991,
+      "sha256": "bd71d8acadbb1f9e9746a038bcd2cb8aa5d3a8fb9b4169e7cf0923e81f3afa7c"
+    },
+    {
+      "hanzi": "沙",
+      "pinyin": "shā",
+      "tone": 1,
+      "phonemes": "ㄕㄚ1.",
+      "file": "6c99.mp3",
+      "seconds": 1.003,
+      "sha256": "85d3e0e8a84a9142299c93a1618b37125be22159b88bed90181ffe59b93c26ab"
+    },
+    {
+      "hanzi": "冰",
+      "pinyin": "bīng",
+      "tone": 1,
+      "phonemes": "ㄅ应1.",
+      "file": "51b0.mp3",
+      "seconds": 0.983,
+      "sha256": "fa901fb573e8f4c11acd0588763d51f1a06575ea6cfed5c5a63449da144617fc"
+    },
+    {
+      "hanzi": "光",
+      "pinyin": "guāng",
+      "tone": 1,
+      "phonemes": "ㄍ王1.",
+      "file": "5149.mp3",
+      "seconds": 0.971,
+      "sha256": "4412d6f8692990283dcad6f4ef2856263ddbd4d7bc919aabf7d68877533960af"
+    },
+    {
+      "hanzi": "气",
+      "pinyin": "qì",
+      "tone": 4,
+      "phonemes": "ㄑㄧ4.",
+      "file": "6c14.mp3",
+      "seconds": 0.991,
+      "sha256": "4d94529bc62bf2c76cef710acecffe2d964fd5fecd28b369adc11b13288d2565"
+    },
+    {
+      "hanzi": "记",
+      "pinyin": "jì",
+      "tone": 4,
+      "phonemes": "ㄐㄧ4.",
+      "file": "8bb0.mp3",
+      "seconds": 0.973,
+      "sha256": "862037d7b8468198322adf47cf59164755268e54ec9e8869b8a123168d783c51"
+    },
+    {
+      "hanzi": "忘",
+      "pinyin": "wàng",
+      "tone": 4,
+      "phonemes": "王4.",
+      "file": "5fd8.mp3",
+      "seconds": 1.186,
+      "sha256": "d99182674526f9a41792a0605fc3f1d77254d7257b7ff29403a0a0841a07e1a1"
+    },
+    {
+      "hanzi": "懂",
+      "pinyin": "dǒng",
+      "tone": 3,
+      "phonemes": "ㄉ中3.",
+      "file": "61c2.mp3",
+      "seconds": 0.953,
+      "sha256": "b9d56c5c39b6e01334b7f271f8879720bd2392efafc0e6e6ec5fb526a58fcf44"
+    },
+    {
+      "hanzi": "觉",
+      "pinyin": "jué",
+      "tone": 2,
+      "phonemes": "ㄐ月2.",
+      "file": "89c9.mp3",
+      "seconds": 0.993,
+      "sha256": "40dc8803400933448bcf82d7e039d68854caa6573645f702fae35d663a4c06c9"
+    },
+    {
+      "hanzi": "梦",
+      "pinyin": "mèng",
+      "tone": 4,
+      "phonemes": "ㄇㄥ4.",
+      "file": "68a6.mp3",
+      "seconds": 0.984,
+      "sha256": "385e3a7a3ea412191245f12879fb13d28ca9d38c08b31dd68aa0c92c8291579c"
+    },
+    {
+      "hanzi": "望",
+      "pinyin": "wàng",
+      "tone": 4,
+      "phonemes": "王4.",
+      "file": "671b.mp3",
+      "seconds": 1.186,
+      "sha256": "879ab2e4a8859dae40961114f72aa70bf4748d720a35a8291fef4aa2fe9286cb"
+    },
+    {
+      "hanzi": "希",
+      "pinyin": "xī",
+      "tone": 1,
+      "phonemes": "ㄒㄧ1.",
+      "file": "5e0c.mp3",
+      "seconds": 1.131,
+      "sha256": "912ab952f21627bd82ca28778ed407beff62a6761850b234d090738cedf9fea3"
+    },
+    {
+      "hanzi": "愿",
+      "pinyin": "yuàn",
+      "tone": 4,
+      "phonemes": "元4.",
+      "file": "613f.mp3",
+      "seconds": 0.959,
+      "sha256": "97bcb56cd606eac2e1e0e9c7a759ee9b8e2532136d91c9c15db9eba1fb9bc98c"
+    },
+    {
+      "hanzi": "决",
+      "pinyin": "jué",
+      "tone": 2,
+      "phonemes": "ㄐ月2.",
+      "file": "51b3.mp3",
+      "seconds": 0.994,
+      "sha256": "cb97d76cb26018371a2e0f50e8b6d8a47b60dbc5036db5582a1f418ec0825476"
+    },
+    {
+      "hanzi": "定",
+      "pinyin": "dìng",
+      "tone": 4,
+      "phonemes": "ㄉ应4.",
+      "file": "5b9a.mp3",
+      "seconds": 0.951,
+      "sha256": "77d6cc52f35826bb55fdb7572704798d4cf9d787f47683bd2f5858f32854530c"
+    },
+    {
+      "hanzi": "法",
+      "pinyin": "fǎ",
+      "tone": 3,
+      "phonemes": "ㄈㄚ3.",
+      "file": "6cd5.mp3",
+      "seconds": 0.973,
+      "sha256": "08d078532a89e96671e9d8e69f3e28f52dee8cedd9ab42c94a33e002fe25e385"
+    },
+    {
+      "hanzi": "规",
+      "pinyin": "guī",
+      "tone": 1,
+      "phonemes": "ㄍ为1.",
+      "file": "89c4.mp3",
+      "seconds": 0.981,
+      "sha256": "5d92b94d3d3ec94c8e8f836283c0bb73aa546014b583ab5116a43902201d788c"
+    },
+    {
+      "hanzi": "则",
+      "pinyin": "zé",
+      "tone": 2,
+      "phonemes": "ㄗㄜ2.",
+      "file": "5219.mp3",
+      "seconds": 1.078,
+      "sha256": "831dc2ea65768c0ccbbdf59a94e1b91044a83e79f363065716bdba53b4f07aba"
+    },
+    {
+      "hanzi": "权",
+      "pinyin": "quán",
+      "tone": 2,
+      "phonemes": "ㄑ元2.",
+      "file": "6743.mp3",
+      "seconds": 1.013,
+      "sha256": "7304cf708b2c33398038b9388a84cfca7dafc06a10d1a2c2dddc233c0e9f3df2"
+    },
+    {
+      "hanzi": "利",
+      "pinyin": "lì",
+      "tone": 4,
+      "phonemes": "ㄌㄧ4.",
+      "file": "5229.mp3",
+      "seconds": 0.971,
+      "sha256": "780a9dbe3c4a0cd98a11695f6557fd101b00b257d653b6cfda4baf5c7159f4af"
+    },
+    {
+      "hanzi": "自",
+      "pinyin": "zì",
+      "tone": 4,
+      "phonemes": "ㄗㄭ4.",
+      "file": "81ea.mp3",
+      "seconds": 0.971,
+      "sha256": "2e9a319b10488fad93522ff7677cd98128afaecc292a42b8dee9ca94db4f5511"
+    },
+    {
+      "hanzi": "由",
+      "pinyin": "yóu",
+      "tone": 2,
+      "phonemes": "又2.",
+      "file": "7531.mp3",
+      "seconds": 0.95,
+      "sha256": "118fe1160a783059096c519e0379ed70b4cca784e5fb0f74cbc29ec40b327612"
+    },
+    {
+      "hanzi": "平",
+      "pinyin": "píng",
+      "tone": 2,
+      "phonemes": "ㄆ应2.",
+      "file": "5e73.mp3",
+      "seconds": 1.005,
+      "sha256": "b7a170fc2bc75188b289f7969eeb72eb2a2b8afd891db02fe7b74b5a76a235d6"
+    },
+    {
+      "hanzi": "全",
+      "pinyin": "quán",
+      "tone": 2,
+      "phonemes": "ㄑ元2.",
+      "file": "5168.mp3",
+      "seconds": 1.023,
+      "sha256": "d7ddd458f8ae7a2d69003d9512051cc091be88def57b1901354ebad7b1f9b8ca"
+    },
+    {
+      "hanzi": "总",
+      "pinyin": "zǒng",
+      "tone": 3,
+      "phonemes": "ㄗ中3.",
+      "file": "603b.mp3",
+      "seconds": 0.995,
+      "sha256": "4438a0071cb52c2bafe223d8e56bca1eb41a3115555ce4a2661b1c97bb0d1f6b"
+    },
+    {
+      "hanzi": "因",
+      "pinyin": "yīn",
+      "tone": 1,
+      "phonemes": "阴1.",
+      "file": "56e0.mp3",
+      "seconds": 1.108,
+      "sha256": "7677546fee5b89bfa5c293456af7e769d0ac717d3ef15fc0c98e5726deed0e5b"
+    },
+    {
+      "hanzi": "所",
+      "pinyin": "suǒ",
+      "tone": 3,
+      "phonemes": "ㄙ我3.",
+      "file": "6240.mp3",
+      "seconds": 0.99,
+      "sha256": "3fb37be0ffa859e05c669b79f2021075fadcc2ec4337b92e7279c2a466cd3aae"
+    },
+    {
+      "hanzi": "以",
+      "pinyin": "yǐ",
+      "tone": 3,
+      "phonemes": "ㄧ3.",
+      "file": "4ee5.mp3",
+      "seconds": 1.109,
+      "sha256": "b24b56617e1f7b931f53837c7859f75d29262a595422e68af5c3f059dd2955df"
+    },
+    {
+      "hanzi": "但",
+      "pinyin": "dàn",
+      "tone": 4,
+      "phonemes": "ㄉㄢ4.",
+      "file": "4f46.mp3",
+      "seconds": 0.984,
+      "sha256": "a55417606dbc261cb02ef216c0dab54a617cf02887d881521fb6fd9aebabc692"
+    },
+    {
+      "hanzi": "还",
+      "pinyin": "hái",
+      "tone": 2,
+      "phonemes": "ㄏㄞ2.",
+      "file": "8fd8.mp3",
+      "seconds": 1.004,
+      "sha256": "8f79f3c12945e6bf12fd17180f8d212c317020c8ce0e2f8935fbe0ae667c22af"
+    },
+    {
+      "hanzi": "再",
+      "pinyin": "zài",
+      "tone": 4,
+      "phonemes": "ㄗㄞ4.",
+      "file": "518d.mp3",
+      "seconds": 0.961,
+      "sha256": "eb8f95859f36ba0583521b3fcd9e99ede24fe4f7c0d1b783f738756713840b08"
+    },
+    {
+      "hanzi": "最",
+      "pinyin": "zuì",
+      "tone": 4,
+      "phonemes": "ㄗ为4.",
+      "file": "6700.mp3",
+      "seconds": 0.96,
+      "sha256": "bb7c27ec55a85152d8253749424b910798e4a89636be46639996927cc171e278"
+    },
+    {
+      "hanzi": "比",
+      "pinyin": "bǐ",
+      "tone": 3,
+      "phonemes": "ㄅㄧ3.",
+      "file": "6bd4.mp3",
+      "seconds": 0.973,
+      "sha256": "fa362be13970d8bb8be0f13fd602bded2ee446f0e6967003f51d559634211da8"
+    },
+    {
+      "hanzi": "把",
+      "pinyin": "bǎ",
+      "tone": 3,
+      "phonemes": "ㄅㄚ3.",
+      "file": "628a.mp3",
+      "seconds": 0.954,
+      "sha256": "c6b1fd20576d0f9646341bce0643a5346a10fec4b42a516307af17d9763a042c"
+    },
+    {
+      "hanzi": "被",
+      "pinyin": "bèi",
+      "tone": 4,
+      "phonemes": "ㄅㄟ4.",
+      "file": "88ab.mp3",
+      "seconds": 0.93,
+      "sha256": "ce8a06c4e067ab971173e40a82f6b75176461516286f8789003452cf21689f39"
     }
   ]
 }

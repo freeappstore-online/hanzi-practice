@@ -2,11 +2,13 @@
 
 A free Chinese character stroke practice app: https://hanzi-practice.freeappstore.online
 
-- 200 simplified Chinese characters across five app study levels: Foundations, Daily essentials, Around you, Explore further, and Express yourself. These are not official HSK levels.
+- 400 simplified Chinese characters across ten app study levels, from Foundations to Ideas and connections. These are not official HSK levels.
 - Animated stroke order, guided tracing, and recall practice using Hanzi Writer.
 - Automatic advancement starts the next exercise 250 ms after completion, using preloaded character data, crosses level boundaries, and stops at the end. The autoplay icon toggles this behavior.
 - Character, pinyin, English meaning, and SVG tone curves share the same size. Tap the tone curve for a four-tone guide.
 - Tap the character or pinyin for Mandarin pronunciation, generated with the free Kokoro model and bundled as small MP3 clips. See [audio generation](docs/audio.md).
+- Compact icon controls, with modes beside the pad and a visible autoplay state. Skipping during practice starts the next exercise.
+- The library opens at your current level and shows completed practice counts with a green check.
 - Finger, stylus, and mouse input; checks shape, direction, and order.
 - Hints, retries, and practice history saved silently on the device. No login needed.
 - The selected level, character, and autoplay setting resume from local browser storage.

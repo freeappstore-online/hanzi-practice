@@ -1,7 +1,7 @@
 {
   "name": "Hanzi Practice",
   "short_name": "Hanzi",
-  "description": "Practise 200 Chinese characters by level, with stroke order, Mandarin pronunciation, tone curves, and continuous practice.",
+  "description": "Practise 400 Chinese characters by level, with stroke order, Mandarin pronunciation, tone curves, and continuous practice.",
   "start_url": "/",
   "display": "standalone",
   "orientation": "any",

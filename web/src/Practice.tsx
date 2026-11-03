@@ -2,14 +2,15 @@ import { useEffect, useRef, useState } from 'react'
 import HanziWriter from 'hanzi-writer'
 import { Badge, Card, ProgressBar, Tabs } from '@freeappstore/sdk/ui'
 import { Button } from './Button'
+import { PracticeIcon } from './PracticeIcon'
 import { CHARACTERS, LEVELS, charactersForLevel, nextCharacter, type Character } from './characters'
 import { CharacterDetails } from './Pronunciation'
 import { loadCharacterData } from './characterData'
 import type { Attempt, Mode } from './progress'
 
 type Phase = 'loading' | 'ready' | 'drawing' | 'watching' | 'complete' | 'error'
-export function Practice({ character, onSelect, onComplete, active, autoAdvance, onAutoAdvanceChange }: {
-  character: Character; onSelect: (c: Character) => void; onComplete: (a: Attempt) => void; active: boolean; autoAdvance: boolean; onAutoAdvanceChange: (enabled: boolean) => void
+export function Practice({ character, onSelect, onComplete, active, autoAdvance, onAutoAdvanceChange, practiceRequest }: {
+  character: Character; onSelect: (c: Character) => void; onComplete: (a: Attempt) => void; active: boolean; autoAdvance: boolean; onAutoAdvanceChange: (enabled: boolean) => void; practiceRequest: number
 }) {
   const target = useRef<HTMLDivElement>(null)
   const writer = useRef<HanziWriter | null>(null)
@@ -17,6 +18,7 @@ export function Practice({ character, onSelect, onComplete, active, autoAdvance,
   const dataReady = useRef(false)
   const hints = useRef(0)
   const autoStartNext = useRef<string | null>(null)
+  const handledPracticeRequest = useRef(0)
   const levelCharacters = charactersForLevel(character.level)
   const next = nextCharacter(character)
   const callback = useRef(onComplete)
@@ -39,7 +41,8 @@ export function Practice({ character, onSelect, onComplete, active, autoAdvance,
     const node = target.current!
     const colors = () => {
       const css = getComputedStyle(document.documentElement)
-      return { strokeColor: css.getPropertyValue('--ink').trim(), drawingColor: css.getPropertyValue('--accent').trim(), highlightColor: css.getPropertyValue('--accent').trim(), outlineColor: css.getPropertyValue('--accent-soft').trim() }
+      const outlineToken = document.documentElement.dataset.theme === 'dark' ? '--muted' : '--accent-soft'
+      return { strokeColor: css.getPropertyValue('--ink').trim(), drawingColor: css.getPropertyValue('--accent').trim(), highlightColor: css.getPropertyValue('--accent').trim(), outlineColor: css.getPropertyValue(outlineToken).trim() }
     }
     const instance = new HanziWriter(node, {
       width: node.clientWidth || 320, height: node.clientWidth || 320, padding: 24,
@@ -95,12 +98,16 @@ export function Practice({ character, onSelect, onComplete, active, autoAdvance,
       if (canceled || token !== generation.current) return
       setPhase('ready')
       setMessage('')
-      if (autoStartNext.current === character.hanzi) { autoStartNext.current = null; start(false) }
+      if (autoStartNext.current === character.hanzi || practiceRequest > handledPracticeRequest.current) {
+        autoStartNext.current = null
+        handledPracticeRequest.current = practiceRequest
+        start(false)
+      }
     }).catch(() => {
       if (!canceled) { setPhase('error'); setMessage('Could not load this character. Reconnect and try again.') }
     })
     return () => { canceled = true; generation.current++; instance.cancelQuiz(); if (dataReady.current) void instance.pauseAnimation(); dataReady.current = false }
-  }, [character.hanzi, mode, round, active])
+  }, [character.hanzi, mode, round, active, practiceRequest])
 
   useEffect(() => {
     if (phase !== 'complete' || !active || !autoAdvance || !next) return
@@ -111,13 +118,18 @@ export function Practice({ character, onSelect, onComplete, active, autoAdvance,
     return () => window.clearTimeout(timer)
   }, [phase, active, autoAdvance, next, onSelect])
 
+  const revealPad = () => {
+    const rect = target.current?.getBoundingClientRect()
+    const headerBottom = document.querySelector('header')?.getBoundingClientRect().bottom ?? 0
+    if (rect && (rect.top < headerBottom + 12 || rect.bottom > innerHeight - 76)) target.current?.scrollIntoView({block: 'center', behavior: 'instant'})
+  }
   const start = (scrollToPad = true) => {
     const instance = writer.current
     if (!instance || !dataReady.current) return
     autoStartNext.current = null
     const token = ++generation.current
     setCorrect(0); setMistakes(0); setHintCount(0); hints.current = 0
-    if (scrollToPad) target.current?.scrollIntoView({block: 'center', behavior: 'instant'})
+    if (scrollToPad) revealPad()
     setPhase('drawing'); setMessage('')
     void instance.quiz({
       showHintAfterMisses: false, highlightOnComplete: true,
@@ -144,7 +156,7 @@ export function Practice({ character, onSelect, onComplete, active, autoAdvance,
     if (!instance) return
     const token = ++generation.current
     instance.cancelQuiz()
-    target.current?.scrollIntoView({block: 'center', behavior: 'instant'})
+    revealPad()
     setPhase('watching'); setCorrect(0); setMessage('')
     await instance.animateCharacter()
     if (token !== generation.current) return
@@ -164,15 +176,15 @@ export function Practice({ character, onSelect, onComplete, active, autoAdvance,
         </select>
         <label className="sr-only" htmlFor="character">Choose a character</label>
         <select id="character" className="min-h-11 min-w-0 w-full rounded-sm border border-line-strong bg-panel px-2 text-sm" value={character.hanzi} onChange={e => { autoStartNext.current = null; onSelect(CHARACTERS.find(c => c.hanzi === e.target.value)!) }}>
-          {levelCharacters.map(c => <option key={c.hanzi} value={c.hanzi}>{mode === 'guided' ? `${c.hanzi} · ` : ''}{c.pinyin} · {c.meaning}</option>)}
+          {levelCharacters.map((c, i) => <option key={c.hanzi} value={c.hanzi}>{i + 1}. {mode === 'guided' ? `${c.hanzi} · ` : ''}{c.pinyin}</option>)}
         </select>
       </div>
     </div>
-    <div className="min-w-0 md:col-start-1 md:row-start-1 md:row-span-2">
+    <div className="min-w-0 md:col-start-1 md:row-start-1">
       <Card>
-        <div className="mb-2 flex items-center justify-between gap-3 text-sm text-muted">
-          <Badge>{levelCharacters.indexOf(character) + 1} / {levelCharacters.length}</Badge>
-          <span>{strokeCount} {strokeCount === 1 ? 'stroke' : 'strokes'}</span>
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-2 text-sm text-muted">
+          <Tabs className="[&>button]:min-h-[44px]" tabs={[{key: 'guided', label: 'Guided'}, {key: 'recall', label: 'From memory'}]} active={mode} onChange={key => { autoStartNext.current = null; setMode(key as Mode) }} />
+          <span aria-label={`Character ${levelCharacters.indexOf(character) + 1} of ${levelCharacters.length}`}><Badge>{levelCharacters.indexOf(character) + 1} / {levelCharacters.length}</Badge></span>
         </div>
         <div className="relative mx-auto aspect-square w-full max-w-[min(360px,calc(100svh-100px))] overflow-hidden rounded border border-line-strong bg-paper">
           <svg aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full text-line-strong" viewBox="0 0 100 100">
@@ -180,27 +192,23 @@ export function Practice({ character, onSelect, onComplete, active, autoAdvance,
           </svg>
           <div ref={target} role="img" aria-label={`Writing area for ${character.hanzi}. Draw with a mouse, finger, or stylus.`} className="relative aspect-square w-full touch-none select-none" />
         </div>
-        <div className="mt-2"><ProgressBar value={correct} max={strokeCount || 1} label={`${correct} of ${strokeCount} strokes`} /></div>
-        <p className="text-sm text-muted" role="status">{message}</p>
-        <div className="mt-3 flex flex-wrap gap-2">
-          <Button primary iconOnly aria-label={startLabel} title={startLabel} onClick={() => start()} disabled={busy}>
-            <svg aria-hidden="true" className="shrink-0" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l14-8z" /></svg>
-          </Button>
-          <Button onClick={() => void watch()} disabled={busy}>Watch strokes</Button>
-          <Button disabled={phase !== 'drawing'} onClick={() => { hints.current++; setHintCount(hints.current); void writer.current?.highlightStroke(correct) }}>Hint</Button>
-          {phase === 'error' && <Button onClick={() => setRound(r => r + 1)}>Retry loading</Button>}
+        <div className="mt-3 flex items-center gap-3">
+          <div className="min-w-0 flex-1" role="progressbar" aria-label="Stroke progress" aria-valuemin={0} aria-valuemax={strokeCount || 1} aria-valuenow={correct}><ProgressBar value={correct} max={strokeCount || 1} height={4} /></div>
+          <span className="shrink-0 text-xs tabular-nums text-muted">{correct} / {strokeCount} strokes</span>
         </div>
+        <div className="mt-3 flex items-center justify-between gap-1" role="group" aria-label="Practice controls">
+          <Button primary iconOnly aria-label={startLabel} title={startLabel} onClick={() => start()} disabled={busy}>
+            <PracticeIcon name={startLabel === 'Start practice' ? 'play' : 'restart'} />
+          </Button>
+          <Button iconOnly aria-label="Watch strokes" title="Watch strokes" onClick={() => void watch()} disabled={busy}><PracticeIcon name="watch" /></Button>
+          <Button iconOnly aria-label="Hint" title="Show the next stroke" disabled={phase !== 'drawing'} onClick={() => { hints.current++; setHintCount(hints.current); void writer.current?.highlightStroke(correct) }}><PracticeIcon name="hint" /></Button>
+          <Button iconOnly aria-label="Next character" title="Next character" disabled={!next} onClick={() => { if (next) { autoStartNext.current = phase === 'drawing' || phase === 'complete' ? next.hanzi : null; onSelect(next) } }}><PracticeIcon name="next" /></Button>
+          <Button iconOnly className="aria-pressed:border-accent aria-pressed:bg-accent-soft aria-pressed:text-accent-deep" aria-label="Autoplay" aria-pressed={autoAdvance} title={autoAdvance ? 'Autoplay on — tap to turn off' : 'Autoplay off — tap to turn on'} onClick={() => { autoStartNext.current = null; onAutoAdvanceChange(!autoAdvance) }}><PracticeIcon name="autoplay" /></Button>
+        </div>
+        <p className={message ? 'mt-3 text-sm text-muted' : ''} role="status">{message}</p>
+        {phase === 'error' && <Button className="mt-3" onClick={() => setRound(r => r + 1)}>Retry loading</Button>}
+        {(mistakes > 0 || hintCount > 0) && <p className="mt-2 text-xs text-muted">{mistakes} retries · {hintCount} hints</p>}
       </Card>
-    </div>
-    <div className="min-w-0 space-y-3 md:col-start-2 md:row-start-2">
-      <Tabs tabs={[{key: 'guided', label: 'Guided'}, {key: 'recall', label: 'From memory'}]} active={mode} onChange={key => { autoStartNext.current = null; setMode(key as Mode) }} />
-      <div className="flex flex-wrap items-center justify-between gap-3 text-sm">
-        <Button disabled={!next} onClick={() => { autoStartNext.current = null; if (next) onSelect(next) }}>Next character →</Button>
-        <button type="button" aria-label="Autoplay" aria-pressed={autoAdvance} title={autoAdvance ? 'Pause autoplay' : 'Enable autoplay'} onClick={() => { autoStartNext.current = null; onAutoAdvanceChange(!autoAdvance) }} className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-line-strong bg-panel hover:bg-paper-deep ${autoAdvance ? 'text-accent-deep' : 'text-ink'}`}>
-          <svg aria-hidden="true" className="shrink-0" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">{autoAdvance ? <path d="M6 5h4v14H6zM14 5h4v14h-4z" /> : <path d="M7 4v16l14-8z" />}</svg>
-        </button>
-      </div>
-      {(mistakes > 0 || hintCount > 0) && <p className="text-sm text-muted">{mistakes} retries · {hintCount} hints</p>}
     </div>
   </div>
 }

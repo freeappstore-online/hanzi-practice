@@ -20,7 +20,7 @@ test('bounded history retains newest result', () => {
   assert.equal(next.at(-1).character,'二')
 })
 test('every curated character has complete local stroke and median data', () => {
-  assert.equal(new Set(CHARACTERS.map(c => c.hanzi)).size,200)
+  assert.equal(new Set(CHARACTERS.map(c => c.hanzi)).size,400)
   for (const c of CHARACTERS) {
     const data = JSON.parse(readFileSync(`web/public/characters/${c.hanzi}.json`,'utf8'))
     assert.ok(data.strokes.length > 0)
@@ -32,7 +32,8 @@ test('every curated character has complete local stroke and median data', () => 
 
 test('levels partition the collection and next follows levels without wrapping', () => {
   for (const level of LEVELS) assert.equal(charactersForLevel(level.id).length,40)
-  assert.equal(nextCharacter(CHARACTERS[39]).level,2)
+  assert.equal(LEVELS.length,10)
+  for (const level of LEVELS.slice(0,-1)) assert.equal(nextCharacter(charactersForLevel(level.id).at(-1)).level,level.id+1)
   assert.equal(nextCharacter(CHARACTERS.at(-1)),null)
 })
 

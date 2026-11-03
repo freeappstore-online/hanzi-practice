@@ -23,6 +23,7 @@ const GUIDE = [
 export function CharacterDetails({character, active = true, concealCharacter = false}: {character: Character; active?: boolean; concealCharacter?: boolean}) {
   const audio = useRef<HTMLAudioElement>(null)
   const [error, setError] = useState('')
+  const [playing, setPlaying] = useState(false)
   const [guideOpen, setGuideOpen] = useState(false)
   const request = useRef(0)
   const tone = toneFor(character.pinyin)
@@ -31,7 +32,7 @@ export function CharacterDetails({character, active = true, concealCharacter = f
     const player = audio.current
     player?.pause()
     if (player) player.currentTime = 0
-    setError(''); setGuideOpen(false)
+    setError(''); setPlaying(false); setGuideOpen(false)
     return () => { request.current++; player?.pause(); if (activePlayer === player) activePlayer = null }
   }, [character.hanzi, active])
   async function play() {
@@ -50,10 +51,10 @@ export function CharacterDetails({character, active = true, concealCharacter = f
     }
   }
   return <div className="min-w-0">
-    <audio ref={audio} src={audioPath(character.hanzi)} preload="none" onEnded={() => { if (activePlayer === audio.current) activePlayer = null }} />
+    <audio ref={audio} src={audioPath(character.hanzi)} preload="none" onPlaying={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={() => { setPlaying(false); if (activePlayer === audio.current) activePlayer = null }} />
     <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-4xl leading-tight">
-      <button type="button" lang="zh-Hans" data-testid="reference-character" aria-label={`Pronounce ${concealCharacter ? 'character' : character.hanzi}`} onClick={() => void play()} className="min-h-11 min-w-11 rounded-sm text-4xl leading-none hover:text-accent-deep">{concealCharacter ? '?' : character.hanzi}</button>
-      <button type="button" data-testid="pinyin" aria-label={`Pronounce ${character.pinyin}`} onClick={() => void play()} className="min-h-11 rounded-sm text-4xl leading-none hover:text-accent-deep">{character.pinyin}</button>
+      <button type="button" lang="zh-Hans" data-testid="reference-character" title="Play pronunciation" aria-label={`Pronounce ${concealCharacter ? 'character' : character.hanzi}`} onClick={() => void play()} className={`min-h-11 min-w-11 rounded-sm text-4xl leading-none hover:text-accent-deep ${playing ? 'bg-accent-soft text-accent-deep' : ''}`}>{concealCharacter ? '?' : character.hanzi}</button>
+      <button type="button" data-testid="pinyin" title="Play pronunciation" aria-label={`Pronounce ${character.pinyin}`} onClick={() => void play()} className={`min-h-11 rounded-sm text-4xl leading-none hover:text-accent-deep ${playing ? 'bg-accent-soft text-accent-deep' : ''}`}>{character.pinyin}</button>
       <button type="button" aria-label={`Tone ${tone.number}: ${tone.label}`} title="Tone guide" onClick={() => setGuideOpen(true)} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm text-4xl hover:bg-accent-soft"><ToneMarker pinyin={character.pinyin} /></button>
       <span data-testid="translation" className="max-w-full break-words text-4xl leading-tight">{character.meaning}</span>
     </div>
