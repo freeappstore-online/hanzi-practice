@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { initApp } from '@freeappstore/sdk'
 import { Badge, Card, EmptyState, PageHeader, SearchInput, Shell, type NavItem } from '@freeappstore/sdk/ui'
 import { Button } from './Button'
+import { PracticeBackup } from './PracticeBackup'
 import { CHARACTERS, LEVELS, charactersForLevel, findCharacter, type Character } from './characters'
 import { CharacterDetails } from './Pronunciation'
 import { readPreferences, savePreferences } from './preferences'
@@ -13,11 +14,11 @@ import { appendAttempt, characterStats, localDay, parseProgress, STORAGE_KEY, ty
 
 const fas = initApp({ appId: 'hanzi-practice' })
 const NAV: NavItem[] = [
-  {label:'Practice', href:'/', title:'Practice — Hanzi Practice'},
-  {label:'Review', href:'/review', title:'Review — Hanzi Practice'},
-  {label:'Characters', href:'/characters', title:'Characters — Hanzi Practice'},
-  {label:'Progress', href:'/progress', title:'Progress — Hanzi Practice'},
-  {label:'About', href:'/about', title:'About — Hanzi Practice'},
+  {label:'Practice', href:'/', title:'Practice — Hanzi'},
+  {label:'Review', href:'/review', title:'Review — Hanzi'},
+  {label:'Characters', href:'/characters', title:'Characters — Hanzi'},
+  {label:'Progress', href:'/progress', title:'Progress — Hanzi'},
+  {label:'About', href:'/about', title:'About — Hanzi'},
 ]
 export default function App() {
   const [path, setPath] = useState(location.pathname)
@@ -170,6 +171,7 @@ function About() {
   return <>
     <PageHeader title="About" />
     <div className="max-w-2xl space-y-5 text-sm leading-relaxed">
+      <PracticeBackup />
       <Card><h2 className="mb-2 text-lg font-bold">Watch. Trace. Recall.</h2><p>Watch the strokes before you write. Use Guided mode to follow the outline, then From memory to hide both the outline and the reference glyph. Draw with a finger, stylus, or mouse. The app checks stroke shape, direction, and order; it does not grade calligraphy.</p></Card>
       <Card><h2 className="mb-2 text-lg font-bold">{CHARACTERS.length} characters across {LEVELS.length} study levels</h2><p>The library uses simplified Chinese where forms differ. Each app study level has 40 characters; these levels are not an official HSK syllabus. Open the app online once and allow it to finish loading; the app, character data, and pronunciation audio are then cached for offline practice.</p></Card>
       <Card><h2 className="mb-2 text-lg font-bold">Listen and see the tone</h2><p>Tap a character or its pinyin for Mandarin pronunciation. Tap the pitch curve for the tone guide, or the English meaning for a word example. The pitch curve beside pinyin shows the tone: 1 level, 2 rising, 3 dipping then rising, 4 falling, and 5 neutral. The displayed reading and audio are for the character in isolation; some characters have other readings or change tone in a phrase.</p><p className="mt-2">Audio is generated with the free <a href="https://huggingface.co/hexgrad/Kokoro-82M-v1.1-zh" className="text-accent underline">Kokoro Mandarin model</a> and bundled with the app. No speech API, key, or on-device model download is needed.</p></Card>

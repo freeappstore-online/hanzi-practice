@@ -1,6 +1,6 @@
 # Hanzi Practice
 
-A free Chinese character stroke practice app: https://hanzi-practice.freeappstore.online
+A free Chinese character stroke practice app: https://hanzi.freeappstore.online
 
 - 400 simplified Chinese characters across ten app study levels, from Foundations to Ideas and connections. These are not official HSK levels.
 - Animated stroke order, guided tracing, and recall practice using Hanzi Writer.
@@ -42,3 +42,5 @@ App code: MIT (see LICENSE). Hanzi Writer: MIT, https://github.com/chanind/hanzi
 The unmodified character data is from Hanzi Writer Data 2.0.1 (https://github.com/chanind/hanzi-writer-data), derived from Make Me a Hanzi (https://github.com/skishore/makemeahanzi) and Arphic fonts. It is licensed separately under the Arphic Public License, reproduced in `web/public/licenses/ARPHICPL.txt`. The app's MIT license does not relicense this data.
 
 Mandarin audio is synthetic output from [Kokoro-82M-v1.1-zh](https://huggingface.co/hexgrad/Kokoro-82M-v1.1-zh), voice zf_001, Apache-2.0. Model attribution and the license are in `web/public/licenses/`. Model weights are not shipped to users.
+
+The old hanzi-practice address remains available. To move device-local history, export practice from About at the old address and import it in About at the new address.
