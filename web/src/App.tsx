@@ -6,12 +6,15 @@ import { CHARACTERS, LEVELS, charactersForLevel, findCharacter, type Character }
 import { CharacterDetails } from './Pronunciation'
 import { readPreferences, savePreferences } from './preferences'
 import { Practice } from './Practice'
+import { ReviewScreen } from './ReviewScreen'
+import { REVIEW_KEY, parseReview, migrateReview, mergeReview, recordReview, type ReviewState, type ReviewEvent } from './review'
 import { PracticeIcon } from './PracticeIcon'
 import { appendAttempt, characterStats, localDay, parseProgress, STORAGE_KEY, type Attempt, type Progress } from './progress'
 
 const fas = initApp({ appId: 'hanzi-practice' })
 const NAV: NavItem[] = [
   {label:'Practice', href:'/', title:'Practice — Hanzi Practice'},
+  {label:'Review', href:'/review', title:'Review — Hanzi Practice'},
   {label:'Characters', href:'/characters', title:'Characters — Hanzi Practice'},
   {label:'Progress', href:'/progress', title:'Progress — Hanzi Practice'},
   {label:'About', href:'/about', title:'About — Hanzi Practice'},
@@ -39,6 +42,10 @@ function Screens({path, navigate}: {path: string; navigate: (href: string) => vo
   const character = findCharacter(preferences.character)
   const setCharacter = useCallback((next: Character) => setPreferences(p => ({...p, character: next.hanzi})), [])
   const setAutoplay = useCallback((autoplay: boolean) => setPreferences(p => ({...p, autoplay})), [])
+  const [reviewState, setReviewState] = useState<ReviewState>({})
+  const reviewRef = useRef<ReviewState>({})
+  const [reviewSession, setReviewSession] = useState<{id: number; characters: Character[]; index: number} | null>(null)
+  useEffect(() => { if (path === '/review') setReviewSession(null) }, [path])
   const [progress, setProgress] = useState<Progress>([])
   const progressRef = useRef<Progress>([])
   const [storageWarning, setStorageWarning] = useState('')
@@ -49,23 +56,48 @@ function Screens({path, navigate}: {path: string; navigate: (href: string) => vo
     try { const saved = parseProgress(localStorage.getItem(STORAGE_KEY)); progressRef.current = saved; setProgress(saved) }
     catch { setStorageWarning('Saved progress could not be read. Practice still works, but this session starts with an empty history.') }
   }, [])
+  useEffect(() => {
+    try {
+      const next = migrateReview(parseReview(localStorage.getItem(REVIEW_KEY)), parseProgress(localStorage.getItem(STORAGE_KEY)))
+      reviewRef.current = next; setReviewState(next)
+      localStorage.setItem(REVIEW_KEY, JSON.stringify(next))
+    } catch { setStorageWarning('Review storage is unavailable. New reviews are kept only until this page closes.') }
+  }, [])
+  const reviewEvent = useCallback((event: ReviewEvent) => {
+    let current = reviewRef.current
+    try { current = mergeReview(current, parseReview(localStorage.getItem(REVIEW_KEY))) } catch { /* Use in-memory review state. */ }
+    const next = recordReview(current, event)
+    reviewRef.current = next; setReviewState(next)
+    try { localStorage.setItem(REVIEW_KEY, JSON.stringify(next)) }
+    catch { setStorageWarning('Device storage is unavailable or full. Reviews are kept only until this page closes.') }
+  }, [])
   const complete = useCallback((attempt: Attempt) => {
     // Re-read before appending so another tab's completed practice is retained.
     let current = progressRef.current
     try { current = [...new Map([...parseProgress(localStorage.getItem(STORAGE_KEY)), ...current].map(a => [a.at + a.character, a])).values()] } catch { /* Keep this session in memory. */ }
     const next = appendAttempt(current, attempt)
     progressRef.current = next; setProgress(next)
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); setStorageWarning('') }
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)) }
     catch { setStorageWarning('Device storage is unavailable or full. Progress is kept only until this page closes.') }
   }, [])
-  const choose = (c: Character) => { setCharacter(c); setPracticeRequest(n => n + 1); navigate('/') }
-  const practiceActive = !['/characters','/progress','/about'].includes(path)
+  const choose = (c: Character) => { setReviewSession(null); setCharacter(c); setPracticeRequest(n => n + 1); navigate('/') }
+  const practiceActive = !['/characters','/progress','/about','/review'].includes(path)
+  const advance = useCallback((c: Character) => {
+    setCharacter(c)
+    setReviewSession(s => s ? {...s, index: s.index + 1} : null)
+  }, [setCharacter])
+  const startReview = (items: Character[]) => {
+    if (!items.length) return
+    setReviewSession({id: Date.now(), characters: items, index: 0})
+    setCharacter(items[0]); setPracticeRequest(n => n + 1); navigate('/')
+  }
   return <div className="mx-auto w-full max-w-5xl p-4 sm:p-7">
     {storageWarning && <p role="alert" className="mb-4 rounded border border-warning bg-warning-soft p-3 text-sm">{storageWarning}</p>}
     <section hidden={!practiceActive}>
       <div className="sr-only"><PageHeader title="Character practice" /></div>
-      <Practice character={character} onSelect={setCharacter} onComplete={complete} active={practiceActive} autoAdvance={preferences.autoplay} onAutoAdvanceChange={setAutoplay} practiceRequest={practiceRequest} />
+      <Practice key={reviewSession?.id ?? 'normal'} character={character} onSelect={advance} onBrowse={c => { setReviewSession(null); setCharacter(c) }} onExitReview={() => navigate('/review')} onReviewEvent={reviewEvent} review={reviewSession ? {index: reviewSession.index, total: reviewSession.characters.length, next: reviewSession.characters[reviewSession.index + 1] ?? null} : undefined} onComplete={complete} active={practiceActive} autoAdvance={preferences.autoplay} onAutoAdvanceChange={setAutoplay} practiceRequest={practiceRequest} />
     </section>
+    {path === '/review' && <ReviewScreen state={reviewState} start={startReview} />}
     {path === '/characters' && <Library progress={progress} choose={choose} initialLevel={character.level} />}
     {path === '/progress' && <ProgressScreen progress={progress} choose={choose} />}
     {path === '/about' && <About />}
@@ -140,10 +172,11 @@ function About() {
     <div className="max-w-2xl space-y-5 text-sm leading-relaxed">
       <Card><h2 className="mb-2 text-lg font-bold">Watch. Trace. Recall.</h2><p>Watch the strokes before you write. Use Guided mode to follow the outline, then From memory to hide both the outline and the reference glyph. Draw with a finger, stylus, or mouse. The app checks stroke shape, direction, and order; it does not grade calligraphy.</p></Card>
       <Card><h2 className="mb-2 text-lg font-bold">{CHARACTERS.length} characters across {LEVELS.length} study levels</h2><p>The library uses simplified Chinese where forms differ. Each app study level has 40 characters; these levels are not an official HSK syllabus. Open the app online once and allow it to finish loading; the app, character data, and pronunciation audio are then cached for offline practice.</p></Card>
-      <Card><h2 className="mb-2 text-lg font-bold">Listen and see the tone</h2><p>Tap a character or its pinyin for Mandarin pronunciation. Tap the pitch curve for the tone guide. The pitch curve beside pinyin shows the tone: 1 level, 2 rising, 3 dipping then rising, 4 falling, and 5 neutral. The displayed reading and audio are for the character in isolation; some characters have other readings or change tone in a phrase.</p><p className="mt-2">Audio is generated with the free <a href="https://huggingface.co/hexgrad/Kokoro-82M-v1.1-zh" className="text-accent underline">Kokoro Mandarin model</a> and bundled with the app. No speech API, key, or on-device model download is needed.</p></Card>
+      <Card><h2 className="mb-2 text-lg font-bold">Listen and see the tone</h2><p>Tap a character or its pinyin for Mandarin pronunciation. Tap the pitch curve for the tone guide, or the English meaning for a word example. The pitch curve beside pinyin shows the tone: 1 level, 2 rising, 3 dipping then rising, 4 falling, and 5 neutral. The displayed reading and audio are for the character in isolation; some characters have other readings or change tone in a phrase.</p><p className="mt-2">Audio is generated with the free <a href="https://huggingface.co/hexgrad/Kokoro-82M-v1.1-zh" className="text-accent underline">Kokoro Mandarin model</a> and bundled with the app. No speech API, key, or on-device model download is needed.</p></Card>
       <Card><h2 className="mb-2 text-lg font-bold">Keep writing</h2><p>After a character is complete, practice moves to the next one and starts it automatically. You can turn this off with the autoplay button. At the end of a level it continues into the next level; at the end of the library it stops.</p></Card>
+      <Card><h2 className="mb-2 text-lg font-bold">Review what needs work</h2><p>Retries and hints are saved immediately, even if you leave an unfinished exercise. The review queue puts difficult characters first. Guided or assisted completions return in 10 minutes. Successful recall grows the interval from 1 day to 3, 7, 14, 30 and 60 days; practising early does not increase it. A review session visits each queued character once. Completed-practice ticks count only finished exercises.</p></Card>
       <Card><h2 className="mb-2 text-lg font-bold">Your practice stays here</h2><p>No account is needed. Results, your current character and level, and the autoplay setting are saved in this browser on this device. Clearing browser storage removes them; signing in does not sync them. Private browsing may discard them when you close the window.</p></Card>
-      <Card><h2 className="mb-2 text-lg font-bold">Built on open work</h2><p>Stroke animation and checking use <a className="text-accent underline" href="https://hanziwriter.org">Hanzi Writer</a> (MIT). Character paths come from <a className="text-accent underline" href="https://github.com/chanind/hanzi-writer-data">Hanzi Writer Data</a>, derived from Make Me a Hanzi and Arphic fonts, under the <a className="text-accent underline" href="/licenses/ARPHICPL.txt">Arphic Public License</a>. The data license is separate from this app’s MIT source license.</p></Card>
+      <Card><h2 className="mb-2 text-lg font-bold">Built on open work</h2><p>Stroke animation and checking use <a className="text-accent underline" href="https://hanziwriter.org">Hanzi Writer</a> (MIT). Character paths come from <a className="text-accent underline" href="https://github.com/chanind/hanzi-writer-data">Hanzi Writer Data</a>, derived from Make Me a Hanzi and Arphic fonts, under the <a className="text-accent underline" href="/licenses/ARPHICPL.txt">Arphic Public License</a>. The data license is separate from this app’s MIT source license.</p><p className="mt-2">Word examples use readings checked against <a className="text-accent underline" href="https://www.mdbg.net/chinese/dictionary?page=cc-cedict">CC-CEDICT</a>. The curated example dataset is available under <a className="text-accent underline" href="/licenses/EXAMPLES.txt">CC BY-SA 4.0</a>. Illustrations are AI-generated learning scenes.</p></Card>
       <p>Part of <a href="https://freeappstore.online" className="text-accent underline">FreeAppStore</a> · <a href="https://github.com/freeappstore-online/hanzi-practice" className="text-accent underline">Source and feedback</a></p>
     </div>
   </>

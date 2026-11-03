@@ -1,0 +1,16 @@
+Word examples (web/src/examples.json)
+
+The examples combine curated words, short phrases and English glosses with
+readings checked and corrected using CC-CEDICT, by the CC-CEDICT contributors.
+Source: https://www.mdbg.net/chinese/dictionary?page=cc-cedict
+Dataset consulted: 2026-11-02 release.
+Changes: selected common beginner examples, short English glosses, marked-pinyin
+formatting, spoken tone changes for yi/bu, and links to illustrative scenes.
+
+This example dataset is licensed under Creative Commons Attribution-ShareAlike
+4.0 International: https://creativecommons.org/licenses/by-sa/4.0/
+Source and editable dataset:
+https://github.com/freeappstore-online/hanzi-practice/blob/main/web/src/examples.json
+
+The app's MIT source-code license is separate. Illustrations were generated
+with the built-in image generation tool; prompts are in docs/example-illustrations.json.

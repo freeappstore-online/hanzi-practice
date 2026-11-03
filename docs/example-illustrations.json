@@ -1,0 +1,17 @@
+{
+  "mode": "Built-in image_gen",
+  "assets": [
+    {
+      "path": "web/public/examples/meal.png",
+      "prompt": "Use case: illustration-story. Asset type: Chinese vocabulary example popup. A beautiful restrained gouache illustration of a family eating a meal around a small table: mother, father and child, bowls of rice, vegetables, cups of tea, chopsticks. Clear everyday scene, soft warm colors, simple uncluttered cream background, landscape framing. No text, letters, logos, decorative borders or watermark."
+    },
+    {
+      "path": "web/public/examples/school.png",
+      "prompt": "Use case: illustration-story. Asset type: Chinese vocabulary example popup. A beautiful restrained gouache illustration of a teacher and two students learning in a bright classroom, open books on desks, notebooks and pencils, school bag beside a desk. Clear everyday scene, soft warm colors, simple uncluttered cream background, landscape framing. Blackboard is blank. No text, letters, logos, decorative borders or watermark."
+    },
+    {
+      "path": "web/public/examples/park.png",
+      "prompt": "Use case: illustration-story. Asset type: Chinese vocabulary example popup. A beautiful restrained gouache illustration of a peaceful park with leafy trees, colorful flowers, a small lake, a bird and a dog walking beside a person on a path. Sun in a blue sky. Clear everyday scene, soft warm colors, simple uncluttered cream background, landscape framing. No text, letters, logos, decorative borders or watermark."
+    }
+  ]
+}

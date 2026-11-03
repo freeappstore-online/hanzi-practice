@@ -1,0 +1,2050 @@
+{
+  "一": {
+    "word": "一个",
+    "pinyin": "yí gè",
+    "meaning": "one"
+  },
+  "二": {
+    "word": "二月",
+    "pinyin": "èr yuè",
+    "meaning": "February"
+  },
+  "三": {
+    "word": "三个",
+    "pinyin": "sān gè",
+    "meaning": "three"
+  },
+  "四": {
+    "word": "四季",
+    "pinyin": "sì jì",
+    "meaning": "four seasons"
+  },
+  "五": {
+    "word": "五天",
+    "pinyin": "wǔ tiān",
+    "meaning": "five days"
+  },
+  "六": {
+    "word": "六月",
+    "pinyin": "liù yuè",
+    "meaning": "June"
+  },
+  "七": {
+    "word": "七天",
+    "pinyin": "qī tiān",
+    "meaning": "seven days"
+  },
+  "八": {
+    "word": "八月",
+    "pinyin": "bā yuè",
+    "meaning": "August"
+  },
+  "九": {
+    "word": "九月",
+    "pinyin": "jiǔ yuè",
+    "meaning": "September"
+  },
+  "十": {
+    "word": "十年",
+    "pinyin": "shí nián",
+    "meaning": "ten years"
+  },
+  "日": {
+    "word": "日子",
+    "pinyin": "rì zi",
+    "meaning": "day; daily life"
+  },
+  "月": {
+    "word": "月亮",
+    "pinyin": "yuè liang",
+    "meaning": "moon"
+  },
+  "山": {
+    "word": "高山",
+    "pinyin": "gāo shān",
+    "meaning": "high mountain"
+  },
+  "水": {
+    "word": "喝水",
+    "pinyin": "hē shuǐ",
+    "meaning": "drink water"
+  },
+  "火": {
+    "word": "火车",
+    "pinyin": "huǒ chē",
+    "meaning": "train"
+  },
+  "木": {
+    "word": "木头",
+    "pinyin": "mù tou",
+    "meaning": "wood"
+  },
+  "土": {
+    "word": "土地",
+    "pinyin": "tǔ dì",
+    "meaning": "land"
+  },
+  "雨": {
+    "word": "下雨",
+    "pinyin": "xià yǔ",
+    "meaning": "rain"
+  },
+  "天": {
+    "word": "今天",
+    "pinyin": "jīn tiān",
+    "meaning": "today"
+  },
+  "田": {
+    "word": "田地",
+    "pinyin": "tián dì",
+    "meaning": "farmland"
+  },
+  "人": {
+    "word": "家人",
+    "pinyin": "jiā rén",
+    "meaning": "family",
+    "image": "meal"
+  },
+  "口": {
+    "word": "人口",
+    "pinyin": "rén kǒu",
+    "meaning": "population"
+  },
+  "手": {
+    "word": "洗手",
+    "pinyin": "xǐ shǒu",
+    "meaning": "wash hands"
+  },
+  "目": {
+    "word": "目标",
+    "pinyin": "mù biāo",
+    "meaning": "goal"
+  },
+  "心": {
+    "word": "小心",
+    "pinyin": "xiǎo xīn",
+    "meaning": "be careful"
+  },
+  "女": {
+    "word": "女孩",
+    "pinyin": "nǚ hái",
+    "meaning": "girl"
+  },
+  "子": {
+    "word": "孩子",
+    "pinyin": "hái zi",
+    "meaning": "child",
+    "image": "meal"
+  },
+  "大": {
+    "word": "大学",
+    "pinyin": "dà xué",
+    "meaning": "university"
+  },
+  "小": {
+    "word": "小狗",
+    "pinyin": "xiǎo gǒu",
+    "meaning": "puppy",
+    "image": "park"
+  },
+  "好": {
+    "word": "你好",
+    "pinyin": "nǐ hǎo",
+    "meaning": "hello"
+  },
+  "上": {
+    "word": "上课",
+    "pinyin": "shàng kè",
+    "meaning": "attend class",
+    "image": "school"
+  },
+  "下": {
+    "word": "下课",
+    "pinyin": "xià kè",
+    "meaning": "finish class",
+    "image": "school"
+  },
+  "中": {
+    "word": "中国",
+    "pinyin": "zhōng guó",
+    "meaning": "China"
+  },
+  "我": {
+    "word": "我们",
+    "pinyin": "wǒ men",
+    "meaning": "we"
+  },
+  "你": {
+    "word": "你们",
+    "pinyin": "nǐ men",
+    "meaning": "you (plural)"
+  },
+  "不": {
+    "word": "不是",
+    "pinyin": "bú shì",
+    "meaning": "is not"
+  },
+  "是": {
+    "word": "是的",
+    "pinyin": "shì de",
+    "meaning": "yes"
+  },
+  "学": {
+    "word": "学生",
+    "pinyin": "xué shēng",
+    "meaning": "student",
+    "image": "school"
+  },
+  "生": {
+    "word": "生活",
+    "pinyin": "shēng huó",
+    "meaning": "daily life"
+  },
+  "国": {
+    "word": "国家",
+    "pinyin": "guó jiā",
+    "meaning": "country"
+  },
+  "爸": {
+    "word": "爸爸",
+    "pinyin": "bà ba",
+    "meaning": "dad",
+    "image": "meal"
+  },
+  "妈": {
+    "word": "妈妈",
+    "pinyin": "mā ma",
+    "meaning": "mum",
+    "image": "meal"
+  },
+  "哥": {
+    "word": "哥哥",
+    "pinyin": "gē ge",
+    "meaning": "older brother"
+  },
+  "姐": {
+    "word": "姐姐",
+    "pinyin": "jiě jie",
+    "meaning": "older sister"
+  },
+  "弟": {
+    "word": "弟弟",
+    "pinyin": "dì di",
+    "meaning": "younger brother"
+  },
+  "妹": {
+    "word": "妹妹",
+    "pinyin": "mèi mei",
+    "meaning": "younger sister"
+  },
+  "家": {
+    "word": "家庭",
+    "pinyin": "jiā tíng",
+    "meaning": "family",
+    "image": "meal"
+  },
+  "友": {
+    "word": "朋友",
+    "pinyin": "péng you",
+    "meaning": "friend"
+  },
+  "男": {
+    "word": "男人",
+    "pinyin": "nán rén",
+    "meaning": "man"
+  },
+  "名": {
+    "word": "名字",
+    "pinyin": "míng zi",
+    "meaning": "name"
+  },
+  "他": {
+    "word": "他们",
+    "pinyin": "tā men",
+    "meaning": "they"
+  },
+  "她": {
+    "word": "她们",
+    "pinyin": "tā men",
+    "meaning": "they (women)"
+  },
+  "们": {
+    "word": "我们",
+    "pinyin": "wǒ men",
+    "meaning": "we"
+  },
+  "的": {
+    "word": "我的书",
+    "pinyin": "wǒ de shū",
+    "meaning": "my book",
+    "image": "school"
+  },
+  "了": {
+    "word": "吃了",
+    "pinyin": "chī le",
+    "meaning": "ate"
+  },
+  "吗": {
+    "word": "好吗",
+    "pinyin": "hǎo ma",
+    "meaning": "is that okay?"
+  },
+  "呢": {
+    "word": "你呢",
+    "pinyin": "nǐ ne",
+    "meaning": "and you?"
+  },
+  "也": {
+    "word": "也好",
+    "pinyin": "yě hǎo",
+    "meaning": "that works too"
+  },
+  "很": {
+    "word": "很好",
+    "pinyin": "hěn hǎo",
+    "meaning": "very good"
+  },
+  "和": {
+    "word": "我和你",
+    "pinyin": "wǒ hé nǐ",
+    "meaning": "you and I"
+  },
+  "来": {
+    "word": "回来",
+    "pinyin": "huí lái",
+    "meaning": "come back"
+  },
+  "去": {
+    "word": "出去",
+    "pinyin": "chū qù",
+    "meaning": "go out"
+  },
+  "吃": {
+    "word": "吃饭",
+    "pinyin": "chī fàn",
+    "meaning": "eat a meal",
+    "image": "meal"
+  },
+  "喝": {
+    "word": "喝茶",
+    "pinyin": "hē chá",
+    "meaning": "drink tea",
+    "image": "meal"
+  },
+  "看": {
+    "word": "看书",
+    "pinyin": "kàn shū",
+    "meaning": "read a book",
+    "image": "school"
+  },
+  "听": {
+    "word": "听说",
+    "pinyin": "tīng shuō",
+    "meaning": "hear about"
+  },
+  "说": {
+    "word": "说话",
+    "pinyin": "shuō huà",
+    "meaning": "speak"
+  },
+  "读": {
+    "word": "读书",
+    "pinyin": "dú shū",
+    "meaning": "read; study",
+    "image": "school"
+  },
+  "写": {
+    "word": "写字",
+    "pinyin": "xiě zì",
+    "meaning": "write characters",
+    "image": "school"
+  },
+  "做": {
+    "word": "做饭",
+    "pinyin": "zuò fàn",
+    "meaning": "cook a meal"
+  },
+  "今": {
+    "word": "今天",
+    "pinyin": "jīn tiān",
+    "meaning": "today"
+  },
+  "明": {
+    "word": "明天",
+    "pinyin": "míng tiān",
+    "meaning": "tomorrow"
+  },
+  "昨": {
+    "word": "昨天",
+    "pinyin": "zuó tiān",
+    "meaning": "yesterday"
+  },
+  "年": {
+    "word": "今年",
+    "pinyin": "jīn nián",
+    "meaning": "this year"
+  },
+  "时": {
+    "word": "时间",
+    "pinyin": "shí jiān",
+    "meaning": "time"
+  },
+  "分": {
+    "word": "分钟",
+    "pinyin": "fēn zhōng",
+    "meaning": "minute"
+  },
+  "早": {
+    "word": "早上",
+    "pinyin": "zǎo shang",
+    "meaning": "morning"
+  },
+  "晚": {
+    "word": "晚上",
+    "pinyin": "wǎn shang",
+    "meaning": "evening"
+  },
+  "午": {
+    "word": "中午",
+    "pinyin": "zhōng wǔ",
+    "meaning": "noon"
+  },
+  "半": {
+    "word": "一半",
+    "pinyin": "yí bàn",
+    "meaning": "half"
+  },
+  "米": {
+    "word": "米饭",
+    "pinyin": "mǐ fàn",
+    "meaning": "cooked rice",
+    "image": "meal"
+  },
+  "饭": {
+    "word": "吃饭",
+    "pinyin": "chī fàn",
+    "meaning": "eat a meal",
+    "image": "meal"
+  },
+  "菜": {
+    "word": "蔬菜",
+    "pinyin": "shū cài",
+    "meaning": "vegetables",
+    "image": "meal"
+  },
+  "茶": {
+    "word": "喝茶",
+    "pinyin": "hē chá",
+    "meaning": "drink tea",
+    "image": "meal"
+  },
+  "果": {
+    "word": "水果",
+    "pinyin": "shuǐ guǒ",
+    "meaning": "fruit"
+  },
+  "肉": {
+    "word": "牛肉",
+    "pinyin": "niú ròu",
+    "meaning": "beef"
+  },
+  "鱼": {
+    "word": "小鱼",
+    "pinyin": "xiǎo yú",
+    "meaning": "small fish"
+  },
+  "蛋": {
+    "word": "鸡蛋",
+    "pinyin": "jī dàn",
+    "meaning": "egg"
+  },
+  "糖": {
+    "word": "糖果",
+    "pinyin": "táng guǒ",
+    "meaning": "sweets"
+  },
+  "面": {
+    "word": "面条",
+    "pinyin": "miàn tiáo",
+    "meaning": "noodles"
+  },
+  "门": {
+    "word": "开门",
+    "pinyin": "kāi mén",
+    "meaning": "open the door"
+  },
+  "窗": {
+    "word": "窗户",
+    "pinyin": "chuāng hu",
+    "meaning": "window"
+  },
+  "房": {
+    "word": "房间",
+    "pinyin": "fáng jiān",
+    "meaning": "room"
+  },
+  "床": {
+    "word": "起床",
+    "pinyin": "qǐ chuáng",
+    "meaning": "get out of bed"
+  },
+  "桌": {
+    "word": "桌子",
+    "pinyin": "zhuō zi",
+    "meaning": "table",
+    "image": "meal"
+  },
+  "椅": {
+    "word": "椅子",
+    "pinyin": "yǐ zi",
+    "meaning": "chair",
+    "image": "school"
+  },
+  "书": {
+    "word": "书本",
+    "pinyin": "shū běn",
+    "meaning": "books",
+    "image": "school"
+  },
+  "纸": {
+    "word": "白纸",
+    "pinyin": "bái zhǐ",
+    "meaning": "white paper",
+    "image": "school"
+  },
+  "笔": {
+    "word": "铅笔",
+    "pinyin": "qiān bǐ",
+    "meaning": "pencil",
+    "image": "school"
+  },
+  "灯": {
+    "word": "电灯",
+    "pinyin": "diàn dēng",
+    "meaning": "electric light"
+  },
+  "校": {
+    "word": "学校",
+    "pinyin": "xué xiào",
+    "meaning": "school",
+    "image": "school"
+  },
+  "店": {
+    "word": "商店",
+    "pinyin": "shāng diàn",
+    "meaning": "shop"
+  },
+  "路": {
+    "word": "走路",
+    "pinyin": "zǒu lù",
+    "meaning": "walk",
+    "image": "park"
+  },
+  "车": {
+    "word": "汽车",
+    "pinyin": "qì chē",
+    "meaning": "car"
+  },
+  "站": {
+    "word": "车站",
+    "pinyin": "chē zhàn",
+    "meaning": "station"
+  },
+  "市": {
+    "word": "城市",
+    "pinyin": "chéng shì",
+    "meaning": "city"
+  },
+  "村": {
+    "word": "村子",
+    "pinyin": "cūn zi",
+    "meaning": "village"
+  },
+  "园": {
+    "word": "公园",
+    "pinyin": "gōng yuán",
+    "meaning": "park",
+    "image": "park"
+  },
+  "院": {
+    "word": "医院",
+    "pinyin": "yī yuàn",
+    "meaning": "hospital"
+  },
+  "室": {
+    "word": "教室",
+    "pinyin": "jiào shì",
+    "meaning": "classroom",
+    "image": "school"
+  },
+  "多": {
+    "word": "多少",
+    "pinyin": "duō shao",
+    "meaning": "how much; how many"
+  },
+  "少": {
+    "word": "少数",
+    "pinyin": "shǎo shù",
+    "meaning": "a small number"
+  },
+  "高": {
+    "word": "高兴",
+    "pinyin": "gāo xìng",
+    "meaning": "happy"
+  },
+  "低": {
+    "word": "低头",
+    "pinyin": "dī tóu",
+    "meaning": "lower one's head"
+  },
+  "长": {
+    "word": "长短",
+    "pinyin": "cháng duǎn",
+    "meaning": "length"
+  },
+  "短": {
+    "word": "短裤",
+    "pinyin": "duǎn kù",
+    "meaning": "shorts"
+  },
+  "新": {
+    "word": "新年",
+    "pinyin": "xīn nián",
+    "meaning": "new year"
+  },
+  "旧": {
+    "word": "旧书",
+    "pinyin": "jiù shū",
+    "meaning": "old book"
+  },
+  "冷": {
+    "word": "冷水",
+    "pinyin": "lěng shuǐ",
+    "meaning": "cold water"
+  },
+  "热": {
+    "word": "热水",
+    "pinyin": "rè shuǐ",
+    "meaning": "hot water"
+  },
+  "风": {
+    "word": "大风",
+    "pinyin": "dà fēng",
+    "meaning": "strong wind"
+  },
+  "雪": {
+    "word": "下雪",
+    "pinyin": "xià xuě",
+    "meaning": "snow"
+  },
+  "云": {
+    "word": "白云",
+    "pinyin": "bái yún",
+    "meaning": "white clouds"
+  },
+  "海": {
+    "word": "大海",
+    "pinyin": "dà hǎi",
+    "meaning": "sea"
+  },
+  "河": {
+    "word": "河水",
+    "pinyin": "hé shuǐ",
+    "meaning": "river water"
+  },
+  "花": {
+    "word": "花园",
+    "pinyin": "huā yuán",
+    "meaning": "flower garden",
+    "image": "park"
+  },
+  "草": {
+    "word": "小草",
+    "pinyin": "xiǎo cǎo",
+    "meaning": "grass",
+    "image": "park"
+  },
+  "树": {
+    "word": "大树",
+    "pinyin": "dà shù",
+    "meaning": "large tree",
+    "image": "park"
+  },
+  "鸟": {
+    "word": "小鸟",
+    "pinyin": "xiǎo niǎo",
+    "meaning": "little bird",
+    "image": "park"
+  },
+  "马": {
+    "word": "马车",
+    "pinyin": "mǎ chē",
+    "meaning": "horse-drawn carriage"
+  },
+  "东": {
+    "word": "东方",
+    "pinyin": "dōng fāng",
+    "meaning": "east"
+  },
+  "西": {
+    "word": "西方",
+    "pinyin": "xī fāng",
+    "meaning": "west"
+  },
+  "南": {
+    "word": "南方",
+    "pinyin": "nán fāng",
+    "meaning": "south"
+  },
+  "北": {
+    "word": "北方",
+    "pinyin": "běi fāng",
+    "meaning": "north"
+  },
+  "左": {
+    "word": "左边",
+    "pinyin": "zuǒ biān",
+    "meaning": "left side"
+  },
+  "右": {
+    "word": "右边",
+    "pinyin": "yòu biān",
+    "meaning": "right side"
+  },
+  "前": {
+    "word": "前面",
+    "pinyin": "qián miàn",
+    "meaning": "in front"
+  },
+  "后": {
+    "word": "后面",
+    "pinyin": "hòu miàn",
+    "meaning": "behind"
+  },
+  "远": {
+    "word": "远方",
+    "pinyin": "yuǎn fāng",
+    "meaning": "far away"
+  },
+  "近": {
+    "word": "附近",
+    "pinyin": "fù jìn",
+    "meaning": "nearby"
+  },
+  "文": {
+    "word": "中文",
+    "pinyin": "zhōng wén",
+    "meaning": "Chinese language"
+  },
+  "字": {
+    "word": "汉字",
+    "pinyin": "hàn zì",
+    "meaning": "Chinese characters"
+  },
+  "语": {
+    "word": "语言",
+    "pinyin": "yǔ yán",
+    "meaning": "language"
+  },
+  "汉": {
+    "word": "汉语",
+    "pinyin": "hàn yǔ",
+    "meaning": "Chinese language"
+  },
+  "英": {
+    "word": "英语",
+    "pinyin": "yīng yǔ",
+    "meaning": "English language"
+  },
+  "课": {
+    "word": "上课",
+    "pinyin": "shàng kè",
+    "meaning": "attend class",
+    "image": "school"
+  },
+  "师": {
+    "word": "老师",
+    "pinyin": "lǎo shī",
+    "meaning": "teacher",
+    "image": "school"
+  },
+  "习": {
+    "word": "学习",
+    "pinyin": "xué xí",
+    "meaning": "study",
+    "image": "school"
+  },
+  "题": {
+    "word": "问题",
+    "pinyin": "wèn tí",
+    "meaning": "question; problem"
+  },
+  "答": {
+    "word": "回答",
+    "pinyin": "huí dá",
+    "meaning": "answer"
+  },
+  "买": {
+    "word": "买书",
+    "pinyin": "mǎi shū",
+    "meaning": "buy a book"
+  },
+  "卖": {
+    "word": "卖东西",
+    "pinyin": "mài dōng xi",
+    "meaning": "sell things"
+  },
+  "钱": {
+    "word": "多少钱",
+    "pinyin": "duō shao qián",
+    "meaning": "how much money?"
+  },
+  "工": {
+    "word": "工作",
+    "pinyin": "gōng zuò",
+    "meaning": "work"
+  },
+  "作": {
+    "word": "作业",
+    "pinyin": "zuò yè",
+    "meaning": "homework",
+    "image": "school"
+  },
+  "开": {
+    "word": "开门",
+    "pinyin": "kāi mén",
+    "meaning": "open the door"
+  },
+  "关": {
+    "word": "关门",
+    "pinyin": "guān mén",
+    "meaning": "close the door"
+  },
+  "走": {
+    "word": "走路",
+    "pinyin": "zǒu lù",
+    "meaning": "walk",
+    "image": "park"
+  },
+  "跑": {
+    "word": "跑步",
+    "pinyin": "pǎo bù",
+    "meaning": "run"
+  },
+  "坐": {
+    "word": "坐下",
+    "pinyin": "zuò xià",
+    "meaning": "sit down"
+  },
+  "请": {
+    "word": "请问",
+    "pinyin": "qǐng wèn",
+    "meaning": "may I ask?"
+  },
+  "谢": {
+    "word": "谢谢",
+    "pinyin": "xiè xie",
+    "meaning": "thank you"
+  },
+  "问": {
+    "word": "问题",
+    "pinyin": "wèn tí",
+    "meaning": "question; problem"
+  },
+  "话": {
+    "word": "说话",
+    "pinyin": "shuō huà",
+    "meaning": "speak"
+  },
+  "告": {
+    "word": "告诉",
+    "pinyin": "gào su",
+    "meaning": "tell"
+  },
+  "诉": {
+    "word": "诉说",
+    "pinyin": "sù shuō",
+    "meaning": "tell; recount"
+  },
+  "认": {
+    "word": "认识",
+    "pinyin": "rèn shi",
+    "meaning": "know; recognize"
+  },
+  "识": {
+    "word": "识别",
+    "pinyin": "shí bié",
+    "meaning": "recognize"
+  },
+  "信": {
+    "word": "信息",
+    "pinyin": "xìn xī",
+    "meaning": "information"
+  },
+  "息": {
+    "word": "信息",
+    "pinyin": "xìn xī",
+    "meaning": "information"
+  },
+  "医": {
+    "word": "医生",
+    "pinyin": "yī shēng",
+    "meaning": "doctor"
+  },
+  "病": {
+    "word": "生病",
+    "pinyin": "shēng bìng",
+    "meaning": "be ill"
+  },
+  "药": {
+    "word": "吃药",
+    "pinyin": "chī yào",
+    "meaning": "take medicine"
+  },
+  "电": {
+    "word": "电话",
+    "pinyin": "diàn huà",
+    "meaning": "telephone"
+  },
+  "网": {
+    "word": "上网",
+    "pinyin": "shàng wǎng",
+    "meaning": "go online"
+  },
+  "机": {
+    "word": "飞机",
+    "pinyin": "fēi jī",
+    "meaning": "airplane"
+  },
+  "会": {
+    "word": "开会",
+    "pinyin": "kāi huì",
+    "meaning": "have a meeting"
+  },
+  "社": {
+    "word": "社会",
+    "pinyin": "shè huì",
+    "meaning": "society"
+  },
+  "民": {
+    "word": "人民",
+    "pinyin": "rén mín",
+    "meaning": "people"
+  },
+  "世": {
+    "word": "世界",
+    "pinyin": "shì jiè",
+    "meaning": "world"
+  },
+  "想": {
+    "word": "想法",
+    "pinyin": "xiǎng fǎ",
+    "meaning": "idea"
+  },
+  "思": {
+    "word": "思考",
+    "pinyin": "sī kǎo",
+    "meaning": "think"
+  },
+  "知": {
+    "word": "知道",
+    "pinyin": "zhī dao",
+    "meaning": "know"
+  },
+  "道": {
+    "word": "道路",
+    "pinyin": "dào lù",
+    "meaning": "road"
+  },
+  "意": {
+    "word": "意思",
+    "pinyin": "yì si",
+    "meaning": "meaning"
+  },
+  "义": {
+    "word": "意义",
+    "pinyin": "yì yì",
+    "meaning": "significance"
+  },
+  "理": {
+    "word": "理由",
+    "pinyin": "lǐ yóu",
+    "meaning": "reason"
+  },
+  "真": {
+    "word": "真的",
+    "pinyin": "zhēn de",
+    "meaning": "really"
+  },
+  "情": {
+    "word": "心情",
+    "pinyin": "xīn qíng",
+    "meaning": "mood"
+  },
+  "爱": {
+    "word": "爱好",
+    "pinyin": "ài hào",
+    "meaning": "hobby"
+  },
+  "能": {
+    "word": "能够",
+    "pinyin": "néng gòu",
+    "meaning": "be able to"
+  },
+  "要": {
+    "word": "需要",
+    "pinyin": "xū yào",
+    "meaning": "need"
+  },
+  "用": {
+    "word": "使用",
+    "pinyin": "shǐ yòng",
+    "meaning": "use"
+  },
+  "给": {
+    "word": "送给",
+    "pinyin": "sòng gěi",
+    "meaning": "give to"
+  },
+  "找": {
+    "word": "找到",
+    "pinyin": "zhǎo dào",
+    "meaning": "find"
+  },
+  "等": {
+    "word": "等待",
+    "pinyin": "děng dài",
+    "meaning": "wait"
+  },
+  "带": {
+    "word": "带来",
+    "pinyin": "dài lái",
+    "meaning": "bring"
+  },
+  "放": {
+    "word": "放下",
+    "pinyin": "fàng xià",
+    "meaning": "put down"
+  },
+  "进": {
+    "word": "进去",
+    "pinyin": "jìn qù",
+    "meaning": "go in"
+  },
+  "出": {
+    "word": "出来",
+    "pinyin": "chū lái",
+    "meaning": "come out"
+  },
+  "头": {
+    "word": "头发",
+    "pinyin": "tóu fa",
+    "meaning": "hair"
+  },
+  "脸": {
+    "word": "洗脸",
+    "pinyin": "xǐ liǎn",
+    "meaning": "wash one's face"
+  },
+  "眼": {
+    "word": "眼睛",
+    "pinyin": "yǎn jing",
+    "meaning": "eyes"
+  },
+  "耳": {
+    "word": "耳朵",
+    "pinyin": "ěr duo",
+    "meaning": "ears"
+  },
+  "鼻": {
+    "word": "鼻子",
+    "pinyin": "bí zi",
+    "meaning": "nose"
+  },
+  "牙": {
+    "word": "牙齿",
+    "pinyin": "yá chǐ",
+    "meaning": "teeth"
+  },
+  "舌": {
+    "word": "舌头",
+    "pinyin": "shé tou",
+    "meaning": "tongue"
+  },
+  "足": {
+    "word": "足球",
+    "pinyin": "zú qiú",
+    "meaning": "football"
+  },
+  "腿": {
+    "word": "小腿",
+    "pinyin": "xiǎo tuǐ",
+    "meaning": "lower leg"
+  },
+  "背": {
+    "word": "后背",
+    "pinyin": "hòu bèi",
+    "meaning": "back (of the body)"
+  },
+  "衣": {
+    "word": "衣服",
+    "pinyin": "yī fu",
+    "meaning": "clothes"
+  },
+  "服": {
+    "word": "服装",
+    "pinyin": "fú zhuāng",
+    "meaning": "clothing"
+  },
+  "帽": {
+    "word": "帽子",
+    "pinyin": "mào zi",
+    "meaning": "hat"
+  },
+  "鞋": {
+    "word": "鞋子",
+    "pinyin": "xié zi",
+    "meaning": "shoes"
+  },
+  "袜": {
+    "word": "袜子",
+    "pinyin": "wà zi",
+    "meaning": "socks"
+  },
+  "裤": {
+    "word": "裤子",
+    "pinyin": "kù zi",
+    "meaning": "trousers"
+  },
+  "裙": {
+    "word": "裙子",
+    "pinyin": "qún zi",
+    "meaning": "skirt"
+  },
+  "衫": {
+    "word": "衬衫",
+    "pinyin": "chèn shān",
+    "meaning": "shirt"
+  },
+  "穿": {
+    "word": "穿衣服",
+    "pinyin": "chuān yī fu",
+    "meaning": "put on clothes"
+  },
+  "脱": {
+    "word": "脱鞋",
+    "pinyin": "tuō xié",
+    "meaning": "take off shoes"
+  },
+  "红": {
+    "word": "红色",
+    "pinyin": "hóng sè",
+    "meaning": "red"
+  },
+  "黄": {
+    "word": "黄色",
+    "pinyin": "huáng sè",
+    "meaning": "yellow"
+  },
+  "蓝": {
+    "word": "蓝天",
+    "pinyin": "lán tiān",
+    "meaning": "blue sky",
+    "image": "park"
+  },
+  "绿": {
+    "word": "绿叶",
+    "pinyin": "lǜ yè",
+    "meaning": "green leaves",
+    "image": "park"
+  },
+  "白": {
+    "word": "白色",
+    "pinyin": "bái sè",
+    "meaning": "white"
+  },
+  "黑": {
+    "word": "黑色",
+    "pinyin": "hēi sè",
+    "meaning": "black"
+  },
+  "色": {
+    "word": "颜色",
+    "pinyin": "yán sè",
+    "meaning": "colour"
+  },
+  "紫": {
+    "word": "紫色",
+    "pinyin": "zǐ sè",
+    "meaning": "purple"
+  },
+  "灰": {
+    "word": "灰色",
+    "pinyin": "huī sè",
+    "meaning": "grey"
+  },
+  "金": {
+    "word": "金色",
+    "pinyin": "jīn sè",
+    "meaning": "golden"
+  },
+  "猫": {
+    "word": "小猫",
+    "pinyin": "xiǎo māo",
+    "meaning": "kitten"
+  },
+  "狗": {
+    "word": "小狗",
+    "pinyin": "xiǎo gǒu",
+    "meaning": "puppy",
+    "image": "park"
+  },
+  "牛": {
+    "word": "牛奶",
+    "pinyin": "niú nǎi",
+    "meaning": "milk"
+  },
+  "羊": {
+    "word": "山羊",
+    "pinyin": "shān yáng",
+    "meaning": "goat"
+  },
+  "猪": {
+    "word": "小猪",
+    "pinyin": "xiǎo zhū",
+    "meaning": "piglet"
+  },
+  "鸡": {
+    "word": "鸡蛋",
+    "pinyin": "jī dàn",
+    "meaning": "egg"
+  },
+  "鸭": {
+    "word": "鸭子",
+    "pinyin": "yā zi",
+    "meaning": "duck"
+  },
+  "兔": {
+    "word": "兔子",
+    "pinyin": "tù zi",
+    "meaning": "rabbit"
+  },
+  "虫": {
+    "word": "昆虫",
+    "pinyin": "kūn chóng",
+    "meaning": "insect"
+  },
+  "龙": {
+    "word": "龙年",
+    "pinyin": "lóng nián",
+    "meaning": "year of the dragon"
+  },
+  "飞": {
+    "word": "飞机",
+    "pinyin": "fēi jī",
+    "meaning": "airplane"
+  },
+  "船": {
+    "word": "小船",
+    "pinyin": "xiǎo chuán",
+    "meaning": "small boat"
+  },
+  "汽": {
+    "word": "汽车",
+    "pinyin": "qì chē",
+    "meaning": "car"
+  },
+  "铁": {
+    "word": "地铁",
+    "pinyin": "dì tiě",
+    "meaning": "metro"
+  },
+  "票": {
+    "word": "车票",
+    "pinyin": "chē piào",
+    "meaning": "ticket"
+  },
+  "旅": {
+    "word": "旅行",
+    "pinyin": "lǚ xíng",
+    "meaning": "travel"
+  },
+  "游": {
+    "word": "旅游",
+    "pinyin": "lǚ yóu",
+    "meaning": "go sightseeing"
+  },
+  "住": {
+    "word": "住在",
+    "pinyin": "zhù zài",
+    "meaning": "live in"
+  },
+  "宿": {
+    "word": "宿舍",
+    "pinyin": "sù shè",
+    "meaning": "dormitory"
+  },
+  "馆": {
+    "word": "饭馆",
+    "pinyin": "fàn guǎn",
+    "meaning": "restaurant"
+  },
+  "商": {
+    "word": "商店",
+    "pinyin": "shāng diàn",
+    "meaning": "shop"
+  },
+  "价": {
+    "word": "价格",
+    "pinyin": "jià gé",
+    "meaning": "price"
+  },
+  "贵": {
+    "word": "很贵",
+    "pinyin": "hěn guì",
+    "meaning": "expensive"
+  },
+  "元": {
+    "word": "一元",
+    "pinyin": "yì yuán",
+    "meaning": "one yuan"
+  },
+  "块": {
+    "word": "一块钱",
+    "pinyin": "yí kuài qián",
+    "meaning": "one yuan"
+  },
+  "斤": {
+    "word": "一斤",
+    "pinyin": "yì jīn",
+    "meaning": "half a kilogram"
+  },
+  "两": {
+    "word": "两个",
+    "pinyin": "liǎng gè",
+    "meaning": "two"
+  },
+  "百": {
+    "word": "一百",
+    "pinyin": "yì bǎi",
+    "meaning": "one hundred"
+  },
+  "千": {
+    "word": "一千",
+    "pinyin": "yì qiān",
+    "meaning": "one thousand"
+  },
+  "万": {
+    "word": "一万",
+    "pinyin": "yí wàn",
+    "meaning": "ten thousand"
+  },
+  "奶": {
+    "word": "牛奶",
+    "pinyin": "niú nǎi",
+    "meaning": "milk"
+  },
+  "汤": {
+    "word": "喝汤",
+    "pinyin": "hē tāng",
+    "meaning": "drink soup"
+  },
+  "盐": {
+    "word": "食盐",
+    "pinyin": "shí yán",
+    "meaning": "table salt"
+  },
+  "油": {
+    "word": "豆油",
+    "pinyin": "dòu yóu",
+    "meaning": "soybean oil"
+  },
+  "甜": {
+    "word": "甜点",
+    "pinyin": "tián diǎn",
+    "meaning": "dessert"
+  },
+  "酸": {
+    "word": "酸奶",
+    "pinyin": "suān nǎi",
+    "meaning": "yoghurt"
+  },
+  "苦": {
+    "word": "苦瓜",
+    "pinyin": "kǔ guā",
+    "meaning": "bitter melon"
+  },
+  "辣": {
+    "word": "辣椒",
+    "pinyin": "là jiāo",
+    "meaning": "chilli pepper"
+  },
+  "饱": {
+    "word": "吃饱",
+    "pinyin": "chī bǎo",
+    "meaning": "eat one's fill"
+  },
+  "饿": {
+    "word": "很饿",
+    "pinyin": "hěn è",
+    "meaning": "very hungry"
+  },
+  "地": {
+    "word": "地铁",
+    "pinyin": "dì tiě",
+    "meaning": "metro"
+  },
+  "街": {
+    "word": "街道",
+    "pinyin": "jiē dào",
+    "meaning": "street"
+  },
+  "桥": {
+    "word": "大桥",
+    "pinyin": "dà qiáo",
+    "meaning": "large bridge"
+  },
+  "楼": {
+    "word": "楼房",
+    "pinyin": "lóu fáng",
+    "meaning": "building"
+  },
+  "层": {
+    "word": "楼层",
+    "pinyin": "lóu céng",
+    "meaning": "floor of a building"
+  },
+  "城": {
+    "word": "城市",
+    "pinyin": "chéng shì",
+    "meaning": "city"
+  },
+  "乡": {
+    "word": "乡村",
+    "pinyin": "xiāng cūn",
+    "meaning": "countryside"
+  },
+  "场": {
+    "word": "广场",
+    "pinyin": "guǎng chǎng",
+    "meaning": "public square"
+  },
+  "港": {
+    "word": "港口",
+    "pinyin": "gǎng kǒu",
+    "meaning": "port"
+  },
+  "岛": {
+    "word": "海岛",
+    "pinyin": "hǎi dǎo",
+    "meaning": "island"
+  },
+  "打": {
+    "word": "打球",
+    "pinyin": "dǎ qiú",
+    "meaning": "play ball"
+  },
+  "拿": {
+    "word": "拿来",
+    "pinyin": "ná lái",
+    "meaning": "bring here"
+  },
+  "送": {
+    "word": "送给",
+    "pinyin": "sòng gěi",
+    "meaning": "give to"
+  },
+  "回": {
+    "word": "回家",
+    "pinyin": "huí jiā",
+    "meaning": "go home"
+  },
+  "到": {
+    "word": "到家",
+    "pinyin": "dào jiā",
+    "meaning": "arrive home"
+  },
+  "起": {
+    "word": "起床",
+    "pinyin": "qǐ chuáng",
+    "meaning": "get out of bed"
+  },
+  "睡": {
+    "word": "睡觉",
+    "pinyin": "shuì jiào",
+    "meaning": "sleep"
+  },
+  "洗": {
+    "word": "洗手",
+    "pinyin": "xǐ shǒu",
+    "meaning": "wash hands"
+  },
+  "玩": {
+    "word": "玩具",
+    "pinyin": "wán jù",
+    "meaning": "toy"
+  },
+  "笑": {
+    "word": "微笑",
+    "pinyin": "wēi xiào",
+    "meaning": "smile"
+  },
+  "唱": {
+    "word": "唱歌",
+    "pinyin": "chàng gē",
+    "meaning": "sing"
+  },
+  "跳": {
+    "word": "跳舞",
+    "pinyin": "tiào wǔ",
+    "meaning": "dance"
+  },
+  "舞": {
+    "word": "舞蹈",
+    "pinyin": "wǔ dǎo",
+    "meaning": "dance"
+  },
+  "画": {
+    "word": "画画",
+    "pinyin": "huà huà",
+    "meaning": "draw pictures"
+  },
+  "球": {
+    "word": "足球",
+    "pinyin": "zú qiú",
+    "meaning": "football"
+  },
+  "赛": {
+    "word": "比赛",
+    "pinyin": "bǐ sài",
+    "meaning": "competition"
+  },
+  "运": {
+    "word": "运动",
+    "pinyin": "yùn dòng",
+    "meaning": "exercise; sport"
+  },
+  "练": {
+    "word": "练习",
+    "pinyin": "liàn xí",
+    "meaning": "practise"
+  },
+  "动": {
+    "word": "动物",
+    "pinyin": "dòng wù",
+    "meaning": "animal"
+  },
+  "停": {
+    "word": "停车",
+    "pinyin": "tíng chē",
+    "meaning": "park a vehicle"
+  },
+  "快": {
+    "word": "快乐",
+    "pinyin": "kuài lè",
+    "meaning": "happy"
+  },
+  "慢": {
+    "word": "慢慢",
+    "pinyin": "màn màn",
+    "meaning": "slowly"
+  },
+  "忙": {
+    "word": "很忙",
+    "pinyin": "hěn máng",
+    "meaning": "very busy"
+  },
+  "累": {
+    "word": "很累",
+    "pinyin": "hěn lèi",
+    "meaning": "very tired"
+  },
+  "难": {
+    "word": "困难",
+    "pinyin": "kùn nán",
+    "meaning": "difficulty"
+  },
+  "易": {
+    "word": "容易",
+    "pinyin": "róng yì",
+    "meaning": "easy"
+  },
+  "干": {
+    "word": "干净",
+    "pinyin": "gān jìng",
+    "meaning": "clean"
+  },
+  "净": {
+    "word": "干净",
+    "pinyin": "gān jìng",
+    "meaning": "clean"
+  },
+  "轻": {
+    "word": "年轻",
+    "pinyin": "nián qīng",
+    "meaning": "young"
+  },
+  "重": {
+    "word": "重要",
+    "pinyin": "zhòng yào",
+    "meaning": "important"
+  },
+  "喜": {
+    "word": "喜欢",
+    "pinyin": "xǐ huan",
+    "meaning": "like"
+  },
+  "乐": {
+    "word": "快乐",
+    "pinyin": "kuài lè",
+    "meaning": "happy"
+  },
+  "怒": {
+    "word": "愤怒",
+    "pinyin": "fèn nù",
+    "meaning": "anger"
+  },
+  "怕": {
+    "word": "害怕",
+    "pinyin": "hài pà",
+    "meaning": "be afraid"
+  },
+  "急": {
+    "word": "着急",
+    "pinyin": "zháo jí",
+    "meaning": "feel anxious"
+  },
+  "安": {
+    "word": "安全",
+    "pinyin": "ān quán",
+    "meaning": "safe"
+  },
+  "静": {
+    "word": "安静",
+    "pinyin": "ān jìng",
+    "meaning": "quiet"
+  },
+  "美": {
+    "word": "美丽",
+    "pinyin": "měi lì",
+    "meaning": "beautiful"
+  },
+  "丽": {
+    "word": "美丽",
+    "pinyin": "měi lì",
+    "meaning": "beautiful"
+  },
+  "痛": {
+    "word": "头痛",
+    "pinyin": "tóu tòng",
+    "meaning": "headache"
+  },
+  "春": {
+    "word": "春天",
+    "pinyin": "chūn tiān",
+    "meaning": "spring"
+  },
+  "夏": {
+    "word": "夏天",
+    "pinyin": "xià tiān",
+    "meaning": "summer"
+  },
+  "秋": {
+    "word": "秋天",
+    "pinyin": "qiū tiān",
+    "meaning": "autumn"
+  },
+  "冬": {
+    "word": "冬天",
+    "pinyin": "dōng tiān",
+    "meaning": "winter"
+  },
+  "季": {
+    "word": "季节",
+    "pinyin": "jì jié",
+    "meaning": "season"
+  },
+  "周": {
+    "word": "周末",
+    "pinyin": "zhōu mò",
+    "meaning": "weekend"
+  },
+  "星": {
+    "word": "星期",
+    "pinyin": "xīng qī",
+    "meaning": "week"
+  },
+  "期": {
+    "word": "日期",
+    "pinyin": "rì qī",
+    "meaning": "date"
+  },
+  "秒": {
+    "word": "秒钟",
+    "pinyin": "miǎo zhōng",
+    "meaning": "second (of time)"
+  },
+  "刻": {
+    "word": "一刻",
+    "pinyin": "yí kè",
+    "meaning": "a quarter of an hour"
+  },
+  "教": {
+    "word": "教书",
+    "pinyin": "jiāo shū",
+    "meaning": "teach",
+    "image": "school"
+  },
+  "考": {
+    "word": "考试",
+    "pinyin": "kǎo shì",
+    "meaning": "exam"
+  },
+  "试": {
+    "word": "试试",
+    "pinyin": "shì shi",
+    "meaning": "give it a try"
+  },
+  "数": {
+    "word": "数学",
+    "pinyin": "shù xué",
+    "meaning": "mathematics"
+  },
+  "算": {
+    "word": "计算",
+    "pinyin": "jì suàn",
+    "meaning": "calculate"
+  },
+  "班": {
+    "word": "上班",
+    "pinyin": "shàng bān",
+    "meaning": "go to work"
+  },
+  "页": {
+    "word": "书页",
+    "pinyin": "shū yè",
+    "meaning": "page of a book",
+    "image": "school"
+  },
+  "段": {
+    "word": "段落",
+    "pinyin": "duàn luò",
+    "meaning": "paragraph"
+  },
+  "句": {
+    "word": "句子",
+    "pinyin": "jù zi",
+    "meaning": "sentence"
+  },
+  "词": {
+    "word": "词语",
+    "pinyin": "cí yǔ",
+    "meaning": "word; expression"
+  },
+  "职": {
+    "word": "职业",
+    "pinyin": "zhí yè",
+    "meaning": "occupation"
+  },
+  "业": {
+    "word": "作业",
+    "pinyin": "zuò yè",
+    "meaning": "homework",
+    "image": "school"
+  },
+  "员": {
+    "word": "员工",
+    "pinyin": "yuán gōng",
+    "meaning": "employee"
+  },
+  "司": {
+    "word": "公司",
+    "pinyin": "gōng sī",
+    "meaning": "company"
+  },
+  "办": {
+    "word": "办公室",
+    "pinyin": "bàn gōng shì",
+    "meaning": "office"
+  },
+  "事": {
+    "word": "事情",
+    "pinyin": "shì qing",
+    "meaning": "matter; affair"
+  },
+  "务": {
+    "word": "服务",
+    "pinyin": "fú wù",
+    "meaning": "service"
+  },
+  "公": {
+    "word": "公园",
+    "pinyin": "gōng yuán",
+    "meaning": "park",
+    "image": "park"
+  },
+  "厂": {
+    "word": "工厂",
+    "pinyin": "gōng chǎng",
+    "meaning": "factory"
+  },
+  "产": {
+    "word": "产品",
+    "pinyin": "chǎn pǐn",
+    "meaning": "product"
+  },
+  "脑": {
+    "word": "电脑",
+    "pinyin": "diàn nǎo",
+    "meaning": "computer"
+  },
+  "屏": {
+    "word": "屏幕",
+    "pinyin": "píng mù",
+    "meaning": "screen"
+  },
+  "键": {
+    "word": "键盘",
+    "pinyin": "jiàn pán",
+    "meaning": "keyboard"
+  },
+  "鼠": {
+    "word": "鼠标",
+    "pinyin": "shǔ biāo",
+    "meaning": "computer mouse"
+  },
+  "照": {
+    "word": "照片",
+    "pinyin": "zhào piàn",
+    "meaning": "photograph"
+  },
+  "相": {
+    "word": "照相",
+    "pinyin": "zhào xiàng",
+    "meaning": "take a photograph"
+  },
+  "声": {
+    "word": "声音",
+    "pinyin": "shēng yīn",
+    "meaning": "sound"
+  },
+  "像": {
+    "word": "图像",
+    "pinyin": "tú xiàng",
+    "meaning": "image"
+  },
+  "视": {
+    "word": "电视",
+    "pinyin": "diàn shì",
+    "meaning": "television"
+  },
+  "频": {
+    "word": "视频",
+    "pinyin": "shì pín",
+    "meaning": "video"
+  },
+  "林": {
+    "word": "树林",
+    "pinyin": "shù lín",
+    "meaning": "woods",
+    "image": "park"
+  },
+  "森": {
+    "word": "森林",
+    "pinyin": "sēn lín",
+    "meaning": "forest"
+  },
+  "湖": {
+    "word": "湖水",
+    "pinyin": "hú shuǐ",
+    "meaning": "lake water",
+    "image": "park"
+  },
+  "江": {
+    "word": "江水",
+    "pinyin": "jiāng shuǐ",
+    "meaning": "river water"
+  },
+  "洋": {
+    "word": "海洋",
+    "pinyin": "hǎi yáng",
+    "meaning": "ocean"
+  },
+  "石": {
+    "word": "石头",
+    "pinyin": "shí tou",
+    "meaning": "stone",
+    "image": "park"
+  },
+  "沙": {
+    "word": "沙子",
+    "pinyin": "shā zi",
+    "meaning": "sand"
+  },
+  "冰": {
+    "word": "冰块",
+    "pinyin": "bīng kuài",
+    "meaning": "ice cube"
+  },
+  "光": {
+    "word": "阳光",
+    "pinyin": "yáng guāng",
+    "meaning": "sunshine",
+    "image": "park"
+  },
+  "气": {
+    "word": "天气",
+    "pinyin": "tiān qì",
+    "meaning": "weather"
+  },
+  "记": {
+    "word": "记得",
+    "pinyin": "jì de",
+    "meaning": "remember"
+  },
+  "忘": {
+    "word": "忘记",
+    "pinyin": "wàng jì",
+    "meaning": "forget"
+  },
+  "懂": {
+    "word": "听懂",
+    "pinyin": "tīng dǒng",
+    "meaning": "understand what is heard"
+  },
+  "觉": {
+    "word": "觉得",
+    "pinyin": "jué de",
+    "meaning": "feel; think"
+  },
+  "梦": {
+    "word": "做梦",
+    "pinyin": "zuò mèng",
+    "meaning": "dream"
+  },
+  "望": {
+    "word": "希望",
+    "pinyin": "xī wàng",
+    "meaning": "hope"
+  },
+  "希": {
+    "word": "希望",
+    "pinyin": "xī wàng",
+    "meaning": "hope"
+  },
+  "愿": {
+    "word": "愿意",
+    "pinyin": "yuàn yì",
+    "meaning": "be willing"
+  },
+  "决": {
+    "word": "决定",
+    "pinyin": "jué dìng",
+    "meaning": "decide"
+  },
+  "定": {
+    "word": "一定",
+    "pinyin": "yí dìng",
+    "meaning": "certainly"
+  },
+  "法": {
+    "word": "方法",
+    "pinyin": "fāng fǎ",
+    "meaning": "method"
+  },
+  "规": {
+    "word": "规则",
+    "pinyin": "guī zé",
+    "meaning": "rule"
+  },
+  "则": {
+    "word": "原则",
+    "pinyin": "yuán zé",
+    "meaning": "principle"
+  },
+  "权": {
+    "word": "权利",
+    "pinyin": "quán lì",
+    "meaning": "right; entitlement"
+  },
+  "利": {
+    "word": "利益",
+    "pinyin": "lì yì",
+    "meaning": "benefit"
+  },
+  "自": {
+    "word": "自己",
+    "pinyin": "zì jǐ",
+    "meaning": "oneself"
+  },
+  "由": {
+    "word": "自由",
+    "pinyin": "zì yóu",
+    "meaning": "freedom"
+  },
+  "平": {
+    "word": "和平",
+    "pinyin": "hé píng",
+    "meaning": "peace"
+  },
+  "全": {
+    "word": "全部",
+    "pinyin": "quán bù",
+    "meaning": "all"
+  },
+  "总": {
+    "word": "总是",
+    "pinyin": "zǒng shì",
+    "meaning": "always"
+  },
+  "因": {
+    "word": "因为",
+    "pinyin": "yīn wèi",
+    "meaning": "because"
+  },
+  "所": {
+    "word": "所以",
+    "pinyin": "suǒ yǐ",
+    "meaning": "therefore"
+  },
+  "以": {
+    "word": "可以",
+    "pinyin": "kě yǐ",
+    "meaning": "may; can"
+  },
+  "但": {
+    "word": "但是",
+    "pinyin": "dàn shì",
+    "meaning": "but"
+  },
+  "还": {
+    "word": "还有",
+    "pinyin": "hái yǒu",
+    "meaning": "there is also"
+  },
+  "再": {
+    "word": "再见",
+    "pinyin": "zài jiàn",
+    "meaning": "goodbye"
+  },
+  "最": {
+    "word": "最好",
+    "pinyin": "zuì hǎo",
+    "meaning": "best"
+  },
+  "比": {
+    "word": "比较",
+    "pinyin": "bǐ jiào",
+    "meaning": "compare"
+  },
+  "把": {
+    "word": "把门打开",
+    "pinyin": "bǎ mén dǎ kāi",
+    "meaning": "open the door"
+  },
+  "被": {
+    "word": "被看见",
+    "pinyin": "bèi kàn jiàn",
+    "meaning": "be seen"
+  }
+}

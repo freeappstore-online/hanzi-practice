@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   '@freeappstore/sdk@0.16.0':
-    hash: c5e3fe07fc265f532df23995b84c095f5a41743edf24043f5e9484c41e2ecf4c
+    hash: 5f74305ee90ffca49871282cb5c29bbe044532285d5ab6463423128716f03983
     path: patches/@freeappstore__sdk@0.16.0.patch
 
 importers:
@@ -27,7 +27,7 @@ importers:
     dependencies:
       '@freeappstore/sdk':
         specifier: ^0.16.0
-        version: 0.16.0(patch_hash=c5e3fe07fc265f532df23995b84c095f5a41743edf24043f5e9484c41e2ecf4c)(react@19.2.7)
+        version: 0.16.0(patch_hash=5f74305ee90ffca49871282cb5c29bbe044532285d5ab6463423128716f03983)(react@19.2.7)
       hanzi-writer:
         specifier: ^3.7.3
         version: 3.7.3
@@ -3039,7 +3039,7 @@ snapshots:
   '@esbuild/win32-x64@0.28.2':
     optional: true
 
-  '@freeappstore/sdk@0.16.0(patch_hash=c5e3fe07fc265f532df23995b84c095f5a41743edf24043f5e9484c41e2ecf4c)(react@19.2.7)':
+  '@freeappstore/sdk@0.16.0(patch_hash=5f74305ee90ffca49871282cb5c29bbe044532285d5ab6463423128716f03983)(react@19.2.7)':
     optionalDependencies:
       react: 19.2.7
 
