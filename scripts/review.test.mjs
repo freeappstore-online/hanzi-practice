@@ -65,3 +65,14 @@ test('every character has a matching word example, and illustrations are bundled
   assert.equal(examples['教'].pinyin,'jiāo shū')
   assert.equal(examples['地'].pinyin,'dì tiě')
 })
+
+test('guided practice cannot use a short retry interval to inflate an established recall stage', () => {
+  let state=recordReview({},event())
+  state=recordReview(state,event({id:'second',at:new Date(now+day).toISOString()}))
+  assert.equal(state['一'].stage,2)
+  state=recordReview(state,event({id:'guided',mode:'guided',at:new Date(now+day+1000).toISOString()}))
+  assert.equal(state['一'].stage,0)
+  state=recordReview(state,event({id:'recall',at:new Date(now+day+601000).toISOString()}))
+  assert.equal(state['一'].stage,1)
+  assert.equal(state['一'].due,now+2*day+601000)
+})

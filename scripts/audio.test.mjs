@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs'
 import {createHash} from 'node:crypto'
 import {CHARACTERS} from '../web/src/characters.ts'
 import {toneFor} from '../web/src/tones.ts'
-test('every character has a validated pronunciation clip matching its displayed reading', () => {
+test('every character has an intact audio file with generation metadata matching its displayed reading', () => {
   const manifest=JSON.parse(readFileSync('web/public/audio/manifest.json','utf8'))
   assert.equal(manifest.clips.length,CHARACTERS.length)
   assert.equal(new Set(manifest.clips.map(c => c.hanzi)).size,CHARACTERS.length)

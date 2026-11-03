@@ -372,3 +372,34 @@ test('a character review button starts the whole queue from that character', asy
   await page.getByRole('button',{name:'Back to review queue'}).click()
   await expect(page.getByText('All caught up',{exact:true})).toBeVisible()
 })
+
+for (const broken of ['progress', 'review']) {
+  test(`a corrupt ${broken} value does not discard the other saved practice data`, async ({page}) => {
+    await page.addInitScript(broken => {
+      const attempt={character:'一',mode:'recall',mistakes:2,hints:0,at:'2026-01-01T00:00:00Z'}
+      localStorage.setItem('hanzi-practice:progress:v1',broken==='progress' ? '{' : JSON.stringify([attempt]))
+      localStorage.setItem('hanzi-practice:review:v1',broken==='review' ? '{' : JSON.stringify({'一':{
+        ...attempt,id:'saved',completed:true,due:1,stage:0,lastSuccess:0,totalMistakes:2,totalHints:0
+      }}))
+    },broken)
+    await page.goto('/review')
+    await expect(page.getByRole('button',{name:'Review 一',exact:true})).toBeVisible()
+    await expect(page.getByText('2 retries · 0 hints',{exact:true})).toBeVisible()
+  })
+}
+
+test('an open review queue updates when another tab completes its character', async ({page,context}) => {
+  await page.goto('/')
+  await page.evaluate(() => localStorage.setItem('hanzi-practice:progress:v1',JSON.stringify([
+    {character:'一',mode:'recall',mistakes:1,hints:0,at:'2026-01-01T00:00:00Z'}
+  ])))
+  await page.goto('/review')
+  await expect(page.getByRole('button',{name:'Review 一',exact:true})).toBeVisible()
+  const practice=await context.newPage()
+  await practice.goto('/review')
+  await practice.getByRole('button',{name:'Review 一',exact:true}).click()
+  await expect(practice.getByRole('button',{name:'Practice again',exact:true})).toBeEnabled()
+  await draw(practice,'一')
+  await expect(page.getByText('All caught up',{exact:true})).toBeVisible()
+  await practice.close()
+})

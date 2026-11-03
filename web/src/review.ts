@@ -37,6 +37,9 @@ export function recordReview(state: ReviewState, event: ReviewEvent): ReviewStat
     stage = 0
     due = now + (event.completed ? 10 * 60_000 : 0)
   } else if (event.mode === 'guided') {
+    // Seeing the outline is assisted practice. Keeping the old stage here
+    // would let a 10-minute recall jump straight to a much longer interval.
+    stage = 0
     due = now + 10 * 60_000
   } else {
     // Repeating the same character early cannot inflate its interval.

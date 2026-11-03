@@ -58,11 +58,30 @@ function Screens({path, navigate}: {path: string; navigate: (href: string) => vo
     catch { setStorageWarning('Saved progress could not be read. Practice still works, but this session starts with an empty history.') }
   }, [])
   useEffect(() => {
+    let saved: ReviewState = {}
+    try { saved = parseReview(localStorage.getItem(REVIEW_KEY)) }
+    catch { setStorageWarning('The review schedule could not be read. It has been rebuilt from completed practice.') }
+    const next = migrateReview(saved, progressRef.current)
+    reviewRef.current = next; setReviewState(next)
     try {
-      const next = migrateReview(parseReview(localStorage.getItem(REVIEW_KEY)), parseProgress(localStorage.getItem(STORAGE_KEY)))
-      reviewRef.current = next; setReviewState(next)
       localStorage.setItem(REVIEW_KEY, JSON.stringify(next))
     } catch { setStorageWarning('Review storage is unavailable. New reviews are kept only until this page closes.') }
+  }, [])
+  useEffect(() => {
+    const sync = (event: StorageEvent) => {
+      if (event.storageArea !== localStorage || (event.key !== STORAGE_KEY && event.key !== REVIEW_KEY && event.key !== null)) return
+      let history = progressRef.current
+      try {
+        history = parseProgress(localStorage.getItem(STORAGE_KEY))
+        progressRef.current = history; setProgress(history)
+      } catch { /* Preserve history if another tab writes an unreadable value. */ }
+      try {
+        const reviews = migrateReview(parseReview(localStorage.getItem(REVIEW_KEY)), history)
+        reviewRef.current = reviews; setReviewState(reviews)
+      } catch { /* A broken value in another tab must not erase this tab's state. */ }
+    }
+    addEventListener('storage', sync)
+    return () => removeEventListener('storage', sync)
   }, [])
   const reviewEvent = useCallback((event: ReviewEvent) => {
     let current = reviewRef.current
