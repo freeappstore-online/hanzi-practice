@@ -352,3 +352,23 @@ test('meaning opens an illustrated example on a small phone, and recall counts i
   await expect(dialog).not.toBeVisible()
   expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('hanzi-practice:review:v1')||'{}')['学'].hints)).toBe(1)
 })
+
+test('a character review button starts the whole queue from that character', async ({page}) => {
+  await page.addInitScript(() => localStorage.setItem('hanzi-practice:progress:v1',JSON.stringify([
+    {character:'一',mode:'recall',mistakes:3,hints:0,at:'2026-01-01T00:00:00Z'},
+    {character:'二',mode:'recall',mistakes:2,hints:0,at:'2026-01-01T00:00:01Z'},
+    {character:'三',mode:'recall',mistakes:1,hints:0,at:'2026-01-01T00:00:02Z'}
+  ])))
+  await page.goto('/review')
+  await page.getByRole('button',{name:'Review 二',exact:true}).click()
+  for (const [index,character] of ['二','三','一'].entries()) {
+    await expect(page.getByRole('img',{name:new RegExp(`Writing area for ${character}`)})).toBeVisible()
+    await expect(page.getByText(`Review · ${index + 1}/3`,{exact:true})).toBeVisible()
+    await expect(page.getByRole('button',{name:'Hint',exact:true})).toBeEnabled()
+    await draw(page,character)
+  }
+  await expect(page.getByRole('status').filter({hasText:'Review complete.'})).toBeVisible()
+  await expect(page.getByRole('button',{name:'Next character',exact:true})).toBeDisabled()
+  await page.getByRole('button',{name:'Back to review queue'}).click()
+  await expect(page.getByText('All caught up',{exact:true})).toBeVisible()
+})
