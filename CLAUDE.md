@@ -18,6 +18,6 @@ Compatibility guide pointer: https://raw.githubusercontent.com/freeappstore-onli
 - Browser tests exercise real stroke recognition; do not replace it with mocked success callbacks.
 
 - 200 characters in five custom study levels; do not describe them as official HSK levels.
-- Large tone markers derive from pinyin in web/src/tones.ts.
+- Equal-size SVG tone curves derive from pinyin in web/src/tones.ts.
 - Audio assets are generated with Kokoro; see docs/audio.md. Keep model weights outside the repo.
 - Preserve audio clip/pinyin consistency and cancellation of automatic advancement on navigation.

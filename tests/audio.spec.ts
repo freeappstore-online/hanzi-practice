@@ -3,12 +3,12 @@ import {test,expect} from '@playwright/test'
 test('tap-to-play pronunciation works, replays, and stops on character change', async ({page}) => {
   await page.goto('/')
   const player = page.locator('audio').first()
-  await page.getByRole('button',{name:'Listen to yī'}).click()
+  await page.getByRole('button',{name:'Pronounce yī'}).click()
   await expect.poll(()=>player.evaluate((el:HTMLAudioElement)=>el.currentTime)).toBeGreaterThan(0)
-  await page.getByRole('button',{name:'Listen to yī'}).click()
+  await page.getByRole('button',{name:'Pronounce 一',exact:true}).click()
   await page.getByLabel('Choose a character').selectOption('二')
   await expect.poll(()=>player.evaluate((el:HTMLAudioElement)=>el.paused)).toBe(true)
-  await page.getByRole('button',{name:'Listen to èr'}).click()
+  await page.getByRole('button',{name:'Pronounce èr'}).click()
   await expect.poll(()=>player.evaluate((el:HTMLAudioElement)=>el.currentTime)).toBeGreaterThan(0)
 })
 test('pronunciation is available after an offline reload', async ({page,context}) => {
@@ -18,24 +18,24 @@ test('pronunciation is available after an offline reload', async ({page,context}
   await context.setOffline(true)
   await page.reload()
   await page.getByLabel('Study level',{exact:true}).selectOption('5')
-  await page.getByRole('button',{name:'Listen to qǐng'}).click()
+  await page.getByRole('button',{name:'Pronounce qǐng'}).click()
   await expect.poll(()=>page.locator('audio').first().evaluate((el:HTMLAudioElement)=>el.currentTime)).toBeGreaterThan(0)
 })
 test('a failed audio request shows a retryable error', async ({page}) => {
   let fail=true
   await page.route('**/audio/4e00.mp3', route => fail ? route.abort() : route.continue())
   await page.goto('/')
-  await page.getByRole('button',{name:'Listen to yī'}).click()
-  await expect(page.getByRole('alert').filter({hasText:'Audio could not play'})).toBeVisible()
+  await page.getByRole('button',{name:'Pronounce yī'}).click()
+  await expect(page.getByRole('alert').filter({hasText:'Audio unavailable'})).toBeVisible()
   fail=false
-  await page.getByRole('button',{name:'Listen to yī'}).click()
+  await page.getByRole('button',{name:'Pronounce yī'}).click()
   await expect.poll(()=>page.locator('audio').first().evaluate((el:HTMLAudioElement)=>el.currentTime)).toBeGreaterThan(0)
-  await expect(page.getByRole('alert').filter({hasText:'Audio could not play'})).toHaveCount(0)
+  await expect(page.getByRole('alert').filter({hasText:'Audio unavailable'})).toHaveCount(0)
 })
 test('library playback never overlaps two voices', async ({page}) => {
   await page.goto('/characters')
-  await page.getByRole('button',{name:'Listen to yī',exact:true}).click()
-  await page.getByRole('button',{name:'Listen to èr',exact:true}).click()
+  await page.getByRole('button',{name:'Pronounce yī',exact:true}).click()
+  await page.getByRole('button',{name:'Pronounce èr',exact:true}).click()
   await expect.poll(()=>page.locator('audio').evaluateAll(elements=>elements.filter(el=>!(el as HTMLAudioElement).paused).length)).toBeLessThanOrEqual(1)
 })
 test('all 200 clips decode into non-silent browser audio', async ({page}) => {
