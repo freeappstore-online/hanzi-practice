@@ -5,9 +5,11 @@ import { PracticeIcon } from './PracticeIcon'
 import { CharacterDetails } from './Pronunciation'
 import { WordDetails } from './WordDetails'
 import { CATALOG, DIMENSIONS, EMPTY_FILTERS, TAGS, filterCatalog, groupCatalog, itemTags, type Dimension, type Grouping, type Sort, type StudyItem, type StudyStats } from './catalog'
+import { PracticeHistory } from './PracticeHistory'
+import { selectionName, type PracticeRun } from './practice-history'
 import { DEFAULT_SELECTION, type StudyPreferences } from './study-state'
 
-export function StudyLibrary({preferences,onChange,stats,start,resume,canResume}:{preferences:StudyPreferences;onChange:(value:StudyPreferences)=>void;stats:StudyStats;start:(items:StudyItem[],id?:string)=>void;resume:()=>void;canResume:boolean}) {
+export function StudyLibrary({preferences,onChange,stats,start,resume,canResume,runs,resumeRun}:{preferences:StudyPreferences;onChange:(value:StudyPreferences)=>void;stats:StudyStats;start:(items:StudyItem[],id?:string,name?:string)=>void;resume:()=>void;canResume:boolean;runs:PracticeRun[];resumeRun:(id:string)=>void}) {
   const [filtersOpen,setFiltersOpen]=useState(false),[saveOpen,setSaveOpen]=useState(false),[infoOpen,setInfoOpen]=useState(false),[name,setName]=useState('')
   const [limits,setLimits]=useState<Record<string,number>>({}),[now,setNow]=useState(Date.now)
   useEffect(()=>{const timer=setInterval(()=>setNow(Date.now()),15000);return()=>clearInterval(timer)},[])
@@ -19,9 +21,13 @@ export function StudyLibrary({preferences,onChange,stats,start,resume,canResume}
   const toggle=(dimension:Dimension,id:string)=>onChange({...preferences,filters:{...filters,[dimension]:filters[dimension].includes(id)?filters[dimension].filter(x=>x!==id):[...filters[dimension],id]}})
   const clear=()=>onChange({...preferences,...DEFAULT_SELECTION,filters:{...EMPTY_FILTERS}})
   const due=filterCatalog({...filters,status:['status:due']},search,stats,now).length
+  const savedMatch=preferences.saved.find(s=>s.search===search&&JSON.stringify(s.filters)===JSON.stringify(filters))
+  const title=savedMatch?.name||selectionName(preferences)
+  const packName=(label:string)=>label?`${label}${title==='All practice'?'':` · ${title}`}`:title
   const reviewing=filters.status.length===1&&filters.status[0]==='status:due'
   return <>
     <div className="flex items-center justify-between gap-2"><PageHeader title="Practice" />{canResume&&<Button iconOnly aria-label="Resume practice" title="Resume practice" onClick={resume}><PracticeIcon name="play" /></Button>}</div>
+    <PracticeHistory runs={runs} resume={resumeRun}/>
     <SearchInput value={search} onChange={value=>onChange({...preferences,search:value})} placeholder="Search characters or words" />
     <div className="my-3 flex flex-wrap items-center gap-1">
       {(['character','word'] as const).map(kind=><Button key={kind} aria-pressed={filters.kind.includes(`kind:${kind}`)} className="!px-2 aria-pressed:border-accent aria-pressed:bg-accent-soft" onClick={()=>toggle('kind',`kind:${kind}`)}>{kind==='character'?'Characters':'Words'}</Button>)}
@@ -41,17 +47,17 @@ export function StudyLibrary({preferences,onChange,stats,start,resume,canResume}
       {(active.length>0||search)&&<Button iconOnly aria-label="Clear filters" title="Clear filters" onClick={clear}><PracticeIcon name="clear" /></Button>}
       <Button iconOnly aria-label="About labels" title="About labels" onClick={()=>setInfoOpen(true)}><span aria-hidden="true">i</span></Button>
       <Button iconOnly aria-label="Save selection" title="Save selection" onClick={()=>{setName([search,...active.map(t=>t.label)].filter(Boolean).join(' · ').slice(0,60)||'All practice');setSaveOpen(true)}}><PracticeIcon name="bookmark" /></Button>
-      <Button primary iconOnly aria-label={`Practice ${results.length} matching items`} title="Practice selection" disabled={!results.length} onClick={()=>start(results)}><PracticeIcon name="play" /></Button>
+      <Button primary iconOnly aria-label={`Practice ${results.length} matching items`} title="Practice selection" disabled={!results.length} onClick={()=>start(results,undefined,title)}><PracticeIcon name="play" /></Button>
     </div>
     {groups.map((group,groupIndex)=>{
       const limit=limits[group.id]??(groupBy==='none'?24:groupIndex===0?6:0)
       const visible=group.items.slice(0,limit)
       return <section key={group.id} className="mb-4">
-        {group.label&&<div className="mb-2 flex items-center justify-between gap-2"><h2 className="min-w-0 flex-1"><button className="flex min-h-11 w-full items-center gap-2 text-left font-bold" aria-label={`${limit?'Hide':'Show'} ${group.label} items`} aria-expanded={limit>0} onClick={()=>setLimits(previous=>({...previous,[group.id]:limit?0:12}))}><span aria-hidden="true">{limit?'▾':'▸'}</span><span>{group.label} <span className="text-muted">{group.items.length}</span></span></button></h2><Button iconOnly aria-label={`Practice group ${group.label}`} title={`Practice ${group.label}`} onClick={()=>start(group.items)}><PracticeIcon name="play" /></Button></div>}
+        {group.label&&<div className="mb-2 flex items-center justify-between gap-2"><h2 className="min-w-0 flex-1"><button className="flex min-h-11 w-full items-center gap-2 text-left font-bold" aria-label={`${limit?'Hide':'Show'} ${group.label} items`} aria-expanded={limit>0} onClick={()=>setLimits(previous=>({...previous,[group.id]:limit?0:12}))}><span aria-hidden="true">{limit?'▾':'▸'}</span><span>{group.label} <span className="text-muted">{group.items.length}</span></span></button></h2><Button iconOnly aria-label={`Practice group ${group.label}`} title={`Practice ${group.label}`} onClick={()=>start(group.items,undefined,packName(group.label))}><PracticeIcon name="play" /></Button></div>}
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">{visible.map(item=><div key={item.id} data-testid={`item-${item.id}`} className="min-w-0 rounded border border-line-strong bg-panel p-4">
           {item.character?<CharacterDetails character={item.character}/>:<WordDetails word={item.word!}/>}
           <div className="mt-2 flex flex-wrap gap-1">{itemTags(item,stats,now).filter(t=>['kind','hsk','topic','status'].includes(t.dimension)).map(tag=><button key={tag.id} className="min-h-9 rounded border border-line px-2 text-xs text-muted" aria-label={`Filter ${tag.label}`} onClick={()=>toggle(tag.dimension,tag.id)}>{tag.label}</button>)}</div>
-          <div className="mt-3 flex items-center gap-2">{stats.counts[item.text]>0&&<span className="text-sm font-bold text-success" aria-label={`${stats.counts[item.text]} completed practices`}>✓ {stats.counts[item.text]}</span>}<span className="text-xs text-muted">{item.strokes} strokes</span><Button iconOnly className="ml-auto" aria-label={`Practice ${item.text}`} title={`Practice ${item.text}`} onClick={()=>start(group.items,item.id)}><PracticeIcon name="play" /></Button></div>
+          <div className="mt-3 flex items-center gap-2">{stats.counts[item.text]>0&&<span className="text-sm font-bold text-success" aria-label={`${stats.counts[item.text]} completed practices`}>✓ {stats.counts[item.text]}</span>}<span className="text-xs text-muted">{item.strokes} strokes</span><Button iconOnly className="ml-auto" aria-label={`Practice ${item.text}`} title={`Practice ${item.text}`} onClick={()=>start(group.items,item.id,packName(group.label))}><PracticeIcon name="play" /></Button></div>
         </div>)}</div>
         {limit>0&&group.items.length>limit&&<Button className="mt-3" aria-label={`Show more ${group.label||'items'}`} onClick={()=>setLimits(previous=>({...previous,[group.id]:limit+24}))}>Show more</Button>}
       </section>

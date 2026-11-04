@@ -8,14 +8,15 @@ import { loadCharacterData } from './characterData'
 import type { StudyItem } from './catalog'
 import type { Attempt, Mode } from './progress'
 import type { ReviewEvent } from './review'
+import type { PracticeResult } from './practice-history'
 
 type Tile={strokes:number;correct:number;mistakes:number;hints:number;done:boolean}
 const empty=():Tile=>({strokes:0,correct:0,mistakes:0,hints:0,done:false})
 type Phase='loading'|'drawing'|'watching'|'complete'|'error'
-export function PracticeSession({item,queue,index,mode,completed,autoplay,onMode,onAutoplay,onCharacterComplete,onReviewEvent,onCompleted,onRestart,onJump,onNext,onBack}: {
+export function PracticeSession({item,queue,index,mode,completed,autoplay,onMode,onAutoplay,onCharacterComplete,onReviewEvent,onCompleted,onRestart,onJump,onNext,onBack,doneCount,onRemaining,finishedIds}: {
   item:StudyItem;queue:StudyItem[];index:number;mode:Mode;completed:boolean;autoplay:boolean
   onMode:(mode:Mode)=>void;onAutoplay:(value:boolean)=>void;onCharacterComplete:(a:Attempt)=>void
-  onReviewEvent:(event:ReviewEvent)=>void;onCompleted:()=>void;onRestart:()=>void;onJump:(index:number)=>void;onNext:()=>void;onBack:()=>void
+  onReviewEvent:(event:ReviewEvent)=>void;onCompleted:(result:PracticeResult)=>void;doneCount:number;finishedIds:string[];onRemaining:()=>void;onRestart:()=>void;onJump:(index:number)=>void;onNext:()=>void;onBack:()=>void
 }) {
   const chars=[...item.text],padding=chars.length===1?24:12
   const nodes=useRef<(HTMLDivElement|null)[]>([]),writers=useRef<HanziWriter[]>([])
@@ -53,7 +54,7 @@ export function PracticeSession({item,queue,index,mode,completed,autoplay,onMode
         callbacks.current.onReviewEvent(done)
         callbacks.current.onCharacterComplete({character:done.character,mode:done.mode,mistakes:done.mistakes,hints:done.hints,at:done.at})
         if(i+1<chars.length)begin(i+1)
-        else{setPhase('complete');setMessage('');aggregate(true);callbacks.current.onCompleted()}
+        else{setPhase('complete');setMessage('');aggregate(true);callbacks.current.onCompleted({mode,mistakes:tileState.current.reduce((n,t)=>n+t.mistakes,0),hints:tileState.current.reduce((n,t)=>n+t.hints,0),at:new Date().toISOString()})}
       },
     })
   }
@@ -88,7 +89,7 @@ export function PracticeSession({item,queue,index,mode,completed,autoplay,onMode
     }
     // Completion only changes the saved checkpoint; it must not recreate a finished quiz.
   },[item.id,mode,round])
-  const next=queue[index+1]
+  const next=queue.find((entry,i)=>i>index&&!finishedIds.includes(entry.id))
   useEffect(()=>{if(next)for(const c of next.text)void loadCharacterData(c).catch(()=>{})},[next])
   useEffect(()=>{
     if(phase!=='complete'||!autoplay||!next)return
@@ -133,7 +134,8 @@ export function PracticeSession({item,queue,index,mode,completed,autoplay,onMode
       <Button iconOnly aria-label="Next item" title="Next item" disabled={!next} onClick={onNext}><PracticeIcon name="next" /></Button>
       <Button iconOnly aria-label="Autoplay" aria-pressed={autoplay} title="Autoplay" className="aria-pressed:border-accent aria-pressed:bg-accent-soft" onClick={()=>onAutoplay(!autoplay)}><PracticeIcon name="autoplay" /></Button>
     </div>
-    <p role="status" className="text-sm text-muted">{message || (phase==='complete'&&!next?'Practice complete.':'')}</p>
+    <p role="status" className="text-sm text-muted">{message || (phase==='complete'&&!next?(doneCount===queue.length?'Practice complete.':`${doneCount}/${queue.length} completed.`):'')}</p>
+    {!next&&doneCount<queue.length&&phase==='complete'&&<Button onClick={onRemaining}>Continue unfinished</Button>}
     {phase==='error'&&<Button onClick={()=>setRound(n=>n+1)}>Retry loading</Button>}
     {tiles.some(t=>t.mistakes||t.hints)&&<p className="text-xs text-muted">{tiles.reduce((n,t)=>n+t.mistakes,0)} retries · {tiles.reduce((n,t)=>n+t.hints,0)} hints</p>}
   </div>

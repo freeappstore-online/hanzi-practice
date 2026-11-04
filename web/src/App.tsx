@@ -8,9 +8,10 @@ import { StudyProgress } from './StudyProgress'
 import { PracticeSession } from './PracticeSession'
 import { useStudyProgress } from './useStudyProgress'
 import { CATALOG, EMPTY_FILTERS, ITEM_BY_ID, studyStats, type StudyItem } from './catalog'
-import { DEFAULT_SELECTION, SESSION_KEY, STUDY_KEY, advanceSession, createSession, parseSession, readStudyPreferences, type Session, type StudyPreferences } from './study-state'
+import { DEFAULT_SELECTION, SESSION_KEY, STUDY_KEY, createSession, parseSession, readStudyPreferences, type Session, type StudyPreferences } from './study-state'
 import { PREFERENCES_KEY, readPreferences, savePreferences } from './preferences'
 import { Button } from './Button'
+import { HISTORY_KEY, emptyHistory, mergeHistory, newRun, parseHistory, resumeRun, runStats, advanceRun, type PracticeHistory } from './practice-history'
 const fas=initApp({appId:'hanzi-practice'})
 const NAV:NavItem[]=[{label:'Practice',href:'/',title:'Practice — Hanzi'},{label:'Progress',href:'/progress',title:'Progress — Hanzi'},{label:'About',href:'/about',title:'About — Hanzi'}]
 export default function App() {
@@ -27,14 +28,30 @@ function Screens({path,navigate}:{path:string;navigate:(href:string,replace?:boo
   const [study,setStudy]=useState(readStudyPreferences)
   const [preferences,setPreferences]=useState(readPreferences)
   const [warning,setWarning]=useState('')
-  const [session,setSession]=useState<Session|null>(()=>{
+  const [practiceHistory,setPracticeHistory]=useState<PracticeHistory>(()=>{
     try {
+      const saved=localStorage.getItem(HISTORY_KEY)
+      if(saved!==null)return parseHistory(saved)
       const raw=localStorage.getItem(SESSION_KEY)
-      if(raw)return parseSession(raw)
-      if(localStorage.getItem(PREFERENCES_KEY))return createSession(CATALOG.filter(i=>i.kind==='character'),`char:${readPreferences().character}`)
+      const legacy=raw?parseSession(raw):localStorage.getItem(PREFERENCES_KEY)?createSession(CATALOG.filter(i=>i.kind==='character'),`char:${readPreferences().character}`):null
+      if(legacy){const run=newRun(legacy,'Previous practice');return {activeId:run.id,runs:[run]}}
     }catch{/* Start from the library if storage is unavailable. */}
-    return null
+    return emptyHistory()
   })
+  const activeRun=practiceHistory.runs.find(r=>r.id===practiceHistory.activeId)
+  const session=activeRun?.session??null
+  const setSession=useCallback((update:(session:Session)=>Session)=>setPracticeHistory(h=>({...h,runs:h.runs.map(run=>run.id===h.activeId?{...run,updatedAt:new Date().toISOString(),session:update(run.session)}:run)})),[])
+  useEffect(()=>{
+    try {
+      const merged=mergeHistory(practiceHistory,parseHistory(localStorage.getItem(HISTORY_KEY)))
+      localStorage.setItem(HISTORY_KEY,JSON.stringify(merged))
+      if(JSON.stringify(merged)!==JSON.stringify(practiceHistory))setPracticeHistory(merged)
+    }catch{setWarning('Device storage is unavailable. Practice history is kept only in this tab.')}
+  },[practiceHistory])
+  useEffect(()=>{
+    const sync=(event:StorageEvent)=>{if(event.key===HISTORY_KEY)setPracticeHistory(h=>{const merged=mergeHistory(h,parseHistory(event.newValue));return JSON.stringify(merged)===JSON.stringify(h)?h:merged})}
+    addEventListener('storage',sync);return()=>removeEventListener('storage',sync)
+  },[])
   useEffect(()=>{try{localStorage.setItem(STUDY_KEY,JSON.stringify(study))}catch{setWarning('Device storage is unavailable. Selections are kept only in this tab.')}},[study])
   useEffect(()=>{try{if(session)localStorage.setItem(SESSION_KEY,JSON.stringify(session));else localStorage.removeItem(SESSION_KEY)}catch{setWarning('Device storage is unavailable. The current queue will not survive a reload.')}},[session])
   useEffect(()=>{if(!savePreferences(preferences))setWarning('Device storage is unavailable. Preferences are kept only in this tab.')},[preferences])
@@ -45,12 +62,16 @@ function Screens({path,navigate}:{path:string;navigate:(href:string,replace?:boo
     navigate('/',true)
   },[path,navigate])
   const stats=useMemo(()=>studyStats(data.progress,data.wordCounts,data.reviews,data.characterTotals),[data.progress,data.wordCounts,data.reviews,data.characterTotals])
-  const start=(items:StudyItem[],id?:string)=>{
+  const start=(items:StudyItem[],id?:string,name?:string)=>{
     const next=createSession(items,id,study.filters.status.includes('status:due')?'recall':'guided')
     if(!next)return
-    setSession(next);navigate('/session')
+    const run=newRun(next,name||items.slice(0,3).map(i=>i.text).join(' · '))
+    setPracticeHistory(h=>({activeId:run.id,runs:[run,...h.runs].slice(0,100)}));navigate('/session')
   }
-  const next=useCallback(()=>setSession(s=>s?advanceSession(s):null),[])
+  const next=useCallback(()=>setPracticeHistory(h=>({...h,runs:h.runs.map(r=>r.id===h.activeId?advanceRun(r):r)})),[])
+  const resume=(id=practiceHistory.activeId)=>{
+    setPracticeHistory(h=>({...h,activeId:id,runs:h.runs.map(r=>r.id===id?resumeRun(r):r)}));navigate('/session')
+  }
   const autoplay=useCallback((value:boolean)=>setPreferences(p=>({...p,autoplay:value})),[])
   const selectStatus=(status:string)=>{setStudy(s=>({...s,...DEFAULT_SELECTION,filters:{...EMPTY_FILTERS,status:[`status:${status}`]},sort:status==='due'?'due':'catalog'}));navigate('/')}
   const queue=session?.ids.map(id=>ITEM_BY_ID.get(id)!)??[]
@@ -60,16 +81,16 @@ function Screens({path,navigate}:{path:string;navigate:(href:string,replace?:boo
     {(warning||data.warning)&&<p role="alert" className="mb-4 rounded border border-warning bg-warning-soft p-3 text-sm">{warning||data.warning}</p>}
     {path==='/session' ? (session&&item ? <>
       <div className="sr-only"><PageHeader title="Practice session"/></div>
-      <PracticeSession key={item.id} item={item} queue={queue} index={session.index} mode={session.mode} completed={session.completed} autoplay={preferences.autoplay} onAutoplay={autoplay} onMode={mode=>setSession(s=>s?{...s,mode,completed:false}:null)} onCharacterComplete={data.complete} onReviewEvent={data.reviewEvent} onCompleted={()=>{
+      <PracticeSession key={`${activeRun!.id}:${item.id}`} item={item} queue={queue} index={session.index} mode={session.mode} completed={session.completed} autoplay={preferences.autoplay} onAutoplay={autoplay} onMode={mode=>setSession(s=>({...s,mode,completed:false}))} onCharacterComplete={data.complete} onReviewEvent={data.reviewEvent} onCompleted={result=>{
         if(item.kind==='word')data.completeWord(item.text)
         else setPreferences(p=>({...p,character:item.text}))
-        setSession(s=>s?{...s,completed:true}:null)
-      }} onRestart={()=>setSession(s=>s?{...s,completed:false}:null)} onJump={index=>setSession(s=>s?{...s,index,completed:false}:null)} onNext={next} onBack={()=>navigate('/')} />
+        setPracticeHistory(h=>({...h,runs:h.runs.map(r=>r.id===h.activeId?{...r,updatedAt:result.at,session:{...r.session,completed:true},results:{...r.results,[item.id]:result}}:r)}))
+      }} onRestart={()=>setSession(s=>({...s,completed:false}))} onJump={index=>setSession(s=>({...s,index,completed:false}))} finishedIds={Object.keys(activeRun!.results)} doneCount={runStats(activeRun!).done} onRemaining={()=>resume()} onNext={next} onBack={()=>navigate('/')} />
     </> : <><PageHeader title="Practice"/><Button onClick={()=>navigate('/')}>Choose practice</Button></>)
       : path==='/progress'?<StudyProgress progress={data.progress} stats={stats} practice={start} selectStatus={selectStatus}/>
       : path==='/profile'?<Profile app={fas}/>
       : path==='/about'?<About/>
-      : <StudyLibrary preferences={study} onChange={updateStudy} stats={stats} start={start} resume={()=>navigate('/session')} canResume={!!session&&!(session.completed&&session.index===session.ids.length-1)}/>
+      : <StudyLibrary preferences={study} onChange={updateStudy} stats={stats} start={start} resume={()=>resume()} canResume={!!activeRun&&runStats(activeRun).done<activeRun.session.ids.length} runs={practiceHistory.runs} resumeRun={resume}/>
     }
   </div>
 }

@@ -104,3 +104,21 @@ derived from the active data instead of stale hard-coded counts.
 Validation includes history rollover past 2,000 attempts, persisted completion
 and Recalled tags after reload, malformed/stalled downloads, discarded pending
 writers, document listener cleanup, and independent mobile group browsing.
+
+### Recent practice
+
+`practice-history.ts` persists up to 100 recent runs in `hanzi-practice:history:v1`.
+Each run snapshots its item order and stores its own checkpoint, mode, name, timestamps,
+and latest completed result per target. The library exposes recent runs independently of
+its current filters. Resuming continues unfinished work, including skipped targets; opening
+a completed run does not record another result. Starting from a catalog play button creates
+a new run. Saved selections remain dynamic filter rules.
+
+Completion is unique completed targets / pack size, not the current queue position.
+Clean percentage is completed targets without mistakes or hints / targets with known
+results (guided and recall both included). Whole-word results combine both writing tiles.
+Retries overwrite the item's latest result without inflating pack completion. An unfinished
+writing tile restarts when leaving/reloading; completed targets and pack checkpoints persist.
+The previous single-session checkpoint migrates once; earlier completions cannot be inferred
+from it. Unknown legacy results count toward completion but not the clean rate. History is
+local to this browser, with same-origin tab updates merged by run and result timestamps.
