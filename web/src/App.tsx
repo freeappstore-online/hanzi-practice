@@ -44,7 +44,7 @@ function Screens({path,navigate}:{path:string;navigate:(href:string,replace?:boo
     setStudy(s=>({...s,...DEFAULT_SELECTION,filters:{...EMPTY_FILTERS,...(path==='/review'?{status:['status:due']}:{kind:[path==='/words'?'kind:word':'kind:character']})},sort:path==='/review'?'due':'catalog'}))
     navigate('/',true)
   },[path,navigate])
-  const stats=useMemo(()=>studyStats(data.progress,data.wordCounts,data.reviews),[data.progress,data.wordCounts,data.reviews])
+  const stats=useMemo(()=>studyStats(data.progress,data.wordCounts,data.reviews,data.characterTotals),[data.progress,data.wordCounts,data.reviews,data.characterTotals])
   const start=(items:StudyItem[],id?:string)=>{
     const next=createSession(items,id,study.filters.status.includes('status:due')?'recall':'guided')
     if(!next)return

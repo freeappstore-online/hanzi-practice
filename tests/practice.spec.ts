@@ -192,3 +192,86 @@ test('two new study sets contain forty characters each, advance correctly, and p
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true)
   await page.screenshot({path:'/tmp/hanzi-new-level-mobile.png',fullPage:true})
 })
+
+test('long sessions release document input listeners on each writer replacement',async({page})=>{
+  await page.addInitScript(()=>{
+    const listeners:Record<string,Set<EventListenerOrEventListenerObject>>={mouseup:new Set(),touchend:new Set()}
+    const add=document.addEventListener.bind(document),remove=document.removeEventListener.bind(document)
+    document.addEventListener=((type:string,callback:EventListenerOrEventListenerObject,options?:any)=>{listeners[type]?.add(callback);add(type,callback,options)}) as typeof document.addEventListener
+    document.removeEventListener=((type:string,callback:EventListenerOrEventListenerObject,options?:any)=>{listeners[type]?.delete(callback);remove(type,callback,options)}) as typeof document.removeEventListener
+    ;(window as any).inputListeners=()=>Object.fromEntries(Object.entries(listeners).map(([type,set])=>[type,set.size]))
+  })
+  await page.goto('/')
+  const baseline=await page.evaluate(()=>(window as any).inputListeners())
+  await page.getByRole('button',{name:'Practice 一',exact:true}).click()
+  const expected={mouseup:baseline.mouseup+1,touchend:baseline.touchend+1}
+  await expect.poll(()=>page.evaluate(()=>(window as any).inputListeners())).toEqual(expected)
+  for(let i=0;i<12;i++)await page.getByRole('button',{name:'Next item',exact:true}).click()
+  await page.getByRole('switch',{name:'From memory'}).click()
+  await expect.poll(()=>page.evaluate(()=>(window as any).inputListeners())).toEqual(expected)
+  await page.getByRole('button',{name:'Back to filters'}).click()
+  await expect.poll(()=>page.evaluate(()=>(window as any).inputListeners())).toEqual(baseline)
+  await page.getByPlaceholder('Search characters or words').fill('妈妈')
+  await page.getByRole('button',{name:'Practice 妈妈',exact:true}).click()
+  await expect.poll(()=>page.evaluate(()=>(window as any).inputListeners())).toEqual({mouseup:baseline.mouseup+2,touchend:baseline.touchend+2})
+  await page.getByRole('button',{name:'Back to filters'}).click()
+  await expect.poll(()=>page.evaluate(()=>(window as any).inputListeners())).toEqual(baseline)
+})
+
+test('later groups expand independently and long saved names fit on a phone',async({page})=>{
+  await page.setViewportSize({width:320,height:740});await page.goto('/')
+  await page.getByRole('combobox',{name:'Group by'}).selectOption('set')
+  const group=page.getByRole('button',{name:'Show Set 12 · More of the world items'})
+  await expect(group).toHaveAttribute('aria-expanded','false')
+  await expect(page.getByRole('button',{name:'Practice 歌',exact:true})).toHaveCount(0)
+  await group.click()
+  await expect(page.getByRole('button',{name:'Practice 歌',exact:true})).toBeVisible()
+  await page.getByRole('button',{name:'Show more Set 12 · More of the world',exact:true}).click()
+  await expect(page.getByRole('button',{name:'Practice 间',exact:true})).toBeVisible()
+  await page.getByRole('button',{name:'Save selection',exact:true}).click()
+  await page.getByRole('textbox',{name:'Name',exact:true}).fill('X'.repeat(60))
+  await page.getByRole('button',{name:'Save',exact:true}).click()
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true)
+  await page.getByRole('button',{name:'Use saved selection '+ 'X'.repeat(60)}).scrollIntoViewIfNeeded()
+  await page.screenshot({path:'/tmp/hanzi-review-groups-mobile.png'})
+})
+
+test('completion ticks and Practised survive trimming the oldest character attempt',async({page})=>{
+  await page.addInitScript(()=>{
+    if(localStorage.getItem('totals-seeded'))return
+    localStorage.setItem('totals-seeded','yes')
+    localStorage.setItem('hanzi-practice:progress:v1',JSON.stringify(Array.from({length:2000},(_,i)=>({character:i?'二':'一',mode:i?'guided':'recall',mistakes:0,hints:0,at:new Date(Date.UTC(2025,0,1)+i*1000).toISOString()}))))
+  })
+  await openItem(page,'三',true);await draw(page,'三')
+  await expect.poll(()=>page.evaluate(()=>JSON.parse(localStorage.getItem('hanzi-practice:progress:v1')||'[]').some((a:any)=>a.character==='一'))).toBe(false)
+  await page.getByRole('button',{name:'Back to filters'}).click();await page.reload()
+  await page.getByPlaceholder('Search characters or words').fill('一')
+  await expect(page.getByTestId('item-char:一').getByLabel('1 completed practices')).toBeVisible()
+  await expect(page.getByTestId('item-char:一').getByRole('button',{name:'Filter Practised',exact:true})).toBeVisible()
+  await expect(page.getByTestId('item-char:一').getByRole('button',{name:'Filter Recalled',exact:true})).toBeVisible()
+})
+
+test('malformed stroke downloads retry and late downloads cannot revive an abandoned writer',async({page})=>{
+  let malformed=true
+  const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message))
+  await page.route('**/characters/*.json',async route=>{
+    if(malformed)await route.fulfill({contentType:'application/json',body:'{"strokes":["path"],"medians":[]}'})
+    else await route.continue()
+  })
+  await openItem(page)
+  await expect(page.getByRole('button',{name:'Retry loading'})).toBeVisible()
+  malformed=false;await page.getByRole('button',{name:'Retry loading'}).click();await draw(page,'一')
+  await expect(page.getByRole('combobox',{name:'Practice item'})).toHaveValue('char:二')
+  await page.getByRole('button',{name:'Back to filters'}).click()
+  await page.unroute('**/characters/*.json')
+  let release!:()=>void
+  const gate=new Promise<void>(resolve=>{release=resolve})
+  await page.route('**/characters/%E6%AF%8F.json',async route=>{await gate;await route.continue()})
+  await page.getByPlaceholder('Search characters or words').fill('每')
+  await page.getByRole('button',{name:'Practice 每',exact:true}).click()
+  await page.getByRole('button',{name:'Back to filters'}).click()
+  release()
+  await page.waitForTimeout(300)
+  expect(errors).toEqual([])
+  await expect(page.getByLabel('Writing tiles')).toHaveCount(0)
+})

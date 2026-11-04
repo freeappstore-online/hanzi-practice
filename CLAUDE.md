@@ -22,3 +22,5 @@ Compatibility guide pointer: https://raw.githubusercontent.com/freeappstore-onli
 - Human audio is default, Kokoro clips optional, browser TTS configurable; see docs/audio.md. Keep model weights outside the repo.
 - Preserve audio clip/pinyin consistency and cancellation of automatic advancement on navigation.
 - The pnpm SDK patch uses equally sized header icon buttons and removes the Free header link and installed-app bottom branding bar, as requested by the user. Preserve it when upgrading the SDK, or replace it with an equivalent upstream option.
+
+- The Hanzi Writer 3.7.3 patch adds destroy() to remove document listeners, cancel animation, and block late rendering. Preserve it on upgrades unless upstream provides equivalent cleanup.

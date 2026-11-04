@@ -47,3 +47,18 @@ test('interleaved tab histories stay chronological before trimming old attempts'
   const retained=appendAttempt(mergeProgress([middle],older),last)
   assert.deepEqual(retained.slice(-2),[middle,last])
 })
+
+test('character totals migrate once and outlive the bounded recent history',async()=>{
+  const {parseCharacterTotals,totalsFromProgress,mergeCharacterTotals}=await import('../web/src/progress.ts')
+  const {studyStats,ITEM_BY_ID,itemTags}=await import('../web/src/catalog.ts')
+  const old=[attempt,{...attempt,mode:'guided',at:'2026-01-02T00:00:00Z'}]
+  const totals=totalsFromProgress(old)
+  assert.deepEqual(totals,{'一':{total:2,recalled:1}})
+  assert.deepEqual(mergeCharacterTotals(totals,totalsFromProgress(old)),totals)
+  const stats=studyStats([],{}, {},totals)
+  assert.equal(stats.counts['一'],2)
+  assert.ok(itemTags(ITEM_BY_ID.get('char:一'),stats).some(tag=>tag.id==='status:practiced'))
+  assert.ok(itemTags(ITEM_BY_ID.get('char:一'),stats).some(tag=>tag.id==='status:recalled'))
+  assert.deepEqual(parseCharacterTotals(JSON.stringify({...totals,'不存在':{total:4,recalled:0},'二':{total:1,recalled:2}})),totals)
+  assert.throws(()=>parseCharacterTotals('{'))
+})

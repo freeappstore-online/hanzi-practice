@@ -9,18 +9,17 @@ import { DEFAULT_SELECTION, type StudyPreferences } from './study-state'
 
 export function StudyLibrary({preferences,onChange,stats,start,resume,canResume}:{preferences:StudyPreferences;onChange:(value:StudyPreferences)=>void;stats:StudyStats;start:(items:StudyItem[],id?:string)=>void;resume:()=>void;canResume:boolean}) {
   const [filtersOpen,setFiltersOpen]=useState(false),[saveOpen,setSaveOpen]=useState(false),[infoOpen,setInfoOpen]=useState(false),[name,setName]=useState('')
-  const [limit,setLimit]=useState(24),[now,setNow]=useState(Date.now)
+  const [limits,setLimits]=useState<Record<string,number>>({}),[now,setNow]=useState(Date.now)
   useEffect(()=>{const timer=setInterval(()=>setNow(Date.now()),15000);return()=>clearInterval(timer)},[])
   const {filters,search,groupBy,sort}=preferences
   const results=useMemo(()=>filterCatalog(filters,search,stats,now,sort),[filters,search,stats,now,sort])
   const groups=useMemo(()=>groupCatalog(results,groupBy,stats,now),[results,groupBy,stats,now])
-  useEffect(()=>setLimit(24),[filters,search,groupBy,sort])
+  useEffect(()=>setLimits({}),[filters,search,groupBy,sort])
   const active=TAGS.filter(tag=>filters[tag.dimension].includes(tag.id))
   const toggle=(dimension:Dimension,id:string)=>onChange({...preferences,filters:{...filters,[dimension]:filters[dimension].includes(id)?filters[dimension].filter(x=>x!==id):[...filters[dimension],id]}})
   const clear=()=>onChange({...preferences,...DEFAULT_SELECTION,filters:{...EMPTY_FILTERS}})
   const due=filterCatalog({...filters,status:['status:due']},search,stats,now).length
   const reviewing=filters.status.length===1&&filters.status[0]==='status:due'
-  let shown=0
   return <>
     <div className="flex items-center justify-between gap-2"><PageHeader title="Practice" />{canResume&&<Button iconOnly aria-label="Resume practice" title="Resume practice" onClick={resume}><PracticeIcon name="play" /></Button>}</div>
     <SearchInput value={search} onChange={value=>onChange({...preferences,search:value})} placeholder="Search characters or words" />
@@ -30,7 +29,7 @@ export function StudyLibrary({preferences,onChange,stats,start,resume,canResume}
       <Button iconOnly className="ml-auto" aria-label="Filters" title="Filters" onClick={()=>setFiltersOpen(true)}><PracticeIcon name="filters" /></Button>
     </div>
     {active.length>0&&<div className="mb-3 flex flex-wrap gap-1" aria-label="Active filters">{active.map(tag=><button key={tag.id} aria-label={`Remove ${tag.label} filter`} className="min-h-9 rounded border border-accent bg-accent-soft px-2 text-xs" onClick={()=>toggle(tag.dimension,tag.id)}>{tag.label} ×</button>)}</div>}
-    {preferences.saved.length>0&&<div className="mb-3 flex flex-wrap gap-2" aria-label="Saved selections">{preferences.saved.map(saved=><div key={saved.id} className="flex overflow-hidden rounded border border-line-strong"><button className="min-h-11 px-3 text-sm" aria-label={`Use saved selection ${saved.name}`} onClick={()=>onChange({...saved,saved:preferences.saved})}>{saved.name}</button><button className="min-h-11 min-w-9 border-l border-line text-muted" aria-label={`Delete saved selection ${saved.name}`} onClick={()=>onChange({...preferences,saved:preferences.saved.filter(s=>s.id!==saved.id)})}>×</button></div>)}</div>}
+    {preferences.saved.length>0&&<div className="mb-3 flex flex-wrap gap-2" aria-label="Saved selections">{preferences.saved.map(saved=><div key={saved.id} className="flex min-w-0 max-w-full overflow-hidden rounded border border-line-strong"><button className="min-h-11 min-w-0 break-words px-3 text-left text-sm" aria-label={`Use saved selection ${saved.name}`} onClick={()=>onChange({...saved,saved:preferences.saved})}>{saved.name}</button><button className="min-h-11 min-w-9 border-l border-line text-muted" aria-label={`Delete saved selection ${saved.name}`} onClick={()=>onChange({...preferences,saved:preferences.saved.filter(s=>s.id!==saved.id)})}>×</button></div>)}</div>}
     <div className="mb-3 grid grid-cols-2 gap-2">
       <select aria-label="Group by" className="min-h-11 min-w-0 rounded-sm border border-line-strong bg-panel px-2 text-sm" value={groupBy} onChange={e=>onChange({...preferences,groupBy:e.target.value as Grouping})}>
         <option value="none">No grouping</option>{Object.entries(DIMENSIONS).map(([id,label])=><option key={id} value={id}>{label}</option>)}
@@ -44,18 +43,19 @@ export function StudyLibrary({preferences,onChange,stats,start,resume,canResume}
       <Button iconOnly aria-label="Save selection" title="Save selection" onClick={()=>{setName([search,...active.map(t=>t.label)].filter(Boolean).join(' · ').slice(0,60)||'All practice');setSaveOpen(true)}}><PracticeIcon name="bookmark" /></Button>
       <Button primary iconOnly aria-label={`Practice ${results.length} matching items`} title="Practice selection" disabled={!results.length} onClick={()=>start(results)}><PracticeIcon name="play" /></Button>
     </div>
-    {groups.map(group=>{
-      const visible=group.items.slice(0,Math.max(0,limit-shown));shown+=visible.length
+    {groups.map((group,groupIndex)=>{
+      const limit=limits[group.id]??(groupBy==='none'?24:groupIndex===0?6:0)
+      const visible=group.items.slice(0,limit)
       return <section key={group.id} className="mb-4">
-        {group.label&&<div className="mb-2 flex items-center justify-between gap-2"><h2 className="font-bold">{group.label} <span className="text-muted">{group.items.length}</span></h2><Button iconOnly aria-label={`Practice group ${group.label}`} title={`Practice ${group.label}`} onClick={()=>start(group.items)}><PracticeIcon name="play" /></Button></div>}
+        {group.label&&<div className="mb-2 flex items-center justify-between gap-2"><h2 className="min-w-0 flex-1"><button className="flex min-h-11 w-full items-center gap-2 text-left font-bold" aria-label={`${limit?'Hide':'Show'} ${group.label} items`} aria-expanded={limit>0} onClick={()=>setLimits(previous=>({...previous,[group.id]:limit?0:12}))}><span aria-hidden="true">{limit?'▾':'▸'}</span><span>{group.label} <span className="text-muted">{group.items.length}</span></span></button></h2><Button iconOnly aria-label={`Practice group ${group.label}`} title={`Practice ${group.label}`} onClick={()=>start(group.items)}><PracticeIcon name="play" /></Button></div>}
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">{visible.map(item=><div key={item.id} data-testid={`item-${item.id}`} className="min-w-0 rounded border border-line-strong bg-panel p-4">
           {item.character?<CharacterDetails character={item.character}/>:<WordDetails word={item.word!}/>}
           <div className="mt-2 flex flex-wrap gap-1">{itemTags(item,stats,now).filter(t=>['kind','hsk','topic','status'].includes(t.dimension)).map(tag=><button key={tag.id} className="min-h-9 rounded border border-line px-2 text-xs text-muted" aria-label={`Filter ${tag.label}`} onClick={()=>toggle(tag.dimension,tag.id)}>{tag.label}</button>)}</div>
           <div className="mt-3 flex items-center gap-2">{stats.counts[item.text]>0&&<span className="text-sm font-bold text-success" aria-label={`${stats.counts[item.text]} completed practices`}>✓ {stats.counts[item.text]}</span>}<span className="text-xs text-muted">{item.strokes} strokes</span><Button iconOnly className="ml-auto" aria-label={`Practice ${item.text}`} title={`Practice ${item.text}`} onClick={()=>start(group.items,item.id)}><PracticeIcon name="play" /></Button></div>
         </div>)}</div>
+        {limit>0&&group.items.length>limit&&<Button className="mt-3" aria-label={`Show more ${group.label||'items'}`} onClick={()=>setLimits(previous=>({...previous,[group.id]:limit+24}))}>Show more</Button>}
       </section>
     })}
-    {groups.reduce((n,g)=>n+g.items.length,0)>limit&&<Button onClick={()=>setLimit(n=>n+48)}>Show more</Button>}
     {!results.length&&<EmptyState title="No matching practice" message="Change a label or clear the filters." action={<Button onClick={clear}>Clear filters</Button>}/>}
     <Modal open={filtersOpen} onClose={()=>setFiltersOpen(false)} title="Practice filters">
       <div className="max-h-[60svh] overflow-y-auto space-y-2">{Object.entries(DIMENSIONS).map(([key,label])=>{const dimension=key as Dimension;return <details key={key} className="rounded border border-line p-2" open={dimension==='kind'?true:undefined}>

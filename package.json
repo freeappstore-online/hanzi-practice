@@ -10,7 +10,8 @@
       "esbuild"
     ],
     "patchedDependencies": {
-      "@freeappstore/sdk@0.16.0": "patches/@freeappstore__sdk@0.16.0.patch"
+      "@freeappstore/sdk@0.16.0": "patches/@freeappstore__sdk@0.16.0.patch",
+      "hanzi-writer@3.7.3": "patches/hanzi-writer@3.7.3.patch"
     }
   },
   "repository": {

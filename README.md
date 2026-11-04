@@ -12,14 +12,14 @@ A free Chinese character stroke practice app: https://hanzi.freeappstore.online
 - Character, pinyin, English meaning, and SVG tone curves share the same size. Tap the tone curve for a four-tone guide.
 - Tap the character, pinyin, or example word for Mandarin pronunciation. The avatar opens Profile, where you can reorder or disable human recordings, Kokoro model clips, and browser Mandarin TTS. See [audio sources](docs/audio.md).
 - Compact icon controls, with modes beside the pad and a visible autoplay state. Skipping during practice starts the next exercise.
-- The library remembers filters, search, grouping, and sorting, and shows completed practice counts with a green check.
+- The library remembers filters, search, grouping, and sorting, and shows completed practice counts with a green check. Groups expand and load more items independently.
 - Finger, stylus, and mouse input; checks shape, direction, and order.
 - Hints, retries, and practice history saved silently on the device. No login needed.
 - Resume the current queue, position, mode, and autoplay setting from local browser storage. Legacy character history, review data, word counts, audio preferences, saved place, and old links remain compatible.
 - Character data, human recordings and Kokoro clips are precached for offline use after the first online load. Browser voices depend on the device and may need internet.
 - Responsive SDK Shell, light/dark themes, and character search by glyph, pinyin, or meaning.
 
-This is a curated study collection, not a full dictionary or calligraphy evaluator. Characters use one selected reading; connected speech and other readings may differ. Progress remains in the browser and does not sync through the optional platform account. The newest 2,000 completed character attempts are retained; the Progress screen displays the newest 30.
+This is a curated study collection, not a full dictionary or calligraphy evaluator. Characters use one selected reading; connected speech and other readings may differ. Progress remains in the browser and does not sync through the optional platform account. The newest 2,000 completed character attempts are retained; the Progress screen displays the newest 30. Character completion and recall totals are stored separately, so trimming recent history does not remove practice ticks.
 
 ## Development
 

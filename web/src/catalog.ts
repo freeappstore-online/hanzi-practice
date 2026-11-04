@@ -3,7 +3,7 @@ import { WORDS, wordTags } from './words'
 import characterMetadata from './character-tags.json'
 import { toneFor } from './tones'
 import type { WordExample } from './examples'
-import type { Progress } from './progress'
+import type { CharacterTotals, Progress } from './progress'
 import type { ReviewState } from './review'
 
 export type Dimension = 'kind'|'hsk'|'topic'|'type'|'tone'|'audio'|'strokes'|'set'|'status'
@@ -35,9 +35,10 @@ export const ITEM_BY_TEXT=new Map(CATALOG.map(item=>[item.text,item]))
 const STATUS_TAGS=[tag('status','new','New'),tag('status','practiced','Practised'),tag('status','due','Ready to review'),tag('status','weak','Needs work'),tag('status','recalled','Recalled')]
 export const TAGS=[...new Map([...CATALOG.flatMap(item=>item.tags),...STATUS_TAGS].map(t=>[t.id,t])).values()].sort((a,b)=>a.id.localeCompare(b.id,'en',{numeric:true}))
 export type StudyStats={counts:Record<string,number>;reviews:ReviewState;recalled:Set<string>}
-export function studyStats(progress:Progress,wordCounts:Record<string,number>,reviews:ReviewState):StudyStats {
+export function studyStats(progress:Progress,wordCounts:Record<string,number>,reviews:ReviewState,totals:CharacterTotals={}):StudyStats {
   const counts:Record<string,number>={...wordCounts},recalled=new Set<string>()
   for(const attempt of progress){counts[attempt.character]=(counts[attempt.character]??0)+1;if(attempt.mode==='recall' && !attempt.hints && !attempt.mistakes)recalled.add(attempt.character)}
+  for(const [character,count] of Object.entries(totals)){counts[character]=Math.max(counts[character]??0,count.total);if(count.recalled)recalled.add(character)}
   for(const entry of Object.values(reviews))if(entry.completed && entry.mode==='recall' && !entry.mistakes && !entry.hints)recalled.add(entry.character)
   return {counts,reviews,recalled}
 }

@@ -54,7 +54,7 @@ unchanged in scope and accurately labels what it transfers.
 Local storage is device-local, not account sync. It is not transactional across
 simultaneous tabs: merges reduce lost updates but do not guarantee atomic counts
 for two completions occurring at exactly the same time. Character history retains
-the existing 2,000-attempt cap; word totals are separate cumulative counters.
+the existing 2,000-attempt cap; character and word totals are separate cumulative counters.
 
 HSK denotes vocabulary proficiency, while stroke bands denote writing load.
 The legacy study sets are not HSK levels. Unmatched entries remain Unlisted.
@@ -78,3 +78,29 @@ tabs are merged in timestamp order before the 2,000-attempt limit is applied.
 Experimental audio candidates are restricted to the actual shipped model catalog,
 so new characters do not request nonexistent Kokoro files. Profile coverage is
 derived from the active data instead of stale hard-coded counts.
+
+## Second review — 2026-11-04
+
+- A pinned Hanzi Writer 3.7.3 patch adds `destroy()` to release document mouseup
+  and touchend listeners, cancel active rendering, and prevent a late character
+  download from mounting a discarded writer. Both ESM/CJS runtime entry points
+  and their declarations are patched. The practice runner calls it on every
+  replacement and unmount. Browser instrumentation checks the actual document
+  listener counts across navigation, mode changes, and single/two-tile sessions.
+- Character downloads validate stroke/median structure before caching. Invalid
+  payloads are evicted; stalled requests abort after 15 seconds. Retry starts a
+  fresh request. Shared valid preload promises remain reusable.
+- Groups have individual expand/collapse and pagination controls. A shared
+  24-card budget no longer leaves later groups looking empty. Long saved names
+  wrap within the mobile viewport.
+- `hanzi-practice:character-totals:v1` stores completion and clean-recall totals
+  separately from the bounded history. It is seeded from retained history using
+  per-character maxima, so repeated reads do not double-count. Completion merges
+  current stored totals before incrementing, and storage events refresh other
+  tabs. The existing limitations of non-transactional localStorage still apply.
+  Attempts already discarded before this update cannot be reconstructed. The
+  legacy history-transfer file does not include these new lifetime counters.
+
+Validation includes history rollover past 2,000 attempts, persisted completion
+and Recalled tags after reload, malformed/stalled downloads, discarded pending
+writers, document listener cleanup, and independent mobile group browsing.

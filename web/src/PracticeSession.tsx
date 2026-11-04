@@ -66,7 +66,6 @@ export function PracticeSession({item,queue,index,mode,completed,autoplay,onMode
       const css=getComputedStyle(document.documentElement)
       return {strokeColor:css.getPropertyValue('--ink').trim(),drawingColor:css.getPropertyValue('--accent').trim(),highlightColor:css.getPropertyValue('--accent').trim(),outlineColor:css.getPropertyValue(document.documentElement.dataset.theme==='dark'?'--muted':'--accent-soft').trim()}
     }
-    const loaded=chars.map(()=>false)
     const instances=chars.map((_,i)=>new HanziWriter(targetNodes[i]!,{
       width:targetNodes[i]!.clientWidth||140,height:targetNodes[i]!.clientWidth||140,padding,...colors(),
       showCharacter:false,showOutline:mode==='guided',charDataLoader:loadCharacterData,strokeAnimationSpeed:.8,delayBetweenStrokes:350,
@@ -76,7 +75,7 @@ export function PracticeSession({item,queue,index,mode,completed,autoplay,onMode
     targetNodes.forEach(node=>{if(node)resize.observe(node)})
     const theme=new MutationObserver(()=>{if(ready.current)instances.forEach(writer=>Object.entries(colors()).forEach(([key,value])=>void writer.updateColor(key as 'strokeColor',value,{duration:0})))})
     theme.observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']})
-    void Promise.all(instances.map(async(writer,i)=>{await writer.setCharacter(chars[i]);const data=await writer.getCharacterData();loaded[i]=true;return data.strokes.length})).then(strokes=>{
+    void Promise.all(instances.map(async(writer,i)=>{await writer.setCharacter(chars[i]);if(canceled)return 0;const data=await writer.getCharacterData();return data.strokes.length})).then(strokes=>{
       if(canceled)return
       ready.current=true;tileState.current=strokes.map(n=>({...empty(),strokes:n,correct:completed?n:0,done:completed}));setTiles(tileState.current)
       if(completed){instances.forEach(w=>void w.showCharacter({duration:0}));setPhase('complete')}
@@ -84,7 +83,7 @@ export function PracticeSession({item,queue,index,mode,completed,autoplay,onMode
     }).catch(()=>{if(!canceled){setPhase('error');setMessage('Could not load this exercise. Reconnect and try again.')}})
     return ()=>{
       canceled=true;ready.current=false;generation.current++;attempt.current=null;resize.disconnect();theme.disconnect()
-      instances.forEach((writer,i)=>{writer.cancelQuiz();if(loaded[i])void writer.pauseAnimation()})
+      instances.forEach(writer=>writer.destroy())
       targetNodes.forEach(node=>node?.replaceChildren())
     }
     // Completion only changes the saved checkpoint; it must not recreate a finished quiz.
