@@ -12,7 +12,7 @@ import { selectionName, type PracticeRun } from './practice-history'
 import { DEFAULT_SELECTION, type Selection, type StudyPreferences } from './study-state'
 
 export function StudyLibrary({preferences,onChange,stats,start,runs,resumeRun}:{preferences:StudyPreferences;onChange:(value:StudyPreferences)=>void;stats:StudyStats;start:(items:StudyItem[],id?:string,name?:string,mode?:Mode)=>void;runs:PracticeRun[];resumeRun:(id:string)=>void}) {
-  const [view,setView]=useState<'packs'|'items'>(()=>{try{const saved=sessionStorage.getItem('hanzi-practice:library-view');return saved==='packs'||saved==='items'?saved:preferences.search||Object.values(preferences.filters).some(ids=>ids.length)?'items':'packs'}catch{return 'packs'}})
+  const [view,setView]=useState<'packs'|'items'>(()=>{try{const saved=sessionStorage.getItem('hanzi-practice:library-view');return saved==='packs'||saved==='items'?saved:'packs'}catch{return 'packs'}})
   const changeView=(value:'packs'|'items')=>{setView(value);try{sessionStorage.setItem('hanzi-practice:library-view',value)}catch{/* Navigation still works without storage. */}}
   const openSelection=(selection:Selection)=>{onChange({...selection,saved:preferences.saved});changeView('items')}
   const [filtersOpen,setFiltersOpen]=useState(false),[saveOpen,setSaveOpen]=useState(false),[infoOpen,setInfoOpen]=useState(false),[name,setName]=useState('')

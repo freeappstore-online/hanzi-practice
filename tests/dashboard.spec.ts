@@ -2,6 +2,7 @@ import {test,expect} from '@playwright/test'
 import {setFilters,draw} from './helpers'
 
 test('mobile dashboard discovers packs across dimensions and opens an inspectable selection',async({page})=>{
+  await page.addInitScript(()=>{if(!localStorage.getItem('hanzi-practice:study:v1'))localStorage.setItem('hanzi-practice:study:v1',JSON.stringify({search:'rice',filters:{hsk:['hsk:3']}}))})
   await page.setViewportSize({width:320,height:800});await page.goto('/')
   await expect(page.getByRole('button',{name:'Browse packs',exact:true})).toHaveAttribute('aria-pressed','true')
   await expect(page.getByRole('button',{name:'Open pack HSK 1',exact:true})).toBeVisible()
