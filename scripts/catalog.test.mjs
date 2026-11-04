@@ -1,7 +1,7 @@
 import {test} from 'node:test'
 import assert from 'node:assert/strict'
 import {readFileSync} from 'node:fs'
-import {CATALOG,DIMENSIONS,EMPTY_FILTERS,ITEM_BY_ID,filterCatalog,groupCatalog,itemTags,studyStats} from '../web/src/catalog.ts'
+import {CATALOG,DIMENSIONS,EMPTY_FILTERS,ITEM_BY_ID,filterCatalog,lookupCatalog,groupCatalog,itemTags,studyStats} from '../web/src/catalog.ts'
 import {createSession,parseSession,advanceSession,parseStudyPreferences} from '../web/src/study-state.ts'
 import {parseReview,recordReview} from '../web/src/review.ts'
 const empty=studyStats([],{},{}),word=ITEM_BY_ID.get('word:妈妈'),one=ITEM_BY_ID.get('char:一')
@@ -57,4 +57,18 @@ test('saved selections keep rules rather than copied item lists and sanitize inv
   const initial=filterCatalog(saved.saved[0].filters,'',empty).length
   const updated=filterCatalog(saved.saved[0].filters,'',studyStats([],{妈妈:1},{})).length
   assert.equal(updated,initial-1)
+})
+
+test('search finds multi-syllable pinyin with or without spaces and keeps pack filters',()=>{
+  for(const query of ['xuesheng','XUE SHENG','  xué   shēng  '])assert.ok(filterCatalog(EMPTY_FILTERS,query,empty).some(i=>i.id==='word:学生'),query)
+  for(const query of ['mama','mā ma'])assert.ok(filterCatalog(EMPTY_FILTERS,query,empty).some(i=>i.id==='word:妈妈'),query)
+  assert.deepEqual(filterCatalog({...EMPTY_FILTERS,kind:['kind:character']},'mama',empty),[])
+  assert.ok(filterCatalog(EMPTY_FILTERS,'drink water',empty).some(i=>i.text==='喝水'))
+})
+test('lookup ranks exact matches first while pack order stays unchanged',()=>{
+  assert.equal(lookupCatalog('学生',empty)[0].id,'word:学生')
+  assert.equal(lookupCatalog('xuesheng',empty)[0].id,'word:学生')
+  assert.equal(lookupCatalog('water',empty)[0].id,'char:水')
+  assert.deepEqual(lookupCatalog('   ',empty),[])
+  assert.deepEqual(filterCatalog(EMPTY_FILTERS,'',empty).map(i=>i.id),CATALOG.map(i=>i.id))
 })

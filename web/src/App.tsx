@@ -35,7 +35,7 @@ function Screens({path,navigate}:{path:string;navigate:(href:string,replace?:boo
   const [warning,setWarning]=useState('')
   const [now,setNow]=useState(Date.now)
   useEffect(()=>{const timer=setInterval(()=>setNow(Date.now()),15000);return()=>clearInterval(timer)},[])
-  const [returnTo,setReturnTo]=useState(()=>{try{const saved=sessionStorage.getItem('hanzi-practice:return-to');return saved&&['/','/pack','/lookup'].includes(saved)?saved:'/pack'}catch{return '/pack'}})
+  const [returnTo,setReturnTo]=useState(()=>{try{const saved=sessionStorage.getItem('hanzi-practice:return-to');return saved&&['/','/pack','/lookup','/progress'].includes(saved)?saved:'/pack'}catch{return '/pack'}})
   const rememberReturn=(value:string)=>{setReturnTo(value);try{sessionStorage.setItem('hanzi-practice:return-to',value)}catch{/* Navigation still works. */}}
   const [practiceHistory,setPracticeHistory]=useState<PracticeHistory>(()=>{
     try {
@@ -74,7 +74,7 @@ function Screens({path,navigate}:{path:string;navigate:(href:string,replace?:boo
   const start=(items:StudyItem[],id?:string,name?:string,mode?:Mode)=>{
     const next=createSession(items,id,mode??(study.filters.status.includes('status:due')?'recall':'guided'))
     if(!next)return
-    rememberReturn(path==='/lookup'?'/lookup':'/pack')
+    rememberReturn(path==='/lookup'||path==='/progress'?path:'/pack')
     const run=newRun(next,name||items.slice(0,3).map(i=>i.text).join(' · '))
     setPracticeHistory(h=>({activeId:run.id,runs:[run,...h.runs].slice(0,100)}));navigate('/session')
   }
@@ -98,9 +98,9 @@ function Screens({path,navigate}:{path:string;navigate:(href:string,replace?:boo
         if(item.kind==='word')data.completeWord(item.text)
         else setPreferences(p=>({...p,character:item.text}))
         setPracticeHistory(h=>({...h,runs:h.runs.map(r=>r.id===h.activeId?{...r,updatedAt:result.at,session:{...r.session,completed:true},results:{...r.results,[item.id]:result}}:r)}))
-      }} onRestart={()=>setSession(s=>({...s,completed:false}))} onJump={index=>setSession(s=>({...s,index,completed:false}))} finishedIds={Object.keys(activeRun!.results)} doneCount={runStats(activeRun!).done} onRemaining={()=>resume(practiceHistory.activeId,returnTo)} onNext={next} backLabel={returnTo==='/lookup'?'Back to lookup':returnTo==='/'?'Back to packs':'Back to filters'} onBack={()=>navigate(returnTo)} />
+      }} onRestart={()=>setSession(s=>({...s,completed:false}))} onJump={index=>setSession(s=>({...s,index,completed:false}))} finishedIds={Object.keys(activeRun!.results)} doneCount={runStats(activeRun!).done} onRemaining={()=>resume(practiceHistory.activeId,returnTo)} onNext={next} backLabel={returnTo==='/progress'?'Back to progress':returnTo==='/lookup'?'Back to lookup':returnTo==='/'?'Back to packs':'Back to filters'} onBack={()=>navigate(returnTo)} />
     </> : <><PageHeader title="Practice"/><Button onClick={()=>navigate('/')}>Choose practice</Button></>)
-      : path==='/progress'?<StudyProgress progress={data.progress} stats={stats} practice={start} selectStatus={selectStatus}/>
+      : path==='/progress'?<StudyProgress progress={data.progress} stats={stats} practice={(items,mode)=>start(items,undefined,undefined,mode)} selectStatus={selectStatus}/>
       : path==='/lookup'?<CharacterLookup stats={stats} practice={item=>start([item],undefined,item.text,'guided')}/>
       : path==='/pack'?<StudyLibrary preferences={study} onChange={updateStudy} stats={stats} start={start} onBack={()=>navigate('/')}/>
       : path==='/profile'?<Profile app={fas}/>

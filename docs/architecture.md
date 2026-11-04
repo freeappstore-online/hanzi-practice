@@ -142,3 +142,9 @@ saved-selection management are collapsed. Legacy `/characters`, `/words`, and
 also open the appropriate pack filters. Starting a pack supplies an explicit mode,
 so stale review filters cannot change unrelated practice. Resuming from recent
 history returns to Packs; starting from Lookup returns to Lookup.
+
+Lookup and pack search accept spaced or joined pinyin (for example, `xue sheng`
+and `xuesheng`). Lookup ranks exact character, pinyin, and meaning matches ahead
+of substring matches; pack ordering remains controlled by its selected sort.
+Replaying an attempt from Progress preserves that attempt's guided/recall mode
+and returns to Progress, including after reloading the session.

@@ -46,3 +46,16 @@ test('lookup practices only the selected target and returns to the same search a
   await expect(page.getByRole('combobox',{name:'Practice item'}).locator('option')).toHaveCount(1)
   await expect(page.getByTestId('writing-tile-1')).toBeVisible()
 })
+
+test('lookup finds joined pinyin and prioritizes exact matches',async({page})=>{
+  await page.goto('/lookup')
+  const search=page.getByPlaceholder('Character, pinyin, or English')
+  for(const query of ['xuesheng','  xué   shēng  ','学生']){
+    await search.fill(query)
+    await expect(page.getByRole('article').first()).toHaveAttribute('aria-label','学生')
+  }
+  await search.fill('mama')
+  await expect(page.getByRole('article').first()).toHaveAttribute('aria-label','妈妈')
+  await search.fill('water')
+  await expect(page.getByRole('article').first()).toHaveAttribute('aria-label','水')
+})

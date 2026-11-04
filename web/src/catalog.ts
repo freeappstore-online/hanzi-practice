@@ -47,10 +47,11 @@ export function itemTags(item:StudyItem,stats:StudyStats,now=Date.now()):Tag[] {
   const status=[stats.counts[item.text]?'practiced':'new',...(review?.due<=now?['due']:[]),...(review && (review.mistakes||review.hints||!review.completed)?['weak']:[]),...(stats.recalled.has(item.text)?['recalled']:[])]
   return [...item.tags,...STATUS_TAGS.filter(t=>status.includes(t.id.slice(7)))]
 }
+const normalizeSearch=(text:string)=>text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim().replace(/\s+/g,' ')
+const compactPinyin=(text:string)=>normalizeSearch(text).replace(/\s/g,'')
 export function filterCatalog(filters:Filters,search:string,stats:StudyStats,now=Date.now(),sort:Sort='catalog'):StudyItem[] {
-  const normalize=(s:string)=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')
-  const query=normalize(search.trim())
-  const items=CATALOG.filter(item=>normalize(`${item.text} ${item.pinyin} ${item.meaning}`).includes(query) && Object.values(filters).every(ids=>!ids.length || itemTags(item,stats,now).some(t=>ids.includes(t.id))))
+  const query=normalizeSearch(search),compact=compactPinyin(query)
+  const items=CATALOG.filter(item=>(normalizeSearch(`${item.text} ${item.pinyin} ${item.meaning}`).includes(query)||compactPinyin(item.pinyin).includes(compact)) && Object.values(filters).every(ids=>!ids.length || itemTags(item,stats,now).some(t=>ids.includes(t.id))))
   if(sort==='strokes')items.sort((a,b)=>a.strokes-b.strokes)
   if(sort==='hsk')items.sort((a,b)=>Number(a.tags.find(t=>t.dimension==='hsk')!.id.slice(4).replace('unlisted','99'))-Number(b.tags.find(t=>t.dimension==='hsk')!.id.slice(4).replace('unlisted','99')))
   if(sort==='due')items.sort((a,b)=>(stats.reviews[a.text]?.due??Infinity)-(stats.reviews[b.text]?.due??Infinity))
@@ -66,4 +67,12 @@ export function groupCatalog(items:StudyItem[],dimension:Grouping,stats:StudySta
 export function parseFilters(value:unknown):Filters {
   const data=value as Partial<Filters>|null
   return Object.fromEntries(Object.keys(DIMENSIONS).map(dimension=>[dimension,TAGS.filter(t=>t.dimension===dimension && Array.isArray(data?.[dimension as Dimension]) && data![dimension as Dimension]!.includes(t.id)).map(t=>t.id)])) as Filters
+}
+
+// Lookup prioritizes exact matches without changing the order of practice packs.
+export function lookupCatalog(search:string,stats:StudyStats):StudyItem[] {
+  const query=normalizeSearch(search),compact=compactPinyin(query)
+  if(!query)return []
+  const rank=(item:StudyItem)=>normalizeSearch(item.text)===query?0:compactPinyin(item.pinyin)===compact?1:normalizeSearch(item.meaning)===query?2:3
+  return filterCatalog(EMPTY_FILTERS,search,stats).sort((a,b)=>rank(a)-rank(b))
 }

@@ -4,12 +4,12 @@ import { Button } from './Button'
 import { PracticeIcon } from './PracticeIcon'
 import { CharacterDetails } from './Pronunciation'
 import { WordDetails } from './WordDetails'
-import { EMPTY_FILTERS, filterCatalog, type StudyItem, type StudyStats } from './catalog'
+import { lookupCatalog, type StudyItem, type StudyStats } from './catalog'
 
 export function CharacterLookup({stats,practice}:{stats:StudyStats;practice:(item:StudyItem)=>void}) {
   const [query,setQuery]=useState(()=>{try{return sessionStorage.getItem('hanzi-practice:lookup')||''}catch{return ''}})
   const [limit,setLimit]=useState(12)
-  const results=useMemo(()=>query.trim()?filterCatalog(EMPTY_FILTERS,query,stats):[],[query,stats])
+  const results=useMemo(()=>lookupCatalog(query,stats),[query,stats])
   const search=(value:string)=>{setQuery(value);setLimit(12);try{sessionStorage.setItem('hanzi-practice:lookup',value)}catch{/* Search works without storage. */}}
   return <>
     <PageHeader title="Lookup"/>
