@@ -1,19 +1,22 @@
 import {expect,type Page} from '@playwright/test'
 import {readFileSync} from 'node:fs'
 export async function openLibrary(page:Page) {
-  await page.goto('/')
-  await page.getByRole('button',{name:'Browse items',exact:true}).click()
+  await page.goto('/pack')
+  await page.getByText('Arrange & saved packs',{exact:true}).click()
 }
 export async function openItem(page:Page,text='一',search=false) {
   await openLibrary(page)
   const clear=page.getByRole('button',{name:'Clear filters',exact:true})
   if(await clear.count())await clear.click()
-  if(search)await page.getByPlaceholder('Search characters or words').fill(text)
+  if(search)await page.getByPlaceholder('Search this pack').fill(text)
   await page.getByRole('button',{name:`Practice ${text}`,exact:true}).click()
   await expect(page.getByRole('combobox',{name:'Practice item'})).toBeVisible()
 }
 export async function setFilters(page:Page,values:Record<string,string[]>) {
-  await page.getByRole('button',{name:'Browse items',exact:true}).click()
+  if(['/characters','/words','/review'].includes(new URL(page.url()).pathname))await expect(page).toHaveURL(/\/pack$/)
+  else if(new URL(page.url()).pathname!=='/pack')await page.goto('/pack')
+  const arrange=page.locator('details').filter({has:page.locator('summary').filter({hasText:'Arrange & saved packs'})})
+  if(!await arrange.evaluate((el:HTMLDetailsElement)=>el.open))await arrange.locator('summary').click()
   await page.getByRole('button',{name:'Filters',exact:true}).click()
   const dialog=page.getByRole('dialog',{name:'Practice filters'})
   for(const [dimension,labels] of Object.entries(values)){

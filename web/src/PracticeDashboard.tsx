@@ -31,12 +31,8 @@ export function PracticeDashboard({preferences,stats,now,open,start}:{preference
   }
   return <section aria-label="Find a practice pack" className="space-y-4">
     <SearchInput value={query} onChange={setQuery} placeholder="Find a pack: food, HSK 1, numbers…" />
-    {!search&&saved.length>0&&<section aria-label="Saved packs"><h2 className="mb-2 font-bold">Saved packs</h2><div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{saved.map(card)}</div></section>}
-    <div className="flex items-center gap-1" aria-label="Pack categories">
-      {([['hsk','HSK'],['topic','Topics'],['set','Study sets']] as const).map(([id,label])=><Button key={id} aria-label={label} className="flex-1 !px-2 aria-pressed:border-accent aria-pressed:bg-accent-soft" aria-pressed={!search&&dimension===id} onClick={()=>{setDimension(id);setQuery('')}}>{id==='set'?'Sets':label}</Button>)}
-      <select aria-label="More pack categories" value={['hsk','topic','set'].includes(dimension)?'':dimension} onChange={e=>{setDimension(e.target.value as Dimension);setQuery('')}} className="min-h-11 w-20 min-w-0 rounded-sm border border-line-strong bg-panel px-1 text-sm"><option value="" disabled>More</option>{Object.entries(DIMENSIONS).filter(([id])=>!['hsk','topic','set'].includes(id)).map(([id,label])=><option key={id} value={id}>{label}</option>)}</select>
-    </div>
-    <div className="flex items-center justify-between gap-2"><h2 className="font-bold">{search?'Matching packs':dimension==='hsk'?'HSK 3.0':DIMENSIONS[dimension]}</h2><span className="text-xs text-muted">{visible.length} packs</span></div>
+    {!search&&saved.length>0&&<details aria-label="Saved packs"><summary className="min-h-11 cursor-pointer py-3 font-bold">Saved packs · {saved.length}</summary><div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{saved.map(card)}</div></details>}
+    <div className="flex items-center justify-between gap-3"><select aria-label="Browse packs by" value={dimension} onChange={e=>{setDimension(e.target.value as Dimension);setQuery('')}} className="min-h-11 min-w-0 flex-1 rounded-sm border border-line-strong bg-panel px-3 text-sm">{Object.entries(DIMENSIONS).map(([id,label])=><option key={id} value={id}>{id==='hsk'?'HSK 3.0':id==='topic'?'Topics':id==='set'?'Study sets':label}</option>)}</select><span className="shrink-0 text-xs text-muted">{visible.length} packs</span></div>
     {!search&&dimension==='set'&&<p className="text-xs text-muted">40 characters per set · curated practice, not HSK levels</p>}
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{visible.map(card)}</div>
     {!visible.length&&<EmptyState title="No matching packs" message="Try a topic, HSK level, or saved pack name." action={<Button onClick={()=>setQuery('')}>Clear search</Button>}/>}

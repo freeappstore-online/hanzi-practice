@@ -3,18 +3,22 @@ import { initApp } from '@freeappstore/sdk'
 import { PageHeader, Shell, type NavItem } from '@freeappstore/sdk/ui'
 import { Profile } from './Profile'
 import { About } from './About'
+import { CharacterLookup } from './CharacterLookup'
+import { PracticeDashboard } from './PracticeDashboard'
+import { PracticeHistory as RecentPractice } from './PracticeHistory'
+import { PracticeIcon } from './PracticeIcon'
 import { StudyLibrary } from './StudyLibrary'
 import { StudyProgress } from './StudyProgress'
 import { PracticeSession } from './PracticeSession'
 import { useStudyProgress } from './useStudyProgress'
-import { CATALOG, EMPTY_FILTERS, ITEM_BY_ID, studyStats, type StudyItem } from './catalog'
-import { DEFAULT_SELECTION, SESSION_KEY, STUDY_KEY, createSession, parseSession, readStudyPreferences, type Session, type StudyPreferences } from './study-state'
+import { CATALOG, EMPTY_FILTERS, ITEM_BY_ID, filterCatalog, studyStats, type StudyItem } from './catalog'
+import { DEFAULT_SELECTION, SESSION_KEY, STUDY_KEY, createSession, parseSession, readStudyPreferences, type Session, type Selection, type StudyPreferences } from './study-state'
 import { PREFERENCES_KEY, readPreferences, savePreferences } from './preferences'
 import type { Mode } from './progress'
 import { Button } from './Button'
 import { HISTORY_KEY, emptyHistory, mergeHistory, newRun, parseHistory, resumeRun, runStats, advanceRun, type PracticeHistory } from './practice-history'
 const fas=initApp({appId:'hanzi-practice'})
-const NAV:NavItem[]=[{label:'Practice',href:'/',title:'Practice — Hanzi'},{label:'Progress',href:'/progress',title:'Progress — Hanzi'},{label:'About',href:'/about',title:'About — Hanzi'}]
+const NAV:NavItem[]=[{label:'Packs',href:'/',title:'Packs — Hanzi'},{label:'Lookup',href:'/lookup',title:'Lookup — Hanzi'},{label:'Progress',href:'/progress',title:'Progress — Hanzi'},{label:'About',href:'/about',title:'About — Hanzi'}]
 export default function App() {
   const [path,setPath]=useState(location.pathname)
   const navigate=useCallback((href:string,replace=false)=>{
@@ -29,6 +33,10 @@ function Screens({path,navigate}:{path:string;navigate:(href:string,replace?:boo
   const [study,setStudy]=useState(readStudyPreferences)
   const [preferences,setPreferences]=useState(readPreferences)
   const [warning,setWarning]=useState('')
+  const [now,setNow]=useState(Date.now)
+  useEffect(()=>{const timer=setInterval(()=>setNow(Date.now()),15000);return()=>clearInterval(timer)},[])
+  const [returnTo,setReturnTo]=useState(()=>{try{const saved=sessionStorage.getItem('hanzi-practice:return-to');return saved&&['/','/pack','/lookup'].includes(saved)?saved:'/pack'}catch{return '/pack'}})
+  const rememberReturn=(value:string)=>{setReturnTo(value);try{sessionStorage.setItem('hanzi-practice:return-to',value)}catch{/* Navigation still works. */}}
   const [practiceHistory,setPracticeHistory]=useState<PracticeHistory>(()=>{
     try {
       const saved=localStorage.getItem(HISTORY_KEY)
@@ -60,23 +68,27 @@ function Screens({path,navigate}:{path:string;navigate:(href:string,replace?:boo
   useEffect(()=>{
     if(!['/characters','/words','/review'].includes(path))return
     setStudy(s=>({...s,...DEFAULT_SELECTION,filters:{...EMPTY_FILTERS,...(path==='/review'?{status:['status:due']}:{kind:[path==='/words'?'kind:word':'kind:character']})},sort:path==='/review'?'due':'catalog'}))
-    navigate('/',true)
+    navigate('/pack',true)
   },[path,navigate])
   const stats=useMemo(()=>studyStats(data.progress,data.wordCounts,data.reviews,data.characterTotals),[data.progress,data.wordCounts,data.reviews,data.characterTotals])
   const start=(items:StudyItem[],id?:string,name?:string,mode?:Mode)=>{
     const next=createSession(items,id,mode??(study.filters.status.includes('status:due')?'recall':'guided'))
     if(!next)return
+    rememberReturn(path==='/lookup'?'/lookup':'/pack')
     const run=newRun(next,name||items.slice(0,3).map(i=>i.text).join(' · '))
     setPracticeHistory(h=>({activeId:run.id,runs:[run,...h.runs].slice(0,100)}));navigate('/session')
   }
   const next=useCallback(()=>setPracticeHistory(h=>({...h,runs:h.runs.map(r=>r.id===h.activeId?advanceRun(r):r)})),[])
-  const resume=(id=practiceHistory.activeId)=>{
+  const resume=(id=practiceHistory.activeId,destination='/')=>{
+    rememberReturn(destination)
     setPracticeHistory(h=>({...h,activeId:id,runs:h.runs.map(r=>r.id===id?resumeRun(r):r)}));navigate('/session')
   }
   const autoplay=useCallback((value:boolean)=>setPreferences(p=>({...p,autoplay:value})),[])
-  const selectStatus=(status:string)=>{setStudy(s=>({...s,...DEFAULT_SELECTION,filters:{...EMPTY_FILTERS,status:[`status:${status}`]},sort:status==='due'?'due':'catalog'}));navigate('/')}
+  const selectStatus=(status:string)=>{setStudy(s=>({...s,...DEFAULT_SELECTION,filters:{...EMPTY_FILTERS,status:[`status:${status}`]},sort:status==='due'?'due':'catalog'}));navigate('/pack')}
   const queue=session?.ids.map(id=>ITEM_BY_ID.get(id)!)??[]
   const item=session?queue[session.index]:null
+  const openSelection=(selection:Selection)=>{setStudy({...selection,saved:study.saved});navigate('/pack')}
+  const due=filterCatalog({...EMPTY_FILTERS,status:['status:due']},'',stats,now).length
   const updateStudy=(value:StudyPreferences)=>setStudy(value)
   return <div className="mx-auto w-full max-w-5xl p-4 sm:p-7">
     {(warning||data.warning)&&<p role="alert" className="mb-4 rounded border border-warning bg-warning-soft p-3 text-sm">{warning||data.warning}</p>}
@@ -86,12 +98,19 @@ function Screens({path,navigate}:{path:string;navigate:(href:string,replace?:boo
         if(item.kind==='word')data.completeWord(item.text)
         else setPreferences(p=>({...p,character:item.text}))
         setPracticeHistory(h=>({...h,runs:h.runs.map(r=>r.id===h.activeId?{...r,updatedAt:result.at,session:{...r.session,completed:true},results:{...r.results,[item.id]:result}}:r)}))
-      }} onRestart={()=>setSession(s=>({...s,completed:false}))} onJump={index=>setSession(s=>({...s,index,completed:false}))} finishedIds={Object.keys(activeRun!.results)} doneCount={runStats(activeRun!).done} onRemaining={()=>resume()} onNext={next} onBack={()=>navigate('/')} />
+      }} onRestart={()=>setSession(s=>({...s,completed:false}))} onJump={index=>setSession(s=>({...s,index,completed:false}))} finishedIds={Object.keys(activeRun!.results)} doneCount={runStats(activeRun!).done} onRemaining={()=>resume(practiceHistory.activeId,returnTo)} onNext={next} backLabel={returnTo==='/lookup'?'Back to lookup':returnTo==='/'?'Back to packs':'Back to filters'} onBack={()=>navigate(returnTo)} />
     </> : <><PageHeader title="Practice"/><Button onClick={()=>navigate('/')}>Choose practice</Button></>)
       : path==='/progress'?<StudyProgress progress={data.progress} stats={stats} practice={start} selectStatus={selectStatus}/>
+      : path==='/lookup'?<CharacterLookup stats={stats} practice={item=>start([item],undefined,item.text,'guided')}/>
+      : path==='/pack'?<StudyLibrary preferences={study} onChange={updateStudy} stats={stats} start={start} onBack={()=>navigate('/')}/>
       : path==='/profile'?<Profile app={fas}/>
       : path==='/about'?<About/>
-      : <StudyLibrary preferences={study} onChange={updateStudy} stats={stats} start={start} runs={practiceHistory.runs} resumeRun={resume}/>
+      : <>
+        <div className="flex items-center justify-between gap-3"><PageHeader title="Packs"/><Button iconOnly aria-label="Character lookup" title="Character lookup" onClick={()=>navigate('/lookup')}><PracticeIcon name="search"/></Button></div>
+        <RecentPractice runs={practiceHistory.runs} resume={resume}/>
+        {due>0&&<button className="mb-4 flex min-h-11 w-full items-center justify-between rounded border border-accent bg-accent-soft px-3 text-sm font-bold" onClick={()=>selectStatus('due')}><span>Ready to review</span><span>{due} →</span></button>}
+        <PracticeDashboard preferences={study} stats={stats} now={now} open={openSelection} start={start}/>
+      </>
     }
   </div>
 }

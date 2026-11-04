@@ -1,0 +1,48 @@
+import {test,expect} from '@playwright/test'
+import {draw} from './helpers'
+
+test('lookup is a separate quiet screen and searches Hanzi, pinyin and English without pack filters',async({page})=>{
+  await page.setViewportSize({width:320,height:800});await page.goto('/')
+  await page.getByRole('button',{name:'Open pack HSK 3',exact:true}).click()
+  await page.getByRole('button',{name:'Back to packs'}).click()
+  await page.getByRole('button',{name:'Character lookup',exact:true}).click()
+  await expect(page).toHaveURL(/\/lookup$/)
+  await expect(page.getByRole('heading',{name:'Lookup',exact:true})).toBeVisible()
+  await expect(page.getByRole('article')).toHaveCount(0)
+  await expect(page.getByRole('button',{name:'Filters',exact:true})).toHaveCount(0)
+  await expect(page.getByRole('combobox')).toHaveCount(0)
+  await expect(page.getByRole('region',{name:'Recent practice'})).toHaveCount(0)
+  const search=page.getByPlaceholder('Character, pinyin, or English')
+  for(const query of ['水','shui','water']){
+    await search.fill(query)
+    await expect(page.getByRole('article',{name:'水',exact:true})).toBeVisible()
+  }
+  await search.fill('水')
+  await page.getByRole('button',{name:'Pronounce 水',exact:true}).click()
+  await expect.poll(()=>page.locator('audio').first().evaluate((el:HTMLAudioElement)=>el.currentTime)).toBeGreaterThan(0)
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true)
+  await page.screenshot({path:'/tmp/hanzi-lookup-mobile.png',fullPage:false})
+  await page.goto('/pack')
+  await expect(page.getByRole('button',{name:'Remove HSK 3 filter',exact:true})).toBeVisible()
+  await expect(page.getByPlaceholder('Search this pack')).toHaveValue('')
+})
+
+test('lookup practices only the selected target and returns to the same search after a reload',async({page})=>{
+  await page.goto('/lookup')
+  await page.getByPlaceholder('Character, pinyin, or English').fill('一')
+  await page.getByRole('button',{name:'Practice 一',exact:true}).click()
+  await expect(page.getByRole('combobox',{name:'Practice item'}).locator('option')).toHaveCount(1)
+  await draw(page,'一')
+  await expect(page.getByText('Practice complete.',{exact:true})).toBeVisible()
+  await page.reload()
+  await page.getByRole('button',{name:'Back to lookup',exact:true}).click()
+  await expect(page).toHaveURL(/\/lookup$/)
+  await expect(page.getByPlaceholder('Character, pinyin, or English')).toHaveValue('一')
+  await expect(page.getByRole('article',{name:'一',exact:true}).getByLabel('1 completed practices')).toBeVisible()
+  await page.getByPlaceholder('Character, pinyin, or English').fill('no-matching-entry')
+  await expect(page.getByText('No matches',{exact:true})).toBeVisible()
+  await page.getByPlaceholder('Character, pinyin, or English').fill('妈妈')
+  await page.getByRole('button',{name:'Practice 妈妈',exact:true}).click()
+  await expect(page.getByRole('combobox',{name:'Practice item'}).locator('option')).toHaveCount(1)
+  await expect(page.getByTestId('writing-tile-1')).toBeVisible()
+})

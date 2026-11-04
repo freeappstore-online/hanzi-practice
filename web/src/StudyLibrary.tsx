@@ -1,20 +1,15 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { EmptyState, Modal, PageHeader, SearchInput } from '@freeappstore/sdk/ui'
+import { useEffect, useMemo, useState } from 'react'
+import { EmptyState, Modal, SearchInput } from '@freeappstore/sdk/ui'
 import { Button } from './Button'
 import { PracticeIcon } from './PracticeIcon'
 import { CharacterDetails } from './Pronunciation'
 import { WordDetails } from './WordDetails'
 import { DIMENSIONS, EMPTY_FILTERS, TAGS, filterCatalog, groupCatalog, itemTags, type Dimension, type Grouping, type Sort, type StudyItem, type StudyStats } from './catalog'
-import { PracticeDashboard } from './PracticeDashboard'
 import type { Mode } from './progress'
-import { PracticeHistory } from './PracticeHistory'
-import { selectionName, type PracticeRun } from './practice-history'
-import { DEFAULT_SELECTION, type Selection, type StudyPreferences } from './study-state'
+import { selectionName } from './practice-history'
+import { DEFAULT_SELECTION, type StudyPreferences } from './study-state'
 
-export function StudyLibrary({preferences,onChange,stats,start,runs,resumeRun}:{preferences:StudyPreferences;onChange:(value:StudyPreferences)=>void;stats:StudyStats;start:(items:StudyItem[],id?:string,name?:string,mode?:Mode)=>void;runs:PracticeRun[];resumeRun:(id:string)=>void}) {
-  const [view,setView]=useState<'packs'|'items'>(()=>{try{const saved=sessionStorage.getItem('hanzi-practice:library-view');return saved==='packs'||saved==='items'?saved:'packs'}catch{return 'packs'}})
-  const changeView=(value:'packs'|'items')=>{setView(value);try{sessionStorage.setItem('hanzi-practice:library-view',value)}catch{/* Navigation still works without storage. */}}
-  const openSelection=(selection:Selection)=>{onChange({...selection,saved:preferences.saved});changeView('items')}
+export function StudyLibrary({preferences,onChange,stats,start,onBack}:{preferences:StudyPreferences;onChange:(value:StudyPreferences)=>void;stats:StudyStats;start:(items:StudyItem[],id?:string,name?:string,mode?:Mode)=>void;onBack:()=>void}) {
   const [filtersOpen,setFiltersOpen]=useState(false),[saveOpen,setSaveOpen]=useState(false),[infoOpen,setInfoOpen]=useState(false),[name,setName]=useState('')
   const [limits,setLimits]=useState<Record<string,number>>({}),[now,setNow]=useState(Date.now)
   useEffect(()=>{const timer=setInterval(()=>setNow(Date.now()),15000);return()=>clearInterval(timer)},[])
@@ -22,12 +17,6 @@ export function StudyLibrary({preferences,onChange,stats,start,runs,resumeRun}:{
   const results=useMemo(()=>filterCatalog(filters,search,stats,now,sort),[filters,search,stats,now,sort])
   const groups=useMemo(()=>groupCatalog(results,groupBy,stats,now),[results,groupBy,stats,now])
   useEffect(()=>setLimits({}),[filters,search,groupBy,sort])
-  const previousSelection=useRef({filters,search})
-  useEffect(()=>{
-    const changed=previousSelection.current.filters!==filters||previousSelection.current.search!==search
-    previousSelection.current={filters,search}
-    if(changed&&(search||Object.values(filters).some(ids=>ids.length)))changeView('items')
-  },[filters,search])
   const active=TAGS.filter(tag=>filters[tag.dimension].includes(tag.id))
   const toggle=(dimension:Dimension,id:string)=>onChange({...preferences,filters:{...filters,[dimension]:filters[dimension].includes(id)?filters[dimension].filter(x=>x!==id):[...filters[dimension],id]}})
   const clear=()=>onChange({...preferences,...DEFAULT_SELECTION,filters:{...EMPTY_FILTERS}})
@@ -37,24 +26,15 @@ export function StudyLibrary({preferences,onChange,stats,start,runs,resumeRun}:{
   const packName=(label:string)=>label?`${label}${title==='All practice'?'':` · ${title}`}`:title
   const reviewing=filters.status.length===1&&filters.status[0]==='status:due'
   return <>
-    <PageHeader title="Practice" />
-    <div className="mb-4 flex gap-1 rounded border border-line-strong bg-paper-deep p-1" aria-label="Practice browser">
-      <button className="min-h-11 flex-1 rounded-sm text-sm font-bold aria-pressed:bg-panel aria-pressed:shadow-sm" aria-label="Browse packs" aria-pressed={view==='packs'} onClick={()=>changeView('packs')}>Packs</button>
-      <button className="min-h-11 flex-1 rounded-sm text-sm font-bold aria-pressed:bg-panel aria-pressed:shadow-sm" aria-label="Browse items" aria-pressed={view==='items'} onClick={()=>changeView('items')}>Characters & words</button>
-    </div>
-    <PracticeHistory runs={runs} resume={resumeRun}/>
-    {view==='packs'?<>
-      {filterCatalog({...EMPTY_FILTERS,status:['status:due']},'',stats,now).length>0&&<button className="mb-4 flex min-h-11 w-full items-center justify-between rounded border border-accent bg-accent-soft px-3 py-2 text-left text-sm font-bold" onClick={()=>openSelection({...DEFAULT_SELECTION,filters:{...EMPTY_FILTERS,status:['status:due']},sort:'due'})}><span>Ready to review</span><span>{filterCatalog({...EMPTY_FILTERS,status:['status:due']},'',stats,now).length} →</span></button>}
-      <PracticeDashboard preferences={preferences} stats={stats} now={now} open={openSelection} start={start}/>
-    </>:<>
-    {(active.length>0||search)&&<h2 className="mb-3 break-words text-lg font-bold">{title}</h2>}
-    <SearchInput value={search} onChange={value=>onChange({...preferences,search:value})} placeholder="Search characters or words" />
+    <div className="mb-3 flex items-center gap-3"><Button iconOnly aria-label="Back to packs" title="Back to packs" onClick={onBack}><PracticeIcon name="back"/></Button><h1 className="min-w-0 break-words text-xl font-bold">{title==='All practice'?'Custom pack':title}</h1></div>
+    <SearchInput value={search} onChange={value=>onChange({...preferences,search:value})} placeholder="Search this pack" />
     <div className="my-3 flex flex-wrap items-center gap-1">
       {(['character','word'] as const).map(kind=><Button key={kind} aria-pressed={filters.kind.includes(`kind:${kind}`)} className="!px-2 aria-pressed:border-accent aria-pressed:bg-accent-soft" onClick={()=>toggle('kind',`kind:${kind}`)}>{kind==='character'?'Characters':'Words'}</Button>)}
       <Button aria-pressed={reviewing} title="Items ready to practise again in this selection" className="!px-2 aria-pressed:border-accent aria-pressed:bg-accent-soft" onClick={()=>onChange({...preferences,filters:{...filters,status:reviewing?[]:['status:due']},sort:reviewing?sort:'due'})}>Review {due}</Button>
       <Button iconOnly className="ml-auto" aria-label="Filters" title="Filters" onClick={()=>setFiltersOpen(true)}><PracticeIcon name="filters" /></Button>
     </div>
     {active.length>0&&<div className="mb-3 flex flex-wrap gap-1" aria-label="Active filters">{active.map(tag=><button key={tag.id} aria-label={`Remove ${tag.label} filter`} className="min-h-9 rounded border border-accent bg-accent-soft px-2 text-xs" onClick={()=>toggle(tag.dimension,tag.id)}>{tag.label} ×</button>)}</div>}
+    <details className="mb-3"><summary className="min-h-11 cursor-pointer py-3 text-sm text-muted">Arrange & saved packs</summary>
     {preferences.saved.length>0&&<div className="mb-3 flex flex-wrap gap-2" aria-label="Saved selections">{preferences.saved.map(saved=><div key={saved.id} className="flex min-w-0 max-w-full overflow-hidden rounded border border-line-strong"><button className="min-h-11 min-w-0 break-words px-3 text-left text-sm" aria-label={`Use saved selection ${saved.name}`} onClick={()=>onChange({...saved,saved:preferences.saved})}>{saved.name}</button><button className="min-h-11 min-w-9 border-l border-line text-muted" aria-label={`Delete saved selection ${saved.name}`} onClick={()=>onChange({...preferences,saved:preferences.saved.filter(s=>s.id!==saved.id)})}>×</button></div>)}</div>}
     <div className="mb-3 grid grid-cols-2 gap-2">
       <select aria-label="Group by" className="min-h-11 min-w-0 rounded-sm border border-line-strong bg-panel px-2 text-sm" value={groupBy} onChange={e=>onChange({...preferences,groupBy:e.target.value as Grouping})}>
@@ -62,6 +42,7 @@ export function StudyLibrary({preferences,onChange,stats,start,runs,resumeRun}:{
       </select>
       <select aria-label="Sort by" className="min-h-11 min-w-0 rounded-sm border border-line-strong bg-panel px-2 text-sm" value={sort} onChange={e=>onChange({...preferences,sort:e.target.value as Sort})}><option value="catalog">Default order</option><option value="hsk">HSK level</option><option value="strokes">Fewest strokes</option><option value="due">Review first</option></select>
     </div>
+    </details>
     <div className="mb-4 flex items-center gap-2">
       <span className="mr-auto text-sm text-muted" role="status">{results.length} items</span>
       {(active.length>0||search)&&<Button iconOnly aria-label="Clear filters" title="Clear filters" onClick={clear}><PracticeIcon name="clear" /></Button>}
@@ -83,7 +64,6 @@ export function StudyLibrary({preferences,onChange,stats,start,runs,resumeRun}:{
       </section>
     })}
     {!results.length&&<EmptyState title="No matching practice" message="Change a label or clear the filters." action={<Button onClick={clear}>Clear filters</Button>}/>}
-    </>}
     <Modal open={filtersOpen} onClose={()=>setFiltersOpen(false)} title="Practice filters">
       <div className="max-h-[60svh] overflow-y-auto space-y-2">{Object.entries(DIMENSIONS).map(([key,label])=>{const dimension=key as Dimension;return <details key={key} className="rounded border border-line p-2" open={dimension==='kind'?true:undefined}>
         <summary className="min-h-9 cursor-pointer font-bold">{label}{filters[dimension].length?` · ${filters[dimension].length}`:''}</summary>

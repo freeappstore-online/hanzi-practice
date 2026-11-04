@@ -123,17 +123,22 @@ The previous single-session checkpoint migrates once; earlier completions cannot
 from it. Unknown legacy results count toward completion but not the clean rate. History is
 local to this browser, with same-origin tab updates merged by run and result timestamps.
 
-### Pack discovery dashboard
+### Packs, lookup, and pack contents
 
-The Practice screen opens on Packs for a fresh visitor. HSK, topic and study-set
-cards are generated from the same catalog labels as custom filters; More exposes
-the remaining dimensions. Pack search matches names across all dimensions and
-saved selections. Cards preview contents, distinguish character/word counts, open
-an inspectable selection on their main surface, and start the exact selection from
-the play icon. Saved packs evaluate their filter rules against current progress.
+`/` is the pack dashboard: recent practice, due review, pack-name search, and one
+category selector. Pack cards come from the same catalog labels as custom filters.
+Saved packs are collapsed by default and included in pack search. Opening a card
+navigates to `/pack`; its play button starts that selection directly.
 
-Characters & words keeps the full filter/group/sort browser. The chosen view is
-remembered within the browser tab; legacy routes and Progress shortcuts still open
-the corresponding item filters. Direct pack play sets the selected filters and an
-explicit guided/recall mode so an old review selection cannot affect a different
-pack. Recent practice shows one full-width card and expands to the complete history.
+`/lookup` is a separate search screen for Hanzi, pinyin, or English. It always
+searches the full catalog, independently of pack filters, and shows no results
+until a query is entered. Pronunciation and illustrated examples use the shared
+item components. Play starts only the selected character or word in guided mode.
+The query and return destination survive reloads within the browser tab.
+
+`/pack` contains the selected pack's items and optional filters; arrangement and
+saved-selection management are collapsed. Legacy `/characters`, `/words`, and
+`/review` links redirect here with their existing filter presets. Progress shortcuts
+also open the appropriate pack filters. Starting a pack supplies an explicit mode,
+so stale review filters cannot change unrelated practice. Resuming from recent
+history returns to Packs; starting from Lookup returns to Lookup.

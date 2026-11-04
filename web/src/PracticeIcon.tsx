@@ -1,6 +1,7 @@
-type Name = 'play' | 'restart' | 'watch' | 'hint' | 'next' | 'autoplay' | 'guide' | 'memory' | 'characters' | 'stroke' | 'back' | 'filters' | 'bookmark' | 'clear'
+type Name = 'search' | 'play' | 'restart' | 'watch' | 'hint' | 'next' | 'autoplay' | 'guide' | 'memory' | 'characters' | 'stroke' | 'back' | 'filters' | 'bookmark' | 'clear'
 export function PracticeIcon({name, size = 22}: {name: Name; size?: number}) {
   return <svg aria-hidden="true" className="shrink-0" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    {name === 'search' && <><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></>}
     {name === 'filters' && <><path d="M3 6h18M3 12h18M3 18h18"/><circle cx="8" cy="6" r="2" fill="var(--panel)"/><circle cx="16" cy="12" r="2" fill="var(--panel)"/><circle cx="10" cy="18" r="2" fill="var(--panel)"/></>}
     {name === 'bookmark' && <path d="M6 3h12v18l-6-4-6 4V3Z"/>}
     {name === 'clear' && <path d="m6 6 12 12M6 18 18 6"/>}

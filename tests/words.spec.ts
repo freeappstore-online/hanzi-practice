@@ -19,7 +19,7 @@ test('two visible phone tiles save one word, two character attempts, and a whole
 })
 test('characters and words share one queue, one mode, and automatic advancement',async({page})=>{
   await openLibrary(page);await setFilters(page,{'Content':['Characters','Words'],'Tone pattern':['Tone 1','1·5'],'Topic':['People & family']})
-  await page.getByPlaceholder('Search characters or words').fill('mā')
+  await page.getByPlaceholder('Search this pack').fill('mā')
   // Search covers pinyin and English; topic and tone narrow this to 妈 + 妈妈.
   await expect(page.getByRole('button',{name:'Practice 2 matching items'})).toBeVisible()
   await page.getByRole('button',{name:'Practice 妈',exact:true}).click()

@@ -13,8 +13,8 @@ import type { PracticeResult } from './practice-history'
 type Tile={strokes:number;correct:number;mistakes:number;hints:number;done:boolean}
 const empty=():Tile=>({strokes:0,correct:0,mistakes:0,hints:0,done:false})
 type Phase='loading'|'drawing'|'watching'|'complete'|'error'
-export function PracticeSession({item,queue,index,mode,completed,autoplay,onMode,onAutoplay,onCharacterComplete,onReviewEvent,onCompleted,onRestart,onJump,onNext,onBack,doneCount,onRemaining,finishedIds}: {
-  item:StudyItem;queue:StudyItem[];index:number;mode:Mode;completed:boolean;autoplay:boolean
+export function PracticeSession({item,queue,index,mode,completed,autoplay,onMode,onAutoplay,onCharacterComplete,onReviewEvent,onCompleted,onRestart,onJump,onNext,onBack,backLabel,doneCount,onRemaining,finishedIds}: {
+  backLabel?:string;item:StudyItem;queue:StudyItem[];index:number;mode:Mode;completed:boolean;autoplay:boolean
   onMode:(mode:Mode)=>void;onAutoplay:(value:boolean)=>void;onCharacterComplete:(a:Attempt)=>void
   onReviewEvent:(event:ReviewEvent)=>void;onCompleted:(result:PracticeResult)=>void;doneCount:number;finishedIds:string[];onRemaining:()=>void;onRestart:()=>void;onJump:(index:number)=>void;onNext:()=>void;onBack:()=>void
 }) {
@@ -111,7 +111,7 @@ export function PracticeSession({item,queue,index,mode,completed,autoplay,onMode
   const restart=()=>{onRestart();setRound(n=>n+1)}
   return <div className="mx-auto max-w-2xl space-y-3">
     <div className="flex items-center gap-2">
-      <Button iconOnly aria-label="Back to filters" title="Back to filters" onClick={onBack}><PracticeIcon name="back" /></Button>
+      <Button iconOnly aria-label={backLabel||"Back to filters"} title={backLabel||"Back to filters"} onClick={onBack}><PracticeIcon name="back" /></Button>
       <select aria-label="Practice item" value={item.id} onChange={e=>onJump(queue.findIndex(entry=>entry.id===e.target.value))} className="min-h-11 min-w-0 flex-1 rounded-sm border border-line-strong bg-panel px-2 text-sm">
         {queue.map((entry,i)=><option key={entry.id} value={entry.id}>{i+1}/{queue.length} · {mode==='recall'?entry.pinyin:`${entry.text} · ${entry.pinyin}`}</option>)}
       </select>
