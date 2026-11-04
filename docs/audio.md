@@ -1,7 +1,7 @@
 # Pronunciation audio
 
-The default first source is a bundled human recording for each of the 400 characters. There are also 243
-complete-word recordings out of 372 distinct example words, used by 263 of the 400 example entries. Of the 272 two-character words available for writing practice, 169 have human whole-word recordings. Tapping an
+The default first source is a bundled human recording for each of the 480 characters. There are also 246
+complete-word recordings out of 378 distinct example words, used by 326 of the 480 example entries. Of the 366 two-character words available for writing practice, 242 have human whole-word recordings. Tapping an
 example's word or pinyin tries the enabled sources in the saved order.
 
 The avatar opens `/profile` for guests and signed-in users. The default order is
@@ -14,7 +14,7 @@ cancels playback and pending fallback attempts.
 
 Kokoro's original 400 character clips are available at `/audio/kokoro/`, labelled
 experimental because of the earlier pronunciation concerns. They have no word
-clips. Both file collections work offline after caching. Browser TTS uses an
+clips or clips for the 80 newer characters; these missing entries are skipped before making a request. Both file collections work offline after caching. Browser TTS uses an
 available Mandarin voice (never a known Cantonese or English voice), and may
 require internet depending on the installed voice. No model weights, API key or
 paid speech service is used. Qwen and Fish are not selectable because there is
@@ -22,11 +22,11 @@ no accepted clip set for them.
 
 ## Sources and matching
 
-- 337 exact character readings: Yue Tan, Shtooka Caen Tan, CC BY-SA 3.0 US.
-- 48 isolated homophones from the same speaker: identical complete syllable and
+- 395 exact character readings: Yue Tan, Shtooka Caen Tan, CC BY-SA 3.0 US.
+- 67 isolated homophones from the same speaker: identical complete syllable and
   tone, with the original character retained in each clip's provenance.
-- 4 exact readings: Congcong / Association Shtooka, CC BY 3.0 US.
-- 1 exact reading: Wei Gao / Nicolas Vion, CC BY 2.0 FR.
+- 5 exact readings and 1 isolated homophone: Congcong / Association Shtooka, CC BY 3.0 US.
+- 2 exact readings: Wei Gao / Nicolas Vion, CC BY 2.0 FR.
 - 10 original syllable recordings: Chen Wang, audio-cmn. The source declares
   CC-by-sa without a version; we preserve that declaration rather than inventing
   one. These MP3 files are copied unaltered.
@@ -102,3 +102,11 @@ had falling contours, and 耳 contained extra speech. Those generated files are
 **not deployed**. This is evidence about this configuration and task, not a
 claim that all Qwen voices or larger models are unsuitable. No Fish model was
 generated. The production app uses neither Qwen nor Fish.
+
+## Expansion — 2026-11-04
+
+The 80 added character clips use the same pinyin-and-tone matching and source
+provenance checks. No unreviewed audio-cmn syllables were added. Three additional
+whole-word recordings bring the human word library to 246. The importer now
+rejects unsupported syllables before writing files and reuses existing outputs
+only when their reading, original entry, source hash, and output hash match.

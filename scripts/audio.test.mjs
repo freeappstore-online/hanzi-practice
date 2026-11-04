@@ -24,7 +24,7 @@ function intact(clip) {
 test('all character audio has source provenance and matches displayed reading metadata', () => {
   assert.equal(manifest.clips.length,CHARACTERS.length)
   assert.equal(new Set(manifest.clips.map(c=>c.hanzi)).size,CHARACTERS.length)
-  assert.equal(manifest.clips.filter(c=>c.provider==='human').length,400)
+  assert.equal(manifest.clips.filter(c=>c.provider==='human').length,480)
   for(const character of CHARACTERS) {
     const clip=manifest.clips.find(c=>c.hanzi===character.hanzi)
     assert.equal(clip.pinyin,character.pinyin)
@@ -45,7 +45,7 @@ test('all character audio has source provenance and matches displayed reading me
   }
 })
 test('word playback only uses complete recordings with matching readings, allowing third-tone sandhi',()=>{
-  assert.equal(manifest.words.length,243)
+  assert.equal(manifest.words.length,246)
   assert.equal(new Set(manifest.words.map(c=>c.word)).size,manifest.words.length)
   for(const clip of manifest.words) {
     assert.equal(clip.provider,'human')

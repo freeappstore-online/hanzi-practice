@@ -10,6 +10,6 @@
   "unmatched": "Unlisted in the imported source; not an inferred proficiency level",
   "officialSupplement": "scripts/hsk-official-supplement.json",
   "topicSource": "Curated in scripts/word-topics.json",
-  "words": 372,
-  "matched": 256
+  "words": 378,
+  "matched": 259
 }

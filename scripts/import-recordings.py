@@ -23,6 +23,7 @@ PACKS = {
     'shtooka_balm_hsk1': {'author': 'Wei Gao and Nicolas Vion', 'copyright': '(c) 2006 Wei Gao and Nicolas Vion', 'license': 'CC-BY-2.0-FR', 'licenseUrl': 'https://creativecommons.org/licenses/by/2.0/fr/'},
 }
 ARCHIVE_URL = 'https://www.dropbox.com/s/bh3ctzsgwbagbw0/fc_mandarin_audio_pack.zip?dl=1'
+ALLOWED_SYLLABLES = {'ma1','mei4','zuo2','min2','er3','bi2','wa4','chong2','nao3','sen1'}
 
 def numbered(pinyin):
     return ''.join(to_tone3(s, neutral_tone_with_five=True).replace('ü', 'v') for s in pinyin.split())
@@ -70,13 +71,25 @@ def main():
             if choices:
                 file = 'words/' + '-'.join(f'{ord(c):x}' for c in e['word']) + '.mp3'
                 jobs.append({'kind': 'word', 'word': e['word'], 'pinyin': e['pinyin'], 'file': file, 'source': choices[0]})
+        # Reject gaps before changing output files.
+        for c in missing:
+            assert numbered(c['pinyin']) in ALLOWED_SYLLABLES, f"Unreviewed syllable: {numbered(c['pinyin'])}"
         # Read selected entries once, validating the zip CRC before conversion.
         source_data = {j['source']['entry']: archive.read(j['source']['entry']) for j in jobs}
+    previous_path = args.output_dir / 'manifest.json'
+    previous = json.loads(previous_path.read_text()) if previous_path.exists() else {}
+    cached = {c['file']: c for c in previous.get('clips', []) + previous.get('words', [])}
     def convert(job):
         source = job['source']
         raw = source_data[source['entry']]
         output = args.output_dir / job['file']
         output.parent.mkdir(parents=True, exist_ok=True)
+        existing = cached.get(job['file'])
+        if (existing and existing.get('pinyin') == job['pinyin']
+                and existing.get('source', {}).get('entry') == source['entry']
+                and existing['source'].get('sourceSha256') == hashlib.sha256(raw).hexdigest()
+                and output.exists() and hashlib.sha256(output.read_bytes()).hexdigest() == existing['sha256']):
+            return existing
         with tempfile.TemporaryDirectory() as temp:
             flac = Path(temp) / 'source.flac'
             flac.write_bytes(raw)
@@ -100,12 +113,11 @@ def main():
     # Only the ten individually screened syllables. Never fill arbitrary gaps
     # from this collection: other files have known quality defects, including
     # absent neutral tones (audio-cmn issue #7).
-    allowed = {'ma1','mei4','zuo2','min2','er3','bi2','wa4','chong2','nao3','sen1'}
     revision = 'f759a0f18f27690742957619e1248ed91e9b3f2c'
     args.syllable_cache.mkdir(parents=True, exist_ok=True)
     for c in missing:
         reading = numbered(c['pinyin'])
-        assert reading in allowed, f'Unreviewed syllable: {reading}'
+        assert reading in ALLOWED_SYLLABLES, f'Unreviewed syllable: {reading}'
         entry = f'64k/syllabs/cmn-{reading}.mp3'
         url = f'https://raw.githubusercontent.com/hugolpz/audio-cmn/{revision}/{entry}'
         cached = args.syllable_cache / (reading+'.mp3')

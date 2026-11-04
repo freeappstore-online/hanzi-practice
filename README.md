@@ -2,11 +2,11 @@
 
 A free Chinese character stroke practice app: https://hanzi.freeappstore.online
 
-- 400 simplified Chinese characters with ten legacy app study sets, from Foundations to Ideas and connections. These sets are not official HSK levels.
-- 272 two-character words with two visible writing tiles, whole-word completion ticks, and automatic progression.
+- 480 simplified Chinese characters in twelve study sets, including Everyday words (11) and More of the world (12). These sets are not official HSK levels.
+- 366 two-character words with two visible writing tiles, whole-word completion ticks, and automatic progression.
 - One Practice library combines characters and words. Filter and group by content, HSK 3.0 (2026), topic, word type, tone pattern, audio, stroke count, study set, or progress. See [practice and tag sources](docs/words.md).
 - Combine labels (OR within a dimension, AND across dimensions), save reusable filter selections, and play a selection or group. Active queues snapshot their membership and visit each item once.
-- Due and Needs work are progress filters. Whole words and individual characters share review scheduling; due selections start in recall mode.
+- Review shows the number ready to repeat within the current selection; it selects only scheduled reviews. Ready to review and Needs work are progress filters. Whole words and individual characters share review scheduling; due selections start in recall mode.
 - Animated stroke order, guided tracing, and recall practice using Hanzi Writer.
 - Automatic advancement starts the next exercise 250 ms after completion, using preloaded character data, and stops at the end of the selected queue. The autoplay icon toggles this behavior.
 - Character, pinyin, English meaning, and SVG tone curves share the same size. Tap the tone curve for a four-tone guide.

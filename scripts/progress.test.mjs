@@ -20,7 +20,7 @@ test('bounded history retains newest result', () => {
   assert.equal(next.at(-1).character,'二')
 })
 test('every curated character has complete local stroke and median data', () => {
-  assert.equal(new Set(CHARACTERS.map(c => c.hanzi)).size,400)
+  assert.equal(new Set(CHARACTERS.map(c => c.hanzi)).size,480)
   for (const c of CHARACTERS) {
     const data = JSON.parse(readFileSync(`web/public/characters/${c.hanzi}.json`,'utf8'))
     assert.ok(data.strokes.length > 0)
@@ -32,9 +32,18 @@ test('every curated character has complete local stroke and median data', () => 
 
 test('legacy study sets partition the collection', () => {
   for (const level of LEVELS) assert.equal(charactersForLevel(level.id).length,40)
-  assert.equal(LEVELS.length,10)
+  assert.equal(LEVELS.length,12)
 })
 
 test('old practice results still load after the collection expands', () => {
   assert.deepEqual(parseProgress(JSON.stringify([attempt])),[attempt])
+})
+
+test('interleaved tab histories stay chronological before trimming old attempts',async()=>{
+  const {mergeProgress}=await import('../web/src/progress.ts')
+  const first={...attempt,at:'2026-01-01T00:00:00Z'},middle={...attempt,at:'2026-01-02T00:00:00Z'},last={...attempt,at:'2026-01-03T00:00:00Z'}
+  assert.deepEqual(mergeProgress([middle,last],[first,middle]),[first,middle,last])
+  const older=Array.from({length:2000},(_,i)=>({...attempt,at:new Date(Date.UTC(2025,0,1)+i*1000).toISOString()}))
+  const retained=appendAttempt(mergeProgress([middle],older),last)
+  assert.deepEqual(retained.slice(-2),[middle,last])
 })

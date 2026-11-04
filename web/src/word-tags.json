@@ -3392,5 +3392,59 @@
     "types": [
       "Unclassified"
     ]
+  },
+  "活着": {
+    "hsk": null,
+    "topics": [
+      "Body & health"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "常常": {
+    "hsk": 3,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Adverb"
+    ]
+  },
+  "每天": {
+    "hsk": null,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "力气": {
+    "hsk": 4,
+    "topics": [
+      "Body & health"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "已知": {
+    "hsk": null,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "正在": {
+    "hsk": 1,
+    "topics": [
+      "Conversation"
+    ],
+    "types": [
+      "Adverb"
+    ]
   }
 }

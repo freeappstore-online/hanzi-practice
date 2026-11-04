@@ -1,7 +1,7 @@
 {
   "name": "Hanzi",
   "short_name": "Hanzi",
-  "description": "Practise 400 Chinese characters by level, with stroke order, Mandarin pronunciation, tone curves, and continuous practice.",
+  "description": "Practise 480 Chinese characters and 366 words by study set, HSK level, or topic, with guided strokes, Mandarin audio, and review.",
   "start_url": "/",
   "display": "standalone",
   "orientation": "any",

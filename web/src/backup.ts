@@ -1,6 +1,6 @@
 import { CHARACTERS } from './characters'
 import { PREFERENCES_KEY, DEFAULT_PREFERENCES } from './preferences'
-import { STORAGE_KEY, parseProgress } from './progress'
+import { STORAGE_KEY, mergeProgress, parseProgress } from './progress'
 import { REVIEW_KEY, parseReview, mergeReview } from './review'
 
 export const BACKUP_KEYS = [STORAGE_KEY, REVIEW_KEY, PREFERENCES_KEY] as const
@@ -24,8 +24,7 @@ export function importPractice(raw: string, storage: Store) {
   if (!p || !CHARACTERS.some(c => c.hanzi === p.character) || typeof p.autoplay !== 'boolean') throw new Error('The backup contains invalid preferences.')
   const previous = BACKUP_KEYS.map(key => [key, storage.getItem(key)] as const)
   const current = parseProgress(storage.getItem(STORAGE_KEY))
-  const merged = [...new Map([...progress, ...current].map(a => [a.at + a.character, a])).values()]
-    .sort((a,b) => Date.parse(a.at) - Date.parse(b.at)).slice(-2000)
+  const merged = mergeProgress(progress,current).slice(-2000)
   const values = [JSON.stringify(merged), JSON.stringify(mergeReview(review, parseReview(storage.getItem(REVIEW_KEY)))), JSON.stringify({character:p.character, autoplay:p.autoplay})]
   try { BACKUP_KEYS.forEach((key, i) => storage.setItem(key, values[i])) }
   catch {

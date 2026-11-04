@@ -65,7 +65,7 @@ test('all character and word clips decode into non-silent browser audio', async 
     await context.close()
     return {count:manifest.clips.length+manifest.words.length,bad}
   })
-  expect(result).toEqual({count:643,bad:[]})
+  expect(result).toEqual({count:726,bad:[]})
 })
 
 

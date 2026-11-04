@@ -2046,5 +2046,412 @@
     "word": "被看见",
     "pinyin": "bèi kàn jiàn",
     "meaning": "be seen"
+  },
+  "个": {
+    "word": "一个",
+    "pinyin": "yí gè",
+    "meaning": "one"
+  },
+  "为": {
+    "word": "因为",
+    "pinyin": "yīn wèi",
+    "meaning": "because"
+  },
+  "亮": {
+    "word": "月亮",
+    "pinyin": "yuè liang",
+    "meaning": "moon"
+  },
+  "使": {
+    "word": "使用",
+    "pinyin": "shǐ yòng",
+    "meaning": "use"
+  },
+  "兴": {
+    "word": "高兴",
+    "pinyin": "gāo xìng",
+    "meaning": "happy"
+  },
+  "具": {
+    "word": "玩具",
+    "pinyin": "wán jù",
+    "meaning": "toy"
+  },
+  "别": {
+    "word": "识别",
+    "pinyin": "shí bié",
+    "meaning": "recognize"
+  },
+  "原": {
+    "word": "原则",
+    "pinyin": "yuán zé",
+    "meaning": "principle"
+  },
+  "发": {
+    "word": "头发",
+    "pinyin": "tóu fa",
+    "meaning": "hair"
+  },
+  "可": {
+    "word": "可以",
+    "pinyin": "kě yǐ",
+    "meaning": "may; can"
+  },
+  "叶": {
+    "word": "绿叶",
+    "pinyin": "lǜ yè",
+    "meaning": "green leaves",
+    "image": "park"
+  },
+  "品": {
+    "word": "产品",
+    "pinyin": "chǎn pǐn",
+    "meaning": "product"
+  },
+  "困": {
+    "word": "困难",
+    "pinyin": "kùn nan",
+    "meaning": "difficulty"
+  },
+  "图": {
+    "word": "图像",
+    "pinyin": "tú xiàng",
+    "meaning": "image"
+  },
+  "在": {
+    "word": "住在",
+    "pinyin": "zhù zài",
+    "meaning": "live in"
+  },
+  "够": {
+    "word": "能够",
+    "pinyin": "néng gòu",
+    "meaning": "be able to"
+  },
+  "孩": {
+    "word": "女孩",
+    "pinyin": "nǚ hái",
+    "meaning": "girl"
+  },
+  "害": {
+    "word": "害怕",
+    "pinyin": "hài pà",
+    "meaning": "be afraid"
+  },
+  "容": {
+    "word": "容易",
+    "pinyin": "róng yì",
+    "meaning": "easy"
+  },
+  "己": {
+    "word": "自己",
+    "pinyin": "zì jǐ",
+    "meaning": "oneself"
+  },
+  "幕": {
+    "word": "屏幕",
+    "pinyin": "píng mù",
+    "meaning": "screen"
+  },
+  "广": {
+    "word": "广场",
+    "pinyin": "guǎng chǎng",
+    "meaning": "public square"
+  },
+  "庭": {
+    "word": "家庭",
+    "pinyin": "jiā tíng",
+    "meaning": "family",
+    "image": "meal"
+  },
+  "待": {
+    "word": "等待",
+    "pinyin": "děng dài",
+    "meaning": "wait"
+  },
+  "得": {
+    "word": "记得",
+    "pinyin": "jì de",
+    "meaning": "remember"
+  },
+  "愤": {
+    "word": "愤怒",
+    "pinyin": "fèn nù",
+    "meaning": "anger"
+  },
+  "户": {
+    "word": "窗户",
+    "pinyin": "chuāng hu",
+    "meaning": "window"
+  },
+  "方": {
+    "word": "东方",
+    "pinyin": "dōng fāng",
+    "meaning": "east"
+  },
+  "有": {
+    "word": "还有",
+    "pinyin": "hái yǒu",
+    "meaning": "there is also"
+  },
+  "朋": {
+    "word": "朋友",
+    "pinyin": "péng you",
+    "meaning": "friend"
+  },
+  "末": {
+    "word": "周末",
+    "pinyin": "zhōu mò",
+    "meaning": "weekend"
+  },
+  "本": {
+    "word": "书本",
+    "pinyin": "shū běn",
+    "meaning": "books",
+    "image": "school"
+  },
+  "朵": {
+    "word": "耳朵",
+    "pinyin": "ěr duo",
+    "meaning": "ears"
+  },
+  "条": {
+    "word": "面条",
+    "pinyin": "miàn tiáo",
+    "meaning": "noodles"
+  },
+  "标": {
+    "word": "目标",
+    "pinyin": "mù biāo",
+    "meaning": "goal"
+  },
+  "格": {
+    "word": "价格",
+    "pinyin": "jià gé",
+    "meaning": "price"
+  },
+  "椒": {
+    "word": "辣椒",
+    "pinyin": "là jiāo",
+    "meaning": "chilli pepper"
+  },
+  "歌": {
+    "word": "唱歌",
+    "pinyin": "chàng gē",
+    "meaning": "sing"
+  },
+  "步": {
+    "word": "跑步",
+    "pinyin": "pǎo bù",
+    "meaning": "run"
+  },
+  "活": {
+    "word": "生活",
+    "pinyin": "shēng huó",
+    "meaning": "daily life"
+  },
+  "点": {
+    "word": "甜点",
+    "pinyin": "tián diǎn",
+    "meaning": "dessert"
+  },
+  "片": {
+    "word": "照片",
+    "pinyin": "zhào piàn",
+    "meaning": "photograph"
+  },
+  "物": {
+    "word": "动物",
+    "pinyin": "dòng wù",
+    "meaning": "animal"
+  },
+  "瓜": {
+    "word": "苦瓜",
+    "pinyin": "kǔ guā",
+    "meaning": "bitter melon"
+  },
+  "界": {
+    "word": "世界",
+    "pinyin": "shì jiè",
+    "meaning": "world"
+  },
+  "益": {
+    "word": "利益",
+    "pinyin": "lì yì",
+    "meaning": "benefit"
+  },
+  "盘": {
+    "word": "键盘",
+    "pinyin": "jiàn pán",
+    "meaning": "keyboard"
+  },
+  "着": {
+    "word": "活着",
+    "pinyin": "huó zhe",
+    "meaning": "to be alive"
+  },
+  "睛": {
+    "word": "眼睛",
+    "pinyin": "yǎn jing",
+    "meaning": "eyes"
+  },
+  "老": {
+    "word": "老师",
+    "pinyin": "lǎo shī",
+    "meaning": "teacher",
+    "image": "school"
+  },
+  "舍": {
+    "word": "宿舍",
+    "pinyin": "sù shè",
+    "meaning": "dormitory"
+  },
+  "节": {
+    "word": "季节",
+    "pinyin": "jì jié",
+    "meaning": "season"
+  },
+  "落": {
+    "word": "段落",
+    "pinyin": "duàn luò",
+    "meaning": "paragraph"
+  },
+  "蔬": {
+    "word": "蔬菜",
+    "pinyin": "shū cài",
+    "meaning": "vegetables",
+    "image": "meal"
+  },
+  "行": {
+    "word": "旅行",
+    "pinyin": "lǚ xíng",
+    "meaning": "travel"
+  },
+  "衬": {
+    "word": "衬衫",
+    "pinyin": "chèn shān",
+    "meaning": "shirt"
+  },
+  "装": {
+    "word": "服装",
+    "pinyin": "fú zhuāng",
+    "meaning": "clothing"
+  },
+  "见": {
+    "word": "再见",
+    "pinyin": "zài jiàn",
+    "meaning": "goodbye"
+  },
+  "言": {
+    "word": "语言",
+    "pinyin": "yǔ yán",
+    "meaning": "language"
+  },
+  "计": {
+    "word": "计算",
+    "pinyin": "jì suàn",
+    "meaning": "calculate"
+  },
+  "豆": {
+    "word": "豆油",
+    "pinyin": "dòu yóu",
+    "meaning": "soybean oil"
+  },
+  "蹈": {
+    "word": "舞蹈",
+    "pinyin": "wǔ dǎo",
+    "meaning": "dance"
+  },
+  "较": {
+    "word": "比较",
+    "pinyin": "bǐ jiào",
+    "meaning": "compare"
+  },
+  "边": {
+    "word": "左边",
+    "pinyin": "zuǒ bian",
+    "meaning": "left side"
+  },
+  "部": {
+    "word": "全部",
+    "pinyin": "quán bù",
+    "meaning": "all"
+  },
+  "钟": {
+    "word": "分钟",
+    "pinyin": "fēn zhōng",
+    "meaning": "minute"
+  },
+  "铅": {
+    "word": "铅笔",
+    "pinyin": "qiān bǐ",
+    "meaning": "pencil",
+    "image": "school"
+  },
+  "间": {
+    "word": "时间",
+    "pinyin": "shí jiān",
+    "meaning": "time"
+  },
+  "阳": {
+    "word": "阳光",
+    "pinyin": "yáng guāng",
+    "meaning": "sunshine",
+    "image": "park"
+  },
+  "附": {
+    "word": "附近",
+    "pinyin": "fù jìn",
+    "meaning": "nearby"
+  },
+  "需": {
+    "word": "需要",
+    "pinyin": "xū yào",
+    "meaning": "need"
+  },
+  "音": {
+    "word": "声音",
+    "pinyin": "shēng yīn",
+    "meaning": "sound"
+  },
+  "颜": {
+    "word": "颜色",
+    "pinyin": "yán sè",
+    "meaning": "colour"
+  },
+  "食": {
+    "word": "食盐",
+    "pinyin": "shí yán",
+    "meaning": "table salt"
+  },
+  "齿": {
+    "word": "牙齿",
+    "pinyin": "yá chǐ",
+    "meaning": "teeth"
+  },
+  "常": {
+    "word": "常常",
+    "pinyin": "cháng cháng",
+    "meaning": "often"
+  },
+  "每": {
+    "word": "每天",
+    "pinyin": "měi tiān",
+    "meaning": "every day"
+  },
+  "力": {
+    "word": "力气",
+    "pinyin": "lì qi",
+    "meaning": "physical strength"
+  },
+  "已": {
+    "word": "已知",
+    "pinyin": "yǐ zhī",
+    "meaning": "known"
+  },
+  "正": {
+    "word": "正在",
+    "pinyin": "zhèng zài",
+    "meaning": "in the process of"
   }
 }

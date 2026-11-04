@@ -32,7 +32,7 @@ export const CATALOG:StudyItem[]=[
 ]
 export const ITEM_BY_ID=new Map(CATALOG.map(item=>[item.id,item]))
 export const ITEM_BY_TEXT=new Map(CATALOG.map(item=>[item.text,item]))
-const STATUS_TAGS=[tag('status','new','New'),tag('status','practiced','Practised'),tag('status','due','Due'),tag('status','weak','Needs work'),tag('status','recalled','Recalled')]
+const STATUS_TAGS=[tag('status','new','New'),tag('status','practiced','Practised'),tag('status','due','Ready to review'),tag('status','weak','Needs work'),tag('status','recalled','Recalled')]
 export const TAGS=[...new Map([...CATALOG.flatMap(item=>item.tags),...STATUS_TAGS].map(t=>[t.id,t])).values()].sort((a,b)=>a.id.localeCompare(b.id,'en',{numeric:true}))
 export type StudyStats={counts:Record<string,number>;reviews:ReviewState;recalled:Set<string>}
 export function studyStats(progress:Progress,wordCounts:Record<string,number>,reviews:ReviewState):StudyStats {

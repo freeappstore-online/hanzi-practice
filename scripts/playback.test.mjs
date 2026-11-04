@@ -22,3 +22,7 @@ test('the optional model files are genuine Kokoro clips with intact checksums',(
   assert.equal(manifest.clips.length,400)
   for(const c of manifest.clips)assert.equal(createHash('sha256').update(readFileSync('web/public/audio/kokoro/'+c.file)).digest('hex'),c.sha256)
 })
+
+test('new characters skip absent experimental model clips without requesting a missing file',()=>{
+  assert.deepEqual(playbackSources({kind:'character',text:'个'},{order:['kokoro','recordings','browser'],disabled:[]}).map(c=>c.source),['recordings','browser'])
+})

@@ -7,7 +7,7 @@ certification of every recording.
 
 ## One catalog, one runner
 
-- `catalog.ts` owns the 672 practice targets, all nine tag dimensions, filtering,
+- `catalog.ts` owns the 846 practice targets, all nine tag dimensions, filtering,
   grouping, sorting, and dynamic progress labels.
 - `study-state.ts` validates saved filter rules and session checkpoints. Saved
   selections are queries; running sessions are deduplicated snapshots.
@@ -69,3 +69,12 @@ queries, scheduling, legacy parsing, audio assets, and SDK styling. Browser test
 draw real mouse/touch paths and cover mobile layouts, mixed queues, reviews,
 completed checkpoints, assistance, retries, storage merges, legacy links, audio
 fallback/cancellation, all human recordings, and offline one/two-tile practice.
+
+## Follow-up corrections — 2026-11-04
+
+Review counts now respect the current non-progress filters and search. Its quick
+button replaces unrelated progress criteria. Character histories from different
+tabs are merged in timestamp order before the 2,000-attempt limit is applied.
+Experimental audio candidates are restricted to the actual shipped model catalog,
+so new characters do not request nonexistent Kokoro files. Profile coverage is
+derived from the active data instead of stale hard-coded counts.

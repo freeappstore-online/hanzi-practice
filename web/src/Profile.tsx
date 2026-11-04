@@ -5,10 +5,13 @@ import type { FreeAppStore } from '@freeappstore/sdk'
 import { Button } from './Button'
 import { PracticeIcon } from './PracticeIcon'
 import { SOURCE_NAMES, useAudioSettings, type AudioSource } from './audio-settings'
-import { mandarinVoices, playPronunciation, stopPlayback } from './playback'
+import { MODEL_CHARACTERS, mandarinVoices, playPronunciation, stopPlayback } from './playback'
+import { CHARACTERS } from './characters'
+import { EXAMPLES } from './examples'
+import { exampleAudioPath } from './audio'
 const descriptions:Record<AudioSource,string>={
-  recordings:'400 characters · 263 word examples',
-  kokoro:'400 character clips · experimental; some readings may be inaccurate',
+  recordings:`${CHARACTERS.length} characters · ${new Set(Object.values(EXAMPLES).filter(exampleAudioPath).map(example=>example.word)).size} words`,
+  kokoro:`${MODEL_CHARACTERS.size} character clips · experimental; some readings may be inaccurate`,
   browser:'Mandarin voice on this device; some voices need internet',
 }
 function Arrow({down=false}:{down?:boolean}) {

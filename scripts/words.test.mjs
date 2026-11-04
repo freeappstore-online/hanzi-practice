@@ -7,9 +7,9 @@ import {exampleAudioPath} from '../web/src/audio.ts'
 test('every example is tagged; every practice word has exactly two bundled writing tiles',()=>{
   const tags=JSON.parse(readFileSync('web/src/word-tags.json'))
   assert.equal(Object.keys(tags).length,new Set(Object.values(EXAMPLES).map(e=>e.word)).size)
-  assert.equal(WORDS.length,272)
-  assert.equal(new Set(WORDS.map(w=>w.word)).size,272)
-  assert.equal(WORDS.filter(exampleAudioPath).length,169)
+  assert.equal(WORDS.length,366)
+  assert.equal(new Set(WORDS.map(w=>w.word)).size,366)
+  assert.equal(WORDS.filter(exampleAudioPath).length,242)
   for(const example of Object.values(EXAMPLES)) {
     assert.ok(tags[example.word].topics.length)
     assert.ok(tags[example.word].types.length)

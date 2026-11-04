@@ -18,14 +18,15 @@ export function StudyLibrary({preferences,onChange,stats,start,resume,canResume}
   const active=TAGS.filter(tag=>filters[tag.dimension].includes(tag.id))
   const toggle=(dimension:Dimension,id:string)=>onChange({...preferences,filters:{...filters,[dimension]:filters[dimension].includes(id)?filters[dimension].filter(x=>x!==id):[...filters[dimension],id]}})
   const clear=()=>onChange({...preferences,...DEFAULT_SELECTION,filters:{...EMPTY_FILTERS}})
-  const due=Object.values(stats.reviews).filter(e=>e.due<=now).length
+  const due=filterCatalog({...filters,status:['status:due']},search,stats,now).length
+  const reviewing=filters.status.length===1&&filters.status[0]==='status:due'
   let shown=0
   return <>
     <div className="flex items-center justify-between gap-2"><PageHeader title="Practice" />{canResume&&<Button iconOnly aria-label="Resume practice" title="Resume practice" onClick={resume}><PracticeIcon name="play" /></Button>}</div>
     <SearchInput value={search} onChange={value=>onChange({...preferences,search:value})} placeholder="Search characters or words" />
-    <div className="my-3 flex flex-wrap items-center gap-2">
+    <div className="my-3 flex flex-wrap items-center gap-1">
       {(['character','word'] as const).map(kind=><Button key={kind} aria-pressed={filters.kind.includes(`kind:${kind}`)} className="!px-2 aria-pressed:border-accent aria-pressed:bg-accent-soft" onClick={()=>toggle('kind',`kind:${kind}`)}>{kind==='character'?'Characters':'Words'}</Button>)}
-      <Button aria-pressed={filters.status.includes('status:due')} className="!px-2 aria-pressed:border-accent aria-pressed:bg-accent-soft" onClick={()=>toggle('status','status:due')}>Due {due}</Button>
+      <Button aria-pressed={reviewing} title="Items ready to practise again in this selection" className="!px-2 aria-pressed:border-accent aria-pressed:bg-accent-soft" onClick={()=>onChange({...preferences,filters:{...filters,status:reviewing?[]:['status:due']},sort:reviewing?sort:'due'})}>Review {due}</Button>
       <Button iconOnly className="ml-auto" aria-label="Filters" title="Filters" onClick={()=>setFiltersOpen(true)}><PracticeIcon name="filters" /></Button>
     </div>
     {active.length>0&&<div className="mb-3 flex flex-wrap gap-1" aria-label="Active filters">{active.map(tag=><button key={tag.id} aria-label={`Remove ${tag.label} filter`} className="min-h-9 rounded border border-accent bg-accent-soft px-2 text-xs" onClick={()=>toggle(tag.dimension,tag.id)}>{tag.label} ×</button>)}</div>}
@@ -34,7 +35,7 @@ export function StudyLibrary({preferences,onChange,stats,start,resume,canResume}
       <select aria-label="Group by" className="min-h-11 min-w-0 rounded-sm border border-line-strong bg-panel px-2 text-sm" value={groupBy} onChange={e=>onChange({...preferences,groupBy:e.target.value as Grouping})}>
         <option value="none">No grouping</option>{Object.entries(DIMENSIONS).map(([id,label])=><option key={id} value={id}>{label}</option>)}
       </select>
-      <select aria-label="Sort by" className="min-h-11 min-w-0 rounded-sm border border-line-strong bg-panel px-2 text-sm" value={sort} onChange={e=>onChange({...preferences,sort:e.target.value as Sort})}><option value="catalog">Default order</option><option value="hsk">HSK level</option><option value="strokes">Fewest strokes</option><option value="due">Due first</option></select>
+      <select aria-label="Sort by" className="min-h-11 min-w-0 rounded-sm border border-line-strong bg-panel px-2 text-sm" value={sort} onChange={e=>onChange({...preferences,sort:e.target.value as Sort})}><option value="catalog">Default order</option><option value="hsk">HSK level</option><option value="strokes">Fewest strokes</option><option value="due">Review first</option></select>
     </div>
     <div className="mb-4 flex items-center gap-2">
       <span className="mr-auto text-sm text-muted" role="status">{results.length} / {CATALOG.length}</span>
@@ -68,8 +69,9 @@ export function StudyLibrary({preferences,onChange,stats,start,resume,canResume}
     </form></Modal>
     <Modal open={infoOpen} onClose={()=>setInfoOpen(false)} title="Practice labels"><div className="space-y-3 text-sm">
       <p>Selections combine dimensions. Several labels within one dimension mean “any of these”; different dimensions must all match. Saved selections store these rules and update as your progress changes.</p>
-      <p>HSK vocabulary levels use the 2026 HSK 3.0 syllabus. Unlisted means no confirmed match for this entry. Stroke count measures writing load. Study sets preserve the app’s earlier ten character groups; they are not HSK levels.</p>
-      <p>Characters and words share practice and review. A word is complete only after both tiles. Review opens in From memory mode. Each queue visits its selected items once and stops.</p>
+      <p>HSK vocabulary levels use the 2026 HSK 3.0 syllabus. Unlisted means no confirmed match for this entry. Stroke count measures writing load. Study sets are curated character groups; they are not HSK levels.</p>
+      <p>Review counts the items in your selection that are ready to practise again. Hints, mistakes, or guided practice bring an item back sooner; correct recall spaces reviews farther apart. Characters and whole words have separate schedules.</p>
+      <p>A word is complete only after both tiles. Review opens in From memory mode. Each queue visits its selected items once and stops.</p>
       <a className="text-accent underline" href="https://www.chinesetest.cn/syllabus">HSK syllabus</a> · <a className="text-accent underline" href="/licenses/HSK-VOCABULARY-MIT.txt">Vocabulary data license</a>
     </div></Modal>
   </>

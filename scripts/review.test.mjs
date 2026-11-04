@@ -53,7 +53,7 @@ test('corrupt review entries cannot create characters or invalid due dates', () 
 })
 test('every character has a matching word example, and illustrations are bundled', () => {
   const examples=JSON.parse(readFileSync('web/src/examples.json','utf8'))
-  assert.equal(Object.keys(examples).length,400)
+  assert.equal(Object.keys(examples).length,480)
   for(const c of CHARACTERS){
     const e=examples[c.hanzi]
     assert.ok(e.word.includes(c.hanzi),c.hanzi)

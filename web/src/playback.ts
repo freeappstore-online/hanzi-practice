@@ -1,12 +1,14 @@
 import { audioPath, exampleAudioPath } from './audio'
 import { type AudioSettings, type AudioSource } from './audio-settings'
 import type { WordExample } from './examples'
+import modelCharacters from './model-characters.json'
+export const MODEL_CHARACTERS=new Set(modelCharacters)
 export type SpeechItem = {kind:'character'; text:string} | {kind:'word'; text:string; example:WordExample}
 export function playbackSources(item: SpeechItem, settings: AudioSettings) {
   return settings.order.filter(source=>!settings.disabled.includes(source)).flatMap<{source:AudioSource;path:string|null}>(source=> {
     if(source==='browser') return [{source,path:null}]
     const path = source==='recordings' ? (item.kind==='character' ? audioPath(item.text) : exampleAudioPath(item.example))
-      : item.kind==='character' ? `/audio/kokoro/${item.text.codePointAt(0)!.toString(16)}.mp3` : undefined
+      : item.kind==='character' && MODEL_CHARACTERS.has(item.text) ? `/audio/kokoro/${item.text.codePointAt(0)!.toString(16)}.mp3` : undefined
     return path ? [{source,path}] : []
   })
 }

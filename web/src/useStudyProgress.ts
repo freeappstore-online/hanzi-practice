@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { STORAGE_KEY, appendAttempt, parseProgress, type Attempt, type Progress } from './progress'
+import { STORAGE_KEY, appendAttempt, mergeProgress, parseProgress, type Attempt, type Progress } from './progress'
 import { REVIEW_KEY, mergeReview, migrateReview, parseReview, recordReview, type ReviewEvent, type ReviewState } from './review'
 import { WORDS_KEY, parseWordProgress } from './words'
 
@@ -34,7 +34,7 @@ export function useStudyProgress() {
   },[])
   const complete=useCallback((attempt:Attempt)=>{
     let history=refs.current.progress
-    try{history=[...new Map([...parseProgress(localStorage.getItem(STORAGE_KEY)),...history].map(a=>[a.at+a.character,a])).values()]}catch{warn()}
+    try{history=mergeProgress(parseProgress(localStorage.getItem(STORAGE_KEY)),history)}catch{warn()}
     history=appendAttempt(history,attempt)
     refs.current.progress=history;setProgress(history)
     try{localStorage.setItem(STORAGE_KEY,JSON.stringify(history))}catch{warn()}

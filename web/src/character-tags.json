@@ -3246,5 +3246,646 @@
     ],
     "topic": "Thoughts & society",
     "strokes": 10
+  },
+  "个": {
+    "hsk": 1,
+    "types": [
+      "Measure word"
+    ],
+    "topic": "Conversation",
+    "strokes": 3
+  },
+  "为": {
+    "hsk": 3,
+    "types": [
+      "Preposition",
+      "Verb"
+    ],
+    "topic": "Conversation",
+    "strokes": 4
+  },
+  "亮": {
+    "hsk": 4,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Descriptions",
+    "strokes": 9
+  },
+  "使": {
+    "hsk": 4,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 8
+  },
+  "兴": {
+    "hsk": null,
+    "types": [],
+    "topic": "Feelings & descriptions",
+    "strokes": 6
+  },
+  "具": {
+    "hsk": null,
+    "types": [],
+    "topic": "Home & daily life",
+    "strokes": 8
+  },
+  "别": {
+    "hsk": 2,
+    "types": [
+      "Adverb",
+      "Pronoun",
+      "Verb"
+    ],
+    "topic": "Conversation",
+    "strokes": 7
+  },
+  "原": {
+    "hsk": 5,
+    "types": [
+      "Adjective",
+      "Adverb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 10
+  },
+  "发": {
+    "hsk": 3,
+    "types": [
+      "Measure word",
+      "Verb"
+    ],
+    "topic": "Body & health",
+    "strokes": 5
+  },
+  "可": {
+    "hsk": 3,
+    "types": [
+      "Adverb",
+      "Conjunction",
+      "Verb"
+    ],
+    "topic": "Conversation",
+    "strokes": 5
+  },
+  "叶": {
+    "hsk": null,
+    "types": [],
+    "topic": "Nature",
+    "strokes": 5
+  },
+  "品": {
+    "hsk": 5,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Shopping & work",
+    "strokes": 9
+  },
+  "困": {
+    "hsk": 4,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Feelings & descriptions",
+    "strokes": 7
+  },
+  "图": {
+    "hsk": 4,
+    "types": [
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Study & language",
+    "strokes": 8
+  },
+  "在": {
+    "hsk": 1,
+    "types": [
+      "Adverb",
+      "Preposition",
+      "Verb"
+    ],
+    "topic": "Conversation",
+    "strokes": 6
+  },
+  "够": {
+    "hsk": 4,
+    "types": [
+      "Adverb",
+      "Verb"
+    ],
+    "topic": "Descriptions",
+    "strokes": 11
+  },
+  "孩": {
+    "hsk": null,
+    "types": [],
+    "topic": "People & family",
+    "strokes": 9
+  },
+  "害": {
+    "hsk": 6,
+    "types": [
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Feelings & descriptions",
+    "strokes": 10
+  },
+  "容": {
+    "hsk": null,
+    "types": [],
+    "topic": "Descriptions",
+    "strokes": 10
+  },
+  "己": {
+    "hsk": null,
+    "types": [],
+    "topic": "Conversation",
+    "strokes": 3
+  },
+  "幕": {
+    "hsk": 7,
+    "types": [
+      "Measure word",
+      "Noun"
+    ],
+    "topic": "Technology",
+    "strokes": 13
+  },
+  "广": {
+    "hsk": 5,
+    "types": [
+      "Adjective"
+    ],
+    "topic": "Travel & places",
+    "strokes": 3
+  },
+  "庭": {
+    "hsk": null,
+    "types": [],
+    "topic": "Home & daily life",
+    "strokes": 9
+  },
+  "待": {
+    "hsk": 4,
+    "types": [
+      "Preposition",
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 9
+  },
+  "得": {
+    "hsk": 2,
+    "types": [
+      "Particle",
+      "Verb"
+    ],
+    "topic": "Conversation",
+    "strokes": 11
+  },
+  "力": {
+    "hsk": 5,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Actions",
+    "strokes": 2
+  },
+  "愤": {
+    "hsk": null,
+    "types": [],
+    "topic": "Feelings & descriptions",
+    "strokes": 12
+  },
+  "户": {
+    "hsk": 6,
+    "types": [
+      "Measure word"
+    ],
+    "topic": "Home & daily life",
+    "strokes": 4
+  },
+  "方": {
+    "hsk": 5,
+    "types": [
+      "Adjective",
+      "Adverb",
+      "Location",
+      "Measure word"
+    ],
+    "topic": "Travel & places",
+    "strokes": 4
+  },
+  "已": {
+    "hsk": 4,
+    "types": [
+      "Adverb"
+    ],
+    "topic": "Conversation",
+    "strokes": 3
+  },
+  "有": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Conversation",
+    "strokes": 6
+  },
+  "朋": {
+    "hsk": null,
+    "types": [],
+    "topic": "People & family",
+    "strokes": 8
+  },
+  "末": {
+    "hsk": 4,
+    "types": [
+      "Location"
+    ],
+    "topic": "Time",
+    "strokes": 5
+  },
+  "本": {
+    "hsk": 1,
+    "types": [
+      "Adverb",
+      "Measure word",
+      "Noun",
+      "Pronoun"
+    ],
+    "topic": "Study & language",
+    "strokes": 5
+  },
+  "朵": {
+    "hsk": 5,
+    "types": [
+      "Measure word"
+    ],
+    "topic": "Nature",
+    "strokes": 6
+  },
+  "条": {
+    "hsk": 2,
+    "types": [
+      "Measure word"
+    ],
+    "topic": "Conversation",
+    "strokes": 7
+  },
+  "标": {
+    "hsk": 7,
+    "types": [
+      "Measure word",
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Technology",
+    "strokes": 9
+  },
+  "格": {
+    "hsk": null,
+    "types": [
+      "Adjective",
+      "Noun"
+    ],
+    "topic": "Shopping & work",
+    "strokes": 10
+  },
+  "椒": {
+    "hsk": null,
+    "types": [],
+    "topic": "Food & drink",
+    "strokes": 12
+  },
+  "正": {
+    "hsk": 2,
+    "types": [
+      "Adjective",
+      "Adverb",
+      "Verb"
+    ],
+    "topic": "Descriptions",
+    "strokes": 5
+  },
+  "歌": {
+    "hsk": 1,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Activities",
+    "strokes": 14
+  },
+  "步": {
+    "hsk": 4,
+    "types": [
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 7
+  },
+  "活": {
+    "hsk": 4,
+    "types": [
+      "Adjective",
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Home & daily life",
+    "strokes": 9
+  },
+  "点": {
+    "hsk": 1,
+    "types": [
+      "Noun",
+      "Time word",
+      "Verb"
+    ],
+    "topic": "Conversation",
+    "strokes": 9
+  },
+  "片": {
+    "hsk": 4,
+    "types": [
+      "Measure word"
+    ],
+    "topic": "Conversation",
+    "strokes": 4
+  },
+  "物": {
+    "hsk": null,
+    "types": [],
+    "topic": "Nature",
+    "strokes": 8
+  },
+  "瓜": {
+    "hsk": null,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Food & drink",
+    "strokes": 5
+  },
+  "界": {
+    "hsk": 7,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 9
+  },
+  "益": {
+    "hsk": null,
+    "types": [],
+    "topic": "Thoughts & society",
+    "strokes": 10
+  },
+  "盘": {
+    "hsk": 6,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Home & daily life",
+    "strokes": 11
+  },
+  "着": {
+    "hsk": 2,
+    "types": [
+      "Measure word",
+      "Noun",
+      "Particle",
+      "Verb"
+    ],
+    "topic": "Conversation",
+    "strokes": 11
+  },
+  "睛": {
+    "hsk": null,
+    "types": [],
+    "topic": "Body & health",
+    "strokes": 13
+  },
+  "老": {
+    "hsk": 3,
+    "types": [
+      "Adjective",
+      "Adverb"
+    ],
+    "topic": "Descriptions",
+    "strokes": 6
+  },
+  "舍": {
+    "hsk": null,
+    "types": [],
+    "topic": "Home & daily life",
+    "strokes": 8
+  },
+  "节": {
+    "hsk": 3,
+    "types": [
+      "Measure word",
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Time",
+    "strokes": 5
+  },
+  "落": {
+    "hsk": 4,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 12
+  },
+  "蔬": {
+    "hsk": null,
+    "types": [],
+    "topic": "Food & drink",
+    "strokes": 15
+  },
+  "行": {
+    "hsk": 3,
+    "types": [
+      "Adjective",
+      "Measure word",
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Travel & places",
+    "strokes": 6
+  },
+  "衬": {
+    "hsk": null,
+    "types": [],
+    "topic": "Clothing & colours",
+    "strokes": 8
+  },
+  "装": {
+    "hsk": 4,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Clothing & colours",
+    "strokes": 12
+  },
+  "见": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 4
+  },
+  "言": {
+    "hsk": null,
+    "types": [],
+    "topic": "Conversation",
+    "strokes": 7
+  },
+  "计": {
+    "hsk": 7,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Study & language",
+    "strokes": 4
+  },
+  "豆": {
+    "hsk": null,
+    "types": [],
+    "topic": "Food & drink",
+    "strokes": 7
+  },
+  "蹈": {
+    "hsk": null,
+    "types": [],
+    "topic": "Activities",
+    "strokes": 17
+  },
+  "较": {
+    "hsk": 5,
+    "types": [
+      "Adverb",
+      "Preposition"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 10
+  },
+  "边": {
+    "hsk": 1,
+    "types": [
+      "Adverb",
+      "Noun"
+    ],
+    "topic": "Travel & places",
+    "strokes": 5
+  },
+  "部": {
+    "hsk": 4,
+    "types": [
+      "Measure word",
+      "Noun"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 10
+  },
+  "钟": {
+    "hsk": 7,
+    "types": [
+      "Noun",
+      "Proper noun"
+    ],
+    "topic": "Time",
+    "strokes": 9
+  },
+  "铅": {
+    "hsk": null,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Study & language",
+    "strokes": 10
+  },
+  "间": {
+    "hsk": 2,
+    "types": [
+      "Location",
+      "Measure word",
+      "Verb"
+    ],
+    "topic": "Travel & places",
+    "strokes": 7
+  },
+  "阳": {
+    "hsk": null,
+    "types": [],
+    "topic": "Nature",
+    "strokes": 6
+  },
+  "附": {
+    "hsk": 7,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Travel & places",
+    "strokes": 7
+  },
+  "需": {
+    "hsk": 5,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Home & daily life",
+    "strokes": 14
+  },
+  "音": {
+    "hsk": null,
+    "types": [],
+    "topic": "Conversation",
+    "strokes": 9
+  },
+  "颜": {
+    "hsk": null,
+    "types": [],
+    "topic": "Clothing & colours",
+    "strokes": 15
+  },
+  "食": {
+    "hsk": null,
+    "types": [],
+    "topic": "Food & drink",
+    "strokes": 9
+  },
+  "齿": {
+    "hsk": null,
+    "types": [],
+    "topic": "Body & health",
+    "strokes": 8
+  },
+  "常": {
+    "hsk": 3,
+    "types": [
+      "Adverb",
+      "Proper noun"
+    ],
+    "topic": "Time",
+    "strokes": 11
+  },
+  "每": {
+    "hsk": 2,
+    "types": [
+      "Pronoun"
+    ],
+    "topic": "Time",
+    "strokes": 7
   }
 }

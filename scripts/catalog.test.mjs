@@ -6,7 +6,7 @@ import {createSession,parseSession,advanceSession,parseStudyPreferences} from '.
 import {parseReview,recordReview} from '../web/src/review.ts'
 const empty=studyStats([],{},{}),word=ITEM_BY_ID.get('word:妈妈'),one=ITEM_BY_ID.get('char:一')
 test('one catalog gives every character and word accurate tags and stroke totals',()=>{
-  assert.equal(CATALOG.length,672);assert.equal(new Set(CATALOG.map(i=>i.id)).size,672)
+  assert.equal(CATALOG.length,846);assert.equal(new Set(CATALOG.map(i=>i.id)).size,846)
   for(const item of CATALOG){
     const strokes=[...item.text].reduce((n,c)=>n+JSON.parse(readFileSync(`web/public/characters/${c}.json`)).strokes.length,0)
     assert.equal(item.strokes,strokes)
