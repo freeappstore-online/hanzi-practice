@@ -1,4 +1,5 @@
 import { CHARACTERS } from './characters'
+import { WORDS } from './words'
 import type { Attempt, Progress } from './progress'
 
 export const REVIEW_KEY = 'hanzi-practice:review:v1'
@@ -9,6 +10,7 @@ export type ReviewEntry = ReviewEvent & {
   due: number; stage: number; lastSuccess: number; totalMistakes: number; totalHints: number
 }
 export type ReviewState = Record<string, ReviewEntry>
+const reviewTargets=new Set([...CHARACTERS.map(c=>c.hanzi),...WORDS.map(w=>w.word)])
 
 export function parseReview(raw: string | null): ReviewState {
   if (!raw) return {}
@@ -16,7 +18,7 @@ export function parseReview(raw: string | null): ReviewState {
   if (!data || typeof data !== 'object' || Array.isArray(data)) throw new Error('Invalid review data')
   return Object.fromEntries(Object.entries(data).filter(([key, value]) => {
     const e = value as ReviewEntry
-    return e && CHARACTERS.some(c => c.hanzi === key) && e.character === key &&
+    return e && reviewTargets.has(key) && e.character === key &&
       typeof e.id === 'string' && typeof e.completed === 'boolean' && ['guided', 'recall'].includes(e.mode) &&
       typeof e.at === 'string' && Number.isFinite(Date.parse(e.at)) &&
       [e.mistakes, e.hints, e.stage, e.totalMistakes, e.totalHints].every(n => Number.isSafeInteger(n) && n >= 0) &&

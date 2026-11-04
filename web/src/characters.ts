@@ -379,5 +379,3 @@ const additions: Character[] = [
 export const CHARACTERS: Character[] = [...foundations, ...additions]
 export const GROUPS = [...new Set(CHARACTERS.map(c => c.group))]
 export const charactersForLevel = (level: number) => CHARACTERS.filter(c => c.level === level)
-export const nextCharacter = (character: Character) => CHARACTERS[CHARACTERS.findIndex(c => c.hanzi === character.hanzi) + 1] ?? null
-export const findCharacter = (hanzi: string) => CHARACTERS.find(c => c.hanzi === hanzi) ?? CHARACTERS[0]

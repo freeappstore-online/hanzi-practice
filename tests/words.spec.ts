@@ -1,118 +1,80 @@
-import {test,expect,type Page} from '@playwright/test'
-import {readFileSync} from 'node:fs'
-async function draw(page:Page,index:number,character:string) {
-  const tile=page.getByTestId(`word-tile-${index}`).getByRole('img',{name:/Writing area/})
-  await expect(tile).toHaveAttribute('aria-disabled','false')
-  await tile.scrollIntoViewIfNeeded()
-  const box=(await tile.boundingBox())!
-  const data=JSON.parse(readFileSync(`web/public/characters/${character}.json`,'utf8'))
-  const scale=(box.width-24)/1024
-  for(const points of data.medians) {
-    const coords=points.map(([x,y]:number[])=>({x:box.x+12+x*scale,y:box.y+12+(900-y)*scale}))
-    await page.mouse.move(coords[0].x,coords[0].y);await page.mouse.down()
-    for(const point of coords.slice(1))await page.mouse.move(point.x,point.y,{steps:3})
-    await page.mouse.up()
-  }
-}
-test('two visible phone tiles complete repeated characters in order and save one whole word',async({page})=>{
-  test.setTimeout(60000) // Includes two full handwritten characters, persistence, and reload.
-  await page.setViewportSize({width:320,height:740})
-  await page.goto('/words')
-  await page.getByPlaceholder('Search words').fill('妈妈')
-  await page.getByRole('button',{name:'Practice word 妈妈',exact:true}).click()
+import {test,expect} from '@playwright/test'
+import {openItem,setFilters,draw} from './helpers'
+
+test('two visible phone tiles save one word, two character attempts, and a whole-word review',async({page})=>{
+  test.setTimeout(60000)
+  await page.setViewportSize({width:320,height:740});await openItem(page,'妈妈',true)
   await page.getByRole('button',{name:'Autoplay',exact:true}).click()
-  await expect(page.getByRole('img',{name:'Writing area 1 for 妈',exact:true})).toBeVisible()
-  await expect(page.getByRole('img',{name:'Writing area 2 for 妈',exact:true})).toBeVisible()
-  const a=(await page.getByTestId('word-tile-0').boundingBox())!,b=(await page.getByTestId('word-tile-1').boundingBox())!
+  const a=(await page.getByTestId('writing-tile-0').boundingBox())!,b=(await page.getByTestId('writing-tile-1').boundingBox())!
   expect(Math.abs(a.y-b.y)).toBeLessThan(2);expect(b.x).toBeGreaterThan(a.x+a.width)
-  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true)
-  await page.screenshot({path:'/tmp/hanzi-word-tiles-mobile.png',fullPage:true})
-  await draw(page,0,'妈')
-  await expect(page.getByTestId('word-tile-0').getByLabel('Completed',{exact:true})).toBeVisible()
+  await page.screenshot({path:'/tmp/hanzi-unified-word-mobile.png',fullPage:true})
+  await draw(page,'妈',0)
   expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('hanzi-practice:words:v1')||'{}').counts?.['妈妈']??0)).toBe(0)
-  await draw(page,1,'妈')
+  await draw(page,'妈',1)
   await expect.poll(()=>page.evaluate(()=>JSON.parse(localStorage.getItem('hanzi-practice:words:v1')||'{}').counts?.['妈妈'])).toBe(1)
   expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('hanzi-practice:progress:v1')||'[]').filter((a:any)=>a.character==='妈').length)).toBe(2)
-  await page.getByRole('button',{name:'Back to words'}).click()
-  await expect(page.getByLabel('1 completed word practices')).toBeVisible()
-  await page.reload()
-  await page.getByPlaceholder('Search words').fill('妈妈')
-  await expect(page.getByLabel('1 completed word practices')).toBeVisible()
+  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('hanzi-practice:review:v1')||'{}')['妈妈'].completed)).toBe(true)
+  await page.getByRole('button',{name:'Back to filters'}).click();await page.reload()
+  await expect(page.getByTestId('item-word:妈妈').getByLabel('1 completed practices')).toBeVisible()
 })
-test('combined tags persist; grouped practice stays in the chosen queue and plays whole-word audio',async({page})=>{
-  await page.goto('/words')
-  await page.getByRole('combobox',{name:'HSK 3.0 (2026)',exact:true}).selectOption('hsk:1')
-  await page.getByRole('combobox',{name:'Topic',exact:true}).selectOption('topic:Food & drink')
-  await page.getByRole('combobox',{name:'Audio',exact:true}).selectOption('audio:human')
-  await page.getByRole('combobox',{name:'Group words by'}).selectOption('topic')
-  await page.reload()
-  await expect(page.getByRole('combobox',{name:'Topic',exact:true})).toHaveValue('topic:Food & drink')
-  await expect(page.getByRole('button',{name:'Practice 4 matching words'})).toBeVisible()
-  await page.getByRole('button',{name:'Practice group Food & drink',exact:true}).click()
-  await page.getByRole('button',{name:'Pronounce word 米饭',exact:true}).click()
-  const audio=page.locator('audio').last()
-  await expect(audio).toHaveAttribute('src','/audio/v2/words/7c73-996d.mp3')
-  await expect.poll(()=>audio.evaluate((el:HTMLAudioElement)=>el.currentTime)).toBeGreaterThan(0)
-  for(const word of ['水果','鸡蛋','牛奶']) {
-    await page.getByRole('button',{name:'Next word',exact:true}).click()
-    await expect(page.getByRole('button',{name:`Pronounce word ${word}`,exact:true})).toBeVisible()
-  }
-  await expect(page.getByRole('button',{name:'Next word',exact:true})).toBeDisabled()
-  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('hanzi-practice:words:v1')||'{}').counts)).toEqual({})
-})
-test('autoplay waits for both tiles then starts the next word; recall conceals both references',async({page})=>{
-  test.setTimeout(60000)
-  await page.goto('/words')
-  await page.getByRole('combobox',{name:'Topic',exact:true}).selectOption('topic:People & family')
-  await page.getByRole('button',{name:'Practice word 妈妈',exact:true}).click()
-  await draw(page,0,'妈')
-  await expect(page.getByRole('button',{name:'Pronounce word 妈妈',exact:true})).toBeVisible()
-  await draw(page,1,'妈')
-  await expect(page.getByRole('button',{name:'Pronounce word 妈妈',exact:true})).toHaveCount(0)
+test('characters and words share one queue, one mode, and automatic advancement',async({page})=>{
+  await page.goto('/');await setFilters(page,{'Content':['Characters','Words'],'Tone pattern':['Tone 1','1·5'],'Topic':['People & family']})
+  await page.getByPlaceholder('Search characters or words').fill('mā')
+  // Search covers pinyin and English; topic and tone narrow this to 妈 + 妈妈.
+  await expect(page.getByRole('button',{name:'Practice 2 matching items'})).toBeVisible()
+  await page.getByRole('button',{name:'Practice 妈',exact:true}).click()
   await page.getByRole('switch',{name:'From memory'}).click()
+  await draw(page,'妈')
+  await expect(page.getByRole('combobox',{name:'Practice item'})).toHaveValue('word:妈妈')
   await expect(page.getByRole('button',{name:'Pronounce word from memory'})).toHaveText('??')
-  await expect(page.getByRole('img',{name:'Writing area 1 for hidden character'})).toHaveAttribute('aria-disabled','false')
-  await page.getByRole('link',{name:'Characters',exact:true}).click()
-  await expect(page.getByRole('heading',{name:'Characters',exact:true})).toBeVisible()
+  await expect(page.getByTestId('writing-tile-1')).toBeVisible()
+  expect(await page.getByRole('combobox',{name:'Practice item'}).locator('option').count()).toBe(2)
 })
-test('retryable tile errors, hint recording, and abandoning partial words never add word ticks',async({page})=>{
-  let fail=true
-  await page.route('**/characters/*.json',route=>fail?route.abort():route.continue())
-  await page.goto('/words')
-  await page.getByPlaceholder('Search words').fill('妈妈')
-  await page.getByRole('button',{name:'Practice word 妈妈',exact:true}).click()
-  await expect(page.getByRole('status').filter({hasText:'Could not load this word'})).toBeVisible()
-  fail=false
-  await page.getByRole('button',{name:'Retry loading'}).click()
+test('word mistakes and hints survive abandoning a session without adding a word tick',async({page})=>{
+  await openItem(page,'妈妈',true)
   await page.getByRole('button',{name:'Hint',exact:true}).click()
-  await draw(page,0,'妈')
-  await page.getByRole('button',{name:'Back to words'}).click()
+  await draw(page,'妈',0)
+  await page.getByRole('button',{name:'Back to filters'}).click()
   expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('hanzi-practice:words:v1')||'{}').counts?.['妈妈']??0)).toBe(0)
-  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('hanzi-practice:progress:v1')||'[]').at(-1).hints)).toBe(1)
+  const review=await page.evaluate(()=>JSON.parse(localStorage.getItem('hanzi-practice:review:v1')||'{}')['妈妈'])
+  expect(review.hints).toBe(1);expect(review.completed).toBe(false)
+  await page.goto('/review');await setFilters(page,{'Content':['Words']})
+  await expect(page.getByRole('button',{name:'Practice 1 matching items'})).toBeVisible()
+  await page.getByRole('button',{name:'Practice 妈妈',exact:true}).click()
+  await expect(page.getByRole('switch',{name:'From memory'})).toHaveAttribute('aria-checked','true')
 })
-test('two-tile word practice and human word audio work after an offline reload',async({page,context})=>{
+test('whole-word playback follows profile preferences and works with both writing tiles offline',async({page,context})=>{
   test.setTimeout(90000)
-  await page.goto('/words')
+  await openItem(page,'学生',true)
   await page.evaluate(async()=>{await navigator.serviceWorker.ready})
   await expect.poll(()=>page.evaluate(()=>!!navigator.serviceWorker.controller)).toBe(true)
-  await context.setOffline(true)
-  await page.reload()
-  await page.getByPlaceholder('Search words').fill('学生')
-  await page.getByRole('button',{name:'Practice word 学生',exact:true}).click()
+  await context.setOffline(true);await page.reload()
   await expect(page.getByRole('img',{name:'Writing area 1 for 学',exact:true})).toHaveAttribute('aria-disabled','false')
   await expect(page.getByRole('img',{name:'Writing area 2 for 生',exact:true})).toBeVisible()
   await page.getByRole('button',{name:'Pronounce word 学生',exact:true}).click()
-  await expect.poll(()=>page.locator('audio').last().evaluate((el:HTMLAudioElement)=>el.currentTime)).toBeGreaterThan(0)
+  const audio=page.locator('audio').first()
+  await expect(audio).toHaveAttribute('src','/audio/v2/words/5b66-751f.mp3')
+  await expect.poll(()=>audio.evaluate((el:HTMLAudioElement)=>el.currentTime)).toBeGreaterThan(0)
 })
-test('existing example popups expose tags even for words outside the writing set',async({page})=>{
+test('all dimensions can start a group; incomplete next-word navigation does not increment counts',async({page})=>{
+  await page.goto('/words');await setFilters(page,{'Topic':['Food & drink'],'HSK':['HSK 1'],'Audio':['Human audio']})
+  for(const dimension of ['kind','hsk','topic','type','tone','audio','strokes','set','status']){
+    await page.getByRole('combobox',{name:'Group by'}).selectOption(dimension)
+    await expect(page.getByRole('button',{name:/^Practice group /}).first()).toBeVisible()
+  }
+  await page.getByRole('combobox',{name:'Group by'}).selectOption('audio')
+  await page.getByRole('button',{name:'Practice group Human audio'}).click()
+  for(const word of ['水果','鸡蛋','牛奶']){await page.getByRole('button',{name:'Next item'}).click();await expect(page.getByRole('combobox',{name:'Practice item'})).toHaveValue(`word:${word}`)}
+  await expect(page.getByRole('button',{name:'Next item'})).toBeDisabled()
+  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('hanzi-practice:words:v1')||'{}').counts??{})).toEqual({})
+})
+
+test('completion merges stored word counters with a stale tab instead of erasing either history',async({page})=>{
   await page.goto('/')
-  await page.getByTestId('translation').click()
-  const tags=page.getByRole('dialog',{name:'Word example'}).getByLabel('Word tags')
-  await expect(tags.getByText('Numbers',{exact:true})).toBeVisible()
-  await expect(tags.getByText('TTS only',{exact:true})).toBeVisible()
-  await page.keyboard.press('Escape')
-  await page.getByLabel('Choose a character').selectOption('学')
-  await page.getByTestId('translation').click()
-  await expect(tags.getByText('HSK 1',{exact:true})).toBeVisible()
-  await expect(tags.getByText('Study & language',{exact:true})).toBeVisible()
+  await page.evaluate(()=>localStorage.setItem('hanzi-practice:words:v1',JSON.stringify({counts:{妈妈:2,学生:4}})))
+  await openItem(page,'妈妈',true)
+  // Simulate a competing storage write before its storage event reaches this tab.
+  await page.evaluate(()=>localStorage.setItem('hanzi-practice:words:v1',JSON.stringify({counts:{学生:5}})))
+  await draw(page,'妈',0);await draw(page,'妈',1)
+  await expect.poll(()=>page.evaluate(()=>JSON.parse(localStorage.getItem('hanzi-practice:words:v1')||'{}').counts)).toEqual({妈妈:3,学生:5})
 })

@@ -1,209 +1,75 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { initApp } from '@freeappstore/sdk'
-import { Badge, Card, EmptyState, PageHeader, SearchInput, Shell, type NavItem } from '@freeappstore/sdk/ui'
-import { Button } from './Button'
+import { PageHeader, Shell, type NavItem } from '@freeappstore/sdk/ui'
 import { Profile } from './Profile'
-import { Words } from './WordsScreen'
-import { PracticeBackup } from './PracticeBackup'
-import { CHARACTERS, LEVELS, charactersForLevel, findCharacter, type Character } from './characters'
-import { CharacterDetails } from './Pronunciation'
-import { readPreferences, savePreferences } from './preferences'
-import { Practice } from './Practice'
-import { ReviewScreen } from './ReviewScreen'
-import { REVIEW_KEY, parseReview, migrateReview, mergeReview, recordReview, type ReviewState, type ReviewEvent } from './review'
-import { PracticeIcon } from './PracticeIcon'
-import { appendAttempt, characterStats, localDay, parseProgress, STORAGE_KEY, type Attempt, type Progress } from './progress'
-
-const fas = initApp({ appId: 'hanzi-practice' })
-const NAV: NavItem[] = [
-  {label:'Practice', href:'/', title:'Practice — Hanzi'},
-  {label:'Review', href:'/review', title:'Review — Hanzi'},
-  {label:'Characters', href:'/characters', title:'Characters — Hanzi'},
-  {label:'Words', href:'/words', title:'Words — Hanzi'},
-  {label:'Progress', href:'/progress', title:'Progress — Hanzi'},
-  {label:'About', href:'/about', title:'About — Hanzi'},
-]
+import { About } from './About'
+import { StudyLibrary } from './StudyLibrary'
+import { StudyProgress } from './StudyProgress'
+import { PracticeSession } from './PracticeSession'
+import { useStudyProgress } from './useStudyProgress'
+import { CATALOG, EMPTY_FILTERS, ITEM_BY_ID, studyStats, type StudyItem } from './catalog'
+import { DEFAULT_SELECTION, SESSION_KEY, STUDY_KEY, advanceSession, createSession, parseSession, readStudyPreferences, type Session, type StudyPreferences } from './study-state'
+import { PREFERENCES_KEY, readPreferences, savePreferences } from './preferences'
+import { Button } from './Button'
+const fas=initApp({appId:'hanzi-practice'})
+const NAV:NavItem[]=[{label:'Practice',href:'/',title:'Practice — Hanzi'},{label:'Progress',href:'/progress',title:'Progress — Hanzi'},{label:'About',href:'/about',title:'About — Hanzi'}]
 export default function App() {
-  const [path, setPath] = useState(location.pathname)
-  const navigate = (href: string) => {
-    history.pushState(null, '', href)
-    setPath(href)
-    // Keep the shared header in sync when a screen's play button navigates.
-    dispatchEvent(new PopStateEvent('popstate'))
-  }
-  useEffect(() => {
-    const sync = () => setPath(location.pathname)
-    addEventListener('popstate', sync)
-    return () => removeEventListener('popstate', sync)
-  }, [])
-  return <Shell app={fas} appName="Hanzi" nav={NAV} onNavigate={navigate} profileHref="/profile">
-    <Screens path={path} navigate={navigate} />
-  </Shell>
+  const [path,setPath]=useState(location.pathname)
+  const navigate=useCallback((href:string,replace=false)=>{
+    if(replace)history.replaceState(null,'',href);else history.pushState(null,'',href)
+    setPath(href);dispatchEvent(new PopStateEvent('popstate'))
+  },[])
+  useEffect(()=>{const sync=()=>setPath(location.pathname);addEventListener('popstate',sync);return()=>removeEventListener('popstate',sync)},[])
+  return <Shell app={fas} appName="Hanzi" nav={NAV} onNavigate={navigate} profileHref="/profile"><Screens path={path} navigate={navigate}/></Shell>
 }
-function Screens({path, navigate}: {path: string; navigate: (href: string) => void}) {
-  const [preferences, setPreferences] = useState(readPreferences)
-  const [practiceRequest, setPracticeRequest] = useState(0)
-  const character = findCharacter(preferences.character)
-  const setCharacter = useCallback((next: Character) => setPreferences(p => ({...p, character: next.hanzi})), [])
-  const setAutoplay = useCallback((autoplay: boolean) => setPreferences(p => ({...p, autoplay})), [])
-  const [reviewState, setReviewState] = useState<ReviewState>({})
-  const reviewRef = useRef<ReviewState>({})
-  const [reviewSession, setReviewSession] = useState<{id: number; characters: Character[]; index: number} | null>(null)
-  useEffect(() => { if (path === '/review') setReviewSession(null) }, [path])
-  const [progress, setProgress] = useState<Progress>([])
-  const progressRef = useRef<Progress>([])
-  const [storageWarning, setStorageWarning] = useState('')
-  useEffect(() => {
-    if (!savePreferences(preferences)) setStorageWarning('Device storage is unavailable. Your place and settings will not be saved.')
-  }, [preferences])
-  useEffect(() => {
-    try { const saved = parseProgress(localStorage.getItem(STORAGE_KEY)); progressRef.current = saved; setProgress(saved) }
-    catch { setStorageWarning('Saved progress could not be read. Practice still works, but this session starts with an empty history.') }
-  }, [])
-  useEffect(() => {
-    let saved: ReviewState = {}
-    try { saved = parseReview(localStorage.getItem(REVIEW_KEY)) }
-    catch { setStorageWarning('The review schedule could not be read. It has been rebuilt from completed practice.') }
-    const next = migrateReview(saved, progressRef.current)
-    reviewRef.current = next; setReviewState(next)
+function Screens({path,navigate}:{path:string;navigate:(href:string,replace?:boolean)=>void}) {
+  const data=useStudyProgress()
+  const [study,setStudy]=useState(readStudyPreferences)
+  const [preferences,setPreferences]=useState(readPreferences)
+  const [warning,setWarning]=useState('')
+  const [session,setSession]=useState<Session|null>(()=>{
     try {
-      localStorage.setItem(REVIEW_KEY, JSON.stringify(next))
-    } catch { setStorageWarning('Review storage is unavailable. New reviews are kept only until this page closes.') }
-  }, [])
-  useEffect(() => {
-    const sync = (event: StorageEvent) => {
-      if (event.storageArea !== localStorage || (event.key !== STORAGE_KEY && event.key !== REVIEW_KEY && event.key !== null)) return
-      let history = progressRef.current
-      try {
-        history = parseProgress(localStorage.getItem(STORAGE_KEY))
-        progressRef.current = history; setProgress(history)
-      } catch { /* Preserve history if another tab writes an unreadable value. */ }
-      try {
-        const reviews = migrateReview(parseReview(localStorage.getItem(REVIEW_KEY)), history)
-        reviewRef.current = reviews; setReviewState(reviews)
-      } catch { /* A broken value in another tab must not erase this tab's state. */ }
-    }
-    addEventListener('storage', sync)
-    return () => removeEventListener('storage', sync)
-  }, [])
-  const reviewEvent = useCallback((event: ReviewEvent) => {
-    let current = reviewRef.current
-    try { current = mergeReview(current, parseReview(localStorage.getItem(REVIEW_KEY))) } catch { /* Use in-memory review state. */ }
-    const next = recordReview(current, event)
-    reviewRef.current = next; setReviewState(next)
-    try { localStorage.setItem(REVIEW_KEY, JSON.stringify(next)) }
-    catch { setStorageWarning('Device storage is unavailable or full. Reviews are kept only until this page closes.') }
-  }, [])
-  const complete = useCallback((attempt: Attempt) => {
-    // Re-read before appending so another tab's completed practice is retained.
-    let current = progressRef.current
-    try { current = [...new Map([...parseProgress(localStorage.getItem(STORAGE_KEY)), ...current].map(a => [a.at + a.character, a])).values()] } catch { /* Keep this session in memory. */ }
-    const next = appendAttempt(current, attempt)
-    progressRef.current = next; setProgress(next)
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)) }
-    catch { setStorageWarning('Device storage is unavailable or full. Progress is kept only until this page closes.') }
-  }, [])
-  const choose = (c: Character) => { setReviewSession(null); setCharacter(c); setPracticeRequest(n => n + 1); navigate('/') }
-  const practiceActive = !['/characters','/words','/progress','/about','/review','/profile'].includes(path)
-  const advance = useCallback((c: Character) => {
-    setCharacter(c)
-    setReviewSession(s => s ? {...s, index: s.index + 1} : null)
-  }, [setCharacter])
-  const startReview = (items: Character[]) => {
-    if (!items.length) return
-    setReviewSession({id: Date.now(), characters: items, index: 0})
-    setCharacter(items[0]); setPracticeRequest(n => n + 1); navigate('/')
+      const raw=localStorage.getItem(SESSION_KEY)
+      if(raw)return parseSession(raw)
+      if(localStorage.getItem(PREFERENCES_KEY))return createSession(CATALOG.filter(i=>i.kind==='character'),`char:${readPreferences().character}`)
+    }catch{/* Start from the library if storage is unavailable. */}
+    return null
+  })
+  useEffect(()=>{try{localStorage.setItem(STUDY_KEY,JSON.stringify(study))}catch{setWarning('Device storage is unavailable. Selections are kept only in this tab.')}},[study])
+  useEffect(()=>{try{if(session)localStorage.setItem(SESSION_KEY,JSON.stringify(session));else localStorage.removeItem(SESSION_KEY)}catch{setWarning('Device storage is unavailable. The current queue will not survive a reload.')}},[session])
+  useEffect(()=>{if(!savePreferences(preferences))setWarning('Device storage is unavailable. Preferences are kept only in this tab.')},[preferences])
+  // Old links become filters in the same library.
+  useEffect(()=>{
+    if(!['/characters','/words','/review'].includes(path))return
+    setStudy(s=>({...s,...DEFAULT_SELECTION,filters:{...EMPTY_FILTERS,...(path==='/review'?{status:['status:due']}:{kind:[path==='/words'?'kind:word':'kind:character']})},sort:path==='/review'?'due':'catalog'}))
+    navigate('/',true)
+  },[path,navigate])
+  const stats=useMemo(()=>studyStats(data.progress,data.wordCounts,data.reviews),[data.progress,data.wordCounts,data.reviews])
+  const start=(items:StudyItem[],id?:string)=>{
+    const next=createSession(items,id,study.filters.status.includes('status:due')?'recall':'guided')
+    if(!next)return
+    setSession(next);navigate('/session')
   }
+  const next=useCallback(()=>setSession(s=>s?advanceSession(s):null),[])
+  const autoplay=useCallback((value:boolean)=>setPreferences(p=>({...p,autoplay:value})),[])
+  const selectStatus=(status:string)=>{setStudy(s=>({...s,...DEFAULT_SELECTION,filters:{...EMPTY_FILTERS,status:[`status:${status}`]},sort:status==='due'?'due':'catalog'}));navigate('/')}
+  const queue=session?.ids.map(id=>ITEM_BY_ID.get(id)!)??[]
+  const item=session?queue[session.index]:null
+  const updateStudy=(value:StudyPreferences)=>setStudy(value)
   return <div className="mx-auto w-full max-w-5xl p-4 sm:p-7">
-    {storageWarning && <p role="alert" className="mb-4 rounded border border-warning bg-warning-soft p-3 text-sm">{storageWarning}</p>}
-    <section hidden={!practiceActive}>
-      <div className="sr-only"><PageHeader title="Character practice" /></div>
-      <Practice key={reviewSession?.id ?? 'normal'} character={character} onSelect={advance} onBrowse={c => { setReviewSession(null); setCharacter(c) }} onExitReview={() => navigate('/review')} onReviewEvent={reviewEvent} review={reviewSession ? {index: reviewSession.index, total: reviewSession.characters.length, next: reviewSession.characters[reviewSession.index + 1] ?? null} : undefined} onComplete={complete} active={practiceActive} autoAdvance={preferences.autoplay} onAutoAdvanceChange={setAutoplay} practiceRequest={practiceRequest} />
-    </section>
-    {path === '/review' && <ReviewScreen state={reviewState} start={startReview} />}
-    {path === '/characters' && <Library progress={progress} choose={choose} initialLevel={character.level} />}
-    {path === '/progress' && <ProgressScreen progress={progress} choose={choose} />}
-    {path === '/about' && <About />}
-    {path === '/profile' && <Profile app={fas} />}
-    {path === '/words' && <Words autoplay={preferences.autoplay} setAutoplay={setAutoplay} onComplete={complete} onReviewEvent={reviewEvent} />}
+    {(warning||data.warning)&&<p role="alert" className="mb-4 rounded border border-warning bg-warning-soft p-3 text-sm">{warning||data.warning}</p>}
+    {path==='/session' ? (session&&item ? <>
+      <div className="sr-only"><PageHeader title="Practice session"/></div>
+      <PracticeSession key={item.id} item={item} queue={queue} index={session.index} mode={session.mode} completed={session.completed} autoplay={preferences.autoplay} onAutoplay={autoplay} onMode={mode=>setSession(s=>s?{...s,mode,completed:false}:null)} onCharacterComplete={data.complete} onReviewEvent={data.reviewEvent} onCompleted={()=>{
+        if(item.kind==='word')data.completeWord(item.text)
+        else setPreferences(p=>({...p,character:item.text}))
+        setSession(s=>s?{...s,completed:true}:null)
+      }} onRestart={()=>setSession(s=>s?{...s,completed:false}:null)} onJump={index=>setSession(s=>s?{...s,index,completed:false}:null)} onNext={next} onBack={()=>navigate('/')} />
+    </> : <><PageHeader title="Practice"/><Button onClick={()=>navigate('/')}>Choose practice</Button></>)
+      : path==='/progress'?<StudyProgress progress={data.progress} stats={stats} practice={start} selectStatus={selectStatus}/>
+      : path==='/profile'?<Profile app={fas}/>
+      : path==='/about'?<About/>
+      : <StudyLibrary preferences={study} onChange={updateStudy} stats={stats} start={start} resume={()=>navigate('/session')} canResume={!!session&&!(session.completed&&session.index===session.ids.length-1)}/>
+    }
   </div>
-}
-function Library({progress, choose, initialLevel}: {progress: Progress; choose: (c: Character) => void; initialLevel: number}) {
-  const [search, setSearch] = useState('')
-  const [group, setGroup] = useState('All')
-  const [level, setLevel] = useState(String(initialLevel))
-  const query = search.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-  const availableGroups = [...new Set(CHARACTERS.filter(c => level === 'all' || c.level === Number(level)).map(c => c.group))]
-  const visible = CHARACTERS.filter(c => (level === 'all' || c.level === Number(level)) && (group === 'All' || c.group === group) && `${c.hanzi} ${c.pinyin} ${c.meaning}`.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(query))
-  return <>
-    <PageHeader title="Characters" />
-    <div className="mb-4 grid grid-cols-2 gap-3">
-      <SearchInput className="col-span-2" value={search} onChange={setSearch} placeholder="Search characters" />
-      <select aria-label="Library level" value={level} onChange={e => { setLevel(e.target.value); setGroup('All') }} className="min-h-11 min-w-0 rounded-sm border border-line-strong bg-panel px-3">
-        <option value="all">All levels</option>{LEVELS.map(l => <option key={l.id} value={l.id}>Level {l.id} · {l.name}</option>)}
-      </select>
-      <select aria-label="Character group" value={group} onChange={e => setGroup(e.target.value)} className="min-h-11 min-w-0 rounded-sm border border-line-strong bg-panel px-3">
-        {['All', ...availableGroups].map(g => <option key={g} value={g}>{g === 'All' ? 'All groups' : g}</option>)}
-      </select>
-    </div>
-    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      {visible.map(c => {
-        const stats = characterStats(progress, c.hanzi)
-        const practiceLabel = `${stats.total} completed ${stats.total === 1 ? 'practice' : 'practices'}`
-        return <div key={c.hanzi} className="min-w-0 rounded border border-line-strong bg-panel p-4">
-          <CharacterDetails character={c} />
-          <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
-            {stats.total > 0 && <span aria-label={practiceLabel} title={`${practiceLabel} · ${stats.recalled} from memory`}><Badge variant="success"><span className="inline-flex items-center gap-1"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m5 12 4 4L19 6" /></svg>{stats.total}</span></Badge></span>}
-            {stats.total === 0 && level === 'all' && <Badge>Level {c.level}</Badge>}
-            <Button iconOnly className="ml-auto" onClick={() => choose(c)} aria-label={`Practice ${c.hanzi}, ${c.meaning}`} title={`Practice ${c.hanzi}`}><PracticeIcon name="play" /></Button>
-          </div>
-        </div>
-      })}
-    </div>
-    {!visible.length && <EmptyState title="No characters found" message="Try another pinyin, meaning, level, or group." />}
-  </>
-}
-function ProgressScreen({progress, choose}: {progress: Progress; choose: (c: Character) => void}) {
-  const today = localDay(new Date().toISOString())
-  const practiced = CHARACTERS.filter(c => characterStats(progress, c.hanzi).total)
-  const recalled = practiced.filter(c => characterStats(progress, c.hanzi).recalled)
-  return <>
-    <PageHeader title="Progress" />
-    <div className="mb-6 grid grid-cols-3 gap-2 sm:gap-4">
-      {[['Today',progress.filter(a => localDay(a.at) === today).length],['Characters',practiced.length],['Recalled',recalled.length]].map(([label,count]) => <Card key={label}><p className="display-font text-3xl">{count}</p><p className="mt-1 text-xs text-muted sm:text-sm">{label}</p></Card>)}
-    </div>
-    <div className="mb-6 grid gap-3 sm:grid-cols-2">
-      {LEVELS.map(level => {
-        const items = charactersForLevel(level.id)
-        const done = items.filter(c => characterStats(progress,c.hanzi).total).length
-        return <Card key={level.id}><div className="flex flex-wrap items-center justify-between gap-3"><div><h2 className="font-bold">Level {level.id} · {level.name}</h2><p className="text-sm text-muted">{done} / {items.length} characters practised</p></div><Button onClick={() => choose(items.find(c => !characterStats(progress,c.hanzi).total) ?? items[0])}>Practise level {level.id}</Button></div></Card>
-      })}
-    </div>
-    {!progress.length ? <EmptyState title="No practice yet" message="Completed characters appear here." action={<Button primary onClick={() => choose(CHARACTERS[0])}>Practice 一</Button>} /> : <div className="space-y-3">
-      {[...progress].reverse().slice(0,30).map((a,i) => {
-        const c = findCharacter(a.character)
-        return <Card key={`${a.at}-${i}`}><div className="flex flex-wrap items-center gap-4">
-          <span lang="zh-Hans" className="text-4xl">{c.hanzi}</span>
-          <div className="min-w-0 flex-1"><p className="font-bold">{c.pinyin} · {c.meaning}</p><p className="text-xs text-muted">{a.mode === 'recall' ? 'From memory' : 'Guided'} · {a.mistakes} retries · {a.hints} hints</p><p className="text-xs text-muted">{new Date(a.at).toLocaleString()}</p></div>
-          <Button onClick={() => choose(c)}>Practice</Button>
-        </div></Card>
-      })}
-    </div>}
-  </>
-}
-function About() {
-  return <>
-    <PageHeader title="About" />
-    <div className="max-w-2xl space-y-5 text-sm leading-relaxed">
-      <PracticeBackup />
-      <Card><h2 className="mb-2 text-lg font-bold">Watch. Trace. Recall.</h2><p>Watch the strokes before you write. Use Guided mode to follow the outline, then From memory to hide both the outline and the reference glyph. Draw with a finger, stylus, or mouse. The app checks stroke shape, direction, and order; it does not grade calligraphy.</p></Card>
-      <Card><h2 className="mb-2 text-lg font-bold">{CHARACTERS.length} characters across {LEVELS.length} study levels</h2><p>The library uses simplified Chinese where forms differ. Each app study level has 40 characters; these levels are not an official HSK syllabus. Open the app online once and allow it to finish loading; the app, character data, and pronunciation audio are then cached for offline practice.</p></Card>
-      <Card><h2 className="mb-2 text-lg font-bold">Listen and see the tone</h2><p>Tap a character or its pinyin for Mandarin pronunciation. Tap the pitch curve for the tone guide, or the English meaning for a word example. The pitch curve beside pinyin shows the tone: 1 level, 2 rising, 3 dipping then rising, 4 falling, and 5 neutral. The displayed reading and audio are for the character in isolation; some characters have other readings or change tone in a phrase.</p><p className="mt-2">Human recordings are the first choice by default. Tap the avatar to open Profile and reorder or disable recordings, Kokoro model clips, and browser Mandarin TTS. Missing or failed audio tries the next enabled source. Tap any example word or pinyin to hear it. Recordings and model clips work offline after caching; browser voices depend on your device and may need internet. <a href="/licenses/PRONUNCIATION.txt" className="text-accent underline">Audio credits and licenses</a>.</p></Card>
-      <Card><h2 className="mb-2 text-lg font-bold">Keep writing</h2><p>After a character is complete, practice moves to the next one and starts it automatically. You can turn this off with the autoplay button. At the end of a level it continues into the next level; at the end of the library it stops.</p></Card>
-      <Card><h2 className="mb-2 text-lg font-bold">Review what needs work</h2><p>Retries and hints are saved immediately, even if you leave an unfinished exercise. The review queue puts difficult characters first. Guided or assisted completions return in 10 minutes. Successful recall grows the interval from 1 day to 3, 7, 14, 30 and 60 days; practising early does not increase it. A review session visits each queued character once. Completed-practice ticks count only finished exercises.</p></Card>
-      <Card><h2 className="mb-2 text-lg font-bold">Your practice stays here</h2><p>No account is needed. Results, your current character and level, and the autoplay setting are saved in this browser on this device. Clearing browser storage removes them; signing in does not sync them. Private browsing may discard them when you close the window.</p></Card>
-      <Card><h2 className="mb-2 text-lg font-bold">Built on open work</h2><p>Stroke animation and checking use <a className="text-accent underline" href="https://hanziwriter.org">Hanzi Writer</a> (MIT). Character paths come from <a className="text-accent underline" href="https://github.com/chanind/hanzi-writer-data">Hanzi Writer Data</a>, derived from Make Me a Hanzi and Arphic fonts, under the <a className="text-accent underline" href="/licenses/ARPHICPL.txt">Arphic Public License</a>. The data license is separate from this app’s MIT source license.</p><p className="mt-2">Word examples use readings checked against <a className="text-accent underline" href="https://www.mdbg.net/chinese/dictionary?page=cc-cedict">CC-CEDICT</a>. The curated example dataset is available under <a className="text-accent underline" href="/licenses/EXAMPLES.txt">CC BY-SA 4.0</a>. Illustrations are AI-generated learning scenes.</p></Card>
-      <p>Part of <a href="https://freeappstore.online" className="text-accent underline">FreeAppStore</a> · <a href="https://github.com/freeappstore-online/hanzi-practice" className="text-accent underline">Source and feedback</a></p>
-    </div>
-  </>
 }

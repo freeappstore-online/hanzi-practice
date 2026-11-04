@@ -30,15 +30,6 @@ export function wordTags(word:WordExample):WordTag[] {
 }
 export const WORD_TAGS = [...new Map(WORDS.flatMap(wordTags).map(tag=>[tag.id,tag])).values()]
   .sort((a,b)=>a.id.localeCompare(b.id,'en',{numeric:true}))
-export function filterWords(filters:WordFilters,search='') {
-  const normalize=(value:string)=>value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')
-  const query=normalize(search.trim())
-  return WORDS.filter(word=>Object.values(filters).filter(Boolean).every(id=>wordTags(word).some(tag=>tag.id===id)) && normalize(`${word.word} ${word.pinyin} ${word.meaning}`).includes(query))
-}
-export function groupWords(words:PracticeWord[],groupBy:Grouping) {
-  if(groupBy==='none')return [{label:'',words}]
-  return WORD_TAGS.filter(tag=>tag.dimension===groupBy).map(tag=>({label:tag.label,words:words.filter(word=>wordTags(word).some(t=>t.id===tag.id))})).filter(group=>group.words.length)
-}
 export function parseWordProgress(raw: string | null): WordProgress {
   try {
     const data = JSON.parse(raw || 'null')

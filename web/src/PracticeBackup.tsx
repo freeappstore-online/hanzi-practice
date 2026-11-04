@@ -19,7 +19,7 @@ export function PracticeBackup() {
     <h2 className="mb-2 text-lg font-bold">Keep your practice</h2>
     <p>Our shorter address is <a className="text-accent underline" href="https://hanzi.freeappstore.online">hanzi.freeappstore.online</a>. Browsers keep separate storage for each address.</p>
     <p className="mt-2">{oldAddress ? 'Export your practice here, then open the shorter address and import the file in About.' : <>To move existing practice, <a className="text-accent underline" href="https://hanzi-practice.freeappstore.online/about">export it from the old address</a>, then import that file here.</>}</p>
-    <p className="mt-2">The backup contains your practice history, review schedule, and place in the library. Import merges history and restores the saved place. No account information is included.</p>
+    <p className="mt-2">This legacy transfer includes character history and review schedules. Saved selections, word counts, and audio settings stay on this device. No account information is included.</p>
     <div className="mt-3 flex flex-wrap items-center gap-3">
       <Button onClick={download}>Export practice</Button>
       <label className="block min-w-0">Import practice

@@ -12,8 +12,10 @@ export function playbackSources(item: SpeechItem, settings: AudioSettings) {
 }
 export function mandarinVoices() {
   if (!('speechSynthesis' in globalThis)) return []
-  return speechSynthesis.getVoices().filter(v=> /^(cmn|zh)(-|_|$)/i.test(v.lang) && !/(?:-|_)(HK|MO)(?:-|_|$)/i.test(v.lang))
-    .sort((a,b)=>Number(b.localService)-Number(a.localService) || Number(/^zh[-_]CN$/i.test(b.lang))-Number(/^zh[-_]CN$/i.test(a.lang)))
+  try {
+    return speechSynthesis.getVoices().filter(v=> /^(cmn|zh)(-|_|$)/i.test(v.lang) && !/(?:-|_)(HK|MO|yue|wuu|nan|hak|gan)(?:-|_|$)/i.test(v.lang))
+      .sort((a,b)=>Number(b.localService)-Number(a.localService) || Number(/^zh[-_]CN$/i.test(b.lang))-Number(/^zh[-_]CN$/i.test(a.lang)))
+  } catch {return []}
 }
 let active: {owner:object;cancel:()=>void} | null = null
 export function stopPlayback(owner?:object) {
@@ -58,7 +60,7 @@ export function playPronunciation(player: HTMLAudioElement, owner: object, item:
         utterance.onstart=()=>{clearTimeout(timer);timer=setTimeout(fail,15000);if(!stopped)callbacks.started('browser')}
         utterance.onend=()=>finish();utterance.onerror=()=>fail()
         timer=setTimeout(fail,5000)
-        speechSynthesis.speak(utterance)
+        try {speechSynthesis.speak(utterance)} catch {fail()}
       }
       clearCurrent=()=>{
         clearTimeout(timer);clearTimeout(voiceTimer);speechSynthesis.removeEventListener('voiceschanged',speak)

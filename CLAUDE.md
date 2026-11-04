@@ -17,8 +17,8 @@ Compatibility guide pointer: https://raw.githubusercontent.com/freeappstore-onli
 - All practice results are local. Do not claim account sign-in syncs progress.
 - Browser tests exercise real stroke recognition; do not replace it with mocked success callbacks.
 
-- 400 characters in ten custom study levels; do not describe them as official HSK levels.
+- One catalog: 400 characters and 272 words. Practice uses shared filters and sessions; see docs/architecture.md. Legacy study sets are not HSK levels.
 - Equal-size SVG tone curves derive from pinyin in web/src/tones.ts.
-- Audio assets are generated with Kokoro; see docs/audio.md. Keep model weights outside the repo.
+- Human audio is default, Kokoro clips optional, browser TTS configurable; see docs/audio.md. Keep model weights outside the repo.
 - Preserve audio clip/pinyin consistency and cancellation of automatic advancement on navigation.
 - The pnpm SDK patch uses equally sized header icon buttons and removes the Free header link and installed-app bottom branding bar, as requested by the user. Preserve it when upgrading the SDK, or replace it with an equivalent upstream option.

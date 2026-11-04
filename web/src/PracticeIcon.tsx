@@ -1,6 +1,9 @@
-type Name = 'play' | 'restart' | 'watch' | 'hint' | 'next' | 'autoplay' | 'guide' | 'memory' | 'characters' | 'stroke' | 'back'
+type Name = 'play' | 'restart' | 'watch' | 'hint' | 'next' | 'autoplay' | 'guide' | 'memory' | 'characters' | 'stroke' | 'back' | 'filters' | 'bookmark' | 'clear'
 export function PracticeIcon({name, size = 22}: {name: Name; size?: number}) {
   return <svg aria-hidden="true" className="shrink-0" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    {name === 'filters' && <><path d="M3 6h18M3 12h18M3 18h18"/><circle cx="8" cy="6" r="2" fill="var(--panel)"/><circle cx="16" cy="12" r="2" fill="var(--panel)"/><circle cx="10" cy="18" r="2" fill="var(--panel)"/></>}
+    {name === 'bookmark' && <path d="M6 3h12v18l-6-4-6 4V3Z"/>}
+    {name === 'clear' && <path d="m6 6 12 12M6 18 18 6"/>}
     {name === 'back' && <path d="m10 5-7 7 7 7M3 12h18" />}
     {name === 'play' && <path d="M8 5v14l11-7z" fill="currentColor" stroke="none" />}
     {name === 'restart' && <><path d="M4 10a8 8 0 1 1 1.8 7.2M4 4v6h6" /></>}

@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import { test } from 'node:test'
 import { readFileSync } from 'node:fs'
 import { parseProgress, appendAttempt, characterStats } from '../web/src/progress.ts'
-import { CHARACTERS, LEVELS, charactersForLevel, nextCharacter } from '../web/src/characters.ts'
+import { CHARACTERS, LEVELS, charactersForLevel } from '../web/src/characters.ts'
 const attempt = {character:'一',mode:'recall',mistakes:0,hints:0,at:'2026-01-01T10:00:00Z'}
 test('only unaided, error-free recall counts as recalled', () => {
   const progress = [attempt, {...attempt,mode:'guided'}, {...attempt,hints:1}, {...attempt,mistakes:1}]
@@ -30,11 +30,9 @@ test('every curated character has complete local stroke and median data', () => 
   assert.ok(readFileSync('web/public/licenses/ARPHICPL.txt','utf8').includes('Arphic'))
 })
 
-test('levels partition the collection and next follows levels without wrapping', () => {
+test('legacy study sets partition the collection', () => {
   for (const level of LEVELS) assert.equal(charactersForLevel(level.id).length,40)
   assert.equal(LEVELS.length,10)
-  for (const level of LEVELS.slice(0,-1)) assert.equal(nextCharacter(charactersForLevel(level.id).at(-1)).level,level.id+1)
-  assert.equal(nextCharacter(CHARACTERS.at(-1)),null)
 })
 
 test('old practice results still load after the collection expands', () => {

@@ -1,0 +1,3250 @@
+{
+  "一": {
+    "hsk": 1,
+    "types": [
+      "Adverb",
+      "Number",
+      "Time word"
+    ],
+    "topic": "Numbers",
+    "strokes": 1
+  },
+  "二": {
+    "hsk": 1,
+    "types": [
+      "Number",
+      "Time word"
+    ],
+    "topic": "Numbers",
+    "strokes": 2
+  },
+  "三": {
+    "hsk": 1,
+    "types": [
+      "Number",
+      "Time word"
+    ],
+    "topic": "Numbers",
+    "strokes": 3
+  },
+  "四": {
+    "hsk": 1,
+    "types": [
+      "Number",
+      "Time word"
+    ],
+    "topic": "Numbers",
+    "strokes": 5
+  },
+  "五": {
+    "hsk": 1,
+    "types": [
+      "Number",
+      "Time word"
+    ],
+    "topic": "Numbers",
+    "strokes": 4
+  },
+  "六": {
+    "hsk": 1,
+    "types": [
+      "Number",
+      "Time word"
+    ],
+    "topic": "Numbers",
+    "strokes": 4
+  },
+  "七": {
+    "hsk": 1,
+    "types": [
+      "Number",
+      "Time word"
+    ],
+    "topic": "Numbers",
+    "strokes": 2
+  },
+  "八": {
+    "hsk": 1,
+    "types": [
+      "Number",
+      "Time word"
+    ],
+    "topic": "Numbers",
+    "strokes": 2
+  },
+  "九": {
+    "hsk": 1,
+    "types": [
+      "Adjective",
+      "Number",
+      "Time word"
+    ],
+    "topic": "Numbers",
+    "strokes": 2
+  },
+  "十": {
+    "hsk": 1,
+    "types": [
+      "Number",
+      "Time word"
+    ],
+    "topic": "Numbers",
+    "strokes": 2
+  },
+  "日": {
+    "hsk": 1,
+    "types": [
+      "Adjective",
+      "Time word"
+    ],
+    "topic": "Nature",
+    "strokes": 4
+  },
+  "月": {
+    "hsk": 1,
+    "types": [
+      "Noun",
+      "Time word"
+    ],
+    "topic": "Nature",
+    "strokes": 4
+  },
+  "山": {
+    "hsk": 3,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Nature",
+    "strokes": 3
+  },
+  "水": {
+    "hsk": 1,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Nature",
+    "strokes": 4
+  },
+  "火": {
+    "hsk": 4,
+    "types": [
+      "Adjective",
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Nature",
+    "strokes": 4
+  },
+  "木": {
+    "hsk": null,
+    "types": [],
+    "topic": "Nature",
+    "strokes": 4
+  },
+  "土": {
+    "hsk": 4,
+    "types": [
+      "Adjective",
+      "Noun"
+    ],
+    "topic": "Nature",
+    "strokes": 3
+  },
+  "雨": {
+    "hsk": 1,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Nature",
+    "strokes": 8
+  },
+  "天": {
+    "hsk": 1,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Nature",
+    "strokes": 4
+  },
+  "田": {
+    "hsk": 6,
+    "types": [
+      "Noun",
+      "Proper noun"
+    ],
+    "topic": "Nature",
+    "strokes": 5
+  },
+  "人": {
+    "hsk": 1,
+    "types": [
+      "Noun"
+    ],
+    "topic": "People & family",
+    "strokes": 2
+  },
+  "口": {
+    "hsk": 1,
+    "types": [
+      "Measure word",
+      "Noun"
+    ],
+    "topic": "People & family",
+    "strokes": 3
+  },
+  "手": {
+    "hsk": 2,
+    "types": [
+      "Measure word",
+      "Noun"
+    ],
+    "topic": "People & family",
+    "strokes": 4
+  },
+  "目": {
+    "hsk": null,
+    "types": [],
+    "topic": "People & family",
+    "strokes": 5
+  },
+  "心": {
+    "hsk": 4,
+    "types": [
+      "Noun"
+    ],
+    "topic": "People & family",
+    "strokes": 4
+  },
+  "女": {
+    "hsk": 1,
+    "types": [
+      "Adjective"
+    ],
+    "topic": "People & family",
+    "strokes": 3
+  },
+  "子": {
+    "hsk": 3,
+    "types": [
+      "Measure word"
+    ],
+    "topic": "People & family",
+    "strokes": 3
+  },
+  "大": {
+    "hsk": 1,
+    "types": [
+      "Adjective",
+      "Adverb",
+      "Noun"
+    ],
+    "topic": "People & family",
+    "strokes": 3
+  },
+  "小": {
+    "hsk": 1,
+    "types": [
+      "Adjective"
+    ],
+    "topic": "People & family",
+    "strokes": 3
+  },
+  "好": {
+    "hsk": 1,
+    "types": [
+      "Adjective",
+      "Adverb",
+      "Verb"
+    ],
+    "topic": "People & family",
+    "strokes": 6
+  },
+  "上": {
+    "hsk": 1,
+    "types": [
+      "Location",
+      "Verb"
+    ],
+    "topic": "Everyday",
+    "strokes": 3
+  },
+  "下": {
+    "hsk": 1,
+    "types": [
+      "Location",
+      "Verb"
+    ],
+    "topic": "Everyday",
+    "strokes": 3
+  },
+  "中": {
+    "hsk": 3,
+    "types": [
+      "Adjective",
+      "Location",
+      "Verb"
+    ],
+    "topic": "Everyday",
+    "strokes": 4
+  },
+  "我": {
+    "hsk": 1,
+    "types": [
+      "Pronoun"
+    ],
+    "topic": "Everyday",
+    "strokes": 7
+  },
+  "你": {
+    "hsk": 1,
+    "types": [
+      "Pronoun"
+    ],
+    "topic": "Everyday",
+    "strokes": 7
+  },
+  "不": {
+    "hsk": 1,
+    "types": [
+      "Adverb"
+    ],
+    "topic": "Everyday",
+    "strokes": 4
+  },
+  "是": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Everyday",
+    "strokes": 9
+  },
+  "学": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Everyday",
+    "strokes": 8
+  },
+  "生": {
+    "hsk": 4,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Everyday",
+    "strokes": 5
+  },
+  "国": {
+    "hsk": 1,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Everyday",
+    "strokes": 8
+  },
+  "爸": {
+    "hsk": null,
+    "types": [
+      "Noun"
+    ],
+    "topic": "People & family",
+    "strokes": 8
+  },
+  "妈": {
+    "hsk": null,
+    "types": [
+      "Noun"
+    ],
+    "topic": "People & family",
+    "strokes": 6
+  },
+  "哥": {
+    "hsk": null,
+    "types": [
+      "Noun"
+    ],
+    "topic": "People & family",
+    "strokes": 10
+  },
+  "姐": {
+    "hsk": null,
+    "types": [
+      "Noun"
+    ],
+    "topic": "People & family",
+    "strokes": 8
+  },
+  "弟": {
+    "hsk": null,
+    "types": [
+      "Noun"
+    ],
+    "topic": "People & family",
+    "strokes": 7
+  },
+  "妹": {
+    "hsk": null,
+    "types": [
+      "Noun"
+    ],
+    "topic": "People & family",
+    "strokes": 8
+  },
+  "家": {
+    "hsk": 1,
+    "types": [
+      "Measure word",
+      "Noun"
+    ],
+    "topic": "People & family",
+    "strokes": 10
+  },
+  "友": {
+    "hsk": null,
+    "types": [],
+    "topic": "People & family",
+    "strokes": 4
+  },
+  "男": {
+    "hsk": 1,
+    "types": [
+      "Adjective"
+    ],
+    "topic": "People & family",
+    "strokes": 7
+  },
+  "名": {
+    "hsk": 2,
+    "types": [
+      "Measure word"
+    ],
+    "topic": "People & family",
+    "strokes": 6
+  },
+  "他": {
+    "hsk": 1,
+    "types": [
+      "Pronoun"
+    ],
+    "topic": "Conversation",
+    "strokes": 5
+  },
+  "她": {
+    "hsk": 1,
+    "types": [
+      "Pronoun"
+    ],
+    "topic": "Conversation",
+    "strokes": 6
+  },
+  "们": {
+    "hsk": 1,
+    "types": [],
+    "topic": "Conversation",
+    "strokes": 5
+  },
+  "的": {
+    "hsk": 1,
+    "types": [
+      "Noun",
+      "Particle"
+    ],
+    "topic": "Conversation",
+    "strokes": 8
+  },
+  "了": {
+    "hsk": 1,
+    "types": [
+      "Particle",
+      "Verb"
+    ],
+    "topic": "Conversation",
+    "strokes": 2
+  },
+  "吗": {
+    "hsk": 1,
+    "types": [
+      "Particle"
+    ],
+    "topic": "Conversation",
+    "strokes": 6
+  },
+  "呢": {
+    "hsk": 1,
+    "types": [
+      "Particle"
+    ],
+    "topic": "Conversation",
+    "strokes": 8
+  },
+  "也": {
+    "hsk": 1,
+    "types": [
+      "Adjective",
+      "Adverb",
+      "Particle"
+    ],
+    "topic": "Conversation",
+    "strokes": 3
+  },
+  "很": {
+    "hsk": 1,
+    "types": [
+      "Adverb"
+    ],
+    "topic": "Conversation",
+    "strokes": 9
+  },
+  "和": {
+    "hsk": 1,
+    "types": [
+      "Noun",
+      "Preposition",
+      "Verb"
+    ],
+    "topic": "Conversation",
+    "strokes": 8
+  },
+  "来": {
+    "hsk": 1,
+    "types": [
+      "Location",
+      "Number",
+      "Particle",
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 7
+  },
+  "去": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 5
+  },
+  "吃": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 6
+  },
+  "喝": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 12
+  },
+  "看": {
+    "hsk": 1,
+    "types": [
+      "Particle",
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 9
+  },
+  "听": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 7
+  },
+  "说": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 9
+  },
+  "读": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 10
+  },
+  "写": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 5
+  },
+  "做": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 11
+  },
+  "今": {
+    "hsk": null,
+    "types": [],
+    "topic": "Time",
+    "strokes": 4
+  },
+  "明": {
+    "hsk": null,
+    "types": [],
+    "topic": "Time",
+    "strokes": 8
+  },
+  "昨": {
+    "hsk": null,
+    "types": [],
+    "topic": "Time",
+    "strokes": 9
+  },
+  "年": {
+    "hsk": 1,
+    "types": [
+      "Noun",
+      "Time word"
+    ],
+    "topic": "Time",
+    "strokes": 6
+  },
+  "时": {
+    "hsk": 2,
+    "types": [
+      "Time word"
+    ],
+    "topic": "Time",
+    "strokes": 7
+  },
+  "分": {
+    "hsk": 1,
+    "types": [
+      "Adverb",
+      "Noun",
+      "Time word",
+      "Verb"
+    ],
+    "topic": "Time",
+    "strokes": 4
+  },
+  "早": {
+    "hsk": 1,
+    "types": [
+      "Adjective"
+    ],
+    "topic": "Time",
+    "strokes": 6
+  },
+  "晚": {
+    "hsk": 1,
+    "types": [
+      "Adjective"
+    ],
+    "topic": "Time",
+    "strokes": 11
+  },
+  "午": {
+    "hsk": null,
+    "types": [],
+    "topic": "Time",
+    "strokes": 4
+  },
+  "半": {
+    "hsk": 1,
+    "types": [
+      "Number"
+    ],
+    "topic": "Time",
+    "strokes": 5
+  },
+  "米": {
+    "hsk": 3,
+    "types": [
+      "Measure word",
+      "Noun"
+    ],
+    "topic": "Food & drink",
+    "strokes": 6
+  },
+  "饭": {
+    "hsk": 1,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Food & drink",
+    "strokes": 7
+  },
+  "菜": {
+    "hsk": 1,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Food & drink",
+    "strokes": 11
+  },
+  "茶": {
+    "hsk": 1,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Food & drink",
+    "strokes": 9
+  },
+  "果": {
+    "hsk": null,
+    "types": [],
+    "topic": "Food & drink",
+    "strokes": 8
+  },
+  "肉": {
+    "hsk": 2,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Food & drink",
+    "strokes": 6
+  },
+  "鱼": {
+    "hsk": 2,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Food & drink",
+    "strokes": 8
+  },
+  "蛋": {
+    "hsk": null,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Food & drink",
+    "strokes": 11
+  },
+  "糖": {
+    "hsk": 3,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Food & drink",
+    "strokes": 16
+  },
+  "面": {
+    "hsk": 2,
+    "types": [
+      "Measure word",
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Food & drink",
+    "strokes": 9
+  },
+  "门": {
+    "hsk": 2,
+    "types": [
+      "Measure word",
+      "Noun"
+    ],
+    "topic": "Home & daily life",
+    "strokes": 3
+  },
+  "窗": {
+    "hsk": null,
+    "types": [],
+    "topic": "Home & daily life",
+    "strokes": 12
+  },
+  "房": {
+    "hsk": null,
+    "types": [],
+    "topic": "Home & daily life",
+    "strokes": 8
+  },
+  "床": {
+    "hsk": 2,
+    "types": [
+      "Measure word",
+      "Noun"
+    ],
+    "topic": "Home & daily life",
+    "strokes": 7
+  },
+  "桌": {
+    "hsk": null,
+    "types": [],
+    "topic": "Home & daily life",
+    "strokes": 10
+  },
+  "椅": {
+    "hsk": null,
+    "types": [],
+    "topic": "Home & daily life",
+    "strokes": 12
+  },
+  "书": {
+    "hsk": 1,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Home & daily life",
+    "strokes": 4
+  },
+  "纸": {
+    "hsk": 3,
+    "types": [
+      "Measure word",
+      "Noun"
+    ],
+    "topic": "Home & daily life",
+    "strokes": 7
+  },
+  "笔": {
+    "hsk": 2,
+    "types": [
+      "Measure word",
+      "Noun"
+    ],
+    "topic": "Home & daily life",
+    "strokes": 10
+  },
+  "灯": {
+    "hsk": 3,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Home & daily life",
+    "strokes": 6
+  },
+  "校": {
+    "hsk": null,
+    "types": [],
+    "topic": "Travel & places",
+    "strokes": 10
+  },
+  "店": {
+    "hsk": 1,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Travel & places",
+    "strokes": 8
+  },
+  "路": {
+    "hsk": 2,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Travel & places",
+    "strokes": 13
+  },
+  "车": {
+    "hsk": 1,
+    "types": [
+      "Measure word",
+      "Noun"
+    ],
+    "topic": "Travel & places",
+    "strokes": 4
+  },
+  "站": {
+    "hsk": 2,
+    "types": [
+      "Measure word",
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Travel & places",
+    "strokes": 10
+  },
+  "市": {
+    "hsk": 3,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Travel & places",
+    "strokes": 5
+  },
+  "村": {
+    "hsk": 4,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Travel & places",
+    "strokes": 7
+  },
+  "园": {
+    "hsk": 3,
+    "types": [],
+    "topic": "Travel & places",
+    "strokes": 7
+  },
+  "院": {
+    "hsk": null,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Travel & places",
+    "strokes": 9
+  },
+  "室": {
+    "hsk": 3,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Travel & places",
+    "strokes": 9
+  },
+  "多": {
+    "hsk": 1,
+    "types": [
+      "Adjective",
+      "Adverb",
+      "Number",
+      "Verb"
+    ],
+    "topic": "Descriptions",
+    "strokes": 6
+  },
+  "少": {
+    "hsk": 1,
+    "types": [
+      "Adjective",
+      "Adverb",
+      "Verb"
+    ],
+    "topic": "Descriptions",
+    "strokes": 4
+  },
+  "高": {
+    "hsk": 2,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Descriptions",
+    "strokes": 10
+  },
+  "低": {
+    "hsk": 4,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Descriptions",
+    "strokes": 7
+  },
+  "长": {
+    "hsk": 2,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Descriptions",
+    "strokes": 4
+  },
+  "短": {
+    "hsk": 3,
+    "types": [
+      "Adjective"
+    ],
+    "topic": "Descriptions",
+    "strokes": 12
+  },
+  "新": {
+    "hsk": 1,
+    "types": [
+      "Adjective",
+      "Adverb"
+    ],
+    "topic": "Descriptions",
+    "strokes": 13
+  },
+  "旧": {
+    "hsk": 3,
+    "types": [
+      "Adjective"
+    ],
+    "topic": "Descriptions",
+    "strokes": 5
+  },
+  "冷": {
+    "hsk": 1,
+    "types": [
+      "Adjective"
+    ],
+    "topic": "Descriptions",
+    "strokes": 7
+  },
+  "热": {
+    "hsk": 1,
+    "types": [
+      "Adjective",
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Descriptions",
+    "strokes": 10
+  },
+  "风": {
+    "hsk": 3,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Nature",
+    "strokes": 4
+  },
+  "雪": {
+    "hsk": 1,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Nature",
+    "strokes": 11
+  },
+  "云": {
+    "hsk": 4,
+    "types": [
+      "Adjective",
+      "Noun"
+    ],
+    "topic": "Nature",
+    "strokes": 4
+  },
+  "海": {
+    "hsk": 3,
+    "types": [
+      "Noun",
+      "Proper noun"
+    ],
+    "topic": "Nature",
+    "strokes": 10
+  },
+  "河": {
+    "hsk": 3,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Nature",
+    "strokes": 8
+  },
+  "花": {
+    "hsk": 2,
+    "types": [
+      "Adjective",
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Nature",
+    "strokes": 7
+  },
+  "草": {
+    "hsk": 3,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Nature",
+    "strokes": 9
+  },
+  "树": {
+    "hsk": 3,
+    "types": [
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Nature",
+    "strokes": 9
+  },
+  "鸟": {
+    "hsk": 2,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Nature",
+    "strokes": 5
+  },
+  "马": {
+    "hsk": 3,
+    "types": [
+      "Adjective",
+      "Noun",
+      "Proper noun"
+    ],
+    "topic": "Nature",
+    "strokes": 3
+  },
+  "东": {
+    "hsk": 3,
+    "types": [
+      "Adjective",
+      "Location"
+    ],
+    "topic": "Travel & places",
+    "strokes": 5
+  },
+  "西": {
+    "hsk": 3,
+    "types": [
+      "Adjective",
+      "Location"
+    ],
+    "topic": "Travel & places",
+    "strokes": 6
+  },
+  "南": {
+    "hsk": 3,
+    "types": [
+      "Adjective",
+      "Location"
+    ],
+    "topic": "Travel & places",
+    "strokes": 9
+  },
+  "北": {
+    "hsk": 3,
+    "types": [
+      "Location"
+    ],
+    "topic": "Travel & places",
+    "strokes": 5
+  },
+  "左": {
+    "hsk": 2,
+    "types": [
+      "Adjective",
+      "Location"
+    ],
+    "topic": "Travel & places",
+    "strokes": 5
+  },
+  "右": {
+    "hsk": 2,
+    "types": [
+      "Adjective",
+      "Location"
+    ],
+    "topic": "Travel & places",
+    "strokes": 5
+  },
+  "前": {
+    "hsk": 1,
+    "types": [
+      "Location",
+      "Verb"
+    ],
+    "topic": "Travel & places",
+    "strokes": 9
+  },
+  "后": {
+    "hsk": 1,
+    "types": [
+      "Location",
+      "Time word"
+    ],
+    "topic": "Travel & places",
+    "strokes": 6
+  },
+  "远": {
+    "hsk": 2,
+    "types": [
+      "Adjective"
+    ],
+    "topic": "Travel & places",
+    "strokes": 7
+  },
+  "近": {
+    "hsk": 2,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Travel & places",
+    "strokes": 7
+  },
+  "文": {
+    "hsk": 7,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Study & language",
+    "strokes": 4
+  },
+  "字": {
+    "hsk": 1,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Study & language",
+    "strokes": 6
+  },
+  "语": {
+    "hsk": null,
+    "types": [],
+    "topic": "Study & language",
+    "strokes": 9
+  },
+  "汉": {
+    "hsk": null,
+    "types": [],
+    "topic": "Study & language",
+    "strokes": 5
+  },
+  "英": {
+    "hsk": null,
+    "types": [],
+    "topic": "Study & language",
+    "strokes": 8
+  },
+  "课": {
+    "hsk": 1,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Study & language",
+    "strokes": 10
+  },
+  "师": {
+    "hsk": null,
+    "types": [],
+    "topic": "Study & language",
+    "strokes": 6
+  },
+  "习": {
+    "hsk": null,
+    "types": [],
+    "topic": "Study & language",
+    "strokes": 3
+  },
+  "题": {
+    "hsk": 2,
+    "types": [
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Study & language",
+    "strokes": 15
+  },
+  "答": {
+    "hsk": 4,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Study & language",
+    "strokes": 12
+  },
+  "买": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Home & daily life",
+    "strokes": 6
+  },
+  "卖": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Home & daily life",
+    "strokes": 8
+  },
+  "钱": {
+    "hsk": 1,
+    "types": [
+      "Noun",
+      "Proper noun"
+    ],
+    "topic": "Home & daily life",
+    "strokes": 10
+  },
+  "工": {
+    "hsk": null,
+    "types": [],
+    "topic": "Home & daily life",
+    "strokes": 3
+  },
+  "作": {
+    "hsk": null,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Home & daily life",
+    "strokes": 7
+  },
+  "开": {
+    "hsk": 1,
+    "types": [
+      "Measure word",
+      "Verb"
+    ],
+    "topic": "Home & daily life",
+    "strokes": 4
+  },
+  "关": {
+    "hsk": 3,
+    "types": [
+      "Noun",
+      "Proper noun",
+      "Verb"
+    ],
+    "topic": "Home & daily life",
+    "strokes": 6
+  },
+  "走": {
+    "hsk": 2,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Home & daily life",
+    "strokes": 7
+  },
+  "跑": {
+    "hsk": 2,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Home & daily life",
+    "strokes": 12
+  },
+  "坐": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Home & daily life",
+    "strokes": 7
+  },
+  "请": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Conversation",
+    "strokes": 10
+  },
+  "谢": {
+    "hsk": null,
+    "types": [],
+    "topic": "Conversation",
+    "strokes": 12
+  },
+  "问": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Conversation",
+    "strokes": 6
+  },
+  "话": {
+    "hsk": null,
+    "types": [
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Conversation",
+    "strokes": 8
+  },
+  "告": {
+    "hsk": 7,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Conversation",
+    "strokes": 7
+  },
+  "诉": {
+    "hsk": null,
+    "types": [],
+    "topic": "Conversation",
+    "strokes": 7
+  },
+  "认": {
+    "hsk": 5,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Conversation",
+    "strokes": 4
+  },
+  "识": {
+    "hsk": 6,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Conversation",
+    "strokes": 7
+  },
+  "信": {
+    "hsk": 3,
+    "types": [
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Conversation",
+    "strokes": 9
+  },
+  "息": {
+    "hsk": null,
+    "types": [],
+    "topic": "Conversation",
+    "strokes": 10
+  },
+  "医": {
+    "hsk": null,
+    "types": [],
+    "topic": "Thoughts & society",
+    "strokes": 7
+  },
+  "病": {
+    "hsk": 1,
+    "types": [
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 10
+  },
+  "药": {
+    "hsk": 2,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 9
+  },
+  "电": {
+    "hsk": 3,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 5
+  },
+  "网": {
+    "hsk": 6,
+    "types": [
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 6
+  },
+  "机": {
+    "hsk": null,
+    "types": [],
+    "topic": "Thoughts & society",
+    "strokes": 6
+  },
+  "会": {
+    "hsk": 1,
+    "types": [
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 6
+  },
+  "社": {
+    "hsk": 6,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 7
+  },
+  "民": {
+    "hsk": null,
+    "types": [],
+    "topic": "Thoughts & society",
+    "strokes": 5
+  },
+  "世": {
+    "hsk": null,
+    "types": [],
+    "topic": "Thoughts & society",
+    "strokes": 5
+  },
+  "想": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 13
+  },
+  "思": {
+    "hsk": null,
+    "types": [],
+    "topic": "Thoughts & society",
+    "strokes": 9
+  },
+  "知": {
+    "hsk": null,
+    "types": [],
+    "topic": "Thoughts & society",
+    "strokes": 8
+  },
+  "道": {
+    "hsk": 4,
+    "types": [
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 12
+  },
+  "意": {
+    "hsk": null,
+    "types": [],
+    "topic": "Thoughts & society",
+    "strokes": 13
+  },
+  "义": {
+    "hsk": null,
+    "types": [],
+    "topic": "Thoughts & society",
+    "strokes": 3
+  },
+  "理": {
+    "hsk": 6,
+    "types": [
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 11
+  },
+  "真": {
+    "hsk": 1,
+    "types": [
+      "Adjective",
+      "Adverb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 10
+  },
+  "情": {
+    "hsk": null,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 11
+  },
+  "爱": {
+    "hsk": 1,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 10
+  },
+  "能": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 10
+  },
+  "要": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 9
+  },
+  "用": {
+    "hsk": 3,
+    "types": [
+      "Preposition",
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 5
+  },
+  "给": {
+    "hsk": 1,
+    "types": [
+      "Particle",
+      "Preposition",
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 9
+  },
+  "找": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 7
+  },
+  "等": {
+    "hsk": 2,
+    "types": [
+      "Particle",
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 12
+  },
+  "带": {
+    "hsk": 3,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 9
+  },
+  "放": {
+    "hsk": 3,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 8
+  },
+  "进": {
+    "hsk": 2,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 7
+  },
+  "出": {
+    "hsk": 2,
+    "types": [
+      "Measure word",
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 5
+  },
+  "头": {
+    "hsk": 2,
+    "types": [
+      "Measure word",
+      "Noun",
+      "Number"
+    ],
+    "topic": "Body & health",
+    "strokes": 5
+  },
+  "脸": {
+    "hsk": 3,
+    "types": [
+      "Measure word",
+      "Noun"
+    ],
+    "topic": "Body & health",
+    "strokes": 11
+  },
+  "眼": {
+    "hsk": 5,
+    "types": [
+      "Measure word",
+      "Noun"
+    ],
+    "topic": "Body & health",
+    "strokes": 11
+  },
+  "耳": {
+    "hsk": null,
+    "types": [],
+    "topic": "Body & health",
+    "strokes": 6
+  },
+  "鼻": {
+    "hsk": null,
+    "types": [],
+    "topic": "Body & health",
+    "strokes": 14
+  },
+  "牙": {
+    "hsk": 3,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Body & health",
+    "strokes": 4
+  },
+  "舌": {
+    "hsk": null,
+    "types": [],
+    "topic": "Body & health",
+    "strokes": 6
+  },
+  "足": {
+    "hsk": 6,
+    "types": [
+      "Adjective",
+      "Adverb"
+    ],
+    "topic": "Body & health",
+    "strokes": 7
+  },
+  "腿": {
+    "hsk": 3,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Body & health",
+    "strokes": 13
+  },
+  "背": {
+    "hsk": 4,
+    "types": [
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Body & health",
+    "strokes": 9
+  },
+  "衣": {
+    "hsk": null,
+    "types": [],
+    "topic": "Clothing & colours",
+    "strokes": 6
+  },
+  "服": {
+    "hsk": 6,
+    "types": [
+      "Measure word",
+      "Verb"
+    ],
+    "topic": "Clothing & colours",
+    "strokes": 8
+  },
+  "帽": {
+    "hsk": null,
+    "types": [],
+    "topic": "Clothing & colours",
+    "strokes": 12
+  },
+  "鞋": {
+    "hsk": 3,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Clothing & colours",
+    "strokes": 15
+  },
+  "袜": {
+    "hsk": null,
+    "types": [],
+    "topic": "Clothing & colours",
+    "strokes": 10
+  },
+  "裤": {
+    "hsk": null,
+    "types": [],
+    "topic": "Clothing & colours",
+    "strokes": 12
+  },
+  "裙": {
+    "hsk": null,
+    "types": [],
+    "topic": "Clothing & colours",
+    "strokes": 12
+  },
+  "衫": {
+    "hsk": null,
+    "types": [],
+    "topic": "Clothing & colours",
+    "strokes": 8
+  },
+  "穿": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Clothing & colours",
+    "strokes": 9
+  },
+  "脱": {
+    "hsk": 4,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Clothing & colours",
+    "strokes": 11
+  },
+  "红": {
+    "hsk": 5,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Clothing & colours",
+    "strokes": 6
+  },
+  "黄": {
+    "hsk": 6,
+    "types": [
+      "Adjective",
+      "Proper noun"
+    ],
+    "topic": "Clothing & colours",
+    "strokes": 11
+  },
+  "蓝": {
+    "hsk": 3,
+    "types": [
+      "Adjective"
+    ],
+    "topic": "Clothing & colours",
+    "strokes": 13
+  },
+  "绿": {
+    "hsk": null,
+    "types": [
+      "Adjective"
+    ],
+    "topic": "Clothing & colours",
+    "strokes": 11
+  },
+  "白": {
+    "hsk": 5,
+    "types": [
+      "Adjective",
+      "Adverb",
+      "Proper noun",
+      "Verb"
+    ],
+    "topic": "Clothing & colours",
+    "strokes": 5
+  },
+  "黑": {
+    "hsk": 5,
+    "types": [
+      "Adjective"
+    ],
+    "topic": "Clothing & colours",
+    "strokes": 12
+  },
+  "色": {
+    "hsk": null,
+    "types": [
+      "Measure word",
+      "Noun"
+    ],
+    "topic": "Clothing & colours",
+    "strokes": 6
+  },
+  "紫": {
+    "hsk": 5,
+    "types": [
+      "Adjective"
+    ],
+    "topic": "Clothing & colours",
+    "strokes": 12
+  },
+  "灰": {
+    "hsk": 5,
+    "types": [
+      "Adjective",
+      "Noun"
+    ],
+    "topic": "Clothing & colours",
+    "strokes": 6
+  },
+  "金": {
+    "hsk": null,
+    "types": [
+      "Adjective",
+      "Proper noun"
+    ],
+    "topic": "Clothing & colours",
+    "strokes": 8
+  },
+  "猫": {
+    "hsk": 1,
+    "types": [
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Animals",
+    "strokes": 11
+  },
+  "狗": {
+    "hsk": 1,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Animals",
+    "strokes": 8
+  },
+  "牛": {
+    "hsk": 3,
+    "types": [
+      "Noun",
+      "Proper noun"
+    ],
+    "topic": "Animals",
+    "strokes": 4
+  },
+  "羊": {
+    "hsk": 3,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Animals",
+    "strokes": 6
+  },
+  "猪": {
+    "hsk": 5,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Animals",
+    "strokes": 11
+  },
+  "鸡": {
+    "hsk": 3,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Animals",
+    "strokes": 7
+  },
+  "鸭": {
+    "hsk": null,
+    "types": [],
+    "topic": "Animals",
+    "strokes": 10
+  },
+  "兔": {
+    "hsk": null,
+    "types": [],
+    "topic": "Animals",
+    "strokes": 8
+  },
+  "虫": {
+    "hsk": null,
+    "types": [],
+    "topic": "Animals",
+    "strokes": 6
+  },
+  "龙": {
+    "hsk": 5,
+    "types": [
+      "Noun",
+      "Proper noun"
+    ],
+    "topic": "Animals",
+    "strokes": 5
+  },
+  "飞": {
+    "hsk": 2,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Travel & places",
+    "strokes": 3
+  },
+  "船": {
+    "hsk": 3,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Travel & places",
+    "strokes": 11
+  },
+  "汽": {
+    "hsk": null,
+    "types": [],
+    "topic": "Travel & places",
+    "strokes": 7
+  },
+  "铁": {
+    "hsk": 7,
+    "types": [
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Travel & places",
+    "strokes": 10
+  },
+  "票": {
+    "hsk": 2,
+    "types": [
+      "Measure word",
+      "Noun"
+    ],
+    "topic": "Travel & places",
+    "strokes": 11
+  },
+  "旅": {
+    "hsk": null,
+    "types": [],
+    "topic": "Travel & places",
+    "strokes": 10
+  },
+  "游": {
+    "hsk": 2,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Travel & places",
+    "strokes": 12
+  },
+  "住": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Travel & places",
+    "strokes": 7
+  },
+  "宿": {
+    "hsk": null,
+    "types": [],
+    "topic": "Travel & places",
+    "strokes": 11
+  },
+  "馆": {
+    "hsk": null,
+    "types": [],
+    "topic": "Travel & places",
+    "strokes": 11
+  },
+  "商": {
+    "hsk": null,
+    "types": [],
+    "topic": "Shopping & work",
+    "strokes": 11
+  },
+  "价": {
+    "hsk": null,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Shopping & work",
+    "strokes": 6
+  },
+  "贵": {
+    "hsk": 1,
+    "types": [
+      "Adjective",
+      "Pronoun"
+    ],
+    "topic": "Shopping & work",
+    "strokes": 9
+  },
+  "元": {
+    "hsk": 1,
+    "types": [
+      "Measure word"
+    ],
+    "topic": "Shopping & work",
+    "strokes": 4
+  },
+  "块": {
+    "hsk": 1,
+    "types": [
+      "Measure word"
+    ],
+    "topic": "Shopping & work",
+    "strokes": 7
+  },
+  "斤": {
+    "hsk": 3,
+    "types": [
+      "Measure word"
+    ],
+    "topic": "Shopping & work",
+    "strokes": 4
+  },
+  "两": {
+    "hsk": 1,
+    "types": [
+      "Number",
+      "Time word"
+    ],
+    "topic": "Shopping & work",
+    "strokes": 7
+  },
+  "百": {
+    "hsk": 1,
+    "types": [
+      "Number",
+      "Time word"
+    ],
+    "topic": "Shopping & work",
+    "strokes": 6
+  },
+  "千": {
+    "hsk": 1,
+    "types": [
+      "Number",
+      "Time word"
+    ],
+    "topic": "Shopping & work",
+    "strokes": 3
+  },
+  "万": {
+    "hsk": 2,
+    "types": [
+      "Number",
+      "Time word"
+    ],
+    "topic": "Shopping & work",
+    "strokes": 3
+  },
+  "奶": {
+    "hsk": null,
+    "types": [
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Food & drink",
+    "strokes": 5
+  },
+  "汤": {
+    "hsk": 4,
+    "types": [
+      "Noun",
+      "Proper noun"
+    ],
+    "topic": "Food & drink",
+    "strokes": 6
+  },
+  "盐": {
+    "hsk": 4,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Food & drink",
+    "strokes": 10
+  },
+  "油": {
+    "hsk": 4,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Food & drink",
+    "strokes": 8
+  },
+  "甜": {
+    "hsk": 3,
+    "types": [
+      "Adjective"
+    ],
+    "topic": "Food & drink",
+    "strokes": 11
+  },
+  "酸": {
+    "hsk": 4,
+    "types": [
+      "Adjective",
+      "Noun"
+    ],
+    "topic": "Food & drink",
+    "strokes": 14
+  },
+  "苦": {
+    "hsk": 4,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Food & drink",
+    "strokes": 8
+  },
+  "辣": {
+    "hsk": 4,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Food & drink",
+    "strokes": 14
+  },
+  "饱": {
+    "hsk": 3,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Food & drink",
+    "strokes": 8
+  },
+  "饿": {
+    "hsk": 3,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Food & drink",
+    "strokes": 10
+  },
+  "地": {
+    "hsk": 2,
+    "types": [
+      "Noun",
+      "Particle"
+    ],
+    "topic": "Travel & places",
+    "strokes": 6
+  },
+  "街": {
+    "hsk": 3,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Travel & places",
+    "strokes": 12
+  },
+  "桥": {
+    "hsk": 4,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Travel & places",
+    "strokes": 10
+  },
+  "楼": {
+    "hsk": 2,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Travel & places",
+    "strokes": 13
+  },
+  "层": {
+    "hsk": 3,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Travel & places",
+    "strokes": 7
+  },
+  "城": {
+    "hsk": 4,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Travel & places",
+    "strokes": 9
+  },
+  "乡": {
+    "hsk": 5,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Travel & places",
+    "strokes": 3
+  },
+  "场": {
+    "hsk": 4,
+    "types": [],
+    "topic": "Travel & places",
+    "strokes": 6
+  },
+  "港": {
+    "hsk": 7,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Travel & places",
+    "strokes": 12
+  },
+  "岛": {
+    "hsk": 6,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Travel & places",
+    "strokes": 7
+  },
+  "打": {
+    "hsk": 2,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 5
+  },
+  "拿": {
+    "hsk": 2,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 10
+  },
+  "送": {
+    "hsk": 2,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 9
+  },
+  "回": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 6
+  },
+  "到": {
+    "hsk": 1,
+    "types": [
+      "Preposition",
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 8
+  },
+  "起": {
+    "hsk": 3,
+    "types": [
+      "Location",
+      "Measure word",
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 10
+  },
+  "睡": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 13
+  },
+  "洗": {
+    "hsk": 2,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 9
+  },
+  "玩": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 8
+  },
+  "笑": {
+    "hsk": 2,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Actions",
+    "strokes": 10
+  },
+  "唱": {
+    "hsk": 1,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Activities",
+    "strokes": 11
+  },
+  "跳": {
+    "hsk": 3,
+    "types": [
+      "Measure word",
+      "Verb"
+    ],
+    "topic": "Activities",
+    "strokes": 13
+  },
+  "舞": {
+    "hsk": 7,
+    "types": [
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Activities",
+    "strokes": 14
+  },
+  "画": {
+    "hsk": 2,
+    "types": [
+      "Measure word",
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Activities",
+    "strokes": 8
+  },
+  "球": {
+    "hsk": 2,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Activities",
+    "strokes": 11
+  },
+  "赛": {
+    "hsk": 7,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Activities",
+    "strokes": 14
+  },
+  "运": {
+    "hsk": 5,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Activities",
+    "strokes": 7
+  },
+  "练": {
+    "hsk": 3,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Activities",
+    "strokes": 8
+  },
+  "动": {
+    "hsk": 2,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Activities",
+    "strokes": 6
+  },
+  "停": {
+    "hsk": 4,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Activities",
+    "strokes": 11
+  },
+  "快": {
+    "hsk": 2,
+    "types": [
+      "Adjective",
+      "Adverb"
+    ],
+    "topic": "Descriptions",
+    "strokes": 7
+  },
+  "慢": {
+    "hsk": 2,
+    "types": [
+      "Adjective"
+    ],
+    "topic": "Descriptions",
+    "strokes": 14
+  },
+  "忙": {
+    "hsk": 1,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Descriptions",
+    "strokes": 6
+  },
+  "累": {
+    "hsk": 2,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Descriptions",
+    "strokes": 11
+  },
+  "难": {
+    "hsk": 3,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Descriptions",
+    "strokes": 10
+  },
+  "易": {
+    "hsk": null,
+    "types": [],
+    "topic": "Descriptions",
+    "strokes": 8
+  },
+  "干": {
+    "hsk": 3,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Descriptions",
+    "strokes": 3
+  },
+  "净": {
+    "hsk": 6,
+    "types": [
+      "Adjective",
+      "Adverb"
+    ],
+    "topic": "Descriptions",
+    "strokes": 8
+  },
+  "轻": {
+    "hsk": 4,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Descriptions",
+    "strokes": 9
+  },
+  "重": {
+    "hsk": 4,
+    "types": [
+      "Adjective",
+      "Adverb",
+      "Measure word",
+      "Verb"
+    ],
+    "topic": "Descriptions",
+    "strokes": 9
+  },
+  "喜": {
+    "hsk": null,
+    "types": [],
+    "topic": "Feelings & descriptions",
+    "strokes": 12
+  },
+  "乐": {
+    "hsk": null,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Feelings & descriptions",
+    "strokes": 5
+  },
+  "怒": {
+    "hsk": null,
+    "types": [],
+    "topic": "Feelings & descriptions",
+    "strokes": 9
+  },
+  "怕": {
+    "hsk": 3,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Feelings & descriptions",
+    "strokes": 8
+  },
+  "急": {
+    "hsk": 3,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Feelings & descriptions",
+    "strokes": 9
+  },
+  "安": {
+    "hsk": 5,
+    "types": [
+      "Adjective",
+      "Pronoun",
+      "Proper noun",
+      "Verb"
+    ],
+    "topic": "Feelings & descriptions",
+    "strokes": 6
+  },
+  "静": {
+    "hsk": 5,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Feelings & descriptions",
+    "strokes": 14
+  },
+  "美": {
+    "hsk": 4,
+    "types": [
+      "Adjective"
+    ],
+    "topic": "Feelings & descriptions",
+    "strokes": 9
+  },
+  "丽": {
+    "hsk": null,
+    "types": [],
+    "topic": "Feelings & descriptions",
+    "strokes": 7
+  },
+  "痛": {
+    "hsk": 4,
+    "types": [
+      "Adjective"
+    ],
+    "topic": "Feelings & descriptions",
+    "strokes": 12
+  },
+  "春": {
+    "hsk": null,
+    "types": [],
+    "topic": "Time",
+    "strokes": 9
+  },
+  "夏": {
+    "hsk": null,
+    "types": [
+      "Proper noun"
+    ],
+    "topic": "Time",
+    "strokes": 10
+  },
+  "秋": {
+    "hsk": null,
+    "types": [],
+    "topic": "Time",
+    "strokes": 9
+  },
+  "冬": {
+    "hsk": null,
+    "types": [],
+    "topic": "Time",
+    "strokes": 5
+  },
+  "季": {
+    "hsk": 3,
+    "types": [
+      "Measure word",
+      "Proper noun"
+    ],
+    "topic": "Time",
+    "strokes": 8
+  },
+  "周": {
+    "hsk": 2,
+    "types": [
+      "Noun",
+      "Proper noun"
+    ],
+    "topic": "Time",
+    "strokes": 8
+  },
+  "星": {
+    "hsk": null,
+    "types": [],
+    "topic": "Time",
+    "strokes": 9
+  },
+  "期": {
+    "hsk": 4,
+    "types": [],
+    "topic": "Time",
+    "strokes": 12
+  },
+  "秒": {
+    "hsk": 4,
+    "types": [
+      "Time word"
+    ],
+    "topic": "Time",
+    "strokes": 9
+  },
+  "刻": {
+    "hsk": 3,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Time",
+    "strokes": 8
+  },
+  "教": {
+    "hsk": 2,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Study & language",
+    "strokes": 11
+  },
+  "考": {
+    "hsk": 2,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Study & language",
+    "strokes": 6
+  },
+  "试": {
+    "hsk": 3,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Study & language",
+    "strokes": 8
+  },
+  "数": {
+    "hsk": 4,
+    "types": [
+      "Noun",
+      "Number",
+      "Verb"
+    ],
+    "topic": "Study & language",
+    "strokes": 13
+  },
+  "算": {
+    "hsk": 4,
+    "types": [
+      "Adverb",
+      "Verb"
+    ],
+    "topic": "Study & language",
+    "strokes": 14
+  },
+  "班": {
+    "hsk": 2,
+    "types": [
+      "Measure word",
+      "Noun",
+      "Proper noun"
+    ],
+    "topic": "Study & language",
+    "strokes": 10
+  },
+  "页": {
+    "hsk": 3,
+    "types": [
+      "Measure word"
+    ],
+    "topic": "Study & language",
+    "strokes": 6
+  },
+  "段": {
+    "hsk": 3,
+    "types": [
+      "Measure word"
+    ],
+    "topic": "Study & language",
+    "strokes": 9
+  },
+  "句": {
+    "hsk": 3,
+    "types": [
+      "Measure word"
+    ],
+    "topic": "Study & language",
+    "strokes": 5
+  },
+  "词": {
+    "hsk": 2,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Study & language",
+    "strokes": 7
+  },
+  "职": {
+    "hsk": null,
+    "types": [],
+    "topic": "Shopping & work",
+    "strokes": 11
+  },
+  "业": {
+    "hsk": 6,
+    "types": [],
+    "topic": "Shopping & work",
+    "strokes": 5
+  },
+  "员": {
+    "hsk": 3,
+    "types": [
+      "Measure word",
+      "Noun"
+    ],
+    "topic": "Shopping & work",
+    "strokes": 7
+  },
+  "司": {
+    "hsk": null,
+    "types": [],
+    "topic": "Shopping & work",
+    "strokes": 5
+  },
+  "办": {
+    "hsk": 3,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Shopping & work",
+    "strokes": 4
+  },
+  "事": {
+    "hsk": 1,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Shopping & work",
+    "strokes": 8
+  },
+  "务": {
+    "hsk": null,
+    "types": [],
+    "topic": "Shopping & work",
+    "strokes": 5
+  },
+  "公": {
+    "hsk": 6,
+    "types": [
+      "Adjective"
+    ],
+    "topic": "Shopping & work",
+    "strokes": 4
+  },
+  "厂": {
+    "hsk": 4,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Shopping & work",
+    "strokes": 2
+  },
+  "产": {
+    "hsk": 5,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Shopping & work",
+    "strokes": 6
+  },
+  "脑": {
+    "hsk": null,
+    "types": [],
+    "topic": "Technology",
+    "strokes": 10
+  },
+  "屏": {
+    "hsk": null,
+    "types": [],
+    "topic": "Technology",
+    "strokes": 9
+  },
+  "键": {
+    "hsk": 5,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Technology",
+    "strokes": 13
+  },
+  "鼠": {
+    "hsk": null,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Technology",
+    "strokes": 13
+  },
+  "照": {
+    "hsk": 3,
+    "types": [
+      "Adverb",
+      "Preposition",
+      "Verb"
+    ],
+    "topic": "Technology",
+    "strokes": 13
+  },
+  "相": {
+    "hsk": null,
+    "types": [],
+    "topic": "Technology",
+    "strokes": 9
+  },
+  "声": {
+    "hsk": 3,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Technology",
+    "strokes": 7
+  },
+  "像": {
+    "hsk": 3,
+    "types": [
+      "Adverb",
+      "Noun",
+      "Preposition",
+      "Verb"
+    ],
+    "topic": "Technology",
+    "strokes": 13
+  },
+  "视": {
+    "hsk": null,
+    "types": [],
+    "topic": "Technology",
+    "strokes": 8
+  },
+  "频": {
+    "hsk": null,
+    "types": [],
+    "topic": "Technology",
+    "strokes": 13
+  },
+  "林": {
+    "hsk": null,
+    "types": [],
+    "topic": "Nature",
+    "strokes": 8
+  },
+  "森": {
+    "hsk": null,
+    "types": [],
+    "topic": "Nature",
+    "strokes": 12
+  },
+  "湖": {
+    "hsk": 5,
+    "types": [
+      "Adjective",
+      "Noun"
+    ],
+    "topic": "Nature",
+    "strokes": 12
+  },
+  "江": {
+    "hsk": 4,
+    "types": [
+      "Noun",
+      "Proper noun"
+    ],
+    "topic": "Nature",
+    "strokes": 6
+  },
+  "洋": {
+    "hsk": null,
+    "types": [],
+    "topic": "Nature",
+    "strokes": 9
+  },
+  "石": {
+    "hsk": null,
+    "types": [],
+    "topic": "Nature",
+    "strokes": 5
+  },
+  "沙": {
+    "hsk": null,
+    "types": [],
+    "topic": "Nature",
+    "strokes": 7
+  },
+  "冰": {
+    "hsk": 3,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Nature",
+    "strokes": 6
+  },
+  "光": {
+    "hsk": 4,
+    "types": [
+      "Adjective",
+      "Adverb",
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Nature",
+    "strokes": 6
+  },
+  "气": {
+    "hsk": 4,
+    "types": [
+      "Noun",
+      "Verb"
+    ],
+    "topic": "Nature",
+    "strokes": 4
+  },
+  "记": {
+    "hsk": 3,
+    "types": [
+      "Measure word",
+      "Verb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 5
+  },
+  "忘": {
+    "hsk": 2,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 7
+  },
+  "懂": {
+    "hsk": 2,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 15
+  },
+  "觉": {
+    "hsk": null,
+    "types": [
+      "Measure word",
+      "Verb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 9
+  },
+  "梦": {
+    "hsk": 4,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 11
+  },
+  "望": {
+    "hsk": 6,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 11
+  },
+  "希": {
+    "hsk": null,
+    "types": [],
+    "topic": "Thoughts & society",
+    "strokes": 7
+  },
+  "愿": {
+    "hsk": 5,
+    "types": [
+      "Verb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 14
+  },
+  "决": {
+    "hsk": null,
+    "types": [],
+    "topic": "Thoughts & society",
+    "strokes": 6
+  },
+  "定": {
+    "hsk": 4,
+    "types": [
+      "Adverb",
+      "Verb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 8
+  },
+  "法": {
+    "hsk": 4,
+    "types": [
+      "Adjective",
+      "Noun"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 8
+  },
+  "规": {
+    "hsk": null,
+    "types": [],
+    "topic": "Thoughts & society",
+    "strokes": 8
+  },
+  "则": {
+    "hsk": 6,
+    "types": [
+      "Adverb",
+      "Conjunction",
+      "Measure word"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 6
+  },
+  "权": {
+    "hsk": 5,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 6
+  },
+  "利": {
+    "hsk": null,
+    "types": [
+      "Noun"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 7
+  },
+  "自": {
+    "hsk": 4,
+    "types": [
+      "Adverb",
+      "Preposition",
+      "Pronoun"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 6
+  },
+  "由": {
+    "hsk": 4,
+    "types": [
+      "Preposition",
+      "Verb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 5
+  },
+  "平": {
+    "hsk": 5,
+    "types": [
+      "Adjective",
+      "Verb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 5
+  },
+  "全": {
+    "hsk": 4,
+    "types": [
+      "Adjective",
+      "Adverb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 6
+  },
+  "总": {
+    "hsk": 3,
+    "types": [
+      "Adjective",
+      "Adverb",
+      "Verb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 9
+  },
+  "因": {
+    "hsk": 6,
+    "types": [
+      "Conjunction",
+      "Preposition"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 6
+  },
+  "所": {
+    "hsk": 5,
+    "types": [
+      "Measure word",
+      "Noun",
+      "Particle"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 8
+  },
+  "以": {
+    "hsk": 5,
+    "types": [
+      "Adjective",
+      "Conjunction",
+      "Preposition"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 4
+  },
+  "但": {
+    "hsk": 2,
+    "types": [
+      "Adverb",
+      "Conjunction"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 7
+  },
+  "还": {
+    "hsk": 1,
+    "types": [
+      "Adverb",
+      "Verb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 7
+  },
+  "再": {
+    "hsk": 1,
+    "types": [
+      "Adverb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 6
+  },
+  "最": {
+    "hsk": 2,
+    "types": [
+      "Adverb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 12
+  },
+  "比": {
+    "hsk": 2,
+    "types": [
+      "Adjective",
+      "Noun",
+      "Preposition",
+      "Verb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 4
+  },
+  "把": {
+    "hsk": 3,
+    "types": [
+      "Number",
+      "Preposition",
+      "Verb"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 7
+  },
+  "被": {
+    "hsk": 3,
+    "types": [
+      "Adverb",
+      "Preposition"
+    ],
+    "topic": "Thoughts & society",
+    "strokes": 10
+  }
+}
