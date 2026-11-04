@@ -122,3 +122,18 @@ writing tile restarts when leaving/reloading; completed targets and pack checkpo
 The previous single-session checkpoint migrates once; earlier completions cannot be inferred
 from it. Unknown legacy results count toward completion but not the clean rate. History is
 local to this browser, with same-origin tab updates merged by run and result timestamps.
+
+### Pack discovery dashboard
+
+The Practice screen opens on Packs for a fresh visitor. HSK, topic and study-set
+cards are generated from the same catalog labels as custom filters; More exposes
+the remaining dimensions. Pack search matches names across all dimensions and
+saved selections. Cards preview contents, distinguish character/word counts, open
+an inspectable selection on their main surface, and start the exact selection from
+the play icon. Saved packs evaluate their filter rules against current progress.
+
+Characters & words keeps the full filter/group/sort browser. The chosen view is
+remembered within the browser tab; legacy routes and Progress shortcuts still open
+the corresponding item filters. Direct pack play sets the selected filters and an
+explicit guided/recall mode so an old review selection cannot affect a different
+pack. Recent practice shows one full-width card and expands to the complete history.

@@ -1,8 +1,8 @@
 import {test,expect} from '@playwright/test'
-import {openItem,setFilters,draw} from './helpers'
+import {openLibrary,openItem,setFilters,draw} from './helpers'
 
 test('one mobile library combines dimensions, groups by any dimension, and saves reusable filter rules',async({page})=>{
-  await page.setViewportSize({width:320,height:800});await page.goto('/')
+  await page.setViewportSize({width:320,height:800});await openLibrary(page)
   await expect(page.getByRole('button',{name:'Practice 846 matching items'})).toBeVisible()
   await setFilters(page,{'Content':['Words'],'HSK':['HSK 1'],'Topic':['Food & drink'],'Audio':['Human audio']})
   await expect(page.getByRole('button',{name:'Practice 4 matching items'})).toBeVisible()
@@ -33,7 +33,7 @@ test('real character strokes save exactly once, advance quickly, and retain the 
   await expect(page.getByText('Guided · 0 retries · 0 hints')).toBeVisible()
   await page.getByRole('link',{name:'Practice',exact:true}).click()
   await expect(page.getByTestId('item-char:一').getByLabel('1 completed practices')).toBeVisible()
-  await page.getByRole('button',{name:'Resume practice',exact:true}).click()
+  await page.getByRole('region',{name:'Recent practice'}).getByRole('button',{name:/^Resume /}).first().click()
   await expect(page.getByRole('combobox',{name:'Practice item'})).toHaveValue('char:二')
 })
 test('touch recall rejects a wrong stroke and saves hints in the same attempt',async({browser})=>{
@@ -63,7 +63,7 @@ test('watching during recall retains assistance, resizing preserves the current 
   expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('hanzi-practice:progress:v1')||'[]').length)).toBe(1)
 })
 test('a topic queue rotates from the chosen item and stops at its final item without escaping the selection',async({page})=>{
-  await page.goto('/');await setFilters(page,{'Content':['Characters'],'Topic':['Numbers']})
+  await openLibrary(page);await setFilters(page,{'Content':['Characters'],'Topic':['Numbers']})
   await page.getByRole('button',{name:'Practice 三',exact:true}).click()
   const select=page.getByRole('combobox',{name:'Practice item'})
   expect(await select.locator('option').count()).toBe(10)
@@ -100,7 +100,7 @@ test('legacy character, word and review URLs become presets, and the old saved p
   await page.addInitScript(()=>localStorage.setItem('hanzi-practice:preferences:v1',JSON.stringify({character:'林',autoplay:false})))
   await page.goto('/characters');await expect(page).toHaveURL(/\/$/)
   await expect(page.getByRole('button',{name:'Characters',exact:true})).toHaveAttribute('aria-pressed','true')
-  await page.getByRole('button',{name:'Resume practice'}).click()
+  await page.getByRole('region',{name:'Recent practice'}).getByRole('button',{name:/^Resume /}).first().click()
   await expect(page.getByRole('combobox',{name:'Practice item'})).toHaveValue('char:林')
   await page.goto('/words');await expect(page.getByRole('button',{name:'Practice 366 matching items'})).toBeVisible()
   await page.goto('/review');await expect(page.getByRole('button',{name:'Remove Ready to review filter'})).toBeVisible()
@@ -124,7 +124,7 @@ test('mobile library, all filter groups, sessions and profile fit light and dark
     await page.goto(path)
     for(const theme of ['light','dark']){await page.evaluate(theme=>document.documentElement.dataset.theme=theme,theme);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true)}
   }
-  await page.goto('/');await page.getByRole('button',{name:'Filters',exact:true}).click()
+  await openLibrary(page);await page.getByRole('button',{name:'Filters',exact:true}).click()
   await expect(page.getByRole('dialog',{name:'Practice filters'})).toBeVisible()
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true)
   await page.keyboard.press('Escape');await openItem(page)
@@ -147,7 +147,7 @@ test('Review counts only matching items and replaces an unrelated progress selec
     localStorage.setItem('review-count-seed','1')
     localStorage.setItem('hanzi-practice:progress:v1',JSON.stringify(['一','二'].map(character=>({character,mode:'guided',mistakes:0,hints:0,at:'2025-01-01T00:00:00Z'}))))
   })
-  await page.goto('/')
+  await openLibrary(page)
   await expect(page.getByRole('button',{name:'Review 2',exact:true})).toBeVisible()
   await page.getByRole('button',{name:'Words',exact:true}).click()
   await expect(page.getByRole('button',{name:'Review 0',exact:true})).toBeVisible()
@@ -166,7 +166,7 @@ test('two new study sets contain forty characters each, advance correctly, and p
   test.setTimeout(60000)
   await page.setViewportSize({width:320,height:740})
   await page.addInitScript(()=>localStorage.setItem('hanzi-practice:audio:v1',JSON.stringify({order:['kokoro','recordings','browser'],disabled:[]})))
-  await page.goto('/')
+  await openLibrary(page)
   await setFilters(page,{'Study set':['Set 11 · Everyday words']})
   await page.getByRole('button',{name:'Practice 40 matching items'}).click()
   await expect(page.getByRole('combobox',{name:'Practice item'})).toHaveValue('char:个')
@@ -201,7 +201,7 @@ test('long sessions release document input listeners on each writer replacement'
     document.removeEventListener=((type:string,callback:EventListenerOrEventListenerObject,options?:any)=>{listeners[type]?.delete(callback);remove(type,callback,options)}) as typeof document.removeEventListener
     ;(window as any).inputListeners=()=>Object.fromEntries(Object.entries(listeners).map(([type,set])=>[type,set.size]))
   })
-  await page.goto('/')
+  await openLibrary(page)
   const baseline=await page.evaluate(()=>(window as any).inputListeners())
   await page.getByRole('button',{name:'Practice 一',exact:true}).click()
   const expected={mouseup:baseline.mouseup+1,touchend:baseline.touchend+1}
@@ -219,7 +219,7 @@ test('long sessions release document input listeners on each writer replacement'
 })
 
 test('later groups expand independently and long saved names fit on a phone',async({page})=>{
-  await page.setViewportSize({width:320,height:740});await page.goto('/')
+  await page.setViewportSize({width:320,height:740});await openLibrary(page)
   await page.getByRole('combobox',{name:'Group by'}).selectOption('set')
   const group=page.getByRole('button',{name:'Show Set 12 · More of the world items'})
   await expect(group).toHaveAttribute('aria-expanded','false')

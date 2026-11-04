@@ -1,5 +1,5 @@
 import {test,expect} from '@playwright/test'
-import {openItem,setFilters,draw} from './helpers'
+import {openLibrary,openItem,setFilters,draw} from './helpers'
 
 test('two visible phone tiles save one word, two character attempts, and a whole-word review',async({page})=>{
   test.setTimeout(60000)
@@ -18,7 +18,7 @@ test('two visible phone tiles save one word, two character attempts, and a whole
   await expect(page.getByTestId('item-word:妈妈').getByLabel('1 completed practices')).toBeVisible()
 })
 test('characters and words share one queue, one mode, and automatic advancement',async({page})=>{
-  await page.goto('/');await setFilters(page,{'Content':['Characters','Words'],'Tone pattern':['Tone 1','1·5'],'Topic':['People & family']})
+  await openLibrary(page);await setFilters(page,{'Content':['Characters','Words'],'Tone pattern':['Tone 1','1·5'],'Topic':['People & family']})
   await page.getByPlaceholder('Search characters or words').fill('mā')
   // Search covers pinyin and English; topic and tone narrow this to 妈 + 妈妈.
   await expect(page.getByRole('button',{name:'Practice 2 matching items'})).toBeVisible()
@@ -70,7 +70,7 @@ test('all dimensions can start a group; incomplete next-word navigation does not
 })
 
 test('completion merges stored word counters with a stale tab instead of erasing either history',async({page})=>{
-  await page.goto('/')
+  await openLibrary(page)
   await page.evaluate(()=>localStorage.setItem('hanzi-practice:words:v1',JSON.stringify({counts:{妈妈:2,学生:4}})))
   await openItem(page,'妈妈',true)
   // Simulate a competing storage write before its storage event reaches this tab.

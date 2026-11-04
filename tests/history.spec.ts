@@ -1,5 +1,5 @@
 import {test,expect} from '@playwright/test'
-import {draw} from './helpers'
+import {draw,openLibrary} from './helpers'
 
 const key='hanzi-practice:history:v1'
 test('recent packs retain independent checkpoints, word outcomes, completion percentages and skipped items',async({page})=>{
@@ -19,6 +19,7 @@ test('recent packs retain independent checkpoints, word outcomes, completion per
   const old=page.getByRole('article',{name:'Previous practice',exact:true})
   await expect(old.getByRole('progressbar')).toHaveAttribute('aria-valuenow','33')
   await expect(old.getByText('100% clean')).toBeVisible()
+  await page.getByRole('button',{name:'Browse items',exact:true}).click()
   await page.getByPlaceholder('Search characters or words').fill('妈妈')
   await page.getByRole('button',{name:'Practice 1 matching items'}).click()
   await page.getByRole('button',{name:'Hint',exact:true}).click()
@@ -31,6 +32,7 @@ test('recent packs retain independent checkpoints, word outcomes, completion per
   await expect(word.getByRole('progressbar')).toHaveAttribute('aria-valuenow','100')
   await expect(word.getByText('0% clean')).toBeVisible()
   await page.reload()
+  await page.getByRole('button',{name:'All 2',exact:true}).click()
   await page.getByRole('button',{name:'Resume Previous practice',exact:true}).click()
   await expect(page.getByRole('combobox',{name:'Practice item'})).toHaveValue('char:二')
   await page.getByRole('button',{name:'Next item',exact:true}).click()
@@ -57,15 +59,18 @@ test('recent packs retain independent checkpoints, word outcomes, completion per
 
 test('new packs created in another tab remain available without changing the active queue',async({page,context})=>{
   await page.goto('/')
+  await page.getByRole('button',{name:'Browse items',exact:true}).click()
   await page.getByPlaceholder('Search characters or words').fill('一')
   await page.getByRole('button',{name:/Practice \d+ matching items/}).click()
-  const other=await context.newPage();await other.goto('/')
+  const other=await context.newPage();await openLibrary(other)
   await other.getByPlaceholder('Search characters or words').fill('二')
   await other.getByRole('button',{name:/Practice \d+ matching items/}).click()
   await expect(page.getByRole('combobox',{name:'Practice item'})).toHaveValue('char:一')
   await page.getByRole('button',{name:'Back to filters'}).click()
+  await page.getByRole('button',{name:'All 2',exact:true}).click()
   await expect(page.getByRole('region',{name:'Recent practice'}).getByRole('article')).toHaveCount(2)
   await page.reload()
+  await page.getByRole('button',{name:'All 2',exact:true}).click()
   await expect(page.getByRole('region',{name:'Recent practice'}).getByRole('article')).toHaveCount(2)
 })
 

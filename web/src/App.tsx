@@ -10,6 +10,7 @@ import { useStudyProgress } from './useStudyProgress'
 import { CATALOG, EMPTY_FILTERS, ITEM_BY_ID, studyStats, type StudyItem } from './catalog'
 import { DEFAULT_SELECTION, SESSION_KEY, STUDY_KEY, createSession, parseSession, readStudyPreferences, type Session, type StudyPreferences } from './study-state'
 import { PREFERENCES_KEY, readPreferences, savePreferences } from './preferences'
+import type { Mode } from './progress'
 import { Button } from './Button'
 import { HISTORY_KEY, emptyHistory, mergeHistory, newRun, parseHistory, resumeRun, runStats, advanceRun, type PracticeHistory } from './practice-history'
 const fas=initApp({appId:'hanzi-practice'})
@@ -62,8 +63,8 @@ function Screens({path,navigate}:{path:string;navigate:(href:string,replace?:boo
     navigate('/',true)
   },[path,navigate])
   const stats=useMemo(()=>studyStats(data.progress,data.wordCounts,data.reviews,data.characterTotals),[data.progress,data.wordCounts,data.reviews,data.characterTotals])
-  const start=(items:StudyItem[],id?:string,name?:string)=>{
-    const next=createSession(items,id,study.filters.status.includes('status:due')?'recall':'guided')
+  const start=(items:StudyItem[],id?:string,name?:string,mode?:Mode)=>{
+    const next=createSession(items,id,mode??(study.filters.status.includes('status:due')?'recall':'guided'))
     if(!next)return
     const run=newRun(next,name||items.slice(0,3).map(i=>i.text).join(' · '))
     setPracticeHistory(h=>({activeId:run.id,runs:[run,...h.runs].slice(0,100)}));navigate('/session')
@@ -90,7 +91,7 @@ function Screens({path,navigate}:{path:string;navigate:(href:string,replace?:boo
       : path==='/progress'?<StudyProgress progress={data.progress} stats={stats} practice={start} selectStatus={selectStatus}/>
       : path==='/profile'?<Profile app={fas}/>
       : path==='/about'?<About/>
-      : <StudyLibrary preferences={study} onChange={updateStudy} stats={stats} start={start} resume={()=>resume()} canResume={!!activeRun&&runStats(activeRun).done<activeRun.session.ids.length} runs={practiceHistory.runs} resumeRun={resume}/>
+      : <StudyLibrary preferences={study} onChange={updateStudy} stats={stats} start={start} runs={practiceHistory.runs} resumeRun={resume}/>
     }
   </div>
 }
