@@ -1,7 +1,7 @@
 # Pronunciation audio
 
 The default first source is a bundled human recording for each of the 400 characters. There are also 243
-complete-word recordings, used by 263 of the 400 example entries. Tapping an
+complete-word recordings out of 372 distinct example words, used by 263 of the 400 example entries. Of the 272 two-character words available for writing practice, 169 have human whole-word recordings. Tapping an
 example's word or pinyin tries the enabled sources in the saved order.
 
 The avatar opens `/profile` for guests and signed-in users. The default order is

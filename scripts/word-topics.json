@@ -1,0 +1,1138 @@
+{
+  "一万": [
+    "Numbers"
+  ],
+  "一个": [
+    "Numbers"
+  ],
+  "一元": [
+    "Numbers",
+    "Shopping & work"
+  ],
+  "一刻": [
+    "Time"
+  ],
+  "一千": [
+    "Numbers"
+  ],
+  "一半": [
+    "Numbers"
+  ],
+  "一块钱": [
+    "Numbers",
+    "Shopping & work"
+  ],
+  "一定": [
+    "Thoughts & society"
+  ],
+  "一斤": [
+    "Numbers",
+    "Shopping & work"
+  ],
+  "一百": [
+    "Numbers"
+  ],
+  "七天": [
+    "Time"
+  ],
+  "三个": [
+    "Numbers"
+  ],
+  "上班": [
+    "Shopping & work"
+  ],
+  "上网": [
+    "Technology"
+  ],
+  "上课": [
+    "Study & language"
+  ],
+  "下课": [
+    "Study & language"
+  ],
+  "下雨": [
+    "Nature"
+  ],
+  "下雪": [
+    "Nature"
+  ],
+  "不是": [
+    "Conversation"
+  ],
+  "世界": [
+    "Travel & places"
+  ],
+  "东方": [
+    "Travel & places"
+  ],
+  "两个": [
+    "Numbers"
+  ],
+  "中午": [
+    "Time"
+  ],
+  "中国": [
+    "Travel & places"
+  ],
+  "中文": [
+    "Study & language"
+  ],
+  "九月": [
+    "Time"
+  ],
+  "也好": [
+    "Conversation"
+  ],
+  "乡村": [
+    "Travel & places"
+  ],
+  "书本": [
+    "Study & language"
+  ],
+  "书页": [
+    "Study & language"
+  ],
+  "买书": [
+    "Shopping & work"
+  ],
+  "事情": [
+    "Shopping & work"
+  ],
+  "二月": [
+    "Time"
+  ],
+  "五天": [
+    "Time"
+  ],
+  "产品": [
+    "Shopping & work"
+  ],
+  "人口": [
+    "People & family"
+  ],
+  "人民": [
+    "People & family",
+    "Thoughts & society"
+  ],
+  "今天": [
+    "Time"
+  ],
+  "今年": [
+    "Time"
+  ],
+  "他们": [
+    "People & family"
+  ],
+  "价格": [
+    "Shopping & work"
+  ],
+  "但是": [
+    "Thoughts & society"
+  ],
+  "低头": [
+    "Body & health"
+  ],
+  "住在": [
+    "Home & daily life"
+  ],
+  "作业": [
+    "Study & language"
+  ],
+  "你们": [
+    "People & family"
+  ],
+  "你呢": [
+    "Conversation"
+  ],
+  "你好": [
+    "Conversation"
+  ],
+  "使用": [
+    "Activities"
+  ],
+  "信息": [
+    "Conversation",
+    "Technology"
+  ],
+  "做梦": [
+    "Thoughts & society"
+  ],
+  "做饭": [
+    "Food & drink"
+  ],
+  "停车": [
+    "Travel & places"
+  ],
+  "兔子": [
+    "Animals"
+  ],
+  "全部": [
+    "Thoughts & society"
+  ],
+  "八月": [
+    "Time"
+  ],
+  "公司": [
+    "Shopping & work"
+  ],
+  "公园": [
+    "Travel & places"
+  ],
+  "六月": [
+    "Time"
+  ],
+  "关门": [
+    "Home & daily life"
+  ],
+  "再见": [
+    "Conversation"
+  ],
+  "写字": [
+    "Study & language"
+  ],
+  "冬天": [
+    "Time"
+  ],
+  "冰块": [
+    "Nature"
+  ],
+  "决定": [
+    "Thoughts & society"
+  ],
+  "冷水": [
+    "Food & drink"
+  ],
+  "出去": [
+    "Travel & places"
+  ],
+  "出来": [
+    "Travel & places"
+  ],
+  "分钟": [
+    "Time"
+  ],
+  "利益": [
+    "Thoughts & society"
+  ],
+  "到家": [
+    "Home & daily life"
+  ],
+  "前面": [
+    "Travel & places"
+  ],
+  "办公室": [
+    "Shopping & work"
+  ],
+  "动物": [
+    "Animals"
+  ],
+  "北方": [
+    "Travel & places"
+  ],
+  "医生": [
+    "Body & health"
+  ],
+  "医院": [
+    "Travel & places",
+    "Body & health"
+  ],
+  "十年": [
+    "Time"
+  ],
+  "卖东西": [
+    "Shopping & work"
+  ],
+  "南方": [
+    "Travel & places"
+  ],
+  "原则": [
+    "Thoughts & society"
+  ],
+  "句子": [
+    "Study & language"
+  ],
+  "可以": [
+    "Thoughts & society"
+  ],
+  "右边": [
+    "Travel & places"
+  ],
+  "吃了": [
+    "Conversation"
+  ],
+  "吃药": [
+    "Body & health"
+  ],
+  "吃饭": [
+    "Food & drink"
+  ],
+  "吃饱": [
+    "Food & drink"
+  ],
+  "名字": [
+    "People & family"
+  ],
+  "后背": [
+    "Body & health"
+  ],
+  "后面": [
+    "Travel & places"
+  ],
+  "听懂": [
+    "Study & language"
+  ],
+  "听说": [
+    "Conversation"
+  ],
+  "告诉": [
+    "Conversation"
+  ],
+  "员工": [
+    "Shopping & work"
+  ],
+  "周末": [
+    "Time"
+  ],
+  "和平": [
+    "Thoughts & society"
+  ],
+  "哥哥": [
+    "People & family"
+  ],
+  "唱歌": [
+    "Activities"
+  ],
+  "商店": [
+    "Travel & places",
+    "Shopping & work"
+  ],
+  "喜欢": [
+    "Feelings & descriptions"
+  ],
+  "喝水": [
+    "Food & drink"
+  ],
+  "喝汤": [
+    "Food & drink"
+  ],
+  "喝茶": [
+    "Food & drink"
+  ],
+  "四季": [
+    "Time"
+  ],
+  "回家": [
+    "Home & daily life"
+  ],
+  "回来": [
+    "Travel & places"
+  ],
+  "回答": [
+    "Conversation",
+    "Study & language"
+  ],
+  "因为": [
+    "Thoughts & society"
+  ],
+  "困难": [
+    "Feelings & descriptions"
+  ],
+  "国家": [
+    "Travel & places",
+    "Thoughts & society"
+  ],
+  "图像": [
+    "Technology"
+  ],
+  "土地": [
+    "Nature"
+  ],
+  "地铁": [
+    "Travel & places"
+  ],
+  "坐下": [
+    "Activities"
+  ],
+  "城市": [
+    "Travel & places"
+  ],
+  "声音": [
+    "Technology"
+  ],
+  "夏天": [
+    "Time"
+  ],
+  "多少": [
+    "Numbers"
+  ],
+  "多少钱": [
+    "Shopping & work"
+  ],
+  "大学": [
+    "Study & language"
+  ],
+  "大树": [
+    "Nature"
+  ],
+  "大桥": [
+    "Travel & places"
+  ],
+  "大海": [
+    "Nature"
+  ],
+  "大风": [
+    "Nature"
+  ],
+  "天气": [
+    "Nature"
+  ],
+  "头发": [
+    "Body & health"
+  ],
+  "头痛": [
+    "Body & health"
+  ],
+  "女孩": [
+    "People & family"
+  ],
+  "她们": [
+    "People & family"
+  ],
+  "好吗": [
+    "Conversation"
+  ],
+  "妈妈": [
+    "People & family"
+  ],
+  "妹妹": [
+    "People & family"
+  ],
+  "姐姐": [
+    "People & family"
+  ],
+  "季节": [
+    "Time"
+  ],
+  "学习": [
+    "Study & language"
+  ],
+  "学校": [
+    "Study & language"
+  ],
+  "学生": [
+    "Study & language"
+  ],
+  "孩子": [
+    "People & family"
+  ],
+  "安全": [
+    "Feelings & descriptions"
+  ],
+  "安静": [
+    "Feelings & descriptions"
+  ],
+  "害怕": [
+    "Feelings & descriptions"
+  ],
+  "家人": [
+    "People & family"
+  ],
+  "家庭": [
+    "People & family"
+  ],
+  "容易": [
+    "Feelings & descriptions"
+  ],
+  "宿舍": [
+    "Home & daily life"
+  ],
+  "小心": [
+    "Feelings & descriptions"
+  ],
+  "小狗": [
+    "Animals"
+  ],
+  "小猪": [
+    "Animals"
+  ],
+  "小猫": [
+    "Animals"
+  ],
+  "小腿": [
+    "Body & health"
+  ],
+  "小船": [
+    "Travel & places"
+  ],
+  "小草": [
+    "Nature"
+  ],
+  "小鱼": [
+    "Food & drink",
+    "Animals"
+  ],
+  "小鸟": [
+    "Animals"
+  ],
+  "少数": [
+    "Numbers"
+  ],
+  "屏幕": [
+    "Technology"
+  ],
+  "山羊": [
+    "Animals"
+  ],
+  "工作": [
+    "Shopping & work"
+  ],
+  "工厂": [
+    "Shopping & work"
+  ],
+  "左边": [
+    "Travel & places"
+  ],
+  "希望": [
+    "Thoughts & society"
+  ],
+  "带来": [
+    "Activities"
+  ],
+  "帽子": [
+    "Clothing & colours"
+  ],
+  "干净": [
+    "Home & daily life",
+    "Feelings & descriptions"
+  ],
+  "年轻": [
+    "People & family",
+    "Feelings & descriptions"
+  ],
+  "广场": [
+    "Travel & places"
+  ],
+  "开会": [
+    "Shopping & work"
+  ],
+  "开门": [
+    "Home & daily life"
+  ],
+  "弟弟": [
+    "People & family"
+  ],
+  "很好": [
+    "Conversation"
+  ],
+  "很忙": [
+    "Feelings & descriptions"
+  ],
+  "很累": [
+    "Feelings & descriptions"
+  ],
+  "很贵": [
+    "Shopping & work",
+    "Feelings & descriptions"
+  ],
+  "很饿": [
+    "Food & drink"
+  ],
+  "微笑": [
+    "Feelings & descriptions"
+  ],
+  "心情": [
+    "Feelings & descriptions"
+  ],
+  "忘记": [
+    "Thoughts & society"
+  ],
+  "快乐": [
+    "Feelings & descriptions"
+  ],
+  "思考": [
+    "Thoughts & society"
+  ],
+  "总是": [
+    "Time"
+  ],
+  "想法": [
+    "Thoughts & society"
+  ],
+  "意义": [
+    "Thoughts & society"
+  ],
+  "意思": [
+    "Thoughts & society"
+  ],
+  "愤怒": [
+    "Feelings & descriptions"
+  ],
+  "愿意": [
+    "Thoughts & society"
+  ],
+  "慢慢": [
+    "Feelings & descriptions"
+  ],
+  "我们": [
+    "People & family"
+  ],
+  "我和你": [
+    "People & family"
+  ],
+  "我的书": [
+    "Study & language"
+  ],
+  "房间": [
+    "Home & daily life"
+  ],
+  "所以": [
+    "Thoughts & society"
+  ],
+  "打球": [
+    "Activities"
+  ],
+  "找到": [
+    "Activities"
+  ],
+  "把门打开": [
+    "Home & daily life"
+  ],
+  "拿来": [
+    "Activities"
+  ],
+  "放下": [
+    "Activities"
+  ],
+  "教书": [
+    "Study & language"
+  ],
+  "教室": [
+    "Study & language"
+  ],
+  "数学": [
+    "Study & language"
+  ],
+  "新年": [
+    "Time"
+  ],
+  "方法": [
+    "Thoughts & society"
+  ],
+  "旅游": [
+    "Travel & places"
+  ],
+  "旅行": [
+    "Travel & places"
+  ],
+  "日子": [
+    "Time"
+  ],
+  "日期": [
+    "Time"
+  ],
+  "旧书": [
+    "Study & language"
+  ],
+  "早上": [
+    "Time"
+  ],
+  "时间": [
+    "Time"
+  ],
+  "昆虫": [
+    "Animals"
+  ],
+  "明天": [
+    "Time"
+  ],
+  "星期": [
+    "Time"
+  ],
+  "春天": [
+    "Time"
+  ],
+  "昨天": [
+    "Time"
+  ],
+  "是的": [
+    "Conversation"
+  ],
+  "晚上": [
+    "Time"
+  ],
+  "最好": [
+    "Feelings & descriptions"
+  ],
+  "月亮": [
+    "Nature"
+  ],
+  "朋友": [
+    "People & family"
+  ],
+  "服务": [
+    "Shopping & work"
+  ],
+  "服装": [
+    "Clothing & colours"
+  ],
+  "木头": [
+    "Nature"
+  ],
+  "权利": [
+    "Thoughts & society"
+  ],
+  "村子": [
+    "Travel & places"
+  ],
+  "树林": [
+    "Nature"
+  ],
+  "桌子": [
+    "Home & daily life"
+  ],
+  "森林": [
+    "Nature"
+  ],
+  "椅子": [
+    "Home & daily life"
+  ],
+  "楼层": [
+    "Travel & places"
+  ],
+  "楼房": [
+    "Travel & places"
+  ],
+  "段落": [
+    "Study & language"
+  ],
+  "比赛": [
+    "Activities"
+  ],
+  "比较": [
+    "Thoughts & society"
+  ],
+  "水果": [
+    "Food & drink"
+  ],
+  "汉字": [
+    "Study & language"
+  ],
+  "汉语": [
+    "Study & language"
+  ],
+  "江水": [
+    "Nature"
+  ],
+  "汽车": [
+    "Travel & places"
+  ],
+  "沙子": [
+    "Nature"
+  ],
+  "河水": [
+    "Nature"
+  ],
+  "洗手": [
+    "Home & daily life",
+    "Body & health"
+  ],
+  "洗脸": [
+    "Home & daily life",
+    "Body & health"
+  ],
+  "海岛": [
+    "Nature",
+    "Travel & places"
+  ],
+  "海洋": [
+    "Nature"
+  ],
+  "港口": [
+    "Travel & places"
+  ],
+  "湖水": [
+    "Nature"
+  ],
+  "火车": [
+    "Travel & places"
+  ],
+  "灰色": [
+    "Clothing & colours"
+  ],
+  "热水": [
+    "Food & drink"
+  ],
+  "照片": [
+    "Technology"
+  ],
+  "照相": [
+    "Activities",
+    "Technology"
+  ],
+  "爱好": [
+    "Activities",
+    "Feelings & descriptions"
+  ],
+  "爸爸": [
+    "People & family"
+  ],
+  "牙齿": [
+    "Body & health"
+  ],
+  "牛奶": [
+    "Food & drink"
+  ],
+  "牛肉": [
+    "Food & drink"
+  ],
+  "玩具": [
+    "Activities"
+  ],
+  "理由": [
+    "Thoughts & society"
+  ],
+  "甜点": [
+    "Food & drink"
+  ],
+  "生活": [
+    "Home & daily life"
+  ],
+  "生病": [
+    "Body & health"
+  ],
+  "田地": [
+    "Nature"
+  ],
+  "电灯": [
+    "Home & daily life"
+  ],
+  "电脑": [
+    "Technology"
+  ],
+  "电视": [
+    "Technology"
+  ],
+  "电话": [
+    "Technology"
+  ],
+  "男人": [
+    "People & family"
+  ],
+  "画画": [
+    "Activities"
+  ],
+  "白云": [
+    "Nature"
+  ],
+  "白纸": [
+    "Study & language"
+  ],
+  "白色": [
+    "Clothing & colours"
+  ],
+  "目标": [
+    "Thoughts & society"
+  ],
+  "看书": [
+    "Study & language"
+  ],
+  "真的": [
+    "Conversation"
+  ],
+  "眼睛": [
+    "Body & health"
+  ],
+  "着急": [
+    "Feelings & descriptions"
+  ],
+  "睡觉": [
+    "Home & daily life"
+  ],
+  "知道": [
+    "Thoughts & society"
+  ],
+  "短裤": [
+    "Clothing & colours"
+  ],
+  "石头": [
+    "Nature"
+  ],
+  "社会": [
+    "Thoughts & society"
+  ],
+  "秋天": [
+    "Time"
+  ],
+  "秒钟": [
+    "Time"
+  ],
+  "穿衣服": [
+    "Clothing & colours"
+  ],
+  "窗户": [
+    "Home & daily life"
+  ],
+  "等待": [
+    "Activities"
+  ],
+  "米饭": [
+    "Food & drink"
+  ],
+  "糖果": [
+    "Food & drink"
+  ],
+  "紫色": [
+    "Clothing & colours"
+  ],
+  "红色": [
+    "Clothing & colours"
+  ],
+  "练习": [
+    "Study & language",
+    "Activities"
+  ],
+  "绿叶": [
+    "Nature"
+  ],
+  "美丽": [
+    "Feelings & descriptions"
+  ],
+  "老师": [
+    "Study & language"
+  ],
+  "考试": [
+    "Study & language"
+  ],
+  "耳朵": [
+    "Body & health"
+  ],
+  "职业": [
+    "Shopping & work"
+  ],
+  "能够": [
+    "Thoughts & society"
+  ],
+  "脱鞋": [
+    "Clothing & colours"
+  ],
+  "自己": [
+    "People & family"
+  ],
+  "自由": [
+    "Thoughts & society"
+  ],
+  "舌头": [
+    "Body & health"
+  ],
+  "舞蹈": [
+    "Activities"
+  ],
+  "花园": [
+    "Nature"
+  ],
+  "苦瓜": [
+    "Food & drink"
+  ],
+  "英语": [
+    "Study & language"
+  ],
+  "蓝天": [
+    "Nature"
+  ],
+  "蔬菜": [
+    "Food & drink"
+  ],
+  "街道": [
+    "Travel & places"
+  ],
+  "衣服": [
+    "Clothing & colours"
+  ],
+  "衬衫": [
+    "Clothing & colours"
+  ],
+  "袜子": [
+    "Clothing & colours"
+  ],
+  "被看见": [
+    "Thoughts & society"
+  ],
+  "裙子": [
+    "Clothing & colours"
+  ],
+  "裤子": [
+    "Clothing & colours"
+  ],
+  "西方": [
+    "Travel & places"
+  ],
+  "规则": [
+    "Thoughts & society"
+  ],
+  "视频": [
+    "Technology"
+  ],
+  "觉得": [
+    "Thoughts & society"
+  ],
+  "计算": [
+    "Study & language"
+  ],
+  "认识": [
+    "Conversation"
+  ],
+  "记得": [
+    "Thoughts & society"
+  ],
+  "识别": [
+    "Conversation"
+  ],
+  "诉说": [
+    "Conversation"
+  ],
+  "词语": [
+    "Study & language"
+  ],
+  "试试": [
+    "Activities"
+  ],
+  "语言": [
+    "Study & language"
+  ],
+  "说话": [
+    "Conversation"
+  ],
+  "请问": [
+    "Conversation"
+  ],
+  "读书": [
+    "Study & language"
+  ],
+  "谢谢": [
+    "Conversation"
+  ],
+  "豆油": [
+    "Food & drink"
+  ],
+  "走路": [
+    "Travel & places"
+  ],
+  "起床": [
+    "Home & daily life"
+  ],
+  "足球": [
+    "Activities"
+  ],
+  "跑步": [
+    "Activities"
+  ],
+  "跳舞": [
+    "Activities"
+  ],
+  "车票": [
+    "Travel & places"
+  ],
+  "车站": [
+    "Travel & places"
+  ],
+  "辣椒": [
+    "Food & drink"
+  ],
+  "运动": [
+    "Activities"
+  ],
+  "还有": [
+    "Thoughts & society"
+  ],
+  "进去": [
+    "Travel & places"
+  ],
+  "远方": [
+    "Travel & places"
+  ],
+  "送给": [
+    "Activities"
+  ],
+  "道路": [
+    "Travel & places"
+  ],
+  "酸奶": [
+    "Food & drink"
+  ],
+  "重要": [
+    "Feelings & descriptions"
+  ],
+  "金色": [
+    "Clothing & colours"
+  ],
+  "铅笔": [
+    "Study & language"
+  ],
+  "键盘": [
+    "Technology"
+  ],
+  "长短": [
+    "Feelings & descriptions"
+  ],
+  "问题": [
+    "Conversation",
+    "Study & language"
+  ],
+  "阳光": [
+    "Nature"
+  ],
+  "附近": [
+    "Travel & places"
+  ],
+  "需要": [
+    "Thoughts & society"
+  ],
+  "面条": [
+    "Food & drink"
+  ],
+  "鞋子": [
+    "Clothing & colours"
+  ],
+  "颜色": [
+    "Clothing & colours"
+  ],
+  "飞机": [
+    "Travel & places"
+  ],
+  "食盐": [
+    "Food & drink"
+  ],
+  "饭馆": [
+    "Food & drink"
+  ],
+  "马车": [
+    "Travel & places"
+  ],
+  "高兴": [
+    "Feelings & descriptions"
+  ],
+  "高山": [
+    "Nature"
+  ],
+  "鸡蛋": [
+    "Food & drink"
+  ],
+  "鸭子": [
+    "Animals"
+  ],
+  "黄色": [
+    "Clothing & colours"
+  ],
+  "黑色": [
+    "Clothing & colours"
+  ],
+  "鼠标": [
+    "Technology"
+  ],
+  "鼻子": [
+    "Body & health"
+  ],
+  "龙年": [
+    "Time"
+  ]
+}

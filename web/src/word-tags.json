@@ -1,0 +1,3396 @@
+{
+  "一个": {
+    "hsk": null,
+    "topics": [
+      "Numbers"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "二月": {
+    "hsk": null,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "三个": {
+    "hsk": null,
+    "topics": [
+      "Numbers"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "四季": {
+    "hsk": 3,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "五天": {
+    "hsk": null,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "六月": {
+    "hsk": null,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "七天": {
+    "hsk": null,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "八月": {
+    "hsk": null,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "九月": {
+    "hsk": null,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "十年": {
+    "hsk": null,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "日子": {
+    "hsk": 4,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "月亮": {
+    "hsk": 3,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "高山": {
+    "hsk": null,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "喝水": {
+    "hsk": null,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "火车": {
+    "hsk": 1,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "木头": {
+    "hsk": 5,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "土地": {
+    "hsk": 5,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "下雨": {
+    "hsk": 1,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "今天": {
+    "hsk": 1,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Time word"
+    ]
+  },
+  "田地": {
+    "hsk": null,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "家人": {
+    "hsk": 1,
+    "topics": [
+      "People & family"
+    ],
+    "types": [
+      "Noun",
+      "Proper noun"
+    ]
+  },
+  "人口": {
+    "hsk": 5,
+    "topics": [
+      "People & family"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "洗手": {
+    "hsk": null,
+    "topics": [
+      "Home & daily life",
+      "Body & health"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "目标": {
+    "hsk": 4,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "小心": {
+    "hsk": 3,
+    "topics": [
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Adjective",
+      "Verb"
+    ]
+  },
+  "女孩": {
+    "hsk": null,
+    "topics": [
+      "People & family"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "孩子": {
+    "hsk": 1,
+    "topics": [
+      "People & family"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "大学": {
+    "hsk": 1,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "小狗": {
+    "hsk": null,
+    "topics": [
+      "Animals"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "你好": {
+    "hsk": 1,
+    "topics": [
+      "Conversation"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "上课": {
+    "hsk": 1,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "下课": {
+    "hsk": 1,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "中国": {
+    "hsk": 1,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Place name"
+    ]
+  },
+  "我们": {
+    "hsk": 1,
+    "topics": [
+      "People & family"
+    ],
+    "types": [
+      "Pronoun"
+    ]
+  },
+  "你们": {
+    "hsk": 1,
+    "topics": [
+      "People & family"
+    ],
+    "types": [
+      "Pronoun"
+    ]
+  },
+  "不是": {
+    "hsk": null,
+    "topics": [
+      "Conversation"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "是的": {
+    "hsk": null,
+    "topics": [
+      "Conversation"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "学生": {
+    "hsk": 1,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "生活": {
+    "hsk": 3,
+    "topics": [
+      "Home & daily life"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "国家": {
+    "hsk": 3,
+    "topics": [
+      "Travel & places",
+      "Thoughts & society"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "爸爸": {
+    "hsk": 1,
+    "topics": [
+      "People & family"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "妈妈": {
+    "hsk": 1,
+    "topics": [
+      "People & family"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "哥哥": {
+    "hsk": 1,
+    "topics": [
+      "People & family"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "姐姐": {
+    "hsk": 1,
+    "topics": [
+      "People & family"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "弟弟": {
+    "hsk": 1,
+    "topics": [
+      "People & family"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "妹妹": {
+    "hsk": 1,
+    "topics": [
+      "People & family"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "家庭": {
+    "hsk": 4,
+    "topics": [
+      "People & family"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "朋友": {
+    "hsk": 1,
+    "topics": [
+      "People & family"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "男人": {
+    "hsk": 3,
+    "topics": [
+      "People & family"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "名字": {
+    "hsk": 1,
+    "topics": [
+      "People & family"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "他们": {
+    "hsk": 1,
+    "topics": [
+      "People & family"
+    ],
+    "types": [
+      "Pronoun"
+    ]
+  },
+  "她们": {
+    "hsk": 1,
+    "topics": [
+      "People & family"
+    ],
+    "types": [
+      "Pronoun"
+    ]
+  },
+  "我的书": {
+    "hsk": null,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "吃了": {
+    "hsk": null,
+    "topics": [
+      "Conversation"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "好吗": {
+    "hsk": null,
+    "topics": [
+      "Conversation"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "你呢": {
+    "hsk": null,
+    "topics": [
+      "Conversation"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "也好": {
+    "hsk": 6,
+    "topics": [
+      "Conversation"
+    ],
+    "types": [
+      "Adverb",
+      "Particle"
+    ]
+  },
+  "很好": {
+    "hsk": null,
+    "topics": [
+      "Conversation"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "我和你": {
+    "hsk": null,
+    "topics": [
+      "People & family"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "回来": {
+    "hsk": 2,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "出去": {
+    "hsk": 2,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "吃饭": {
+    "hsk": null,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "喝茶": {
+    "hsk": null,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "看书": {
+    "hsk": null,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "听说": {
+    "hsk": 3,
+    "topics": [
+      "Conversation"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "说话": {
+    "hsk": 1,
+    "topics": [
+      "Conversation"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "读书": {
+    "hsk": 1,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "写字": {
+    "hsk": null,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "做饭": {
+    "hsk": 1,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "明天": {
+    "hsk": 1,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Time word"
+    ]
+  },
+  "昨天": {
+    "hsk": 1,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Time word"
+    ]
+  },
+  "今年": {
+    "hsk": 1,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Time word"
+    ]
+  },
+  "时间": {
+    "hsk": 1,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "分钟": {
+    "hsk": 1,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "早上": {
+    "hsk": 1,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Time word"
+    ]
+  },
+  "晚上": {
+    "hsk": 1,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Time word"
+    ]
+  },
+  "中午": {
+    "hsk": 1,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Time word"
+    ]
+  },
+  "一半": {
+    "hsk": 1,
+    "topics": [
+      "Numbers"
+    ],
+    "types": [
+      "Number"
+    ]
+  },
+  "米饭": {
+    "hsk": 1,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "蔬菜": {
+    "hsk": 5,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "水果": {
+    "hsk": 1,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "牛肉": {
+    "hsk": null,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "小鱼": {
+    "hsk": null,
+    "topics": [
+      "Food & drink",
+      "Animals"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "鸡蛋": {
+    "hsk": 1,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "糖果": {
+    "hsk": 6,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "面条": {
+    "hsk": null,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "开门": {
+    "hsk": null,
+    "topics": [
+      "Home & daily life"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "窗户": {
+    "hsk": 4,
+    "topics": [
+      "Home & daily life"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "房间": {
+    "hsk": 1,
+    "topics": [
+      "Home & daily life"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "起床": {
+    "hsk": 1,
+    "topics": [
+      "Home & daily life"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "桌子": {
+    "hsk": 1,
+    "topics": [
+      "Home & daily life"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "椅子": {
+    "hsk": 1,
+    "topics": [
+      "Home & daily life"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "书本": {
+    "hsk": null,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "白纸": {
+    "hsk": null,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "铅笔": {
+    "hsk": 3,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "电灯": {
+    "hsk": null,
+    "topics": [
+      "Home & daily life"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "学校": {
+    "hsk": 1,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "商店": {
+    "hsk": 1,
+    "topics": [
+      "Travel & places",
+      "Shopping & work"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "走路": {
+    "hsk": 2,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "汽车": {
+    "hsk": 3,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "车站": {
+    "hsk": 2,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "城市": {
+    "hsk": 3,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "村子": {
+    "hsk": null,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "公园": {
+    "hsk": 3,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "医院": {
+    "hsk": 1,
+    "topics": [
+      "Travel & places",
+      "Body & health"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "教室": {
+    "hsk": 2,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "多少": {
+    "hsk": 1,
+    "topics": [
+      "Numbers"
+    ],
+    "types": [
+      "Pronoun"
+    ]
+  },
+  "少数": {
+    "hsk": 4,
+    "topics": [
+      "Numbers"
+    ],
+    "types": [
+      "Number"
+    ]
+  },
+  "高兴": {
+    "hsk": 1,
+    "topics": [
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Adjective"
+    ]
+  },
+  "低头": {
+    "hsk": 5,
+    "topics": [
+      "Body & health"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "长短": {
+    "hsk": 6,
+    "topics": [
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "短裤": {
+    "hsk": 3,
+    "topics": [
+      "Clothing & colours"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "新年": {
+    "hsk": 3,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Time word"
+    ]
+  },
+  "旧书": {
+    "hsk": null,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "冷水": {
+    "hsk": null,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "热水": {
+    "hsk": null,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "大风": {
+    "hsk": null,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "下雪": {
+    "hsk": null,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "白云": {
+    "hsk": null,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "大海": {
+    "hsk": null,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "河水": {
+    "hsk": null,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "花园": {
+    "hsk": 3,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "小草": {
+    "hsk": null,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "大树": {
+    "hsk": null,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "小鸟": {
+    "hsk": null,
+    "topics": [
+      "Animals"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "马车": {
+    "hsk": null,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "东方": {
+    "hsk": 3,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Location"
+    ]
+  },
+  "西方": {
+    "hsk": 3,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Location"
+    ]
+  },
+  "南方": {
+    "hsk": 3,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Location"
+    ]
+  },
+  "北方": {
+    "hsk": 3,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Location"
+    ]
+  },
+  "左边": {
+    "hsk": 2,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Location"
+    ]
+  },
+  "右边": {
+    "hsk": 2,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Location"
+    ]
+  },
+  "前面": {
+    "hsk": 2,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Location"
+    ]
+  },
+  "后面": {
+    "hsk": 2,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Location"
+    ]
+  },
+  "远方": {
+    "hsk": 6,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Location"
+    ]
+  },
+  "附近": {
+    "hsk": 3,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Location"
+    ]
+  },
+  "中文": {
+    "hsk": 1,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Proper noun"
+    ]
+  },
+  "汉字": {
+    "hsk": 1,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Noun",
+      "Proper noun"
+    ]
+  },
+  "语言": {
+    "hsk": 3,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "汉语": {
+    "hsk": 1,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Proper noun"
+    ]
+  },
+  "英语": {
+    "hsk": null,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Proper noun"
+    ]
+  },
+  "老师": {
+    "hsk": 1,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "学习": {
+    "hsk": 1,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "问题": {
+    "hsk": 1,
+    "topics": [
+      "Conversation",
+      "Study & language"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "回答": {
+    "hsk": 3,
+    "topics": [
+      "Conversation",
+      "Study & language"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "买书": {
+    "hsk": null,
+    "topics": [
+      "Shopping & work"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "卖东西": {
+    "hsk": null,
+    "topics": [
+      "Shopping & work"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "多少钱": {
+    "hsk": null,
+    "topics": [
+      "Shopping & work"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "工作": {
+    "hsk": 1,
+    "topics": [
+      "Shopping & work"
+    ],
+    "types": [
+      "Noun",
+      "Verb"
+    ]
+  },
+  "作业": {
+    "hsk": 3,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Noun",
+      "Verb"
+    ]
+  },
+  "关门": {
+    "hsk": null,
+    "topics": [
+      "Home & daily life"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "跑步": {
+    "hsk": 2,
+    "topics": [
+      "Activities"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "坐下": {
+    "hsk": null,
+    "topics": [
+      "Activities"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "请问": {
+    "hsk": 1,
+    "topics": [
+      "Conversation"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "谢谢": {
+    "hsk": 1,
+    "topics": [
+      "Conversation"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "告诉": {
+    "hsk": 2,
+    "topics": [
+      "Conversation"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "诉说": {
+    "hsk": 7,
+    "topics": [
+      "Conversation"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "认识": {
+    "hsk": 1,
+    "topics": [
+      "Conversation"
+    ],
+    "types": [
+      "Noun",
+      "Verb"
+    ]
+  },
+  "识别": {
+    "hsk": 6,
+    "topics": [
+      "Conversation"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "信息": {
+    "hsk": 4,
+    "topics": [
+      "Conversation",
+      "Technology"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "医生": {
+    "hsk": 1,
+    "topics": [
+      "Body & health"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "生病": {
+    "hsk": 1,
+    "topics": [
+      "Body & health"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "吃药": {
+    "hsk": null,
+    "topics": [
+      "Body & health"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "电话": {
+    "hsk": 1,
+    "topics": [
+      "Technology"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "上网": {
+    "hsk": 2,
+    "topics": [
+      "Technology"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "飞机": {
+    "hsk": 1,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "开会": {
+    "hsk": 3,
+    "topics": [
+      "Shopping & work"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "社会": {
+    "hsk": 4,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "人民": {
+    "hsk": 5,
+    "topics": [
+      "People & family",
+      "Thoughts & society"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "世界": {
+    "hsk": 3,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "想法": {
+    "hsk": 4,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Noun",
+      "Verb"
+    ]
+  },
+  "思考": {
+    "hsk": 5,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "知道": {
+    "hsk": 1,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "道路": {
+    "hsk": 4,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "意思": {
+    "hsk": 2,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Noun",
+      "Verb"
+    ]
+  },
+  "意义": {
+    "hsk": 5,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "理由": {
+    "hsk": 5,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "真的": {
+    "hsk": null,
+    "topics": [
+      "Conversation"
+    ],
+    "types": [
+      "Adjective",
+      "Adverb"
+    ]
+  },
+  "心情": {
+    "hsk": 4,
+    "topics": [
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "爱好": {
+    "hsk": 2,
+    "topics": [
+      "Activities",
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Noun",
+      "Verb"
+    ]
+  },
+  "能够": {
+    "hsk": 4,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "需要": {
+    "hsk": 3,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Noun",
+      "Verb"
+    ]
+  },
+  "使用": {
+    "hsk": 4,
+    "topics": [
+      "Activities"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "送给": {
+    "hsk": null,
+    "topics": [
+      "Activities"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "找到": {
+    "hsk": null,
+    "topics": [
+      "Activities"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "等待": {
+    "hsk": 5,
+    "topics": [
+      "Activities"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "带来": {
+    "hsk": null,
+    "topics": [
+      "Activities"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "放下": {
+    "hsk": null,
+    "topics": [
+      "Activities"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "进去": {
+    "hsk": 2,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "出来": {
+    "hsk": 2,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "头发": {
+    "hsk": 3,
+    "topics": [
+      "Body & health"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "洗脸": {
+    "hsk": null,
+    "topics": [
+      "Home & daily life",
+      "Body & health"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "眼睛": {
+    "hsk": 2,
+    "topics": [
+      "Body & health"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "耳朵": {
+    "hsk": 3,
+    "topics": [
+      "Body & health"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "鼻子": {
+    "hsk": 4,
+    "topics": [
+      "Body & health"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "牙齿": {
+    "hsk": 5,
+    "topics": [
+      "Body & health"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "舌头": {
+    "hsk": 6,
+    "topics": [
+      "Body & health"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "足球": {
+    "hsk": 2,
+    "topics": [
+      "Activities"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "小腿": {
+    "hsk": null,
+    "topics": [
+      "Body & health"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "后背": {
+    "hsk": null,
+    "topics": [
+      "Body & health"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "衣服": {
+    "hsk": 1,
+    "topics": [
+      "Clothing & colours"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "服装": {
+    "hsk": 5,
+    "topics": [
+      "Clothing & colours"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "帽子": {
+    "hsk": 4,
+    "topics": [
+      "Clothing & colours"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "鞋子": {
+    "hsk": null,
+    "topics": [
+      "Clothing & colours"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "袜子": {
+    "hsk": 4,
+    "topics": [
+      "Clothing & colours"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "裤子": {
+    "hsk": 2,
+    "topics": [
+      "Clothing & colours"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "裙子": {
+    "hsk": 3,
+    "topics": [
+      "Clothing & colours"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "衬衫": {
+    "hsk": 3,
+    "topics": [
+      "Clothing & colours"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "穿衣服": {
+    "hsk": null,
+    "topics": [
+      "Clothing & colours"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "脱鞋": {
+    "hsk": null,
+    "topics": [
+      "Clothing & colours"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "红色": {
+    "hsk": 2,
+    "topics": [
+      "Clothing & colours"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "黄色": {
+    "hsk": 3,
+    "topics": [
+      "Clothing & colours"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "蓝天": {
+    "hsk": null,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "绿叶": {
+    "hsk": null,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "白色": {
+    "hsk": 2,
+    "topics": [
+      "Clothing & colours"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "黑色": {
+    "hsk": 2,
+    "topics": [
+      "Clothing & colours"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "颜色": {
+    "hsk": 2,
+    "topics": [
+      "Clothing & colours"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "紫色": {
+    "hsk": null,
+    "topics": [
+      "Clothing & colours"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "灰色": {
+    "hsk": 5,
+    "topics": [
+      "Clothing & colours"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "金色": {
+    "hsk": null,
+    "topics": [
+      "Clothing & colours"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "小猫": {
+    "hsk": null,
+    "topics": [
+      "Animals"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "牛奶": {
+    "hsk": 1,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "山羊": {
+    "hsk": null,
+    "topics": [
+      "Animals"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "小猪": {
+    "hsk": null,
+    "topics": [
+      "Animals"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "鸭子": {
+    "hsk": 5,
+    "topics": [
+      "Animals"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "兔子": {
+    "hsk": 5,
+    "topics": [
+      "Animals"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "昆虫": {
+    "hsk": 5,
+    "topics": [
+      "Animals"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "龙年": {
+    "hsk": null,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "小船": {
+    "hsk": null,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "地铁": {
+    "hsk": 2,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "车票": {
+    "hsk": null,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "旅行": {
+    "hsk": 4,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "旅游": {
+    "hsk": 2,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "住在": {
+    "hsk": null,
+    "topics": [
+      "Home & daily life"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "宿舍": {
+    "hsk": 5,
+    "topics": [
+      "Home & daily life"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "饭馆": {
+    "hsk": 2,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "价格": {
+    "hsk": 4,
+    "topics": [
+      "Shopping & work"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "很贵": {
+    "hsk": null,
+    "topics": [
+      "Shopping & work",
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "一元": {
+    "hsk": null,
+    "topics": [
+      "Numbers",
+      "Shopping & work"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "一块钱": {
+    "hsk": null,
+    "topics": [
+      "Numbers",
+      "Shopping & work"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "一斤": {
+    "hsk": null,
+    "topics": [
+      "Numbers",
+      "Shopping & work"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "两个": {
+    "hsk": null,
+    "topics": [
+      "Numbers"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "一百": {
+    "hsk": null,
+    "topics": [
+      "Numbers"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "一千": {
+    "hsk": null,
+    "topics": [
+      "Numbers"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "一万": {
+    "hsk": null,
+    "topics": [
+      "Numbers"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "喝汤": {
+    "hsk": null,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "食盐": {
+    "hsk": null,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "豆油": {
+    "hsk": null,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "甜点": {
+    "hsk": null,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "酸奶": {
+    "hsk": 4,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "苦瓜": {
+    "hsk": null,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "辣椒": {
+    "hsk": 6,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "吃饱": {
+    "hsk": null,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "很饿": {
+    "hsk": null,
+    "topics": [
+      "Food & drink"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "街道": {
+    "hsk": 4,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "大桥": {
+    "hsk": null,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "楼房": {
+    "hsk": null,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "楼层": {
+    "hsk": null,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "乡村": {
+    "hsk": 5,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "广场": {
+    "hsk": 5,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "港口": {
+    "hsk": 6,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "海岛": {
+    "hsk": null,
+    "topics": [
+      "Nature",
+      "Travel & places"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "打球": {
+    "hsk": null,
+    "topics": [
+      "Activities"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "拿来": {
+    "hsk": null,
+    "topics": [
+      "Activities"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "回家": {
+    "hsk": null,
+    "topics": [
+      "Home & daily life"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "到家": {
+    "hsk": null,
+    "topics": [
+      "Home & daily life"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "睡觉": {
+    "hsk": 1,
+    "topics": [
+      "Home & daily life"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "玩具": {
+    "hsk": 5,
+    "topics": [
+      "Activities"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "微笑": {
+    "hsk": 5,
+    "topics": [
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Noun",
+      "Verb"
+    ]
+  },
+  "唱歌": {
+    "hsk": null,
+    "topics": [
+      "Activities"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "跳舞": {
+    "hsk": 2,
+    "topics": [
+      "Activities"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "舞蹈": {
+    "hsk": 5,
+    "topics": [
+      "Activities"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "画画": {
+    "hsk": null,
+    "topics": [
+      "Activities"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "比赛": {
+    "hsk": 3,
+    "topics": [
+      "Activities"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "运动": {
+    "hsk": 2,
+    "topics": [
+      "Activities"
+    ],
+    "types": [
+      "Noun",
+      "Verb"
+    ]
+  },
+  "练习": {
+    "hsk": 3,
+    "topics": [
+      "Study & language",
+      "Activities"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "动物": {
+    "hsk": 3,
+    "topics": [
+      "Animals"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "停车": {
+    "hsk": 4,
+    "topics": [
+      "Travel & places"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "快乐": {
+    "hsk": 2,
+    "topics": [
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Adjective"
+    ]
+  },
+  "慢慢": {
+    "hsk": null,
+    "topics": [
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Adverb"
+    ]
+  },
+  "很忙": {
+    "hsk": null,
+    "topics": [
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "很累": {
+    "hsk": null,
+    "topics": [
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "困难": {
+    "hsk": 4,
+    "topics": [
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Adjective"
+    ]
+  },
+  "容易": {
+    "hsk": 3,
+    "topics": [
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Adjective"
+    ]
+  },
+  "干净": {
+    "hsk": 3,
+    "topics": [
+      "Home & daily life",
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Adjective"
+    ]
+  },
+  "年轻": {
+    "hsk": 3,
+    "topics": [
+      "People & family",
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Adjective"
+    ]
+  },
+  "重要": {
+    "hsk": 3,
+    "topics": [
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Adjective"
+    ]
+  },
+  "喜欢": {
+    "hsk": 1,
+    "topics": [
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "愤怒": {
+    "hsk": 6,
+    "topics": [
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Adjective",
+      "Verb"
+    ]
+  },
+  "害怕": {
+    "hsk": 3,
+    "topics": [
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "着急": {
+    "hsk": 3,
+    "topics": [
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Adjective"
+    ]
+  },
+  "安全": {
+    "hsk": 3,
+    "topics": [
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Adjective",
+      "Noun"
+    ]
+  },
+  "安静": {
+    "hsk": 3,
+    "topics": [
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Adjective"
+    ]
+  },
+  "美丽": {
+    "hsk": 4,
+    "topics": [
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Adjective"
+    ]
+  },
+  "头痛": {
+    "hsk": 4,
+    "topics": [
+      "Body & health"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "春天": {
+    "hsk": 3,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Time word"
+    ]
+  },
+  "夏天": {
+    "hsk": 3,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Time word"
+    ]
+  },
+  "秋天": {
+    "hsk": 3,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Time word"
+    ]
+  },
+  "冬天": {
+    "hsk": 3,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Time word"
+    ]
+  },
+  "季节": {
+    "hsk": 3,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "周末": {
+    "hsk": 3,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Time word"
+    ]
+  },
+  "星期": {
+    "hsk": 1,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "日期": {
+    "hsk": 4,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "秒钟": {
+    "hsk": null,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "一刻": {
+    "hsk": null,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "教书": {
+    "hsk": null,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "考试": {
+    "hsk": 2,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "试试": {
+    "hsk": null,
+    "topics": [
+      "Activities"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "数学": {
+    "hsk": 3,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "计算": {
+    "hsk": 5,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "上班": {
+    "hsk": 1,
+    "topics": [
+      "Shopping & work"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "书页": {
+    "hsk": null,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "段落": {
+    "hsk": 7,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "句子": {
+    "hsk": 3,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "词语": {
+    "hsk": 4,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "职业": {
+    "hsk": 4,
+    "topics": [
+      "Shopping & work"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "员工": {
+    "hsk": 5,
+    "topics": [
+      "Shopping & work"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "公司": {
+    "hsk": 1,
+    "topics": [
+      "Shopping & work"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "办公室": {
+    "hsk": 3,
+    "topics": [
+      "Shopping & work"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "事情": {
+    "hsk": 2,
+    "topics": [
+      "Shopping & work"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "服务": {
+    "hsk": 3,
+    "topics": [
+      "Shopping & work"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "工厂": {
+    "hsk": 4,
+    "topics": [
+      "Shopping & work"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "产品": {
+    "hsk": 5,
+    "topics": [
+      "Shopping & work"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "电脑": {
+    "hsk": 1,
+    "topics": [
+      "Technology"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "屏幕": {
+    "hsk": 5,
+    "topics": [
+      "Technology"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "键盘": {
+    "hsk": 5,
+    "topics": [
+      "Technology"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "鼠标": {
+    "hsk": 5,
+    "topics": [
+      "Technology"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "照片": {
+    "hsk": 3,
+    "topics": [
+      "Technology"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "照相": {
+    "hsk": 3,
+    "topics": [
+      "Activities",
+      "Technology"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "声音": {
+    "hsk": 3,
+    "topics": [
+      "Technology"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "图像": {
+    "hsk": 6,
+    "topics": [
+      "Technology"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "电视": {
+    "hsk": 1,
+    "topics": [
+      "Technology"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "视频": {
+    "hsk": 4,
+    "topics": [
+      "Technology"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "树林": {
+    "hsk": 4,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "森林": {
+    "hsk": 4,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "湖水": {
+    "hsk": null,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "江水": {
+    "hsk": null,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "海洋": {
+    "hsk": 4,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "石头": {
+    "hsk": 5,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "沙子": {
+    "hsk": 5,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "冰块": {
+    "hsk": null,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "阳光": {
+    "hsk": 4,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Noun",
+      "Proper noun"
+    ]
+  },
+  "天气": {
+    "hsk": 1,
+    "topics": [
+      "Nature"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "记得": {
+    "hsk": 2,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "忘记": {
+    "hsk": 3,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "听懂": {
+    "hsk": null,
+    "topics": [
+      "Study & language"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "觉得": {
+    "hsk": 1,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "做梦": {
+    "hsk": 4,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "希望": {
+    "hsk": 2,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Noun",
+      "Verb"
+    ]
+  },
+  "愿意": {
+    "hsk": 3,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "决定": {
+    "hsk": 3,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Noun",
+      "Verb"
+    ]
+  },
+  "一定": {
+    "hsk": 3,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Adjective",
+      "Adverb"
+    ]
+  },
+  "方法": {
+    "hsk": 3,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "规则": {
+    "hsk": 5,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Adjective",
+      "Noun"
+    ]
+  },
+  "原则": {
+    "hsk": 5,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "权利": {
+    "hsk": 5,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "利益": {
+    "hsk": 5,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Noun"
+    ]
+  },
+  "自己": {
+    "hsk": 2,
+    "topics": [
+      "People & family"
+    ],
+    "types": [
+      "Pronoun",
+      "Verb"
+    ]
+  },
+  "自由": {
+    "hsk": 5,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Adjective"
+    ]
+  },
+  "和平": {
+    "hsk": 6,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Adjective",
+      "Noun"
+    ]
+  },
+  "全部": {
+    "hsk": 4,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Number"
+    ]
+  },
+  "总是": {
+    "hsk": 3,
+    "topics": [
+      "Time"
+    ],
+    "types": [
+      "Adverb",
+      "Verb"
+    ]
+  },
+  "因为": {
+    "hsk": 2,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Conjunction",
+      "Preposition"
+    ]
+  },
+  "所以": {
+    "hsk": 2,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Conjunction"
+    ]
+  },
+  "可以": {
+    "hsk": 1,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "但是": {
+    "hsk": 2,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Conjunction"
+    ]
+  },
+  "还有": {
+    "hsk": null,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "再见": {
+    "hsk": 1,
+    "topics": [
+      "Conversation"
+    ],
+    "types": [
+      "Verb"
+    ]
+  },
+  "最好": {
+    "hsk": 3,
+    "topics": [
+      "Feelings & descriptions"
+    ],
+    "types": [
+      "Adverb"
+    ]
+  },
+  "比较": {
+    "hsk": 3,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Adverb",
+      "Verb"
+    ]
+  },
+  "把门打开": {
+    "hsk": null,
+    "topics": [
+      "Home & daily life"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  },
+  "被看见": {
+    "hsk": null,
+    "topics": [
+      "Thoughts & society"
+    ],
+    "types": [
+      "Unclassified"
+    ]
+  }
+}

@@ -6,6 +6,7 @@ import { EXAMPLES, SCENES } from './examples'
 import { audioPath } from './audio'
 import { useAudioSettings, SOURCE_NAMES } from './audio-settings'
 import { playPronunciation, stopPlayback } from './playback'
+import { wordTags } from './words'
 
 export { audioPath } from './audio'
 export function ToneMarker({pinyin}: {pinyin: string}) {
@@ -68,14 +69,19 @@ export function CharacterDetails({character, active = true, concealCharacter = f
           <button type="button" aria-label={`Pronounce word ${example.pinyin}`} title="Play word pronunciation" onClick={() => void play('word')} className={`block min-h-11 rounded-sm text-left text-2xl hover:text-accent-deep ${playing === 'word' ? 'bg-accent-soft' : ''}`}>{example.pinyin}</button>
         {error && <p role="alert" className="text-sm text-danger">{error}</p>}
         <p className="text-xl">{example.meaning}</p>
+        <div aria-label="Word tags" className="flex flex-wrap gap-1">{wordTags(example).map(tag=><span key={tag.id} className="rounded border border-line px-2 py-1 text-xs text-muted">{tag.label}</span>)}</div>
         {example.word.includes('一') || example.word.includes('不') || (character.hanzi === '子') || /[ǎěǐǒǔǚ].* [^ ]*[ǎěǐǒǔǚ]/.test(example.pinyin) ? <p className="text-xs text-muted">The tone can change in a word or phrase.</p> : null}
       </div>}
     </Modal>
     <Modal open={guideOpen} onClose={() => setGuideOpen(false)} title="Mandarin tones">
-      <div className="space-y-4">
+      <ToneGuide />
+    </Modal>
+  </div>
+}
+
+export function ToneGuide() {
+  return <div className="space-y-4">
         {GUIDE.map(([pinyin,title,description]) => <div key={pinyin} className="flex items-start gap-4"><ToneMarker pinyin={pinyin} /><div><h3 className="font-bold">{title} · {pinyin}</h3><p className="text-sm text-muted">{description}</p></div></div>)}
         <p className="border-t border-line pt-3 text-sm text-muted">The neutral tone (·) is short and light. The pronunciation of a tone can change next to other tones.</p>
       </div>
-    </Modal>
-  </div>
 }

@@ -1,0 +1,15 @@
+{
+  "repository": "https://github.com/drkameleon/complete-hsk-vocabulary",
+  "revision": "7ac65bf1a6387d35f1ade478906172a19311c7f9",
+  "file": "complete.json",
+  "sha256": "c869a0ce353279c9333d9b42c31fc3549785e8b40673dab57ee42bc99cd14131",
+  "levelField": "newest-*",
+  "edition": "HSK 3.0, 2026 syllabus",
+  "syllabus": "https://www.chinesetest.cn/syllabus",
+  "license": "MIT; web/public/licenses/HSK-VOCABULARY-MIT.txt",
+  "unmatched": "Unlisted in the imported source; not an inferred proficiency level",
+  "officialSupplement": "scripts/hsk-official-supplement.json",
+  "topicSource": "Curated in scripts/word-topics.json",
+  "words": 372,
+  "matched": 256
+}

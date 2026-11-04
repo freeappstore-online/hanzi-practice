@@ -1,0 +1,17 @@
+{
+  "source": "https://hsk.cn-bj.ufileos.com/3.0/%E6%96%B0%E7%89%88HSK%E8%80%83%E8%AF%95%E5%A4%A7%E7%BA%B21219.pdf",
+  "sha256": "d8b6646599bc9a0c9616a4cb06d4b37461f8792f70a3171016d00fcd8eda09ad",
+  "edition": "Published November 2025; effective July 2026",
+  "entries": {
+    "你好": {
+      "hsk": 1,
+      "row": 147,
+      "text": "147     1      你好         nǐ hǎo"
+    },
+    "头痛": {
+      "hsk": 4,
+      "row": 1751,
+      "text": "1751      4      头痛          tóutòng        形"
+    }
+  }
+}

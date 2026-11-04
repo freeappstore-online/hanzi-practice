@@ -3,6 +3,7 @@ import { initApp } from '@freeappstore/sdk'
 import { Badge, Card, EmptyState, PageHeader, SearchInput, Shell, type NavItem } from '@freeappstore/sdk/ui'
 import { Button } from './Button'
 import { Profile } from './Profile'
+import { Words } from './WordsScreen'
 import { PracticeBackup } from './PracticeBackup'
 import { CHARACTERS, LEVELS, charactersForLevel, findCharacter, type Character } from './characters'
 import { CharacterDetails } from './Pronunciation'
@@ -18,6 +19,7 @@ const NAV: NavItem[] = [
   {label:'Practice', href:'/', title:'Practice — Hanzi'},
   {label:'Review', href:'/review', title:'Review — Hanzi'},
   {label:'Characters', href:'/characters', title:'Characters — Hanzi'},
+  {label:'Words', href:'/words', title:'Words — Hanzi'},
   {label:'Progress', href:'/progress', title:'Progress — Hanzi'},
   {label:'About', href:'/about', title:'About — Hanzi'},
 ]
@@ -102,7 +104,7 @@ function Screens({path, navigate}: {path: string; navigate: (href: string) => vo
     catch { setStorageWarning('Device storage is unavailable or full. Progress is kept only until this page closes.') }
   }, [])
   const choose = (c: Character) => { setReviewSession(null); setCharacter(c); setPracticeRequest(n => n + 1); navigate('/') }
-  const practiceActive = !['/characters','/progress','/about','/review','/profile'].includes(path)
+  const practiceActive = !['/characters','/words','/progress','/about','/review','/profile'].includes(path)
   const advance = useCallback((c: Character) => {
     setCharacter(c)
     setReviewSession(s => s ? {...s, index: s.index + 1} : null)
@@ -123,6 +125,7 @@ function Screens({path, navigate}: {path: string; navigate: (href: string) => vo
     {path === '/progress' && <ProgressScreen progress={progress} choose={choose} />}
     {path === '/about' && <About />}
     {path === '/profile' && <Profile app={fas} />}
+    {path === '/words' && <Words autoplay={preferences.autoplay} setAutoplay={setAutoplay} onComplete={complete} onReviewEvent={reviewEvent} />}
   </div>
 }
 function Library({progress, choose, initialLevel}: {progress: Progress; choose: (c: Character) => void; initialLevel: number}) {
