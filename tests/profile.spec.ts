@@ -29,7 +29,7 @@ test('avatar opens a compact profile; source order persists and changes offline 
   test.setTimeout(90000)
   await page.setViewportSize({width:320,height:720})
   await openLibrary(page)
-  await page.getByRole('button',{name:'Profile',exact:true}).click()
+  await page.getByRole('link',{name:'Profile',exact:true}).click()
   await expect(page).toHaveURL(/\/profile$/)
   await expect(page.getByRole('heading',{name:'Profile',exact:true})).toBeVisible()
   await expect(page.getByRole('button',{name:'Sign in',exact:true})).toBeVisible()
@@ -66,7 +66,7 @@ test('browser is the last fallback, speaks Hanzi in Mandarin, and cancels on nav
   await openLibrary(page)
   await page.getByRole('button',{name:'Pronounce yī',exact:true}).click()
   await expect.poll(()=>page.evaluate(()=>(window as any).speechCalls)).toEqual([{text:'一',lang:'zh-CN',voice:'Mandarin'}])
-  await page.getByRole('button',{name:'Profile',exact:true}).click()
+  await page.getByRole('link',{name:'Profile',exact:true}).click()
   await expect.poll(()=>page.evaluate(()=>(window as any).speechCancels)).toBeGreaterThan(0)
 })
 test('browser can be moved first; synthesis failure falls back to recordings',async({page})=>{
